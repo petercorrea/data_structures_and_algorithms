@@ -1,3 +1,7 @@
+// T(C) = nlogn
+
+// Pros: good for data structures like LL, stable
+
 function mergeSort(arr) {
 	if (arr.length == 1) {
 		return arr;
@@ -21,13 +25,11 @@ function sortUp(left, right) {
 		}
 	}
 
-	console.log("array", array);
-	console.log("left", left.slice());
-	console.log("right", right.slice());
-
+	// We need to concat here because there will be one element remaining
+	// from either left OR the right
 	return array.concat(left.slice()).concat(right.slice());
 }
 
 let nums = [9, 4, 1, 12, 6, 45, 3, 0, -1];
-
-mergeSort(nums);
+nums = mergeSort(nums);
+console.log(nums);
