@@ -4,6 +4,30 @@ class Node {
 		this.left = null;
 		this.right = null;
 	}
+
+	leftHeight() {
+		if (!this.left) {
+			return 0;
+		}
+
+		return this.left.height() + 1;
+	}
+
+	rightHeight() {
+		if (!this.right) {
+			return 0;
+		}
+
+		return this.right.height() + 1;
+	}
+
+	height() {
+		return Math.max(this.leftHeight(), this.rightHeight());
+	}
+
+	balanceFactor() {
+		return this.leftHeight() - this.rightHeight();
+	}
 }
 
 class BST {
@@ -62,9 +86,7 @@ class BST {
 		return current.value;
 	}
 
-	minHeight() {
-		let current = this.root;
-
+	minHeight(current = this.root) {
 		if (current == null) {
 			return -1;
 		}
@@ -80,16 +102,14 @@ class BST {
 		}
 	}
 
-	maxHeight() {
-		let current = this.root;
-
+	maxHeight(current = this.root) {
 		if (current == null) {
 			return -1;
 		}
 
 		// dfs
 		let left = this.maxHeight(current.left);
-		let right = this.minHeight(current.right);
+		let right = this.maxHeight(current.right);
 
 		if (left > right) {
 			return left + 1;
@@ -281,4 +301,4 @@ someBST.insert(20);
 someBST.insert(1);
 someBST.insert(21);
 
-someBST.minHeightBfs();
+console.log(someBST.root.leftHeight());

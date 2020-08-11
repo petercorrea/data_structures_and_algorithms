@@ -10,7 +10,7 @@ function selectionSort(arr) {
 		}
 
 		// If a new min has been found
-		if (min != i) {
+		if (min !== i) {
 			let tmp = arr[i];
 			arr[i] = arr[min];
 			arr[min] = tmp;

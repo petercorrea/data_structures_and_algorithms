@@ -7,24 +7,12 @@
 
 // Output: 1->1->2->3->4->4->5->6
 
-// Definition for singly-linked list.
-function ListNode(val, next) {
-	this.val = val === undefined ? 0 : val;
-	this.next = next === undefined ? null : next;
-}
+const { Node } = require("./Implementation.js");
 
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-
-let list1 = new ListNode();
-let list2 = new ListNode(
-	0,
-	new ListNode(-1, new ListNode(1, new ListNode(10)))
-);
-let list3 = new ListNode(4, new ListNode(7));
-let list4 = [];
+let list1 = [];
+let list2 = [new Node(5, null, new Node(1, null, new Node(-1)))];
+let list3 = [new Node(0, null, new Node(6, null, new Node(-2)))];
+let list4 = [new Node(-3, null, new Node(9, null, new Node(3)))];
 
 let params = [list1, list2, list3, list4];
 
@@ -43,10 +31,10 @@ var mergeKLists = function (lists) {
 
 		// If list is neither empty or null
 		if (singleList !== null && singleList.length !== 0) {
-			result.push(singleList.val);
-			let ref = singleList.next;
+			result.push(singleList[0].value);
+			let ref = singleList[0].next;
 			while (ref !== null) {
-				result.push(ref.val);
+				result.push(ref.value);
 				ref = ref.next;
 			}
 		}
@@ -73,18 +61,18 @@ var mergeKLists = function (lists) {
 	result.sort(compareNumbers);
 
 	// Initialize a node and make a reference to it
-	let finalNode = new ListNode();
+	let finalNode = new Node();
 	let currentNode = finalNode;
 
 	// Iterate the values in result
 	for (idx in result) {
 		// Add current idx as the value of the primary node
-		currentNode.val = result[idx];
+		currentNode.value = result[idx];
 
 		// if the next idx within range is not undefined
 		if (result[parseInt(idx) + 1] !== undefined) {
 			// add empty node to node.next
-			currentNode.next = new ListNode();
+			currentNode.next = new Node();
 		}
 
 		// traverse one node
@@ -93,4 +81,4 @@ var mergeKLists = function (lists) {
 	return finalNode;
 };
 
-mergeKLists(params);
+console.log(mergeKLists(params));
