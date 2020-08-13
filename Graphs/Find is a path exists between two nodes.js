@@ -13,17 +13,21 @@ const routes = [
 	["LIM", "BKK"],
 ];
 
+// The graph
 const adjacencyList = new Map();
 
+// Add node
 function addNode(airport) {
 	adjacencyList.set(airport, []);
 }
 
+// Add edge, undirected
 function addEdge(origin, destination) {
 	adjacencyList.get(origin).push(destination);
 	adjacencyList.get(destination).push(origin);
 }
 
+// Create graph
 airports.forEach(addNode);
 routes.forEach((route) => addEdge(...route));
 

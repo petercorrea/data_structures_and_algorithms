@@ -1,3 +1,5 @@
+// Try to use Dijkstra's algorithm or Bellmann-Ford's algorithm
+
 const edgesExample = [
 	// origin, dest, dist
 	[1, 4, 3],
