@@ -140,7 +140,7 @@ class BST {
 		return false;
 	}
 
-	remove(val) {
+	remove(value) {
 		const removeNode = (current, value) => {
 			if (current == null) {
 				return null;
@@ -179,7 +179,7 @@ class BST {
 				return current;
 			}
 		};
-		this.root = removeNode(this.root, val);
+		this.root = removeNode(this.root, value);
 	}
 
 	// Depth First Search - In Order
@@ -237,22 +237,23 @@ class BST {
 	}
 
 	// Breadth First Search - uses queue
-	bfs() {
+	levelOrder() {
 		let result = [];
 		let queue = [];
 
-		queue.push(this.root);
+		if (this.root) {
+			queue.push(this.root);
+			while (queue.length) {
+				let current = queue.shift();
+				result.push(current.value);
 
-		while (queue.length) {
-			let current = queue.shift();
-			result.push(current.value);
+				if (current.left) {
+					queue.push(current.left);
+				}
 
-			if (current.left) {
-				queue.push(current.left);
-			}
-
-			if (current.right) {
-				queue.push(current.right);
+				if (current.right) {
+					queue.push(current.right);
+				}
 			}
 		}
 

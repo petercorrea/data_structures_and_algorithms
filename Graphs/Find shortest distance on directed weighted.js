@@ -22,7 +22,7 @@ function dp(start, edges) {
 	// Set all distances to Infinity
 	edges.forEach((d) => {
 		if (!memo[d[0]]) {
-			memo[d[0]] = [Number.MAX_VALUE];
+			memo[d[0]] = [Number.MAX_SAFE_INTEGER];
 			targetVertexCount++;
 		}
 	});
@@ -36,12 +36,10 @@ function dp(start, edges) {
 			if (memo[from][0] + distance < memo[to][0]) {
 				memo[to] = [memo[from][0] + distance, from];
 			}
-
-			console.log(memo);
 		});
 	}
 
 	return memo;
 }
 
-console.log(dp(1, edgesExample));
+console.log(dp(7, edgesExample));
