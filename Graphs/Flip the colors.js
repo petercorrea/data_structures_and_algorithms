@@ -29,7 +29,7 @@ function flipColor(image, x, y) {
 		for (const direction of directions) {
 			neighbor = [current[0] + direction[0], current[1] + direction[1]];
 
-			// if within bounds and color matches
+			// if within bounds and color hasnt been flipped
 			if (isFeasible(image, neighbor, color)) {
 				// flip the color
 				image[neighbor[0]][neighbor[1]] = Number(!color);
