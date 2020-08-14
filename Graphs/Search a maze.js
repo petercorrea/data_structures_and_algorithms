@@ -1,4 +1,5 @@
 // Search a Maze
+// 0's are open, 1's are walls/visited
 let someMaze = [
 	[0, 0, 1, 0, 0],
 	[0, 0, 0, 0, 0],
