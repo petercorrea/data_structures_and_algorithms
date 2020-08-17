@@ -1,3 +1,6 @@
+// Capture regions that are fully enclosed
+// Regions connected to boundaries can not be captured.
+
 let board = [
 	[1, 0, 0, 0],
 	[0, 0, 1, 0],

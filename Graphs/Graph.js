@@ -1,6 +1,6 @@
 class Graph {
-	constructor() {
-		this.adjacencyList = {};
+	constructor(graph) {
+		this.adjacencyList = graph || {};
 	}
 
 	addVertex(vertex) {
@@ -66,14 +66,13 @@ class Graph {
 	dfsRecursive(start) {
 		let result = [];
 		let visited = {};
-		let adjacencyList = this.adjacencyList;
 
 		function dfs(vertex) {
 			if (!vertex) return null;
 			visited[vertex] = true;
 			result.push(vertex);
 
-			adjacencyList[vertex].forEach((neighbor) => {
+			this.adjacencyList[vertex].forEach((neighbor) => {
 				if (!visited[neighbor]) {
 					return dfs(neighbor);
 				}
