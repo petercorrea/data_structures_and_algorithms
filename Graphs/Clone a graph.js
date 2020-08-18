@@ -1,9 +1,4 @@
-class GraphVertex {
-	constructor(value) {
-		this.value = value;
-		this.edges = [];
-	}
-}
+const GraphVertex = require("./Graph");
 
 function cloneGraph(vertex) {
 	if (vertex == null) {
