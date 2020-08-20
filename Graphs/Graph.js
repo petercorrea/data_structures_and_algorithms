@@ -1,3 +1,5 @@
+const { GraphMinHeap } = require("../Heaps/GraphMinHeap");
+
 class GraphVertex {
 	constructor(value) {
 		this.value = value;
@@ -128,8 +130,120 @@ class Graph {
 		return result;
 	}
 
-	dijkstra() {
+	dijkstra(source) {
 		//  Single Source Shortest Path - works on directed and undirected graphs
+		let distances = {};
+		let path = {};
+		let heap = new GraphMinHeap();
+		let map = new Map();
+
+		// Initialize distance object
+		for (let vertex in this.adjacencyList) {
+			distances[vertex] = Number.MAX_SAFE_INTEGER;
+
+			let neighbor = this.adjacencyList[vertex];
+			for (let i = 0; i < neighbor.length; i++) {
+				distances[neighbor[i].value] = Number.MAX_SAFE_INTEGER;
+			}
+		}
+
+		distances[source] = 0;
+
+		// initialize heap obj
+		for (let vertex in distances) {
+			if (vertex == source) {
+				let edge = new GraphEdge(source, 0);
+				map.set(vertex, edge);
+				heap.insert(edge);
+			} else {
+				let edge = new GraphEdge(vertex, Number.MAX_SAFE_INTEGER);
+				map.set(vertex, edge);
+				heap.insert(edge);
+			}
+		}
+
+		// Set path
+		path[source] = [source, null];
+
+		// while heap is not empty
+		while (heap.peek()) {
+			// extract minimum distance
+			let current = heap.remove();
+			map.delete(current.value);
+			console.log("current", current);
+
+			if (this.adjacencyList[current.value]) {
+				this.adjacencyList[current.value].forEach((neighbor) => {
+					// if the heap has the neighbor
+					if (map.has(neighbor.value)) {
+						let distanceToCurrent = distances[current.value];
+						let costToNeighbor = neighbor.weight;
+						let distanceToNeighbor = distances[neighbor.value];
+
+						console.log(
+							"current",
+							current.value,
+							"neighbor",
+							neighbor.value
+						);
+						console.log("distance to current: ", distanceToCurrent);
+						console.log("cost to neighbor: ", costToNeighbor);
+						console.log(
+							"distance to neighbor: ",
+							distanceToNeighbor
+						);
+
+						if (
+							distanceToCurrent + costToNeighbor <
+							distanceToNeighbor
+						) {
+							console.log("relaxred");
+							distances[neighbor.value] =
+								distanceToCurrent + costToNeighbor;
+
+							// update node in heap
+							// adjust heap, bubble up
+							map.get(neighbor.value).weight =
+								distanceToCurrent + costToNeighbor;
+
+							let idx = heap.heap.indexOf(
+								map.get(neighbor.value)
+							);
+							console.log("idx", idx);
+
+							if (idx > 1) {
+								while (
+									heap.heap[idx].weight <
+									heap.heap[Math.floor(idx / 2)].weight
+								) {
+									if (idx >= 1) {
+										// Object destructuring to swap values
+										[
+											heap.heap[Math.floor(idx / 2)],
+											heap.heap[idx],
+										] = [
+											heap.heap[idx],
+											heap.heap[Math.floor(idx / 2)],
+										];
+										// if the parent is not the root node, keep traversing
+										if (Math.floor(idx / 2) > 1) {
+											// move up to the parent idx
+											idx = Math.floor(idx / 2);
+										} else {
+											break;
+										}
+									}
+								}
+							}
+							// console.log("map", map.get(neighbor.value));
+							path[neighbor] = current.value;
+						}
+					}
+				});
+			}
+		}
+
+		return distances;
 	}
 }
 
