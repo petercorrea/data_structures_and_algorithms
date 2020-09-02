@@ -148,17 +148,19 @@ class Graph {
 		}
 
 		distances[source] = 0;
-
+		let idxCount = 0;
 		// initialize heap obj
 		for (let vertex in distances) {
 			if (vertex == source) {
+				idxCount += 1;
 				let edge = new GraphEdge(source, 0);
-				map.set(vertex, edge);
-				heap.insert(edge);
+				map.set(vertex, { edgeObj: edge, index: idxCount });
+				heap.insert(edge, map);
 			} else {
+				idxCount += 1;
 				let edge = new GraphEdge(vertex, Number.MAX_SAFE_INTEGER);
-				map.set(vertex, edge);
-				heap.insert(edge);
+				map.set(vertex, { edgeObj: edge, index: idxCount });
+				heap.insert(edge, map);
 			}
 		}
 
@@ -168,12 +170,17 @@ class Graph {
 		// while heap is not empty
 		while (heap.peek()) {
 			// extract minimum distance
-			let current = heap.remove();
+			let current = heap.remove(map);
 			map.delete(current.value);
-			console.log("current", current);
+			// console.log("current", current);
 
 			if (this.adjacencyList[current.value]) {
 				this.adjacencyList[current.value].forEach((neighbor) => {
+					console.log("current", current.value);
+					console.log("neighbor", neighbor.value);
+
+					console.log(map.has(neighbor.value));
+
 					// if the heap has the neighbor
 					if (map.has(neighbor.value)) {
 						let distanceToCurrent = distances[current.value];
@@ -197,26 +204,68 @@ class Graph {
 							distanceToCurrent + costToNeighbor <
 							distanceToNeighbor
 						) {
-							console.log("relaxred");
+							console.log(
+								"relaxed",
+								distanceToCurrent + costToNeighbor
+							);
 							distances[neighbor.value] =
 								distanceToCurrent + costToNeighbor;
 
 							// update node in heap
 							// adjust heap, bubble up
-							map.get(neighbor.value).weight =
+
+							map.get(neighbor.value).edgeObj.weight =
 								distanceToCurrent + costToNeighbor;
 
-							let idx = heap.heap.indexOf(
-								map.get(neighbor.value)
-							);
-							console.log("idx", idx);
+							// let idx = heap.heap.indexOf(
+							// 	map.get(neighbor.value)
+							// );
+
+							let idx = map.get(neighbor.value).index;
+							console.log("nei idx", idx);
+							console.log("nei idx", map.get(neighbor.value));
+							console.log("node 1", map.get("1"));
+							console.log("node 2", map.get("2"));
+							console.log("node 3", map.get("3"));
+							console.log("node 4", map.get("4"));
+							console.log("node 5", map.get("5"));
+							console.log("node 6", map.get("6"));
+							console.log("node 7", map.get("7"));
+							console.log("node 8", map.get("8"));
+							console.log("node 9", map.get("9"));
+
+							console.log(heap.heap);
+
+							// console.log("idx", idx);
 
 							if (idx > 1) {
 								while (
 									heap.heap[idx].weight <
 									heap.heap[Math.floor(idx / 2)].weight
 								) {
+									console.log("adjusting heap");
 									if (idx >= 1) {
+										console.log("fixing ids in map");
+										// FIX IDXS IN MAP
+										console.log(
+											map.get(
+												heap.heap[Math.floor(idx / 2)]
+													.value
+											)
+										);
+
+										console.log(
+											map.get(heap.heap[idx].value)
+										);
+
+										map.get(
+											heap.heap[Math.floor(idx / 2)].value
+										).index = idx;
+
+										map.get(
+											heap.heap[idx].value
+										).index = Math.floor(idx / 2);
+
 										// Object destructuring to swap values
 										[
 											heap.heap[Math.floor(idx / 2)],
@@ -225,6 +274,19 @@ class Graph {
 											heap.heap[idx],
 											heap.heap[Math.floor(idx / 2)],
 										];
+
+										console.log("checking ids...");
+										console.log(
+											map.get(
+												heap.heap[Math.floor(idx / 2)]
+													.value
+											)
+										);
+
+										console.log(
+											map.get(heap.heap[idx].value)
+										);
+
 										// if the parent is not the root node, keep traversing
 										if (Math.floor(idx / 2) > 1) {
 											// move up to the parent idx
@@ -235,6 +297,7 @@ class Graph {
 									}
 								}
 							}
+							console.log(heap.heap);
 							// console.log("map", map.get(neighbor.value));
 							path[neighbor] = current.value;
 						}

@@ -1,7 +1,6 @@
-// This repl has note files.
-
-// Given a root node and an adj matrix of a directed graph find the distance to each other node
-// in this graph, 4 is unreachable by node
+// Given a root node and an adj matrix of a directed graph find the distance to each other node.
+// Each node as a weight of 1.
+// in this graph, 4 is unreachable.
 let adj = [
 	[0, 1, 1, 1, 0],
 	[0, 0, 1, 0, 0],
@@ -26,7 +25,7 @@ function bfs(graph, root) {
 	// Set all nodes in distances obj to Infinity
 	// We iterate the graph idxs
 	for (let i = 0; i < graph.length; i++) {
-		distances[i] = Infinity;
+		distances[i] = Math.Infinity;
 	}
 
 	// set distance to the passed in root from itself to 0
@@ -37,7 +36,7 @@ function bfs(graph, root) {
 	let current;
 
 	// Traverse as long as there are items in the queue
-	while (queue.length != 0) {
+	while (queue.length !== 0) {
 		// remove first node in queue to traverse
 		current = queue.shift();
 		console.log("current", current);
