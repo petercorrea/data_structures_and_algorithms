@@ -1,0 +1,74 @@
+let countMinJumps = function (jumps) {
+	function solveRecursive(jumps, currentIndex) {
+		if (current === jumps.length - 1) return 0;
+		if (jumps[currentIndex === 0]) return Number.MAX_VALUE;
+
+		let totalJumps = Number.MAX_VALUE;
+
+		let start = currentIndex + 1;
+		let end = currentIndex + jumps[currentIndex];
+
+		while (start < jumps.length && start <= end) {
+			let minJumps = solveRecursive(jumps, start++);
+			if (minJumps !== Number.MAX_VALUE) {
+				totalJumps = Math.min(totalJumps, minJumps + 1);
+			}
+		}
+
+		return totalJumps;
+	}
+
+	return solveRecursive(jumps, 0);
+};
+
+const countMinJumps = function (jumps) {
+	const dp = [];
+
+	function countMinJumpsRecursive(jumps, currentIndex) {
+		// if we have reached the last index, we don't need any more jumps
+		if (currentIndex === jumps.length - 1) return 0;
+
+		// If an element is 0, then we cannot move through that element
+		if (jumps[currentIndex] === 0) return Number.MAX_VALUE;
+
+		// if we have already solved this problem, return the result
+		if (typeof dp[currentIndex] === "undefined") {
+			let totalJumps = Number.MAX_VALUE;
+			let start = currentIndex + 1;
+			const end = currentIndex + jumps[currentIndex];
+			while (start < jumps.length && start <= end) {
+				// jump one step and recurse for the remaining array
+				const minJumps = countMinJumpsRecursive(jumps, start++);
+				if (minJumps != Number.MAX_VALUE)
+					totalJumps = Math.min(totalJumps, minJumps + 1);
+			}
+			dp[currentIndex] = totalJumps;
+		}
+		return dp[currentIndex];
+	}
+	return countMinJumpsRecursive(jumps, 0);
+};
+
+const countMinJumpsDp = function (jumps) {
+	const dp = Array(jumps.length).fill(0);
+
+	// initialize with infinity, except the first index which should be zero as we start from there
+	for (let i = 1; i < jumps.length; i++) dp[i] = Number.MAX_VALUE;
+
+	for (let start = 0; start < jumps.length - 1; start++) {
+		for (
+			let end = start + 1;
+			end <= start + jumps[start] && end < jumps.length;
+			end++
+		) {
+			dp[end] = Math.min(dp[end], dp[start] + 1);
+		}
+	}
+
+	return dp[jumps.length - 1];
+};
+
+console.log(`Minimum jumps needed: ---> ${countMinJumpsDp([2, 1, 1, 1, 4])}`);
+console.log(
+	`Minimum jumps needed: ---> ${countMinJumpsDp([1, 1, 3, 6, 9, 3, 0, 1, 3])}`
+);
