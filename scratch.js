@@ -1,27 +1,20 @@
 const LCS = function (string1, string2) {
-	const memo = [];
-
-	const LCSR = function (str1, str2, i1, i2) {
+	function LCSR(str1, str2, i1, i2, count) {
 		if (i1 == str1.length || i2 == str2.length) {
-			return 0;
+			return count;
 		}
 
-		memo[i1] = memo[i1] || [];
-
-		if (typeof memo[i1][i2] == "undefined") {
-			if (str1[i1] == str2[i2]) {
-				memo[i1][i2] = 1 + LCSR(str1, str2, i1 + 1, i2 + 1);
-			} else {
-				const c1 = LCSR(str1, str2, i1 + 1, i2);
-				const c2 = LCSR(str1, str2, i1, i2 + 1);
-				memo[i1][i2] = Math.max(c2, c2);
-			}
+		if (str1[i1] == str2[i2]) {
+			count = LCSR(str1, str2, i1 + 1, i2 + 1, count + 1);
 		}
 
-		return memo[i1][i2];
-	};
+		const count2 = LCSR(str1, str2, i1 + 1, i2, 0);
+		const count3 = LCSR(str1, str2, i1, i2 + 1, 0);
 
-	return LCSR(string1, string2, 0, 0);
+		return Math.max(count, Math.max(count2, count3));
+	}
+
+	return LCSR(string1, string2, 0, 0, 0);
 };
 
 console.log(LCS("passport", "ppsspt"));
