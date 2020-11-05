@@ -45,21 +45,21 @@ class Graph {
 		this.adjacencyList[source] = this.adjacencyList[source].filter(
 			(vertex) => vertex.value !== destination
 		);
-		this.adjacencyList[destination] = this.adjacencyList[
-			destination
-		].filter((vertex) => vertex.value !== source);
+		this.adjacencyList[destination] = this.adjacencyList[destination].filter(
+			(vertex) => vertex.value !== source
+		);
 	}
 
 	removeVertex(vertex) {
 		while (this.adjacencyList[vertex].length !== 0) {
-			let adjacentVertex = this.adjacencyList[vertex].pop();
-			this.removeEdge(vertex.value, adjacentVertex.value);
+			let edge = this.adjacencyList[vertex].pop();
+			this.removeEdge(vertex, edge.value);
 		}
 
 		delete this.adjacencyList[vertex];
 	}
 
-	bfs(start) {
+	breadthFirstSearch(start) {
 		let queue = [start];
 		let result = [];
 		let visited = {};
@@ -187,29 +187,14 @@ class Graph {
 						let costToNeighbor = neighbor.weight;
 						let distanceToNeighbor = distances[neighbor.value];
 
-						console.log(
-							"current",
-							current.value,
-							"neighbor",
-							neighbor.value
-						);
+						console.log("current", current.value, "neighbor", neighbor.value);
 						console.log("distance to current: ", distanceToCurrent);
 						console.log("cost to neighbor: ", costToNeighbor);
-						console.log(
-							"distance to neighbor: ",
-							distanceToNeighbor
-						);
+						console.log("distance to neighbor: ", distanceToNeighbor);
 
-						if (
-							distanceToCurrent + costToNeighbor <
-							distanceToNeighbor
-						) {
-							console.log(
-								"relaxed",
-								distanceToCurrent + costToNeighbor
-							);
-							distances[neighbor.value] =
-								distanceToCurrent + costToNeighbor;
+						if (distanceToCurrent + costToNeighbor < distanceToNeighbor) {
+							console.log("relaxed", distanceToCurrent + costToNeighbor);
+							distances[neighbor.value] = distanceToCurrent + costToNeighbor;
 
 							// update node in heap
 							// adjust heap, bubble up
@@ -240,52 +225,30 @@ class Graph {
 
 							if (idx > 1) {
 								while (
-									heap.heap[idx].weight <
-									heap.heap[Math.floor(idx / 2)].weight
+									heap.heap[idx].weight < heap.heap[Math.floor(idx / 2)].weight
 								) {
 									console.log("adjusting heap");
 									if (idx >= 1) {
 										console.log("fixing ids in map");
 										// FIX IDXS IN MAP
-										console.log(
-											map.get(
-												heap.heap[Math.floor(idx / 2)]
-													.value
-											)
-										);
+										console.log(map.get(heap.heap[Math.floor(idx / 2)].value));
 
-										console.log(
-											map.get(heap.heap[idx].value)
-										);
+										console.log(map.get(heap.heap[idx].value));
 
-										map.get(
-											heap.heap[Math.floor(idx / 2)].value
-										).index = idx;
+										map.get(heap.heap[Math.floor(idx / 2)].value).index = idx;
 
-										map.get(
-											heap.heap[idx].value
-										).index = Math.floor(idx / 2);
+										map.get(heap.heap[idx].value).index = Math.floor(idx / 2);
 
 										// Object destructuring to swap values
-										[
-											heap.heap[Math.floor(idx / 2)],
-											heap.heap[idx],
-										] = [
+										[heap.heap[Math.floor(idx / 2)], heap.heap[idx]] = [
 											heap.heap[idx],
 											heap.heap[Math.floor(idx / 2)],
 										];
 
 										console.log("checking ids...");
-										console.log(
-											map.get(
-												heap.heap[Math.floor(idx / 2)]
-													.value
-											)
-										);
+										console.log(map.get(heap.heap[Math.floor(idx / 2)].value));
 
-										console.log(
-											map.get(heap.heap[idx].value)
-										);
+										console.log(map.get(heap.heap[idx].value));
 
 										// if the parent is not the root node, keep traversing
 										if (Math.floor(idx / 2) > 1) {
@@ -338,11 +301,9 @@ class DirectedGraph extends Graph {
 		let keys = Object.keys(this.adjacencyList);
 
 		for (let i = 0; i < keys.length; i++) {
-			this.adjacencyList[keys[i]] = this.adjacencyList[keys[i]].filter(
-				(v) => {
-					return v.value !== vertex;
-				}
-			);
+			this.adjacencyList[keys[i]] = this.adjacencyList[keys[i]].filter((v) => {
+				return v.value !== vertex;
+			});
 		}
 	}
 

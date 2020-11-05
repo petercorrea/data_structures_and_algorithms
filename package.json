@@ -1,0 +1,24 @@
+{
+  "name": "data-structures-and-algorithms",
+  "version": "0.1.0",
+  "description": "A collection of data structures, algorithms and example problems to assist in studying for technical interviews. ",
+  "main": "scratch.js",
+  "dependencies": {
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc" : "tsc --project tsconfig.json --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmcorrea/Data-Structures-And-Algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmcorrea/Data-Structures-And-Algorithms/issues"
+  },
+  "homepage": "https://github.com/pmcorrea/Data-Structures-And-Algorithms#readme"
+}
