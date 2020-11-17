@@ -3,6 +3,9 @@
 // In an increasing subsequence, all the elements are in
 // increasing order (from lowest to highest).
 
+// The time complexity of the above algorithm is exponential
+// O(2^n), where ‘n’ is the lengths of the input array. The space complexity is
+// O(n) which is used to store the recursion stack.
 const LISBrute = function (Arr) {
 	function LISRecursive(nums, currentIndex, previousIndex) {
 		if (currentIndex === nums.length) return 0;
@@ -23,23 +26,23 @@ const LISBrute = function (Arr) {
 };
 
 // Memo
+// TC: n*n or n^2
+// SC: n^2
 const LISMemo = function (Arr) {
 	const memo = [];
 
 	function LISRecursive(Arr, currentIdx, prevIdx) {
-		console.log(prevIdx, currentIdx);
 		// if we've reached the end of the array
 		if (currentIdx === Arr.length) {
-			console.log("base case");
 			return 0;
 		}
 
 		memo[currentIdx] = memo[currentIdx] || [];
 
+		// WE ADD 1 TO PREVIDX TO AVOID OOB ERR
 		if (typeof memo[currentIdx][prevIdx + 1] === "undefined") {
 			let c1 = 0;
 			if (prevIdx == -1 || Arr[currentIdx] > Arr[prevIdx]) {
-				console.log("c1 assigned");
 				c1 = 1 + LISRecursive(Arr, currentIdx + 1, currentIdx);
 			}
 
@@ -53,4 +56,5 @@ const LISMemo = function (Arr) {
 
 	return LISRecursive(Arr, 0, -1);
 };
+
 console.log(LISMemo([4, 2, 3, 6, 10, 1, 12]));

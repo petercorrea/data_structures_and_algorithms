@@ -3,6 +3,9 @@
 // Brute Force
 // TC: O3^(m+n) where ‘m’ and ‘n’ are the lengths of the two input strings.
 // SC: O(m+n) this space will be used to store the recursion stack.
+
+// when tabulizing, always include extra column for data holder
+// tips: be mindful of variables bering used for BOTH accessing values and setting values
 const LCS = function (string1, string2) {
 	function LCSR(str1, str2, idx1, idx2, count) {
 		// base case
@@ -31,7 +34,6 @@ const LCSMemo = function (string1, string2) {
 	const memo = [];
 
 	function LCSR(str1, str2, idx1, idx2, count) {
-		console.log("test");
 		if (idx1 == str1.length || idx2 == str2.length) {
 			return count;
 		}
@@ -79,6 +81,31 @@ const LCSTab = function (string1, string2) {
 	}
 
 	return maxLength;
+};
+
+// Optimized Space solution. SP: 0(n) length of second string
+const LCSTabOptimized = function (string1, string2) {
+	const tab = Array(string1.length + 1)
+		.fill(0)
+		.map(() => Array(string2.length).fill(0));
+
+	let max = 0;
+
+	for (let i = 1; i <= string1.length; i++) {
+		for (let j = 1; j <= string2.length; j++) {
+			// erase previosuly computed result on current row
+			tab[i - 1][j] = 0;
+
+			if (string1[i - 1] == string2[i - 1]) {
+				// current row = 1 + previous row
+				tab[i % 2][j] = 1 + tab[(i - 1) % 2][j - 1];
+				// compare form current row
+				max = Math.max(max, tab[i % 2][j]);
+			}
+		}
+	}
+
+	return max;
 };
 
 console.log(
