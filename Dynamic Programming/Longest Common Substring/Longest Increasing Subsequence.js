@@ -57,4 +57,29 @@ const LISMemo = function (Arr) {
 	return LISRecursive(Arr, 0, -1);
 };
 
+// Dynamica Programming
+
+// TC: n^2
+// SC: n^2
+const LISDP = function (nums) {
+	const dp = Array(nums.length).fill(0);
+	dp[0] = 1;
+
+	let maxLength = 1;
+	for (let i = 1; i < nums.length; i++) {
+		dp[i] = 1;
+		for (let j = 0; j < i; j++) {
+			if (nums[i] > nums[j] && dp[i] <= dp[j]) {
+				dp[i] = dp[j] + 1;
+				maxLength = Math.max(maxLength, dp[i]);
+			}
+		}
+	}
+	return maxLength;
+};
+
+// nlogn
+// patience algo; sorting algo
+
 console.log(LISMemo([4, 2, 3, 6, 10, 1, 12]));
+console.log(LISDP([4, 2, 3, 6, 10, 1, 12]));

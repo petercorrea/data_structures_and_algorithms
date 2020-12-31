@@ -7,7 +7,7 @@
 
 // Output: 1->1->2->3->4->4->5->6
 
-const { Node } = require("./Implementation.js");
+const { Node } = require("./LinkedList.js");
 
 let list1 = [];
 let list2 = [new Node(5, null, new Node(1, null, new Node(-1)))];

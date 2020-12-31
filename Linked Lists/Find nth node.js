@@ -1,4 +1,4 @@
-const { Node, dbLinkedList } = require("./@Implementation.js");
+const { Node, dbLinkedList } = require("./LinkedList.js");
 
 function findNthNode(list, nth) {
 	let current = list.head;

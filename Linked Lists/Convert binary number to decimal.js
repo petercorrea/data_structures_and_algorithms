@@ -1,4 +1,4 @@
-const { Node } = require("./@Implementation.js");
+const { Node } = require("./LinkedList.js");
 
 function getDecimalValue(head) {
 	let result = 0;

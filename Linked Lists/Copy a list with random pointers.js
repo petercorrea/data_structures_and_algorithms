@@ -1,4 +1,4 @@
-const { Node } = require("./Implementation.js");
+const { Node } = require("./LinkedList.js");
 
 class RandomNode extends Node {
 	constructor(value, random) {

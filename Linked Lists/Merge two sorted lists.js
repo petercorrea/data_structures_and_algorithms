@@ -1,4 +1,4 @@
-const { Node } = require("./@Implementation");
+const { Node } = require("./LinkedList.js");
 let list1 = new Node(-1, null, new Node(2, null, new Node(5)));
 let list2 = new Node(
 	1,
