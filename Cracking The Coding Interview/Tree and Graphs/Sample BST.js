@@ -1,8 +1,8 @@
 class Node {
-	constructor(value) {
+	constructor(value, left = null, right = null) {
 		this.value = value;
-		this.left = null;
-		this.right = null;
+		this.left = left;
+		this.right = right;
 	}
 
 	leftHeight() {
@@ -290,17 +290,27 @@ class BST {
 	}
 }
 
-let someBST = new BST(9);
-someBST.insert(17);
-someBST.insert(4);
-someBST.insert(3);
-someBST.insert(6);
-someBST.insert(22);
-someBST.insert(15);
+let sampleBST = new BST(9);
+sampleBST.insert(17);
+sampleBST.insert(4);
+sampleBST.insert(3);
+sampleBST.insert(6);
+sampleBST.insert(22);
+sampleBST.insert(15);
 
-console.log(someBST);
+let node6 = new Node(22, null, null);
+let node5 = new Node(8, null, null);
+let node4 = new Node(6, null, null);
+let node3 = new Node(3, null, null);
+let node2 = new Node(17, node5, node6);
+let node1 = new Node(4, node3, node4);
+let invalidBST = new Node(9, node1, node2);
+
+console.log(invalidBST);
 
 module.exports = {
 	Node,
 	BST,
+	sampleBST,
+	invalidBST,
 };

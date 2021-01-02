@@ -59,29 +59,29 @@ class Graph {
 		delete this.adjacencyList[vertex];
 	}
 
-	breadthFirstSearch(start) {
+	breadthFirstSearch(start, end) {
 		let queue = [start];
-		let result = [];
 		let visited = {};
-		let currentVertex;
+		let current;
 
 		visited[start] = true;
 
 		while (queue.length > 0) {
-			currentVertex = queue.shift();
-			result.push(currentVertex);
+			current = queue.shift();
 
-			if (this.adjacencyList[currentVertex]) {
-				this.adjacencyList[currentVertex].forEach((neighbor) => {
+			if (this.adjacencyList[current]) {
+				for (neighbor of this.adjacencyList[current]) {
+					if (neighbor.value == end) return true;
+
 					if (!visited[neighbor.value]) {
 						visited[neighbor.value] = true;
 						queue.push(neighbor.value);
 					}
-				});
+				}
 			}
 		}
 
-		return result;
+		return false;
 	}
 
 	dfsRecursive(start) {
