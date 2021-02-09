@@ -25,10 +25,9 @@
 const { inOrderTree } = require("./Sample Tree");
 let succesor = (node) => {
 	if (node.left) {
-		while (node) {
+		while (node.left) {
 			node = node.left;
 		}
-
 		return node;
 	} else if (!node.left && node.right) {
 		return node.right;
@@ -37,8 +36,10 @@ let succesor = (node) => {
 	} else if (node == node.parent.right) {
 		while (node != node.parent.left) {
 			node = node.parent;
+			if (node.parent == null) {
+				return "This is the last node";
+			}
 		}
-
 		return node.parent;
 	}
 

@@ -2,10 +2,10 @@
 //
 
 // Clarifing Questions:
-// 	-
+//
 
 // Assume:
-// 	-
+//
 
 // Sample Input and Output:
 //
@@ -13,10 +13,7 @@
 // Proposed Solution:
 //
 
-let someFunction = () => {};
-
-// Test
-console.log(); // result
+// Test:
+// result
 
 // Notes after implementing:
-//
