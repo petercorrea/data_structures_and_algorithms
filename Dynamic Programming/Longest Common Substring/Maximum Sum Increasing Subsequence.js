@@ -25,7 +25,7 @@ const findMSIS = function (nums) {
 	return findMSISRecursive(nums, 0, -1, 0);
 };
 
-const findMSIS = function (nums) {
+const findMSISDP = function (nums) {
 	const dp = [];
 
 	function findMSISRecursive(nums, currentIndex, previousIndex, sum) {
@@ -57,18 +57,57 @@ const findMSIS = function (nums) {
 // Brute
 // TC: n^2
 // SC: n
-const findMSIS = function (nums) {
-	const dp = Array(nums.length).fill(0);
-	dp[0] = nums[0];
+function maxSum(array) {
+	let sums = array.map((num) => num);
+	let maxSumIdx = 0;
 
-	let maxSum = nums[0];
-	for (let i = 1; i < nums.length; i++) {
-		dp[i] = nums[i];
+	for (let i = 0; i < array.length; i++) {
 		for (let j = 0; j < i; j++) {
-			if (nums[i] > nums[j] && dp[i] < dp[j] + nums[i]) dp[i] = dp[j] + nums[i];
+			if (array[j] < array[i] && sums[j] + array[i] >= sums[i]) {
+				sums[i] = sums[j] + array[i];
+			}
+
+			if (sums[i] > sums[maxSumIdx]) {
+				maxSumIdx = i;
+			}
 		}
-		maxSum = Math.max(maxSum, dp[i]);
 	}
 
-	return maxSum;
-};
+	return sums[maxSumIdx];
+}
+
+// Modified the above function to also return the list of nums contributing to the max sum
+function maxSum(array) {
+	let sums = array.map((num) => num);
+	let maxSumIdx = 0;
+	let sequences = Array(array.length);
+
+	for (let i = 0; i < array.length; i++) {
+		for (let j = 0; j < i; j++) {
+			if (array[j] < array[i] && sums[j] + array[i] >= sums[i]) {
+				sums[i] = sums[j] + array[i];
+				sequences[i] = j;
+			}
+
+			if (sums[i] > sums[maxSumIdx]) {
+				maxSumIdx = i;
+			}
+		}
+	}
+
+	// return sums[maxSumIdx];
+	return [sums[maxSumIdx], buildSequence(array, sequences, maxSumIdx)];
+}
+
+function buildSequence(array, sequences, currentIdx) {
+	let finalSequence = [];
+
+	while (currentIdx !== undefined) {
+		finalSequence.unshift(array[currentIdx]);
+		currentIdx = sequences[currentIdx];
+	}
+
+	return finalSequence;
+}
+
+console.log(maxSum([8, 12, 2, 3, 15, 5, 7]));

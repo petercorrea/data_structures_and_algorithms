@@ -5,7 +5,7 @@
 // or one square to the right. Determine how many moves the player would have to make to
 // end the game.
 
-// Brute Force
+// Recusrive
 // TC: 2^(n+m)
 // SC: n+m
 let gridTraveler = function (m, n) {
@@ -31,6 +31,20 @@ let gridTravelerMemo = function (m, n, memo = {}) {
 	return memo[key];
 };
 
-console.log(gridTravelerMemo(3, 2));
-console.log(gridTravelerMemo(3, 3));
-console.log(gridTravelerMemo(18, 18));
+// Formulaic
+// TC: n*m
+// SP: 1
+let factorial = function (n) {
+	if (n === 1) return 1;
+	return n * factorial(n - 1);
+};
+
+let gridTravlerFormulaic = function (r, d) {
+	let R = r - 1;
+	let D = d - 1;
+	return factorial(R + D) / (factorial(R) * factorial(D));
+};
+
+console.log(gridTravelerMemo(3, 4));
+console.log(gridTravelerMemo(3, 4));
+console.log(gridTravlerFormulaic(3, 4));

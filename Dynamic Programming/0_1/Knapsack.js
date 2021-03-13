@@ -60,7 +60,8 @@ let knapSackTab = function (profits, weights, capacity) {
 
 	if (n == 0 || profits.length != weights.length || capacity <= 0) return 0;
 
-	// setup table, don't forget to add an additional column to represent a capacity of 0
+	// setup table, rows represent item [profit, weight], cols represent capacity 0 to C
+	// don't forget to add an additional column to represent a capacity of 0
 	let table = Array(n)
 		.fill(0)
 		.map(() => Array(capacity + 1).fill(0));
@@ -70,27 +71,27 @@ let knapSackTab = function (profits, weights, capacity) {
 		table[i][0] = 0;
 	}
 
-	// setup first row: we take the profit of the first item as long as it's weight doesn't surpass capacity 'C'
+	// setup first row: we take the profit of the first item as long as it's weight doesn't surpass capacity
 	// do not rewrite the data under the first column
-	for (c = 1; c <= capacity; c++) {
-		if (weights[0] <= c) {
-			table[0][c] = profits[0];
+	for (let col = 1; col <= capacity; col++) {
+		if (weights[0] <= col) {
+			table[0][col] = profits[0];
 		}
 	}
 
 	// process values
 	for (let i = 1; i < n; i++) {
-		for (let c = 1; c <= capacity; c++) {
+		for (let col = 1; col <= capacity; col++) {
 			// skip the item
-			let profit1 = table[i - 1][c];
-			let profit2 = 0;
+			let profit1 = table[i - 1][col];
 
-			// select the item
-			if (weights[i] <= c) {
-				profit2 = profits[i] + table[i - 1][c - weights[i]];
+			// or select the item
+			let profit2 = 0;
+			if (weights[i] <= col) {
+				profit2 = profits[i] + table[i - 1][col - weights[i]];
 			}
 
-			table[i][c] = Math.max(profit1, profit2);
+			table[i][col] = Math.max(profit1, profit2);
 		}
 	}
 

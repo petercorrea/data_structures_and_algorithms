@@ -61,32 +61,23 @@ const LCSMemo = function (string1, string2) {
 // Tabulation
 // TC: O(m*n)
 // SC: O(m*n)...can be reduced to O(n) if you use only 2 arrays instead of whole table
-const LCSTab = function (string1, string2) {
-	// Create table, add 1 to each dimension
-	const tab = Array(string1.length + 1)
+function LCS(s1, s2) {
+	let dp = Array(s1.length + 1)
 		.fill(0)
-		.map(() => Array(string2.length + 1).fill(0));
+		.map(() => Array(s2.length + 1).fill(0));
 
-	// store maxLength
-	let maxLength = 0;
-
-	// traverse strings, start at 1 since we added a column and row
-	for (let i = 1; i <= string1.length; i++) {
-		for (let j = 1; j <= string2.length; j++) {
-			// if they match, add 1 to the previous match and recurse remaining strings
-			if (string1[i - 1] == string2[j - 1]) {
-				tab[i][j] = 1 + tab[i - 1][j - 1];
+	for (let i = 1; i <= s1.length; i++) {
+		for (let j = 1; j <= s2.length; j++) {
+			if (s1[i - 1] == s2[j - 1]) {
+				dp[i][j] = dp[i - 1][j - 1] + 1;
 			} else {
-				// else take the max by either skipping ith or jth character from the respective strings.
-				tab[i][j] = Math.max(tab[i - 1][j], tab[i][j - 1]);
+				dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
 			}
-
-			maxLength = Math.max(maxLength, tab[i][j]);
 		}
 	}
 
-	return maxLength;
-};
+	return dp[s1.length][s2.length];
+}
 
 console.log(
 	`Length of Longest Common Substring: ---> ${LCS("passport", "ppsspt")}`

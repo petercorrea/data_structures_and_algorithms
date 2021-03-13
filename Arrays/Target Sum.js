@@ -2,6 +2,7 @@
 // otherwise return an empty array.
 // We can assume all values are distinct.
 // We can not add the same index with itself.
+// Assume there will onkly be one pair summing to the target.
 
 let nums = [2, 3, 1, 5];
 let target = 8;

@@ -68,6 +68,46 @@ const countMinJumpsDp = function (jumps) {
 	return dp[jumps.length - 1];
 };
 
+// TC: n^2
+// SP: n
+function jumps(arr) {
+	if (arr.length == 1) return 0;
+	let dp = Array(arr.length).fill(Infinity);
+	dp[0] = 0;
+
+	for (let i = 1; i < arr.length; i++) {
+		for (let j = 0; j < i; j++) {
+			if (j + arr[j] >= i) {
+				dp[i] = Math.min(dp[i], dp[j] + 1);
+			}
+		}
+	}
+
+	return dp[arr.length - 1];
+}
+
+// TC: n
+// SP: n
+// maxreach is like the longest ladder provided
+function jumpsLinear(arr) {
+	if (arr.length == 1) return 0;
+	let maxReach = arr[0];
+	let steps = arr[0];
+	let jumps = 0;
+
+	for (let i = 1; i < arr.length - 1; i++) {
+		steps--;
+		maxReach = Math.max(maxReach, i + arr[i]);
+
+		if (steps == 0) {
+			steps = maxReach - i;
+			jumps++;
+		}
+	}
+
+	return jumps + 1;
+}
+
 console.log(`Minimum jumps needed: ---> ${countMinJumpsDp([2, 1, 1, 1, 4])}`);
 console.log(
 	`Minimum jumps needed: ---> ${countMinJumpsDp([1, 1, 3, 6, 9, 3, 0, 1, 3])}`
