@@ -36,7 +36,7 @@ class BST {
 		this.size = 1;
 	}
 
-	size() {
+	count() {
 		return this.size;
 	}
 
@@ -237,7 +237,7 @@ class BST {
 	}
 
 	// Breadth First Search - uses queue
-	levelOrder() {
+	bfs() {
 		let result = [];
 		let queue = [];
 
@@ -290,17 +290,45 @@ class BST {
 	}
 }
 
-let someBST = new BST(9);
-someBST.insert(17);
-someBST.insert(4);
-someBST.insert(3);
-someBST.insert(6);
-someBST.insert(22);
-someBST.insert(15);
+const jsonToTree = (json) => {
+	let nodes = {};
 
-console.log(someBST);
+	json.tree.nodes.forEach((node) => {
+		nodes[node.value] = new Node(node.value);
+	});
+
+	json.tree.nodes.forEach((node) => {
+		nodes[node.value].left = nodes[node.left];
+		nodes[node.value].right = nodes[node.right];
+	});
+
+	let root = nodes[json.tree.root];
+	return root;
+};
+
+const myBST = new BST(8);
+// Left side
+myBST.insert(4);
+myBST.insert(2);
+myBST.insert(6);
+myBST.insert(1);
+myBST.insert(3);
+myBST.insert(5);
+myBST.insert(7);
+
+// Right side
+myBST.insert(12);
+myBST.insert(10);
+myBST.insert(9);
+myBST.insert(11);
+
+myBST.insert(14);
+myBST.insert(13);
+myBST.insert(15);
 
 module.exports = {
 	Node,
 	BST,
+	myBST,
+	jsonToTree,
 };

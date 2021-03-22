@@ -4,12 +4,14 @@
   "description": "A collection of data structures, algorithms and example problems to assist in studying for technical interviews. ",
   "main": "scratch.js",
   "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
     "typescript": "^4.0.5"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc" : "tsc --project tsconfig.json --watch"
+    "test": "mocha",
+    "tsc": "tsc --project tsconfig.json --watch"
   },
   "repository": {
     "type": "git",

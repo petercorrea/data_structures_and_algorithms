@@ -3,8 +3,8 @@
 // A trade is a buy and sell of a stock.
 // You can only hold one stock at a time.
 
-function maxProfit(prices, k) {
-	if (!prices.length) return 0;
+function maxProfitKTransactions(prices, k) {
+	if (prices.length == 0) return 0;
 
 	const profits = [];
 
@@ -15,13 +15,13 @@ function maxProfit(prices, k) {
 
 	for (let trade = 1; trade <= k; trade++) {
 		let maxProfit = -Infinity;
-		for (price = 1; price < prices.length; price++) {
-			maxProfit = Math.max(
-				maxProfit,
+		for (let price = 1; price < prices.length; price++) {
+			maxProft = Math.max(
+				maxProft,
 				profits[trade - 1][price - 1] - prices[price - 1]
 			);
 
-			profits[trade][price] = Math.max(
+			profits[trade][prices] = Math.max(
 				profits[trade][price - 1],
 				maxProfit + prices[price]
 			);
