@@ -3,6 +3,7 @@ class Node {
 		this.value = value;
 		this.left = null;
 		this.right = null;
+		this.parent = null;
 	}
 
 	leftHeight() {
@@ -50,6 +51,7 @@ class BST {
 			if (value < node.value) {
 				if (!node.left) {
 					node.left = newNode;
+					newNode.parent = node;
 				} else {
 					searchTree(node.left);
 				}
@@ -57,6 +59,7 @@ class BST {
 			} else if (value > node.value) {
 				if (!node.right) {
 					node.right = newNode;
+					newNode.parent = node;
 				} else {
 					searchTree(node.right);
 				}
@@ -300,10 +303,10 @@ const jsonToTree = (json) => {
 	json.tree.nodes.forEach((node) => {
 		nodes[node.value].left = nodes[node.left];
 		nodes[node.value].right = nodes[node.right];
+		nodes[node.value].parent = nodes[node.parent];
 	});
 
-	let root = nodes[json.tree.root];
-	return root;
+	return nodes[json.tree.root];
 };
 
 const myBST = new BST(8);
@@ -321,7 +324,6 @@ myBST.insert(12);
 myBST.insert(10);
 myBST.insert(9);
 myBST.insert(11);
-
 myBST.insert(14);
 myBST.insert(13);
 myBST.insert(15);

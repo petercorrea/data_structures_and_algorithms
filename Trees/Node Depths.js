@@ -1,7 +1,7 @@
 // Given a BST, determine the total sum of all node depths.
 
-// TC:
-// SC:
+// TC: n
+// SC: h
 function nodeDepths(root) {
 	const sum = (root, depth = 0, total = 0) => {
 		if (root.left === null && root.right === null) {
