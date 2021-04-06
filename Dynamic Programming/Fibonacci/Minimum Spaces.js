@@ -3,7 +3,6 @@
 // found in the potential slices list.
 
 function numbersInPi(pi, numbers) {
-	// Write your code here.
 	const numbersTable = {};
 	for (let num of numbers) {
 		numbersTable[num] = true;

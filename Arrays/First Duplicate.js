@@ -23,7 +23,6 @@ function firstDuplicateValue(array) {
 // We can map the values to index, turn them negative as we go along,
 // and if we revisited an index thats already negative, thats the dup.
 function firstDuplicateValue(array) {
-	// Write your code here.
 	for (let i = 0; i < array.length; i++) {
 		let value = Math.abs(array[i]);
 

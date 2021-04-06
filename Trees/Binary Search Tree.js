@@ -309,28 +309,8 @@ const jsonToTree = (json) => {
 	return nodes[json.tree.root];
 };
 
-const myBST = new BST(8);
-// Left side
-myBST.insert(4);
-myBST.insert(2);
-myBST.insert(6);
-myBST.insert(1);
-myBST.insert(3);
-myBST.insert(5);
-myBST.insert(7);
-
-// Right side
-myBST.insert(12);
-myBST.insert(10);
-myBST.insert(9);
-myBST.insert(11);
-myBST.insert(14);
-myBST.insert(13);
-myBST.insert(15);
-
 module.exports = {
 	Node,
 	BST,
-	myBST,
 	jsonToTree,
 };

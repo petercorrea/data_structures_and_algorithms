@@ -19,7 +19,6 @@ function buildSequence(disks, sequences, currentIdx) {
 }
 
 function diskStacking(disks) {
-	// Write your code here.
 	// sort disks
 	disks.sort((a, b) => a[2] - b[2]);
 

@@ -3,7 +3,6 @@
 // The path doesnt have to go through the root.
 
 function binaryTreeDiameter(tree) {
-	// Write your code here.
 	function recurse(node) {
 		if (!node) {
 			return {
@@ -14,12 +13,14 @@ function binaryTreeDiameter(tree) {
 
 		let left = recurse(node.left);
 		let right = recurse(node.right);
-		let currentHeight = Math.max(left.height, right.height) + 1;
-		let length = left.height + right.height;
 
 		return {
-			height: currentHeight,
-			maxLength: Math.max(Math.max(left.maxLength, right.maxLength), length),
+			height: Math.max(left.height, right.height) + 1,
+			maxLength: Math.max(
+				left.maxLength,
+				right.maxLength,
+				left.height + right.height
+			),
 		};
 	}
 

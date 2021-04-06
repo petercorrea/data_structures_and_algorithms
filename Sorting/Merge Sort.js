@@ -1,7 +1,5 @@
-// T(C) = nlogn
-
 // Pros: good for data structures like LL, stable
-
+// T(C) = nlogn
 function mergeSort(arr) {
 	if (arr.length == 1) {
 		return arr;
@@ -30,6 +28,6 @@ function sortUp(left, right) {
 	return array.concat(left.slice()).concat(right.slice());
 }
 
-let nums = [9, 4, 1, 12, 6, 45, 3, 0, -1];
-nums = mergeSort(nums);
-console.log(nums);
+module.exports = {
+	mergeSort,
+};

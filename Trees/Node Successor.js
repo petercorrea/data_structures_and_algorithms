@@ -2,8 +2,6 @@
 // In this implementation, assume you have access to the parent node.
 
 function findSuccessor(tree, currentNode) {
-	// Write your code here.
-
 	if (currentNode.right) {
 		currentNode = currentNode.right;
 		while (currentNode.left) {

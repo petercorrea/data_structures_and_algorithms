@@ -4,7 +4,6 @@
 // Space: nm
 
 function spiralTraverse(array) {
-	// Write your code here.
 	let rowStart = 0;
 	let rowEnd = array.length - 1;
 	let colStart = 0;
