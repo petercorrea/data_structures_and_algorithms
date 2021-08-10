@@ -16,16 +16,16 @@
 // Proposed Solution:
 //
 
-let rotation = (s1, s2) => {
-	if (s1.length != s2.length || s1.length == 0) return false;
+const rotation = (s1, s2) => {
+  if (s1.length != s2.length || s1.length == 0) return false
 
-	let s1s1 = s1 + s1;
-	let result = isSubstring(s1s1, s2);
-	return result;
-};
+  const s1s1 = s1 + s1
+  const result = isSubstring(s1s1, s2)
+  return result
+}
 
 // Test
-console.log(rotation("waterbottle", " erbottlewat")); // true
+console.log(rotation("waterbottle", " erbottlewat")) // true
 
 // Notes after implementing:
 //

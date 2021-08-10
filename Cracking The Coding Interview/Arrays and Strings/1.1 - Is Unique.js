@@ -25,29 +25,28 @@
 // 		resulting in a TC of O(n^2). If we are allowed to sort it, we can sort it in O(n log n),
 // 		and then linearly compare neighboring chars. We'll move forward without this space limitation.
 
-let isUnique = (string) => {
-	// assuming ASCII char set
-	if (string.length > 128) {
-		return false;
-	}
+const isUnique = (string) => {
+  // assuming ASCII char set
+  if (string.length > 128) {
+    return false
+  }
 
-	let map = new Map();
+  const map = new Map()
 
-	for (let i = 0; i < string.length; i++) {
-		if (map.has(string[i])) {
-			return false;
-		} else {
-			map.set(string[i], true);
-		}
-	}
+  for (let i = 0; i < string.length; i++) {
+    if (map.has(string[i])) {
+      return false
+    }
+    map.set(string[i], true)
+  }
 
-	return true;
-};
+  return true
+}
 
 // Test
-console.log(isUnique("Peter")); // false
-console.log(isUnique("bBach")); // true
-console.log(isUnique("123")); // true
-console.log(isUnique("123!@@")); // false
+console.log(isUnique("Peter")) // false
+console.log(isUnique("bBach")) // true
+console.log(isUnique("123")) // true
+console.log(isUnique("123!@@")) // false
 
 // Notes after implementing:

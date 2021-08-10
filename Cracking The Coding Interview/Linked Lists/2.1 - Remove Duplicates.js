@@ -14,38 +14,38 @@
 // Proposed Solution:
 //
 
-const { Node } = require("../../Linked Lists/LinkedList");
+const { Node, } = require("../../Linked Lists/LinkedList")
 
-let node8 = new Node(8, null, null);
-let node7 = new Node(3, null, node8); // dupe
-let node6 = new Node(4, null, node7); // dupe
-let node5 = new Node(52, null, node6);
-let node4 = new Node(4, null, node5);
-let node3 = new Node(3, null, node4);
-let node2 = new Node(12, null, node3);
-let node1 = new Node(10, null, node2);
+const node8 = new Node(8, null, null)
+const node7 = new Node(3, null, node8) // dupe
+const node6 = new Node(4, null, node7) // dupe
+const node5 = new Node(52, null, node6)
+const node4 = new Node(4, null, node5)
+const node3 = new Node(3, null, node4)
+const node2 = new Node(12, null, node3)
+const node1 = new Node(10, null, node2)
 
-let removeDups = (node) => {
-	let map = new Map();
-	let firstNode = node;
-	let prev = null;
+const removeDups = (node) => {
+  const map = new Map()
+  const firstNode = node
+  let prev = null
 
-	while (node != null) {
-		if (map.has(node.value)) {
-			prev.next = node.next;
-		} else {
-			map.set(node.value, node);
-		}
+  while (node != null) {
+    if (map.has(node.value)) {
+      prev.next = node.next
+    } else {
+      map.set(node.value, node)
+    }
 
-		prev = node;
-		node = node.next;
-	}
+    prev = node
+    node = node.next
+  }
 
-	return firstNode;
-};
+  return firstNode
+}
 
 // Test
-console.log(removeDups(node1)); // 10 -> 12 -> 3 -> 4 -> 52 -> 8
+console.log(removeDups(node1)) // 10 -> 12 -> 3 -> 4 -> 52 -> 8
 
 // Notes after implementing:
 //

@@ -14,42 +14,41 @@
 // Proposed Solution:
 //
 
-const { inOrderTree, BSTree } = require("./Sample Tree");
+const { inOrderTree, BSTree, } = require("./Sample Tree")
 
-let contains = (root1, root2) => {
-	if (root2 == null) return true;
-	return findMatchingRoots(root1, root2);
-};
+const contains = (root1, root2) => {
+  if (root2 == null) return true
+  return findMatchingRoots(root1, root2)
+}
 
 let findMatchingRoots = (root1, root2) => {
-	if (root1 == null) {
-		return false;
-	} else if (root1.value == root2.value && matchTree(root1, root2)) {
-		return true;
-	}
-	return (
-		findMatchingRoots(root1.left, root2) ||
-		findMatchingRoots(root1.right, root2)
-	);
-};
+  if (root1 == null) {
+    return false
+  } if (root1.value == root2.value && matchTree(root1, root2)) {
+    return true
+  }
+  return (
+    findMatchingRoots(root1.left, root2)
+		|| findMatchingRoots(root1.right, root2)
+  )
+}
 
 let matchTree = (root1, root2) => {
-	if (root1 == null && root2 == null) {
-		return true;
-	} else if (root1 == null || root2 == null) {
-		return false;
-	} else if (root1.value != root2.value) {
-		return false;
-	} else {
-		return (
-			matchTree(root1.left, root2.left) && matchTree(root1.right, root2.right)
-		);
-	}
-};
+  if (root1 == null && root2 == null) {
+    return true
+  } if (root1 == null || root2 == null) {
+    return false
+  } if (root1.value != root2.value) {
+    return false
+  }
+  return (
+    matchTree(root1.left, root2.left) && matchTree(root1.right, root2.right)
+  )
+}
 
 // Test
-console.log(contains(inOrderTree, inOrderTree)); // result
-console.log(contains(inOrderTree, BSTree)); // result
+console.log(contains(inOrderTree, inOrderTree)) // result
+console.log(contains(inOrderTree, BSTree)) // result
 
 // Notes after implementing:
 //

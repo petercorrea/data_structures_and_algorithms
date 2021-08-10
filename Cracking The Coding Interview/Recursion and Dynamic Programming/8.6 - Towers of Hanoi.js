@@ -21,44 +21,43 @@
 // Proposed Solution:
 
 class Towers {
-	constructor(n) {
-		this.totalDisks = n;
-		this.towers = [[], [], []];
-		this.createDisks(n);
-	}
+  constructor(n) {
+    this.totalDisks = n
+    this.towers = [[], [], []]
+    this.createDisks(n)
+  }
 
-	createDisks(n) {
-		for (let i = n; i > 0; i--) {
-			this.towers[0].push(i);
-		}
-	}
+  createDisks(n) {
+    for (let i = n; i > 0; i--) {
+      this.towers[0].push(i)
+    }
+  }
 
-	moveDisk(source, intermediate, destination) {
-		let disk = this.towers[source].pop();
-		this.towers[destination].push(disk);
-	}
+  moveDisk(source, intermediate, destination) {
+    const disk = this.towers[source].pop()
+    this.towers[destination].push(disk)
+  }
 
-	moveTower(source, intermediate, destination, disks = this.totalDisks) {
-		if (disks == 1) {
-			this.moveDisk(source, intermediate, destination);
-			return;
-		}
-		this.moveTower(source, destination, intermediate, disks - 1);
-		this.moveDisk(source, intermediate, destination);
-		this.moveTower(intermediate, source, destination, disks - 1);
-		return;
-	}
+  moveTower(source, intermediate, destination, disks = this.totalDisks) {
+    if (disks == 1) {
+      this.moveDisk(source, intermediate, destination)
+      return
+    }
+    this.moveTower(source, destination, intermediate, disks - 1)
+    this.moveDisk(source, intermediate, destination)
+    this.moveTower(intermediate, source, destination, disks - 1)
+  }
 
-	print() {
-		console.log(this.towers);
-	}
+  print() {
+    console.log(this.towers)
+  }
 }
 
 // Test:
 // result
-let tower = new Towers(3);
+const tower = new Towers(3)
 
-tower.moveTower(0, 1, 2);
-tower.print();
+tower.moveTower(0, 1, 2)
+tower.print()
 
 // Notes after implementing:

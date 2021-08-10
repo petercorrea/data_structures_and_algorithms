@@ -1,32 +1,32 @@
-str = "A man, a plan, a canal: Panama";
+str = "A man, a plan, a canal: Panama"
 
-var isPalindrome = function (str) {
-	// Guard against edge cases
-	if (str.length == 0) {
-		return true;
-	}
+const isPalindrome = function (str) {
+  // Guard against edge cases
+  if (str.length == 0) {
+    return true
+  }
 
-	// Clean input and place into an array
-	let pattern = /\W/gm;
-	let replaced = str.replace(pattern, "");
-	replaced = replaced.toLowerCase();
-	let split = replaced.split("");
+  // Clean input and place into an array
+  const pattern = /\W/gm
+  let replaced = str.replace(pattern, "")
+  replaced = replaced.toLowerCase()
+  const split = replaced.split("")
 
-	// Using two pointers
-	let s = 0;
-	let f = split.length - 1;
+  // Using two pointers
+  let s = 0
+  let f = split.length - 1
 
-	// Prevent pointers from crossing over
-	while (s < f) {
-		if (split[s] == split[f]) {
-			s++;
-			f--;
-		} else {
-			return false;
-		}
-	}
+  // Prevent pointers from crossing over
+  while (s < f) {
+    if (split[s] == split[f]) {
+      s++
+      f--
+    } else {
+      return false
+    }
+  }
 
-	return true;
-};
+  return true
+}
 
-isPalindrome(str);
+isPalindrome(str)

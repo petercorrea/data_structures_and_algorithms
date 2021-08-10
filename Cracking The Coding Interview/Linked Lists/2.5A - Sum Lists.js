@@ -26,52 +26,52 @@
 // Proposed Solution:
 //
 
-const { Node } = require("../../Linked Lists/LinkedList");
+const { Node, } = require("../../Linked Lists/LinkedList")
 // set A
-let node5 = new Node(1, null, null);
-let node4 = new Node(4, null, node5);
+const node5 = new Node(1, null, null)
+const node4 = new Node(4, null, node5)
 
-let node3 = new Node(3, null, null);
-let node2 = new Node(8, null, node3);
-let node1 = new Node(9, null, node2);
+const node3 = new Node(3, null, null)
+const node2 = new Node(8, null, node3)
+const node1 = new Node(9, null, node2)
 
-let sumListsA = (list1, list2) => {
-	let carry = 0;
-	let result = new Node(null, null, null);
-	let head = result;
-	let sum = 0;
+const sumListsA = (list1, list2) => {
+  let carry = 0
+  let result = new Node(null, null, null)
+  const head = result
+  let sum = 0
 
-	while (list1 != null || list2 != null) {
-		if (list1 != null) {
-			sum += list1.value || 0;
-			list1 = list1.next;
-		}
+  while (list1 != null || list2 != null) {
+    if (list1 != null) {
+      sum += list1.value || 0
+      list1 = list1.next
+    }
 
-		if (list2 != null) {
-			sum += list2.value || 0;
-			list2 = list2.next;
-		}
+    if (list2 != null) {
+      sum += list2.value || 0
+      list2 = list2.next
+    }
 
-		sum += carry;
+    sum += carry
 
-		if (sum > 9) {
-			result.value = sum - 10;
-			carry = 1;
-		} else {
-			result.value = sum;
-			carry = 0;
-		}
+    if (sum > 9) {
+      result.value = sum - 10
+      carry = 1
+    } else {
+      result.value = sum
+      carry = 0
+    }
 
-		result.next = new Node(null, null, null);
-		result = result.next;
-		sum = 0;
-	}
+    result.next = new Node(null, null, null)
+    result = result.next
+    sum = 0
+  }
 
-	return head.next;
-};
+  return head.next
+}
 
 // Test
-console.log(sumListsA(node1, node4)); // 304
+console.log(sumListsA(node1, node4)) // 304
 
 // Notes after implementing:
 // remember to use pointer to traverse the list, not the list itself

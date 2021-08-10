@@ -1,21 +1,19 @@
 function rotate(int, size) {
-	console.log("int", int.toString(2));
-	let right;
-	let left;
-	let result;
+  console.log("int", int.toString(2))
+  let right
+  let left
+  let result
 
-	right = int >> size;
-	left = int << (32 - size);
-	result = left | right;
+  right = int >> size
+  left = int << (32 - size)
+  result = left | right
 
-	console.log("left", left.toString(2));
-	console.log("right", right.toString(2));
-	console.log("result", result.toString(2));
-
-	return;
+  console.log("left", left.toString(2))
+  console.log("right", right.toString(2))
+  console.log("result", result.toString(2))
 }
 
-rotate(9, 2);
+rotate(9, 2)
 
 // 00000000 00000000 00000000 00011010
 

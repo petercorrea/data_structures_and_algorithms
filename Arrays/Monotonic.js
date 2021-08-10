@@ -6,30 +6,30 @@
 // Time: n
 // Space: 1
 function monotonic(array) {
-	let increasing = true;
-	let decreasing = true;
+  let increasing = true
+  let decreasing = true
 
-	for (let i = 0; i < array.length; i++) {
-		if (array[i] < array[i + 1]) decreasing = false;
-		if (array[i] > array[i + 1]) increasing = false;
-	}
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < array[i + 1]) decreasing = false
+    if (array[i] > array[i + 1]) increasing = false
+  }
 
-	return increasing || decreasing;
+  return increasing || decreasing
 }
 
 function isMonotonic(array) {
-	if (array.length == 0) return true;
+  if (array.length == 0) return true
 
-	let idx = 0;
-	while (array[idx] <= array[idx + 1]) {
-		idx++;
-	}
-	if (idx == array.length - 1) return true;
+  let idx = 0
+  while (array[idx] <= array[idx + 1]) {
+    idx++
+  }
+  if (idx == array.length - 1) return true
 
-	idx = 0;
-	while (array[idx] >= array[idx + 1]) {
-		idx++;
-	}
-	if (idx == array.length - 1) return true;
-	return false;
+  idx = 0
+  while (array[idx] >= array[idx + 1]) {
+    idx++
+  }
+  if (idx == array.length - 1) return true
+  return false
 }

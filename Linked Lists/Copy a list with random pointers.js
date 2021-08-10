@@ -1,48 +1,48 @@
-const { Node } = require("./LinkedList.js");
+const { Node, } = require("./LinkedList.js")
 
 class RandomNode extends Node {
-	constructor(value, random) {
-		super(value);
-		this.random = random;
-	}
+  constructor(value, random) {
+    super(value)
+    this.random = random
+  }
 }
 
-let randomNode1 = new RandomNode("1");
-let randomNode2 = new RandomNode("2");
-let randomNode3 = new RandomNode("3");
+const randomNode1 = new RandomNode("1")
+const randomNode2 = new RandomNode("2")
+const randomNode3 = new RandomNode("3")
 
-randomNode1.next = randomNode2;
-randomNode2.next = randomNode3;
-randomNode1.random = randomNode3;
-randomNode3.random = randomNode2;
-randomNode2.random = randomNode1;
+randomNode1.next = randomNode2
+randomNode2.next = randomNode3
+randomNode1.random = randomNode3
+randomNode3.random = randomNode2
+randomNode2.random = randomNode1
 
-console.log(randomNode1);
+console.log(randomNode1)
 
 function copy(head) {
-	let current = head;
-	while (current) {
-		let copyNode = new Node(current.value);
-		copyNode.next = current.next;
-		current.next = copyNode;
-		current = current.next.next;
-	}
+  let current = head
+  while (current) {
+    const copyNode = new Node(current.value)
+    copyNode.next = current.next
+    current.next = copyNode
+    current = current.next.next
+  }
 
-	current = head.next;
-	let original = head;
-	while (current) {
-		current.random = original.random;
-		current = current.next;
-		original = original.next;
-	}
+  current = head.next
+  let original = head
+  while (current) {
+    current.random = original.random
+    current = current.next
+    original = original.next
+  }
 
-	original = head;
-	while (original) {
-		original.next = original.next.next;
-		original = original.next;
-	}
+  original = head
+  while (original) {
+    original.next = original.next.next
+    original = original.next
+  }
 
-	return head;
+  return head
 }
 
-copy(randomNode1);
+copy(randomNode1)

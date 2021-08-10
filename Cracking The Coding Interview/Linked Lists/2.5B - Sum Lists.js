@@ -26,87 +26,87 @@
 // Proposed Solution:
 //
 
-const { Node } = require("../../Linked Lists/LinkedList");
+const { Node, } = require("../../Linked Lists/LinkedList")
 // set B
-let node11 = new Node(1, null, null);
-let node10 = new Node(1, null, node11);
+const node11 = new Node(1, null, null)
+const node10 = new Node(1, null, node11)
 
-let node9 = new Node(1, null, null);
-let node8 = new Node(9, null, node9);
-let node7 = new Node(9, null, node8);
-let node6 = new Node(1, null, node7);
+const node9 = new Node(1, null, null)
+const node8 = new Node(9, null, node9)
+const node7 = new Node(9, null, node8)
+const node6 = new Node(1, null, node7)
 
-let sumListsB = (list1, list2) => {
-	if (!list1 && !list2) return null;
+const sumListsB = (list1, list2) => {
+  if (!list1 && !list2) return null
 
-	let length1 = length(list1);
-	let length2 = length(list2);
+  const length1 = length(list1)
+  const length2 = length(list2)
 
-	if (length1 > length2) {
-		list2 = pad(list2, length1 - length2);
-	} else {
-		list1 = pad(list1, length2 - length1);
-	}
+  if (length1 > length2) {
+    list2 = pad(list2, length1 - length2)
+  } else {
+    list1 = pad(list1, length2 - length1)
+  }
 
-	const { previousSum, currentSum } = carry(sum(list1, list2), 0);
-	return currentSum
-		? append(previousSum, new Node(currentSum, null, null))
-		: previousSum;
-};
+  const { previousSum, currentSum, } = carry(sum(list1, list2), 0)
+  return currentSum
+    ? append(previousSum, new Node(currentSum, null, null))
+    : previousSum
+}
 
 // Utility functions
 function length(node) {
-	let len = 0;
+  let len = 0
 
-	while (node) {
-		len++;
-		node = node.next;
-	}
+  while (node) {
+    len++
+    node = node.next
+  }
 
-	return len;
+  return len
 }
 
 function pad(list, num) {
-	while (num != 0) {
-		let node = new Node(0, null, null);
-		node.next = list;
-		list = node;
-		num--;
-	}
+  while (num != 0) {
+    const node = new Node(0, null, null)
+    node.next = list
+    list = node
+    num--
+  }
 
-	return list;
+  return list
 }
 
 function append(head, node) {
-	node.next = head;
-	return node;
+  node.next = head
+  return node
 }
 
 function carry(previousSum, currentSum) {
-	if (previousSum.value >= 10) {
-		previousSum.value = previousSum.value % 10;
-		currentSum += 1;
-	}
+  if (previousSum.value >= 10) {
+    previousSum.value %= 10
+    currentSum += 1
+  }
 
-	return {
-		previousSum,
-		currentSum,
-	};
+  return {
+    previousSum,
+    currentSum,
+  }
 }
 
 function sum(l1, l2) {
-	if (!l1.next && !l2.next) {
-		return new Node(l1.value + l2.value, null, null);
-	}
+  if (!l1.next && !l2.next) {
+    return new Node(l1.value + l2.value, null, null)
+  }
 
-	let value = l1.value + l2.value;
+  const value = l1.value + l2.value
 
-	const { previousSum, currentSum } = carry(sum(l1.next, l2.next), value);
-	return append(previousSum, new Node(currentSum, null, null));
+  const { previousSum, currentSum, } = carry(sum(l1.next, l2.next), value)
+  return append(previousSum, new Node(currentSum, null, null))
 }
 
 // Test
-console.log(sumListsB(node6, node10)); // 2002
+console.log(sumListsB(node6, node10)) // 2002
 
 // Notes after implementing:
 // since we can't directly traverse backwarks in a singly linked list

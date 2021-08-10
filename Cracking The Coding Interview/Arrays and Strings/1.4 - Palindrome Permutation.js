@@ -28,26 +28,26 @@
 // 		We can implement a HashMap and keep track of the chars. If more than one char has an odd total,
 // 		return false.
 
-let palindromePermutation = (string) => {
-	let map = new Map();
-	let odds = 0;
+const palindromePermutation = (string) => {
+  const map = new Map()
+  let odds = 0
 
-	for (char of string) {
-		if (map.get(char) == 1) {
-			map.set(char, 0);
-			odds--;
-		} else {
-			map.set(char, 1);
-			odds++;
-		}
-	}
+  for (char of string) {
+    if (map.get(char) == 1) {
+      map.set(char, 0)
+      odds--
+    } else {
+      map.set(char, 1)
+      odds++
+    }
+  }
 
-	return odds <= 1;
-};
+  return odds <= 1
+}
 
 // Test
-console.log(palindromePermutation("tacocat")); // true
-console.log(palindromePermutation("tacoocat")); // true
-console.log(palindromePermutation("tacoxcat")); // false
+console.log(palindromePermutation("tacocat")) // true
+console.log(palindromePermutation("tacoocat")) // true
+console.log(palindromePermutation("tacoxcat")) // false
 
 // Notes after implementing:

@@ -6,8 +6,8 @@
 // For k = 3, you should return: 3->2->1->4->5
 
 function ListNode(val, next) {
-	this.val = val === undefined ? 0 : val;
-	this.next = next === undefined ? null : next;
+  this.val = val === undefined ? 0 : val
+  this.next = next === undefined ? null : next
 }
 
 /**
@@ -16,56 +16,56 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 
-let param = new ListNode(
-	1,
-	new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))
-);
+const param = new ListNode(
+  1,
+  new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))
+)
 
-var reverseKGroup = function (head, k) {
-	// Guard against null or groups of '1'
-	if (!head || k == 1) return head;
+const reverseKGroup = function (head, k) {
+  // Guard against null or groups of '1'
+  if (!head || k == 1) return head
 
-	// Initialize a dummy node
-	const dummy = new ListNode(-1);
+  // Initialize a dummy node
+  const dummy = new ListNode(-1)
 
-	// Set dummy.next to reference head
-	dummy.next = head;
+  // Set dummy.next to reference head
+  dummy.next = head
 
-	// Initialize pointer current, previous and next
-	let cur = dummy,
-		pre = dummy,
-		nxt;
+  // Initialize pointer current, previous and next
+  let cur = dummy
+  let pre = dummy
+  let nxt
 
-	// Initialize counter at 0
-	let num = 0;
+  // Initialize counter at 0
+  let num = 0
 
-	// Iterate through the data structure and increment counter to find total nodes
-	while ((cur = cur.next)) ++num;
+  // Iterate through the data structure and increment counter to find total nodes
+  while ((cur = cur.next)) ++num
 
-	// While the number of nodes is equal or greater than the grouping
-	while (num >= k) {
-		// Traverse current node from dummy to beginning
-		cur = pre.next;
-		// Set the next node
-		nxt = cur.next;
+  // While the number of nodes is equal or greater than the grouping
+  while (num >= k) {
+    // Traverse current node from dummy to beginning
+    cur = pre.next
+    // Set the next node
+    nxt = cur.next
 
-		// Change Pointers for k-1
-		for (let i = 1; i < k; ++i) {
-			// Set current to point to next set of nodes
-			cur.next = nxt.next;
-			// Set next to point to current node
-			nxt.next = pre.next;
-			// Set previouse to nxt
-			pre.next = nxt;
-			// Traverse next
-			nxt = cur.next;
-		}
-		// Set previous to current
-		pre = cur;
-		// Update counter to remove group
-		num -= k;
-	}
-	return dummy.next;
-};
+    // Change Pointers for k-1
+    for (let i = 1; i < k; ++i) {
+      // Set current to point to next set of nodes
+      cur.next = nxt.next
+      // Set next to point to current node
+      nxt.next = pre.next
+      // Set previouse to nxt
+      pre.next = nxt
+      // Traverse next
+      nxt = cur.next
+    }
+    // Set previous to current
+    pre = cur
+    // Update counter to remove group
+    num -= k
+  }
+  return dummy.next
+}
 
-reverseKGroup(param, 2);
+reverseKGroup(param, 2)

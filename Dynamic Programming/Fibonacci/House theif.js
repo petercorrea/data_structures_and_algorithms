@@ -1,57 +1,55 @@
 const findMaxSteal = function (wealth) {
-	function findMaxStealRecursive(wealth, currentIndex) {
-		if (currentIndex >= wealth.length) return 0;
+  function findMaxStealRecursive(wealth, currentIndex) {
+    if (currentIndex >= wealth.length) return 0
 
-		// steal from current house and skip one to steal from the next house
-		const stealCurrent =
-			wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2);
-		// skip current house to steel from the adjacent house
-		const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1);
+    // steal from current house and skip one to steal from the next house
+    const stealCurrent =			wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
+    // skip current house to steel from the adjacent house
+    const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1)
 
-		return Math.max(stealCurrent, skipCurrent);
-	}
-	return findMaxStealRecursive(wealth, 0);
-};
+    return Math.max(stealCurrent, skipCurrent)
+  }
+  return findMaxStealRecursive(wealth, 0)
+}
 
-console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`);
-console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`);
+console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`)
+console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`)
 
 const findMaxStealMemo = function (wealth) {
-	const dp = [];
+  const dp = []
 
-	function findMaxStealRecursive(wealth, currentIndex) {
-		if (currentIndex >= wealth.length) return 0;
+  function findMaxStealRecursive(wealth, currentIndex) {
+    if (currentIndex >= wealth.length) return 0
 
-		if (typeof dp[currentIndex] === "undefined") {
-			// steal from current house and skip one to steal from the next house
-			const stealCurrent =
-				wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2);
-			// skip current house to steel from the adjacent house
-			const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1);
+    if (typeof dp[currentIndex] === "undefined") {
+      // steal from current house and skip one to steal from the next house
+      const stealCurrent =				wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
+      // skip current house to steel from the adjacent house
+      const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1)
 
-			dp[currentIndex] = Math.max(stealCurrent, skipCurrent);
-		}
-		return dp[currentIndex];
-	}
-	return findMaxStealRecursive(wealth, 0);
-};
+      dp[currentIndex] = Math.max(stealCurrent, skipCurrent)
+    }
+    return dp[currentIndex]
+  }
+  return findMaxStealRecursive(wealth, 0)
+}
 
-console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`);
-console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`);
+console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`)
+console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`)
 
 const findMaxStealDp = function (wealth) {
-	if (wealth.length === 0) return 0;
-	const dp = Array(wealth.length + 1).fill(0); // '+1' to handle the zero house
-	dp[0] = 0; // if there are no houses, the thief can't steal anything
-	dp[1] = wealth[0]; // only one house, so the thief have to steal from it
+  if (wealth.length === 0) return 0
+  const dp = Array(wealth.length + 1).fill(0) // '+1' to handle the zero house
+  dp[0] = 0 // if there are no houses, the thief can't steal anything
+  dp[1] = wealth[0] // only one house, so the thief have to steal from it
 
-	// please note that dp[] has one extra element to handle zero house
-	for (let i = 1; i < wealth.length; i++) {
-		dp[i + 1] = Math.max(wealth[i] + dp[i - 1], dp[i]);
-	}
+  // please note that dp[] has one extra element to handle zero house
+  for (let i = 1; i < wealth.length; i++) {
+    dp[i + 1] = Math.max(wealth[i] + dp[i - 1], dp[i])
+  }
 
-	return dp[wealth.length];
-};
+  return dp[wealth.length]
+}
 
-console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`);
-console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`);
+console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`)
+console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`)

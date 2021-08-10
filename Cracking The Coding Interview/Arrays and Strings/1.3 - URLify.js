@@ -20,28 +20,28 @@
 // 		On the second pass we'll traverse backwards and just trim the whitespace at the end of the string.
 //  	This will result in a TC and SC of O(n) where n is the length of the input string.
 
-let URLify = (string, trueLength) => {
-	let trimmedString = "";
-	let convertedString = "";
+const URLify = (string, trueLength) => {
+  let trimmedString = ""
+  let convertedString = ""
 
-	for (let i = 0; i < trueLength; i++) {
-		trimmedString += string[i];
-	}
+  for (let i = 0; i < trueLength; i++) {
+    trimmedString += string[i]
+  }
 
-	for (let i = 0; i < trueLength; i++) {
-		if (trimmedString[i] === " ") {
-			convertedString += "%20";
-		} else {
-			convertedString += trimmedString[i];
-		}
-	}
+  for (let i = 0; i < trueLength; i++) {
+    if (trimmedString[i] === " ") {
+      convertedString += "%20"
+    } else {
+      convertedString += trimmedString[i]
+    }
+  }
 
-	return convertedString;
-};
+  return convertedString
+}
 
 // Test
-console.log(URLify("Pet er   ", 6)); // Pet%20er
-console.log(URLify("Mich  ael   ", 9)); // Mich%20%20ael
+console.log(URLify("Pet er   ", 6)) // Pet%20er
+console.log(URLify("Mich  ael   ", 9)) // Mich%20%20ael
 
 // Notes after implementing:
 // Earlier implementation involved accessing the trimmedString via index to append new values.

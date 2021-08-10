@@ -13,24 +13,24 @@
 // "Python"
 
 function tournament(competitions, results) {
-	let map = new Map();
-	let max = ["team", 0];
+  const map = new Map()
+  const max = ["team", 0]
 
-	for (let i = 0; i < competitions.length; i++) {
-		if (results[i] == 0) {
-			map.set(competitions[i][1], map.get(competitions[i][1]) + 3 || 3);
-		} else if (results[i] == 1) {
-			map.set(competitions[i][0], map.get(competitions[i][0]) + 3 || 3);
-		}
-	}
+  for (let i = 0; i < competitions.length; i++) {
+    if (results[i] == 0) {
+      map.set(competitions[i][1], map.get(competitions[i][1]) + 3 || 3)
+    } else if (results[i] == 1) {
+      map.set(competitions[i][0], map.get(competitions[i][0]) + 3 || 3)
+    }
+  }
 
-	for (let [team, score] of map) {
-		console.log(team, score);
-		if (score > max[1]) {
-			max[0] = team;
-			max[1] = score;
-		}
-	}
+  for (const [team, score] of map) {
+    console.log(team, score)
+    if (score > max[1]) {
+      max[0] = team
+      max[1] = score
+    }
+  }
 
-	return max[0];
+  return max[0]
 }

@@ -15,12 +15,12 @@
 // y = 0010 ^ 1011 = 1001;
 
 function swap(int1, int2) {
-	int1 = int1 ^ int2;
-	int2 = int1 ^ int2;
-	int1 = int1 ^ int2;
+  int1 ^= int2
+  int2 = int1 ^ int2
+  int1 ^= int2
 
-	let result = [int1, int2];
-	return result;
+  const result = [int1, int2]
+  return result
 }
 
-console.log(swap(12, 24));
+console.log(swap(12, 24))

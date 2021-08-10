@@ -22,31 +22,32 @@
  *     b. Otherwise follow parent pointers until we find a node that is a left
  *     child of its parent, then the parent is the successor. */
 
-const { inOrderTree } = require("./Sample Tree");
-let succesor = (node) => {
-	if (node.left) {
-		while (node.left) {
-			node = node.left;
-		}
-		return node;
-	} else if (!node.left && node.right) {
-		return node.right;
-	} else if (node == node.parent.left) {
-		return node.parent;
-	} else if (node == node.parent.right) {
-		while (node != node.parent.left) {
-			node = node.parent;
-			if (node.parent == null) {
-				return "This is the last node";
-			}
-		}
-		return node.parent;
-	}
+const { inOrderTree, } = require("./Sample Tree")
 
-	return false;
-};
+const succesor = (node) => {
+  if (node.left) {
+    while (node.left) {
+      node = node.left
+    }
+    return node
+  } if (!node.left && node.right) {
+    return node.right
+  } if (node == node.parent.left) {
+    return node.parent
+  } if (node == node.parent.right) {
+    while (node != node.parent.left) {
+      node = node.parent
+      if (node.parent == null) {
+        return "This is the last node"
+      }
+    }
+    return node.parent
+  }
+
+  return false
+}
 // Test
-console.log(succesor(inOrderTree)); // result
+console.log(succesor(inOrderTree)) // result
 
 // Notes after implementing:
 //

@@ -46,48 +46,48 @@
 // Time: w^2 * h
 // Space: w
 function waterfallStreams(array, source) {
-	let rowAbove = [...array[0]];
-	rowAbove[source] = -1;
+  let rowAbove = [...array[0]]
+  rowAbove[source] = -1
 
-	for (let i = 1; i < array.length; i++) {
-		let currentRow = [...array[i]];
+  for (let i = 1; i < array.length; i++) {
+    const currentRow = [...array[i]]
 
-		for (let j = 0; j < rowAbove.length; j++) {
-			let valueAbove = rowAbove[j];
-			let hasWaterAbove = valueAbove < 0;
-			let hasBlock = currentRow[j] == 1;
+    for (let j = 0; j < rowAbove.length; j++) {
+      const valueAbove = rowAbove[j]
+      const hasWaterAbove = valueAbove < 0
+      const hasBlock = currentRow[j] == 1
 
-			if (!hasWaterAbove) continue;
-			if (!hasBlock) {
-				currentRow[j] += valueAbove;
-				continue;
-			}
+      if (!hasWaterAbove) continue
+      if (!hasBlock) {
+        currentRow[j] += valueAbove
+        continue
+      }
 
-			let splitWater = valueAbove / 2;
-			let rightIdx = j;
-			while (rightIdx + 1 < rowAbove.length) {
-				rightIdx++;
-				if (rowAbove[rightIdx] == 1) break;
-				if (currentRow[rightIdx] !== 1) {
-					currentRow[rightIdx] += splitWater;
-					break;
-				}
-			}
+      const splitWater = valueAbove / 2
+      let rightIdx = j
+      while (rightIdx + 1 < rowAbove.length) {
+        rightIdx++
+        if (rowAbove[rightIdx] == 1) break
+        if (currentRow[rightIdx] !== 1) {
+          currentRow[rightIdx] += splitWater
+          break
+        }
+      }
 
-			let leftIdx = j;
-			while (leftIdx - 1 >= 0) {
-				leftIdx--;
-				if (rowAbove[leftIdx] == 1) break;
-				if (currentRow[leftIdx] !== 1) {
-					currentRow[leftIdx] += splitWater;
-					break;
-				}
-			}
-		}
+      let leftIdx = j
+      while (leftIdx - 1 >= 0) {
+        leftIdx--
+        if (rowAbove[leftIdx] == 1) break
+        if (currentRow[leftIdx] !== 1) {
+          currentRow[leftIdx] += splitWater
+          break
+        }
+      }
+    }
 
-		rowAbove = currentRow;
-	}
+    rowAbove = currentRow
+  }
 
-	let finalValues = rowAbove.map((num) => (num < 0 ? num * -100 : num));
-	return finalValues;
+  const finalValues = rowAbove.map((num) => (num < 0 ? num * -100 : num))
+  return finalValues
 }

@@ -1,22 +1,22 @@
 // Given an array of integers and asked to find the maximum value.
-let arr = [2, 4, 1, 7, 9];
+const arr = [2, 4, 1, 7, 9]
 
 function findMax(array) {
-	if (arr.length == 0) {
-		return null;
-	}
+  if (arr.length == 0) {
+    return null
+  }
 
-	// initialize a current val
-	let max = 0;
+  // initialize a current val
+  let max = 0
 
-	// iterate array
-	for (let i = 0; i < array.length; i++) {
-		if (array[i] > max) {
-			max = array[i];
-		}
-	}
+  // iterate array
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i]
+    }
+  }
 
-	return max;
+  return max
 }
 
-findMax(arr);
+findMax(arr)

@@ -13,56 +13,55 @@
 // 		-Minimum insertions in a string to make it a palindrome (same as above)
 // 		-Find if a string is K-Palindromic by removing at most K chars (if min deletions is <= K)
 
-let findLPSMemo = function (string) {
-	let memo = [];
+const findLPSMemo = function (string) {
+  const memo = []
 
-	function solveRecursive(string, startIdx, endIdx) {
-		if (startIdx > endIdx) return 0;
-		if (startIdx == endIdx) return 1;
+  function solveRecursive(string, startIdx, endIdx) {
+    if (startIdx > endIdx) return 0
+    if (startIdx == endIdx) return 1
 
-		memo[startIdx] = memo[startIdx] || [];
+    memo[startIdx] = memo[startIdx] || []
 
-		if (typeof memo[startIdx][endIdx] == "undefined") {
-			if (string[startIdx] == string[endIdx]) {
-				memo[startIdx][endIdx] =
-					2 + solveRecursive(string, startIdx + 1, endIdx - 1);
-			} else {
-				let c1 = solveRecursive(string, startIdx + 1, endIdx);
-				let c2 = solveRecursive(string, startIdx, endIdx - 1);
-				memo[startIdx][endIdx] = Math.max(c1, c2);
-			}
-		}
-		return memo[startIdx][endIdx];
-	}
+    if (typeof memo[startIdx][endIdx] === "undefined") {
+      if (string[startIdx] == string[endIdx]) {
+        memo[startIdx][endIdx] =					2 + solveRecursive(string, startIdx + 1, endIdx - 1)
+      } else {
+        const c1 = solveRecursive(string, startIdx + 1, endIdx)
+        const c2 = solveRecursive(string, startIdx, endIdx - 1)
+        memo[startIdx][endIdx] = Math.max(c1, c2)
+      }
+    }
+    return memo[startIdx][endIdx]
+  }
 
-	return solveRecursive(string, 0, string.length - 1);
-};
+  return solveRecursive(string, 0, string.length - 1)
+}
 
-let findLPSTab = function (string) {
-	let n = string.length;
-	let table = Array(n)
-		.fill(0)
-		.map(() => Array(n).fill(0));
+const findLPSTab = function (string) {
+  const n = string.length
+  const table = Array(n)
+    .fill(0)
+    .map(() => Array(n).fill(0))
 
-	for (let i = 0; i < n; i++) {
-		table[i][i] = 1;
-	}
+  for (let i = 0; i < n; i++) {
+    table[i][i] = 1
+  }
 
-	for (let startIdx = string.length - 2; startIdx >= 0; startIdx--) {
-		for (let endIdx = startIdx + 1; endIdx < string.length; endIdx++) {
-			if (string[startIdx] == string[endIdx]) {
-				table[startIdx][endIdx] = 2 + table[startIdx + 1][endIdx - 1];
-			} else {
-				table[startIdx][endIdx] = Math.max(
-					table[startIdx + 1][endIdx],
-					table[startIdx][endIdx - 1]
-				);
-			}
-		}
-	}
+  for (let startIdx = string.length - 2; startIdx >= 0; startIdx--) {
+    for (let endIdx = startIdx + 1; endIdx < string.length; endIdx++) {
+      if (string[startIdx] == string[endIdx]) {
+        table[startIdx][endIdx] = 2 + table[startIdx + 1][endIdx - 1]
+      } else {
+        table[startIdx][endIdx] = Math.max(
+          table[startIdx + 1][endIdx],
+          table[startIdx][endIdx - 1]
+        )
+      }
+    }
+  }
 
-	return table[0][string.length - 1];
-};
-console.log("Length of LPS ---> " + findLPSTab("abdbca"));
-console.log("Length of LPS ---> " + findLPSTab("cddpd"));
-console.log("Length of LPS ---> " + findLPSTab("pqr"));
+  return table[0][string.length - 1]
+}
+console.log(`Length of LPS ---> ${findLPSTab("abdbca")}`)
+console.log(`Length of LPS ---> ${findLPSTab("cddpd")}`)
+console.log(`Length of LPS ---> ${findLPSTab("pqr")}`)

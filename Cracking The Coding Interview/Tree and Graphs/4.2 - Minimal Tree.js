@@ -1,5 +1,5 @@
 // Problem Statement:
-//Given a sorted (increasing order) array with unique integer elements, write an algorithm to create a binary search tree with minimal height.
+// Given a sorted (increasing order) array with unique integer elements, write an algorithm to create a binary search tree with minimal height.
 
 // Clarifing Questions:
 // 	-
@@ -12,22 +12,22 @@
 
 // Proposed Solution:
 //
-const { Node } = require("../../Trees/Binary Search Tree");
+const { Node, } = require("../../Trees/Binary Search Tree")
 
-let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-let makeBST = (arr, start = 0, end = arr.length - 1) => {
-	if (end < start) return null;
+const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+const makeBST = (arr, start = 0, end = arr.length - 1) => {
+  if (end < start) return null
 
-	let mid = Math.floor((start + end) / 2);
-	let node = new Node(arr[mid]);
-	node.left = makeBST(arr, start, mid - 1);
-	node.right = makeBST(arr, mid + 1, end);
-	return node;
-};
+  const mid = Math.floor((start + end) / 2)
+  const node = new Node(arr[mid])
+  node.left = makeBST(arr, start, mid - 1)
+  node.right = makeBST(arr, mid + 1, end)
+  return node
+}
 
 // Test
-let result = makeBST(arr);
-console.log(result.right); // result
+const result = makeBST(arr)
+console.log(result.right) // result
 
 // Notes after implementing:
 // the (end < start) works as the base case because the recursion

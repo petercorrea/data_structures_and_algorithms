@@ -13,32 +13,32 @@
 // Proposed Solution:
 //
 
-let powerSet = (arr) => {
-	let result = powerSetHelper(arr);
-	result.push([]);
-	return result;
-};
+const powerSet = (arr) => {
+  const result = powerSetHelper(arr)
+  result.push([])
+  return result
+}
 
 let powerSetHelper = (arr, result = []) => {
-	if (arr.length == 1) {
-		result.push(arr[0]);
-		return result;
-	}
+  if (arr.length == 1) {
+    result.push(arr[0])
+    return result
+  }
 
-	powerSetHelper(arr.slice(1), result);
+  powerSetHelper(arr.slice(1), result)
 
-	let length = result.length;
+  const { length, } = result
 
-	for (let i = 0; i < length; i++) {
-		let item = result[i];
-		result.push(arr[0] + item);
-	}
+  for (let i = 0; i < length; i++) {
+    const item = result[i]
+    result.push(arr[0] + item)
+  }
 
-	result.push(arr[0]);
-	return result;
-};
+  result.push(arr[0])
+  return result
+}
 
 // Test:
-console.log(powerSet(["A", "B", "C"])); // result
+console.log(powerSet(["A", "B", "C"])) // result
 
 // Notes after implementing:

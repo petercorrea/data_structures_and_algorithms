@@ -13,10 +13,10 @@
 // Proposed Solution:
 //
 
-let someFunction = () => {};
+const someFunction = () => {}
 
 // Test
-console.log(); // result
+console.log() // result
 
 // Notes after implementing:
 //

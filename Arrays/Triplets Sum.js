@@ -8,30 +8,30 @@
 // Time: n^2
 // Space: n
 function tripletsSum(array, targetSum) {
-	array.sort((a, b) => a - b);
-	let result = [];
+  array.sort((a, b) => a - b)
+  const result = []
 
-	for (let i = 0; i < array.length; i++) {
-		let left = i + 1;
-		let right = array.length - 1;
+  for (let i = 0; i < array.length; i++) {
+    let left = i + 1
+    let right = array.length - 1
 
-		while (left < right) {
-			let sum = array[i] + array[left] + array[right];
+    while (left < right) {
+      const sum = array[i] + array[left] + array[right]
 
-			if (sum == targetSum) {
-				result.push([array[i], array[left], array[right]]);
-				// keep moving pointers to find more potential sums
-				left++;
-				right--;
-			} else if (sum < targetSum) {
-				left++;
-			} else if (sum > targetSum) {
-				right--;
-			}
-		}
-	}
+      if (sum == targetSum) {
+        result.push([array[i], array[left], array[right]])
+        // keep moving pointers to find more potential sums
+        left++
+        right--
+      } else if (sum < targetSum) {
+        left++
+      } else if (sum > targetSum) {
+        right--
+      }
+    }
+  }
 
-	return result;
+  return result
 }
 
-tripletsSum([12, 3, 1, 2, -6, 5, -8, 6], 0); // [[-8, 2, 6], [-8, 3, 5], [-6, 1, 5]]
+tripletsSum([12, 3, 1, 2, -6, 5, -8, 6], 0) // [[-8, 2, 6], [-8, 3, 5], [-6, 1, 5]]

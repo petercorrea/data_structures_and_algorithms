@@ -4,27 +4,27 @@
 // TC: n
 // SP: n
 function branchSums(root) {
-	const dfs = (node, prevSum = 0, result = []) => {
-		const currentSum = node.value + prevSum;
+  const dfs = (node, prevSum = 0, result = []) => {
+    const currentSum = node.value + prevSum
 
-		if (!node.left && !node.right) {
-			result.push(currentSum);
-		}
+    if (!node.left && !node.right) {
+      result.push(currentSum)
+    }
 
-		if (node.left) {
-			dfs(node.left, currentSum, result);
-		}
+    if (node.left) {
+      dfs(node.left, currentSum, result)
+    }
 
-		if (node.right) {
-			dfs(node.right, currentSum, result);
-		}
+    if (node.right) {
+      dfs(node.right, currentSum, result)
+    }
 
-		return result;
-	};
+    return result
+  }
 
-	return dfs(root);
+  return dfs(root)
 }
 
 module.exports = {
-	branchSums,
-};
+  branchSums,
+}

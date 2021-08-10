@@ -16,39 +16,39 @@
 // Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
 
 const sortLogs = (logs) => {
-	// Slice out body
-	const body = (s) => s.slice(s.indexOf(" ") + 1);
+  // Slice out body
+  const body = (s) => s.slice(s.indexOf(" ") + 1)
 
-	// Determine if it's a digits log
-	const isNum = (s) => /\d/.test(s);
+  // Determine if it's a digits log
+  const isNum = (s) => /\d/.test(s)
 
-	// Initialize arrays
-	let logs_of_digits = [];
-	let logs_of_letters = [];
+  // Initialize arrays
+  const logs_of_digits = []
+  const logs_of_letters = []
 
-	// Compare function for logs of letters
-	const compare = (a, b) => {
-		// Compare body, if same, compare identifier
-		const result = body(a).localeCompare(body(b));
+  // Compare function for logs of letters
+  const compare = (a, b) => {
+    // Compare body, if same, compare identifier
+    const result = body(a).localeCompare(body(b))
 
-		if (result !== 0) return result;
-		return a.localeCompare(b);
-	};
+    if (result !== 0) return result
+    return a.localeCompare(b)
+  }
 
-	// Iterate through data and place into respective arrays
-	for (const log of logs) {
-		if (isNum(body(log))) logs_of_digits.push(log);
-		else logs_of_letters.push(log);
-	}
+  // Iterate through data and place into respective arrays
+  for (const log of logs) {
+    if (isNum(body(log))) logs_of_digits.push(log)
+    else logs_of_letters.push(log)
+  }
 
-	return [...logs_of_letters.sort(compare), ...logs_of_digits];
-};
+  return [...logs_of_letters.sort(compare), ...logs_of_digits]
+}
 
-let arr = [
-	"dig1 8 1 5 1",
-	"let1 art can",
-	"dig2 3 6",
-	"let2 own kit dig",
-	"let3 art zero",
-];
-sortLogs(arr);
+const arr = [
+  "dig1 8 1 5 1",
+  "let1 art can",
+  "dig2 3 6",
+  "let2 own kit dig",
+  "let3 art zero"
+]
+sortLogs(arr)

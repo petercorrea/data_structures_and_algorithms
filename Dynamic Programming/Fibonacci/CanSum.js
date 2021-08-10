@@ -6,38 +6,38 @@
 // Brute Force
 // TC: nums^targetSum
 // SC: targetSum
-let canSum = (targetSum, nums) => {
-	if (targetSum === 0) return true;
-	if (targetSum < 0) return false;
-	if (nums.length === 0) return false;
+const canSum = (targetSum, nums) => {
+  if (targetSum === 0) return true
+  if (targetSum < 0) return false
+  if (nums.length === 0) return false
 
-	for (let num of nums) {
-		let remainder = targetSum - num;
-		if (canSum(remainder, nums) == true) return true;
-	}
+  for (const num of nums) {
+    const remainder = targetSum - num
+    if (canSum(remainder, nums) == true) return true
+  }
 
-	return false;
-};
+  return false
+}
 
 // Memo
-let canSumMemo = (targetSum, nums, memo = {}) => {
-	if (targetSum in memo) return memo[targetSum];
-	if (targetSum === 0) return true;
-	if (nums.length === 0) return false;
-	if (targetSum < 0) return false;
+const canSumMemo = (targetSum, nums, memo = {}) => {
+  if (targetSum in memo) return memo[targetSum]
+  if (targetSum === 0) return true
+  if (nums.length === 0) return false
+  if (targetSum < 0) return false
 
-	for (let num of nums) {
-		let remainder = targetSum - num;
-		if (canSumMemo(remainder, nums, memo) == true) return true;
-		memo[targetSum] = true;
-	}
+  for (const num of nums) {
+    const remainder = targetSum - num
+    if (canSumMemo(remainder, nums, memo) == true) return true
+    memo[targetSum] = true
+  }
 
-	memo[targetSum] = false;
-	return memo[targetSum];
-};
+  memo[targetSum] = false
+  return memo[targetSum]
+}
 
-console.log(canSumMemo(7, [2, 3])); //true
-console.log(canSumMemo(7, [5, 3, 4, 7])); //true
-console.log(canSumMemo(7, [2, 4])); //false
-console.log(canSumMemo(8, [2, 3, 5])); //true
-console.log(canSumMemo(300, [7, 14])); //false
+console.log(canSumMemo(7, [2, 3])) // true
+console.log(canSumMemo(7, [5, 3, 4, 7])) // true
+console.log(canSumMemo(7, [2, 4])) // false
+console.log(canSumMemo(8, [2, 3, 5])) // true
+console.log(canSumMemo(300, [7, 14])) // false

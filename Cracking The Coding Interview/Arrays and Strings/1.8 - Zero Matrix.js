@@ -14,42 +14,42 @@
 // Proposed Solution:
 //
 
-let zeroMartrix = (m) => {
-	let rows = [];
-	let cols = [];
+const zeroMartrix = (m) => {
+  const rows = []
+  const cols = []
 
-	for (let i = 0; i <= m.length - 1; i++) {
-		for (let j = 0; j <= m[0].length; j++) {
-			if (m[i][j] == 0) {
-				rows.push(i);
-				cols.push(j);
-			}
-		}
-	}
+  for (let i = 0; i <= m.length - 1; i++) {
+    for (let j = 0; j <= m[0].length; j++) {
+      if (m[i][j] == 0) {
+        rows.push(i)
+        cols.push(j)
+      }
+    }
+  }
 
-	for (r of rows) {
-		for (let i = 0; i <= m[0].length - 1; i++) {
-			m[r][i] = 0;
-		}
-	}
+  for (r of rows) {
+    for (let i = 0; i <= m[0].length - 1; i++) {
+      m[r][i] = 0
+    }
+  }
 
-	for (c of cols) {
-		for (let j = 0; j <= m.length - 1; j++) {
-			m[j][c] = 0;
-		}
-	}
+  for (c of cols) {
+    for (let j = 0; j <= m.length - 1; j++) {
+      m[j][c] = 0
+    }
+  }
 
-	return m;
-};
+  return m
+}
 
 // Test
-let matrix = [
-	[1, 1, 0, 1],
-	[1, 1, 1, 1],
-	[0, 1, 1, 1],
-];
+const matrix = [
+  [1, 1, 0, 1],
+  [1, 1, 1, 1],
+  [0, 1, 1, 1]
+]
 
-console.log(zeroMartrix(matrix));
+console.log(zeroMartrix(matrix))
 // result
 // [
 // 	[0, 0, 0, 0],

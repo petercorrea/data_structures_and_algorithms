@@ -24,74 +24,72 @@
 // TC: 2^n
 // SP: n
 const findLRSLength = function (str) {
-	function findLRSLengthRecursive(str, i1, i2) {
-		if (i1 === str.length || i2 === str.length) return 0;
+  function findLRSLengthRecursive(str, i1, i2) {
+    if (i1 === str.length || i2 === str.length) return 0
 
-		if (i1 !== i2 && str[i1] === str[i2])
-			return 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1);
+    if (i1 !== i2 && str[i1] === str[i2]) return 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
 
-		const c1 = findLRSLengthRecursive(str, i1, i2 + 1);
-		const c2 = findLRSLengthRecursive(str, i1 + 1, i2);
+    const c1 = findLRSLengthRecursive(str, i1, i2 + 1)
+    const c2 = findLRSLengthRecursive(str, i1 + 1, i2)
 
-		return Math.max(c1, c2);
-	}
-	return findLRSLengthRecursive(str, 0, 0);
-};
+    return Math.max(c1, c2)
+  }
+  return findLRSLengthRecursive(str, 0, 0)
+}
 
 const findLRSLengthMemo = function (str) {
-	const dp = [];
+  const dp = []
 
-	function findLRSLengthRecursive(str, i1, i2) {
-		if (i1 === str.length || i2 === str.length) return 0;
+  function findLRSLengthRecursive(str, i1, i2) {
+    if (i1 === str.length || i2 === str.length) return 0
 
-		dp[i1] = dp[i1] || [];
-		if (typeof dp[i1][i2] === "undefined") {
-			if (i1 !== i2 && str[i1] === str[i2])
-				dp[i1][i2] = 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1);
-			else {
-				let c1 = findLRSLengthRecursive(str, i1, i2 + 1);
-				let c2 = findLRSLengthRecursive(str, i1 + 1, i2);
-				dp[i1][i2] = Math.max(c1, c2);
-			}
-		}
+    dp[i1] = dp[i1] || []
+    if (typeof dp[i1][i2] === "undefined") {
+      if (i1 !== i2 && str[i1] === str[i2]) dp[i1][i2] = 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
+      else {
+        const c1 = findLRSLengthRecursive(str, i1, i2 + 1)
+        const c2 = findLRSLengthRecursive(str, i1 + 1, i2)
+        dp[i1][i2] = Math.max(c1, c2)
+      }
+    }
 
-		return dp[i1][i2];
-	}
-	return findLRSLengthRecursive(str, 0, 0);
-};
+    return dp[i1][i2]
+  }
+  return findLRSLengthRecursive(str, 0, 0)
+}
 
 // TC & SP: n^2
 const findLRSLengthDP = function (str) {
-	const dp = Array(str.length + 1)
-		.fill(0)
-		.map(() => Array(str.length + 1).fill(0));
+  const dp = Array(str.length + 1)
+    .fill(0)
+    .map(() => Array(str.length + 1).fill(0))
 
-	let maxLength = 0;
-	// dp[i1][i2] will be storing the LRS up to str[0..i1-1][0..i2-1]
-	// this also means that subsequences of length zero (first row and column of dp[][]),
-	// will always have LRS of size zero.
-	for (let i1 = 1; i1 <= str.length; i1++) {
-		for (let i2 = 1; i2 <= str.length; i2++) {
-			if (i1 !== i2 && str[i1 - 1] === str[i2 - 1]) {
-				dp[i1][i2] = 1 + dp[i1 - 1][i2 - 1];
-			} else {
-				dp[i1][i2] = Math.max(dp[i1 - 1][i2], dp[i1][i2 - 1]);
-			}
+  let maxLength = 0
+  // dp[i1][i2] will be storing the LRS up to str[0..i1-1][0..i2-1]
+  // this also means that subsequences of length zero (first row and column of dp[][]),
+  // will always have LRS of size zero.
+  for (let i1 = 1; i1 <= str.length; i1++) {
+    for (let i2 = 1; i2 <= str.length; i2++) {
+      if (i1 !== i2 && str[i1 - 1] === str[i2 - 1]) {
+        dp[i1][i2] = 1 + dp[i1 - 1][i2 - 1]
+      } else {
+        dp[i1][i2] = Math.max(dp[i1 - 1][i2], dp[i1][i2 - 1])
+      }
 
-			maxLength = Math.max(maxLength, dp[i1][i2]);
-		}
-	}
-	return maxLength;
-};
+      maxLength = Math.max(maxLength, dp[i1][i2])
+    }
+  }
+  return maxLength
+}
 
 console.log(
-	`Length of Longest Repeating Subsequence: ---> ${findLRSLength("tomorrow")}`
-);
+  `Length of Longest Repeating Subsequence: ---> ${findLRSLength("tomorrow")}`
+)
 console.log(
-	`Length of Longest Repeating Subsequence: ---> ${findLRSLengthMemo(
-		"tomorrow"
-	)}`
-);
+  `Length of Longest Repeating Subsequence: ---> ${findLRSLengthMemo(
+    "tomorrow"
+  )}`
+)
 console.log(
-	`Length of Longest Repeating Subsequence: ---> ${findLRSLengthDP("tomorrow")}`
-);
+  `Length of Longest Repeating Subsequence: ---> ${findLRSLengthDP("tomorrow")}`
+)

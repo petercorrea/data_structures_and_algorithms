@@ -20,41 +20,41 @@
 // 		j will reduce with m.length - i - 2. -2 because the end is length - 1, and since we will not traverse
 // 		the very last element because we have saved it and do not want to overwrite it, it become -2.
 
-let rotate = (m) => {
-	if (m.length != m[0].length) return "Is not an N*N matrix.";
+const rotate = (m) => {
+  if (m.length != m[0].length) return "Is not an N*N matrix."
 
-	for (let i = 0; i <= m.length / 2; i++) {
-		for (let j = i; j <= m.length - i - 2; j++) {
-			// save top left
-			let temp = m[i][j];
+  for (let i = 0; i <= m.length / 2; i++) {
+    for (let j = i; j <= m.length - i - 2; j++) {
+      // save top left
+      const temp = m[i][j]
 
-			// bottom left -> top left
-			m[i][j] = m[m.length - 1 - j][i];
+      // bottom left -> top left
+      m[i][j] = m[m.length - 1 - j][i]
 
-			// bottom right -> bottom left
-			m[m.length - 1 - j][i] = m[m.length - 1 - i][m.length - 1 - j];
+      // bottom right -> bottom left
+      m[m.length - 1 - j][i] = m[m.length - 1 - i][m.length - 1 - j]
 
-			// top right -> bottom right
-			m[m.length - 1 - i][m.length - 1 - j] = m[j][m.length - 1 - i];
+      // top right -> bottom right
+      m[m.length - 1 - i][m.length - 1 - j] = m[j][m.length - 1 - i]
 
-			// top right -> top left
-			m[j][m.length - 1 - i] = temp;
-		}
-	}
+      // top right -> top left
+      m[j][m.length - 1 - i] = temp
+    }
+  }
 
-	return m;
-};
+  return m
+}
 
 // Test
-let matrix = [
-	[1, 2, 3, 4, 5],
-	[6, 7, 8, 9, 10],
-	[11, 12, 13, 14, 15],
-	[16, 17, 18, 19, 20],
-	[21, 22, 23, 24, 25],
-];
+const matrix = [
+  [1, 2, 3, 4, 5],
+  [6, 7, 8, 9, 10],
+  [11, 12, 13, 14, 15],
+  [16, 17, 18, 19, 20],
+  [21, 22, 23, 24, 25]
+]
 
-console.log(rotate(matrix));
+console.log(rotate(matrix))
 // [
 // 	[21, 16, 11, 6, 1],
 // 	[22, 17, 12, 7, 2],

@@ -12,27 +12,26 @@
 
 // Proposed Solution:
 // we pass down ranged
-const { sampleBST, invalidBST } = require("./Sample BST");
+const { sampleBST, invalidBST, } = require("./Sample BST")
 
-let validate = (root, min = null, max = null) => {
-	if (root == null) return true;
+const validate = (root, min = null, max = null) => {
+  if (root == null) return true
 
-	if ((min != null && min >= root.value) || (max != null && max < root.value))
-		return false;
+  if ((min != null && min >= root.value) || (max != null && max < root.value)) return false
 
-	if (
-		!validate(root.left, min, root.value) ||
-		!validate(root.right, root.value, max)
-	) {
-		return false;
-	}
+  if (
+    !validate(root.left, min, root.value)
+		|| !validate(root.right, root.value, max)
+  ) {
+    return false
+  }
 
-	return true;
-};
+  return true
+}
 
 // Test
-console.log(validate(sampleBST)); // result
-console.log(validate(invalidBST)); // result
+console.log(validate(sampleBST)) // result
+console.log(validate(invalidBST)) // result
 
 // Notes after implementing:
 //

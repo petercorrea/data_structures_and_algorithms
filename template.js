@@ -1,10 +1,7 @@
 // Problem Statement:
 //
 
-// Clarifing Questions:
-//
-
-// Assume:
+// Clarifying Questions and Assumptions:
 //
 
 // Sample Input and Output:
@@ -13,7 +10,15 @@
 // Proposed Solution:
 //
 
-// Test:
-// result
+// Notes:
 
-// Notes after implementing:
+import { expect, assert } from "chai"
+import {} from "../../.."
+
+describe("Testing ... solution", () => {
+  it("...", () => {
+    let actual
+    let expected
+    assert.equal(actual, expected)
+  })
+})
