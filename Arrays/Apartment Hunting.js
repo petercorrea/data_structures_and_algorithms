@@ -1,7 +1,7 @@
 // Problem Statement:
 // You're given:
-// 		-a list representing contiguous blocks on a street where each block contains an apartment that you could move into.
-// 		-a list representing buildings you are optimizing to live near by.
+// -a list representing contiguous blocks on a street where each block contains an apartment that you could move into.
+// -a list representing buildings you are optimizing to live near by.
 
 // The list of blocks contains information at every block about all of
 // the buildings that are present and absent at the block in question.
@@ -19,11 +19,11 @@
 
 // Sample Input:
 // let blocks = [
-// 	{ gym: false, school: true, store: false },
-// 	{ gym: true, school: false, store: false },
-// 	{ gym: true, school: true, store: false },
-// 	{ gym: false, school: true, store: false },
-// 	{ gym: false, school: true, store: true },
+// { gym: false, school: true, store: false },
+// { gym: true, school: false, store: false },
+// { gym: true, school: true, store: false },
+// { gym: false, school: true, store: false },
+// { gym: false, school: true, store: true },
 // ];
 // let reqs = ["gym", "school", "store"];
 
@@ -31,11 +31,9 @@
 // 3 - at index 3, the farthest you'd have to walk to reach a gym, a school, or a store is 1 block;
 // at any other index, you'd have to walk farther.
 
-console.log("test" === "Test")
-
 // Time: br
 // Space: br
-export default apartmentHunting = (blocks, reqs) => {
+export default (blocks, reqs) => {
   // Initialize distances
   const distances = []
 
@@ -73,7 +71,9 @@ export default apartmentHunting = (blocks, reqs) => {
         )
       }
 
-      if (distances[i][reqs[j]] > currentMax) currentMax = distances[i][reqs[j]]
+      if (distances[i][reqs[j]] > currentMax) {
+        currentMax = distances[i][reqs[j]]
+      }
     }
 
     if (currentMax < smallestMax) {

@@ -30,14 +30,17 @@ const succesor = (node) => {
       node = node.left
     }
     return node
-  } if (!node.left && node.right) {
+  }
+  if (!node.left && node.right) {
     return node.right
-  } if (node == node.parent.left) {
+  }
+  if (node === node.parent.left) {
     return node.parent
-  } if (node == node.parent.right) {
-    while (node != node.parent.left) {
+  }
+  if (node === node.parent.right) {
+    while (node !== node.parent.left) {
       node = node.parent
-      if (node.parent == null) {
+      if (node.parent === null) {
         return "This is the last node"
       }
     }

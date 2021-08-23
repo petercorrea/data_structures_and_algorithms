@@ -36,7 +36,7 @@ function SADSorted(arrayOne, arrayTwo) {
   let diff
 
   while (a1 < arrayOne.length && a2 < arrayTwo.length) {
-    if (arrayOne[a1] == arrayTwo[a2]) return [arrayOne[a1], arrayTwo[a2]]
+    if (arrayOne[a1] === arrayTwo[a2]) return [arrayOne[a1], arrayTwo[a2]]
 
     // abs diff: largerNum - smallestNum
     if (arrayOne[a1] < arrayTwo[a2]) {

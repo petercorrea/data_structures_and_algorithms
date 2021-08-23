@@ -1,7 +1,7 @@
 const GraphVertex = require("./Graph")
 
 function cloneGraph(vertex) {
-  if (vertex == null) {
+  if (vertex === null) {
     return null
   }
 

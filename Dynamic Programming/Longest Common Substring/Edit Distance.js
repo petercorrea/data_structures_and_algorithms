@@ -7,13 +7,13 @@
 const findMinOperations = function (s1, s2) {
   function findMinOperationsRecursive(s1, s2, i1, i2) {
     // if we have reached the end of s1, then we have to insert all the remaining characters of s2
-    if (i1 == s1.length) return s2.length - i2
+    if (i1 === s1.length) return s2.length - i2
 
     // if we have reached the end of s2, then we have to delete all the remaining characters of s1
-    if (i2 == s2.length) return s1.length - i1
+    if (i2 === s2.length) return s1.length - i1
 
     // If the strings have a matching character, we can recursively match for the remaining lengths.
-    if (s1.charAt(i1) == s2.charAt(i2)) return findMinOperationsRecursive(s1, s2, i1 + 1, i2 + 1)
+    if (s1.charAt(i1) === s2.charAt(i2)) return findMinOperationsRecursive(s1, s2, i1 + 1, i2 + 1)
 
     const c1 = 1 + findMinOperationsRecursive(s1, s2, i1 + 1, i2) // perform deletion
     const c2 = 1 + findMinOperationsRecursive(s1, s2, i1, i2 + 1) // perform insertion
@@ -67,17 +67,17 @@ const findMinOperationsDp = function (s1, s2) {
   for (let i1 = 1; i1 <= s1.length; i1++) {
     for (let i2 = 1; i2 <= s2.length; i2++) {
       // If the strings have a matching character, we can recursively match for the remaining lengths
-      if (s1.charAt(i1 - 1) == s2.charAt(i2 - 1)) {
+      if (s1.charAt(i1 - 1) === s2.charAt(i2 - 1)) {
         dp[i1][i2] = dp[i1 - 1][i2 - 1]
       } else {
-        dp[i1][i2] =					1
-					+ Math.min(
-					  dp[i1 - 1][i2], // delete
-					  Math.min(
-					    dp[i1][i2 - 1], // insert
-					    dp[i1 - 1][i2 - 1] // replace
-					  )
-					)
+        dp[i1][i2] = 1
+          + Math.min(
+            dp[i1 - 1][i2], // delete
+            Math.min(
+              dp[i1][i2 - 1], // insert
+              dp[i1 - 1][i2 - 1] // replace
+            )
+          )
       }
     }
   }
@@ -85,9 +85,7 @@ const findMinOperationsDp = function (s1, s2) {
   return dp[s1.length][s2.length]
 }
 console.log(`Minimum Edit Distance: ---> ${findMinOperations("bat", "but")}`)
-console.log(
-  `Minimum Edit Distance: ---> ${findMinOperations("abdca", "cbda")}`
-)
+console.log(`Minimum Edit Distance: ---> ${findMinOperations("abdca", "cbda")}`)
 console.log(
   `Minimum Edit Distance: ---> ${findMinOperations("passpot", "ppsspqrt")}`
 )

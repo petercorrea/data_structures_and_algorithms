@@ -39,7 +39,7 @@ function bfs(graph, root) {
     // grab current node neighbors
     const neighbors = []
     let idx = connections.indexOf(1)
-    while (idx != -1) {
+    while (idx !== -1) {
       neighbors.push(idx)
       idx = connections.indexOf(1, idx + 1)
     }
@@ -47,7 +47,7 @@ function bfs(graph, root) {
     // iterate neighbors
     for (let i = 0; i < neighbors.length; i++) {
       // if distance to neighbor has not been updated, update
-      if (result[neighbors[i]] == Number.MAX_SAFE_INTEGER) {
+      if (result[neighbors[i]] === Number.MAX_SAFE_INTEGER) {
         result[neighbors[i]] = result[current] + 1
         // push neightbor to visit later on
         toVisit.push(neighbors[i])

@@ -1,17 +1,17 @@
 const CountWays = function (n) {
-  if (n == 0) {
+  if (n === 0) {
     return 1
   }
 
-  if (n == 1) {
+  if (n === 1) {
     return 1
   }
 
-  if (n == 2) {
+  if (n === 2) {
     return 1
   }
 
-  if (n == 3) {
+  if (n === 3) {
     return 2
   }
 
@@ -26,10 +26,10 @@ const CountWaysMemo = function (n) {
   const dp = []
 
   function CountWaysRecursive(n) {
-    if (n == 0) return 1
-    if (n == 1) return 1
-    if (n == 2) return 1
-    if (n == 3) return 2
+    if (n === 0) return 1
+    if (n === 1) return 1
+    if (n === 2) return 1
+    if (n === 3) return 2
 
     if (typeof dp[n] === "undefined") {
       const subtract1 = CountWaysRecursive(n - 1)

@@ -28,11 +28,11 @@ const kth = (head, k) => {
   let p2 = head
 
   for (let i = 0; i <= k - 1; i++) {
-    if (p2 == null) return null
+    if (p2 === null) return null
     p2 = p2.next
   }
 
-  while (p2.next != null) {
+  while (p2.next !== null) {
     p1 = p1.next
     p2 = p2.next
   }

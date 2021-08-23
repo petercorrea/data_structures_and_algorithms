@@ -20,7 +20,7 @@ const powerSet = (arr) => {
 }
 
 let powerSetHelper = (arr, result = []) => {
-  if (arr.length == 1) {
+  if (arr.length === 1) {
     result.push(arr[0])
     return result
   }

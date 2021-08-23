@@ -23,7 +23,7 @@ const param = new ListNode(
 
 const reverseKGroup = function (head, k) {
   // Guard against null or groups of '1'
-  if (!head || k == 1) return head
+  if (!head || k === 1) return head
 
   // Initialize a dummy node
   const dummy = new ListNode(-1)

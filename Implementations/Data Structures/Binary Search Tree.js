@@ -90,7 +90,7 @@ export class BST {
   }
 
   minHeight(current = this.root) {
-    if (current == null) {
+    if (current === null) {
       return -1
     }
 
@@ -105,7 +105,7 @@ export class BST {
   }
 
   maxHeight(current = this.root) {
-    if (current == null) {
+    if (current === null) {
       return -1
     }
 
@@ -143,23 +143,23 @@ export class BST {
 
   remove(value) {
     const removeNode = (current, value) => {
-      if (current == null) {
+      if (current === null) {
         return null
       }
       // if node is found
-      if (value == current.value) {
+      if (value === current.value) {
         // node has no child
-        if (current.left == null && current.right == null) {
+        if (current.left === null && current.right === null) {
           return null
         }
 
         // node has no left child
-        if (current.left == null) {
+        if (current.left === null) {
           return current.right
         }
 
         // node has no right child
-        if (current.right == null) {
+        if (current.right === null) {
           return current.left
         }
 
@@ -172,7 +172,8 @@ export class BST {
         // fix the right side
         current.right = removeNode(current.right, leftmostGC.value)
         return current
-      } if (value < current.value) {
+      }
+      if (value < current.value) {
         current.left = removeNode(current.left, value)
         return current
       }
@@ -274,7 +275,7 @@ export class BST {
       for (let i = 0; i < loops; i++) {
         const current = queue.shift()
 
-        if (current.left == null && current.right == null) {
+        if (current.left === null && current.right === null) {
           return result
         }
 

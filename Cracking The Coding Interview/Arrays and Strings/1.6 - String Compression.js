@@ -23,7 +23,7 @@ const compress = (string) => {
 
   for (let i = 0; i < string.length; i++) {
     count++
-    if (string[i + 1] != string[i]) {
+    if (string[i + 1] !== string[i]) {
       compressed.push(string[i])
       compressed.push(count)
       count = 0

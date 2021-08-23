@@ -36,7 +36,7 @@ const findMPPCutsMemo = function (st) {
       let j = y
 
       while (i <= j) {
-        if (st[i++] != st[j--]) {
+        if (st[i++] !== st[j--]) {
           dpIsPalindrome[x][y] = false
           break
         }
@@ -68,11 +68,11 @@ const findMPPCutsTab = function (st) {
   // populate isPalindrome table
   for (let startIndex = st.length - 1; startIndex >= 0; startIndex--) {
     for (let endIndex = startIndex + 1; endIndex < st.length; endIndex++) {
-      if (st.charAt(startIndex) == st.charAt(endIndex)) {
+      if (st.charAt(startIndex) === st.charAt(endIndex)) {
         // if it's a two character string or if the remaining string is a palindrome too
         if (
-          endIndex - startIndex == 1
-					|| isPalindrome[startIndex + 1][endIndex - 1]
+          endIndex - startIndex === 1
+          || isPalindrome[startIndex + 1][endIndex - 1]
         ) {
           isPalindrome[startIndex][endIndex] = true
         }
@@ -89,9 +89,9 @@ const findMPPCutsTab = function (st) {
       if (isPalindrome[startIndex][endIndex]) {
         // we can cut here as we got a palindrome
         // also we dont need any cut if the whole substring is a palindrome
-        minCuts =					endIndex == st.length - 1
-					  ? 0
-					  : Math.min(minCuts, 1 + cuts[endIndex + 1])
+        minCuts = endIndex === st.length - 1
+          ? 0
+          : Math.min(minCuts, 1 + cuts[endIndex + 1])
       }
     }
     cuts[startIndex] = minCuts

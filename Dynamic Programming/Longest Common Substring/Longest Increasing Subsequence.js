@@ -42,7 +42,7 @@ const LISMemo = function (Arr) {
     // WE ADD 1 TO PREVIDX TO AVOID OOB ERR
     if (typeof memo[currentIdx][prevIdx + 1] === "undefined") {
       let c1 = 0
-      if (prevIdx == -1 || Arr[currentIdx] > Arr[prevIdx]) {
+      if (prevIdx === -1 || Arr[currentIdx] > Arr[prevIdx]) {
         c1 = 1 + LISRecursive(Arr, currentIdx + 1, currentIdx)
       }
 

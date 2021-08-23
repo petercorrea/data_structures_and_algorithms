@@ -16,7 +16,7 @@ function waterArea(heights) {
       rightMaxHeight = Math.max(rightMaxHeight, heights[k])
     }
 
-    if (leftMaxHeight == 0 || rightMaxHeight == 0) continue
+    if (leftMaxHeight === 0 || rightMaxHeight === 0) continue
 
     const area = Math.min(leftMaxHeight, rightMaxHeight) - currentHeight
     if (area > 0) totalSum += area

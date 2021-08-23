@@ -16,7 +16,7 @@ const multiply = (a, b) => {
   const larger = a > b ? a : b
   let result
 
-  if (smaller % 2 == 0) {
+  if (smaller % 2 === 0) {
     result = multiplyHelper(smaller >> 1, larger)
     return result + result
   }

@@ -1,5 +1,5 @@
 import { expect, assert } from "chai"
-import { apartmentHunting } from "../../../Arrays/Apartment Hunting.js"
+import apartmentHunting from "../../../Arrays/Apartment Hunting.js"
 
 const blocks = [
   { gym: false, school: true, store: false, },

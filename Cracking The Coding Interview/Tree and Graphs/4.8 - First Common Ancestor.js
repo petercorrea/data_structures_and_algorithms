@@ -35,10 +35,10 @@ const findCommonAncestor = (root, node1, node2) => {
 
 function findCommonAncestorHelper(root, p, q) {
   // if we the last child node for a given path
-  if (root == null) return new ResultNode(false, null)
+  if (root === null) return new ResultNode(false, null)
 
   // if the two node are one of the same
-  if (root.value == p && root.value == q) {
+  if (root.value === p && root.value === q) {
     return new ResultNode(true, root)
   }
 
@@ -52,13 +52,14 @@ function findCommonAncestorHelper(root, p, q) {
     return ry
   }
 
-  if (rx.node != null && ry.node != null) {
+  if (rx.node !== null && ry.node !== null) {
     return new ResultNode(true, root)
-  } if (root.value == p || root.value == q) {
-    const isAncestor = rx.node != null || ry.node != null
+  }
+  if (root.value === p || root.value === q) {
+    const isAncestor = rx.node !== null || ry.node !== null
     return new ResultNode(isAncestor, root)
   }
-  return new ResultNode(false, rx.node != null ? rx.node : ry.node)
+  return new ResultNode(false, rx.node !== null ? rx.node : ry.node)
 }
 
 // Test

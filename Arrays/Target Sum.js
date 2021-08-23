@@ -15,7 +15,7 @@ function bruteForce(array, targetSum) {
 
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
-      if (array[i] + array[j] == targetSum) {
+      if (array[i] + array[j] === targetSum) {
         return [i, j]
       }
     }
@@ -56,7 +56,7 @@ function sortedTwoPointers(array, targetSum) {
   while (left < right) {
     const currentSum = array[left] + array[right]
 
-    if (currentSum == targetSum) return [left, right]
+    if (currentSum === targetSum) return [left, right]
 
     if (currentSum < targetSum) {
       left++

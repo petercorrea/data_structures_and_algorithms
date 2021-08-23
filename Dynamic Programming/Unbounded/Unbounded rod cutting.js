@@ -1,7 +1,7 @@
 const solveRodCuttingDp = function (profits, lengths, rodLength) {
   const n = profits.length
 
-  if (profits.length !== lengths.length || rodLength <= 0 || n == 0) return 0
+  if (profits.length !== lengths.length || rodLength <= 0 || n === 0) return 0
 
   const dp = Array(n)
     .fill(0)

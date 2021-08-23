@@ -18,7 +18,7 @@ function tripletsSum(array, targetSum) {
     while (left < right) {
       const sum = array[i] + array[left] + array[right]
 
-      if (sum == targetSum) {
+      if (sum === targetSum) {
         result.push([array[i], array[left], array[right]])
         // keep moving pointers to find more potential sums
         left++

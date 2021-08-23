@@ -17,9 +17,9 @@ function tournament(competitions, results) {
   const max = ["team", 0]
 
   for (let i = 0; i < competitions.length; i++) {
-    if (results[i] == 0) {
+    if (results[i] === 0) {
       map.set(competitions[i][1], map.get(competitions[i][1]) + 3 || 3)
-    } else if (results[i] == 1) {
+    } else if (results[i] === 1) {
       map.set(competitions[i][0], map.get(competitions[i][0]) + 3 || 3)
     }
   }

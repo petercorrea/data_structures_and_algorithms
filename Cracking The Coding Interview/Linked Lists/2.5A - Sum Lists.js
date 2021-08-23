@@ -41,13 +41,13 @@ const sumListsA = (list1, list2) => {
   const head = result
   let sum = 0
 
-  while (list1 != null || list2 != null) {
-    if (list1 != null) {
+  while (list1 !== null || list2 !== null) {
+    if (list1 !== null) {
       sum += list1.value || 0
       list1 = list1.next
     }
 
-    if (list2 != null) {
+    if (list2 !== null) {
       sum += list2.value || 0
       list2 = list2.next
     }

@@ -37,7 +37,7 @@ const permsIter = (string, perms = []) => {
 }
 
 const permsRecurs = (string, perms = []) => {
-  if (string.length == 2) {
+  if (string.length === 2) {
     return [string[0] + string[1], string[1] + string[0]]
   }
 

@@ -17,28 +17,31 @@
 const { inOrderTree, BSTree, } = require("./Sample Tree")
 
 const contains = (root1, root2) => {
-  if (root2 == null) return true
+  if (root2 === null) return true
   return findMatchingRoots(root1, root2)
 }
 
 let findMatchingRoots = (root1, root2) => {
-  if (root1 == null) {
+  if (root1 === null) {
     return false
-  } if (root1.value == root2.value && matchTree(root1, root2)) {
+  }
+  if (root1.value === root2.value && matchTree(root1, root2)) {
     return true
   }
   return (
     findMatchingRoots(root1.left, root2)
-		|| findMatchingRoots(root1.right, root2)
+    || findMatchingRoots(root1.right, root2)
   )
 }
 
 let matchTree = (root1, root2) => {
-  if (root1 == null && root2 == null) {
+  if (root1 === null && root2 === null) {
     return true
-  } if (root1 == null || root2 == null) {
+  }
+  if (root1 === null || root2 === null) {
     return false
-  } if (root1.value != root2.value) {
+  }
+  if (root1.value !== root2.value) {
     return false
   }
   return (

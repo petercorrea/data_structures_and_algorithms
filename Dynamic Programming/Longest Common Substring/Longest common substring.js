@@ -9,12 +9,12 @@
 const LCS = function (string1, string2) {
   function LCSR(str1, str2, idx1, idx2, count) {
     // base case
-    if (idx1 == str1.length || idx2 == str2.length) {
+    if (idx1 === str1.length || idx2 === str2.length) {
       return count
     }
 
     // case: when both values are the same
-    if (str1[idx1] == str2[idx2]) {
+    if (str1[idx1] === str2[idx2]) {
       count = LCSR(str1, str2, idx1 + 1, idx2 + 1, count + 1)
     }
 
@@ -34,7 +34,7 @@ const LCSMemo = function (string1, string2) {
   const memo = []
 
   function LCSR(str1, str2, idx1, idx2, count) {
-    if (idx1 == str1.length || idx2 == str2.length) {
+    if (idx1 === str1.length || idx2 === str2.length) {
       return count
     }
 
@@ -45,7 +45,7 @@ const LCSMemo = function (string1, string2) {
       // since we're using 'count' to assign a value in location memo[idx1][idx2][count]
       // we'll save a copy of the value as to not interupt the assigning
       let count1 = count
-      if (str1[idx1] == str2[idx2]) {
+      if (str1[idx1] === str2[idx2]) {
         count1 = LCSR(str1, str2, idx1 + 1, idx2 + 1, count + 1)
       }
 
@@ -73,7 +73,7 @@ const LCSTab = function (string1, string2) {
 
   for (let i = 1; i <= string1.length; i++) {
     for (let j = 1; j <= string2.length; j++) {
-      if (string1.charAt(i - 1) == string2.charAt(j - 1)) {
+      if (string1.charAt(i - 1) === string2.charAt(j - 1)) {
         tab[i][j] = 1 + tab[i - 1][j - 1]
         maxLength = Math.max(maxLength, tab[i][j])
       }
@@ -96,7 +96,7 @@ const LCSTabOptimized = function (string1, string2) {
       // erase previosuly computed result on current row
       tab[i - 1][j] = 0
 
-      if (string1[i - 1] == string2[i - 1]) {
+      if (string1[i - 1] === string2[i - 1]) {
         // current row = 1 + previous row
         tab[i % 2][j] = 1 + tab[(i - 1) % 2][j - 1]
         // compare form current row

@@ -47,12 +47,12 @@
 */
 
 function indexArray(i, arr) {
-  if (i == -1) {
+  if (i === -1) {
     console.log("before the array")
     return Number.NEGATIVE_INFINITY
   }
 
-  if (i == arr.length) {
+  if (i === arr.length) {
     console.log("after the array")
     return Number.POSITIVE_INFINITY
   }
@@ -87,16 +87,13 @@ function getDirection(lLong, rLong, lShort, rShort, aLong, aShort) {
 function getResult(lLong, rLong, lShort, rShort, aLong, aShort) {
   const odd = (aShort.length + aLong.length) % 2
 
-  if (odd == 1) {
+  if (odd === 1) {
     return Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort))
   }
   return (
     (Math.max(indexArray(lLong, aLong), indexArray(lShort, aShort))
-				+ Math.min(
-				  indexArray(rLong, aLong),
-				  indexArray(rShort, aShort)
-				))
-			/ 2
+      + Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort)))
+    / 2
   )
 }
 
@@ -113,10 +110,14 @@ function medianOfTwoSortedArrays(arr1, arr2) {
   // Binary search
   let l = 0
   let r = aShort.length
-  let d; let m; let lLong; let rLong; let lShort; let
-    rShort
+  let d
+  let m
+  let lLong
+  let rLong
+  let lShort
+  let rShort
 
-  while (d != 0) {
+  while (d !== 0) {
     m = Math.floor((l + r) / 2)
     console.log("l, r", l, r)
     console.log("m", m);

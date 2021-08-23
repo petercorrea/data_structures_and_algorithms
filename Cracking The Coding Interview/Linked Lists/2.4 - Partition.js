@@ -34,7 +34,7 @@ const partition = (node, x) => {
   let tail = node
   let next = null
 
-  while (node != null) {
+  while (node !== null) {
     next = node.next
 
     if (node.value < x) {

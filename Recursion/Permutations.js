@@ -1,5 +1,5 @@
 const permutations = (str, prefix) => {
-  if (str.length == 0) {
+  if (str.length === 0) {
     console.log("result", prefix)
   } else {
     for (let i = 0; i < str.length; i++) {

@@ -38,19 +38,19 @@ const intersection = (l1, l2) => {
 
   if (len1 > len2) {
     diff = len1 - len2
-    while (diff != 0) {
+    while (diff !== 0) {
       l1 = l1.next
       diff--
     }
   } else {
     diff = len2 - len1
-    while (diff != 0) {
+    while (diff !== 0) {
       l2 = l2.next
       diff--
     }
   }
 
-  while (l1 != l2) {
+  while (l1 !== l2) {
     l1 = l1.next
     l2 = l2.next
   }
@@ -80,7 +80,7 @@ function sameTail(l1, l2) {
     tail2 = tail2.next
   }
 
-  return tail1 == tail2
+  return tail1 === tail2
 }
 
 // Test

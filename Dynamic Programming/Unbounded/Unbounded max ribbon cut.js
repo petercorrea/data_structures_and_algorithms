@@ -1,8 +1,8 @@
 const countRibbonPieces = function (lengths, total) {
   function solveRecursive(lengths, total, currentIndex) {
-    if (total == 0) return 0
+    if (total === 0) return 0
 
-    if (lengths.length == 0 || currentIndex >= lengths.length) {
+    if (lengths.length === 0 || currentIndex >= lengths.length) {
       return Number.MIN_VALUE
     }
 
@@ -15,7 +15,7 @@ const countRibbonPieces = function (lengths, total) {
       )
     }
 
-    if (set1 != Number.MIN_VALUE) {
+    if (set1 !== Number.MIN_VALUE) {
       set1 += 1
     }
 
@@ -24,7 +24,7 @@ const countRibbonPieces = function (lengths, total) {
   }
 
   const result = solveRecursive(lengths, total, 0)
-  return result == Number.MIN_VALUE ? -1 : result
+  return result === Number.MIN_VALUE ? -1 : result
 }
 
 const countRibbonPiecesDp = function (lengths, total) {
@@ -49,24 +49,20 @@ const countRibbonPiecesDp = function (lengths, total) {
         dp[i][s] = dp[i - 1][s]
       }
 
-      if (lengths[i] <= s && dp[i][s - lengths[i]] != Number.MIN_VALUE) {
+      if (lengths[i] <= s && dp[i][s - lengths[i]] !== Number.MIN_VALUE) {
         dp[i][s] = Math.max(dp[i][s], dp[i][s - lengths[i]] + 1)
       }
     }
   }
 
-  return dp[n - 1][total] == Number.MIN_VALUE ? -1 : dp[n - 1][total]
+  return dp[n - 1][total] === Number.MIN_VALUE ? -1 : dp[n - 1][total]
 }
 
 console.log(
   `Maximum number of ribbons: ---> ${countRibbonPiecesDp([2, 3, 5], 5)}`
 )
-console.log(
-  `Maximum number of ribbons: ---> ${countRibbonPiecesDp([2, 3], 7)}`
-)
+console.log(`Maximum number of ribbons: ---> ${countRibbonPiecesDp([2, 3], 7)}`)
 console.log(
   `Maximum number of ribbons: ---> ${countRibbonPiecesDp([3, 5, 7], 13)}`
 )
-console.log(
-  `Maximum number of ribbons: ---> ${countRibbonPiecesDp([3, 5], 7)}`
-)
+console.log(`Maximum number of ribbons: ---> ${countRibbonPiecesDp([3, 5], 7)}`)

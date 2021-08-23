@@ -39,7 +39,7 @@ class Towers {
   }
 
   moveTower(source, intermediate, destination, disks = this.totalDisks) {
-    if (disks == 1) {
+    if (disks === 1) {
       this.moveDisk(source, intermediate, destination)
       return
     }

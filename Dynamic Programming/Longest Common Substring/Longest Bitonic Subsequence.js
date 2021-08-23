@@ -15,7 +15,7 @@ function findLDSLength(nums, currentIndex, previousIndex) {
 
   // include nums[currentIndex] if it is smaller than the previous number
   let c1 = 0
-  if (previousIndex == -1 || nums[currentIndex] < nums[previousIndex]) {
+  if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) {
     c1 = 1 + findLDSLength(nums, currentIndex + 1, currentIndex)
   }
 
@@ -31,7 +31,7 @@ function findLDSLengthRev(nums, currentIndex, previousIndex) {
 
   // include nums[currentIndex] if it is smaller than the previous number
   let c1 = 0
-  if (previousIndex == -1 || nums[currentIndex] < nums[previousIndex]) {
+  if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) {
     c1 = 1 + findLDSLengthRev(nums, currentIndex - 1, currentIndex)
   }
 
@@ -69,7 +69,7 @@ const findLBSLengthMemo = function (nums) {
     if (typeof lds[currentIndex][previousIndex + 1] === "undefined") {
       // include nums[currentIndex] if it is smaller than the previous number
       let c1 = 0
-      if (previousIndex == -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLength(nums, currentIndex + 1, currentIndex)
+      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLength(nums, currentIndex + 1, currentIndex)
 
       // excluding the number at currentIndex
       const c2 = findLDSLength(nums, currentIndex + 1, previousIndex)
@@ -85,10 +85,10 @@ const findLBSLengthMemo = function (nums) {
     if (currentIndex < 0) return 0
 
     ldsRev[currentIndex] = ldsRev[currentIndex] || []
-    if (ldsRev[currentIndex][previousIndex + 1] == null) {
+    if (ldsRev[currentIndex][previousIndex + 1] === null) {
       // include nums[currentIndex] if it is smaller than the previous number
       let c1 = 0
-      if (previousIndex == -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLengthReverse(nums, currentIndex - 1, currentIndex)
+      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLengthReverse(nums, currentIndex - 1, currentIndex)
 
       // excluding the number at currentIndex
       const c2 = findLDSLengthReverse(nums, currentIndex - 1, previousIndex)
@@ -145,25 +145,11 @@ const findLBSLengthDp = function (nums) {
 
 console.log(
   `Length of Longest Bitonic Subsequence: ---> ${findLBSLength([
-    4,
-    2,
-    3,
-    6,
-    10,
-    1,
-    12
+    4, 2, 3, 6, 10, 1, 12
   ])}`
 )
 console.log(
   `Length of Longest Bitonic Subsequence: ---> ${findLBSLength([
-    4,
-    2,
-    5,
-    9,
-    7,
-    6,
-    10,
-    3,
-    1
+    4, 2, 5, 9, 7, 6, 10, 3, 1
   ])}`
 )

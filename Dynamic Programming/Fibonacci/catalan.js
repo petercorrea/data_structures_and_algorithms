@@ -1,5 +1,5 @@
 function catalan(n, memo = { 0: 1, 1: 1, }) {
-  if (n == 0 || n == 1) {
+  if (n === 0 || n === 1) {
     return memo[0]
   }
 

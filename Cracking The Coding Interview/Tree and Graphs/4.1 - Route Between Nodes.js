@@ -28,7 +28,7 @@ function breadthFirstSearch(graph, start, end) {
 
     if (graph[current]) {
       for (neighbor of graph[current]) {
-        if (neighbor.value == end) return true
+        if (neighbor.value === end) return true
 
         if (!visited[neighbor.value]) {
           visited[neighbor.value] = true

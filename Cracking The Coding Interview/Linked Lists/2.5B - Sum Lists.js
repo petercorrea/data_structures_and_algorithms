@@ -67,7 +67,7 @@ function length(node) {
 }
 
 function pad(list, num) {
-  while (num != 0) {
+  while (num !== 0) {
     const node = new Node(0, null, null)
     node.next = list
     list = node

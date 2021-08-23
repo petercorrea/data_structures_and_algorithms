@@ -18,13 +18,13 @@ const findLPSMemo = function (string) {
 
   function solveRecursive(string, startIdx, endIdx) {
     if (startIdx > endIdx) return 0
-    if (startIdx == endIdx) return 1
+    if (startIdx === endIdx) return 1
 
     memo[startIdx] = memo[startIdx] || []
 
     if (typeof memo[startIdx][endIdx] === "undefined") {
-      if (string[startIdx] == string[endIdx]) {
-        memo[startIdx][endIdx] =					2 + solveRecursive(string, startIdx + 1, endIdx - 1)
+      if (string[startIdx] === string[endIdx]) {
+        memo[startIdx][endIdx] = 2 + solveRecursive(string, startIdx + 1, endIdx - 1)
       } else {
         const c1 = solveRecursive(string, startIdx + 1, endIdx)
         const c2 = solveRecursive(string, startIdx, endIdx - 1)
@@ -49,7 +49,7 @@ const findLPSTab = function (string) {
 
   for (let startIdx = string.length - 2; startIdx >= 0; startIdx--) {
     for (let endIdx = startIdx + 1; endIdx < string.length; endIdx++) {
-      if (string[startIdx] == string[endIdx]) {
+      if (string[startIdx] === string[endIdx]) {
         table[startIdx][endIdx] = 2 + table[startIdx + 1][endIdx - 1]
       } else {
         table[startIdx][endIdx] = Math.max(

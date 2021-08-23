@@ -28,7 +28,7 @@ const MaxHeap = function () {
     if (heap.length > 2) {
       heap[1] = heap[heap.length - 1]
       heap.splice(heap.length - 1)
-      if (heap.length == 3) {
+      if (heap.length === 3) {
         if (heap[1] < heap[2]) {
           [heap[1], heap[2]] = [heap[2], heap[1]]
         }
@@ -47,11 +47,11 @@ const MaxHeap = function () {
         }
         left = 2 * i
         right = 2 * i + 1
-        if (heap[left] == undefined || heap[right] == undefined) {
+        if (heap[left] === undefined || heap[right] === undefined) {
           break
         }
       }
-    } else if (heap.length == 2) {
+    } else if (heap.length === 2) {
       heap.splice(1, 1)
     } else {
       return null

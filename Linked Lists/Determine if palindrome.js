@@ -8,7 +8,7 @@ class Stack {
   push(value) {
     const newNode = new Node(value)
 
-    if (this.head == null) {
+    if (this.head === null) {
       this.head = newNode
       return
     }
@@ -19,7 +19,7 @@ class Stack {
   }
 
   pop() {
-    if (this.head.prev == null) {
+    if (this.head.prev === null) {
       this.head = null
       return
     }
@@ -50,7 +50,7 @@ function isPalindrome(someLL) {
   // attempt to empty stack
   current = someLL.head
   while (current) {
-    if (current.value == stack.head.value) {
+    if (current.value === stack.head.value) {
       stack.pop()
     } else {
       break
@@ -60,7 +60,7 @@ function isPalindrome(someLL) {
   }
 
   // check stack for emptiness
-  if (stack.head == null) {
+  if (stack.head === null) {
     return true
   }
   return false

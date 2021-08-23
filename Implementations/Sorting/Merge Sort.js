@@ -1,7 +1,7 @@
 // Pros: good for data structures like LL, stable
 // T(C) = nlogn
 export const mergeSort = (arr) => {
-  if (arr.length == 1) {
+  if (arr.length === 1) {
     return arr
   }
 

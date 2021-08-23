@@ -18,18 +18,18 @@ function monotonic(array) {
 }
 
 function isMonotonic(array) {
-  if (array.length == 0) return true
+  if (array.length === 0) return true
 
   let idx = 0
   while (array[idx] <= array[idx + 1]) {
     idx++
   }
-  if (idx == array.length - 1) return true
+  if (idx === array.length - 1) return true
 
   idx = 0
   while (array[idx] >= array[idx + 1]) {
     idx++
   }
-  if (idx == array.length - 1) return true
+  if (idx === array.length - 1) return true
   return false
 }

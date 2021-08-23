@@ -55,7 +55,7 @@ const minimumPartitionTab = function (nums) {
   }
 
   for (let s = 1; s <= halfSum; s++) {
-    table[0][s] = nums[0] == s
+    table[0][s] = nums[0] === s
   }
 
   for (let i = 1; i < n; i++) {
@@ -71,7 +71,7 @@ const minimumPartitionTab = function (nums) {
   // we'll find the closest subset to hald the sum
   let sum1 = 0
   for (let s = halfSum; s >= 0; s--) {
-    if (table[n - 1][s] == true) {
+    if (table[n - 1][s] === true) {
       sum1 = s
       break
     }

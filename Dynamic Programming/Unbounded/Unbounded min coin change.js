@@ -1,18 +1,14 @@
 const minCoinChange = function (coins, sum) {
   function solveRecursive(coins, sum, currentIndex) {
-    if (sum == 0) return 0
-    if (coins.length == 0 || currentIndex >= coins.length) return Number.MAX_VALUE
+    if (sum === 0) return 0
+    if (coins.length === 0 || currentIndex >= coins.length) return Number.MAX_VALUE
 
     let set1 = Number.MAX_VALUE
 
     if (coins[currentIndex] <= sum) {
-      set1 = solveRecursive(
-        coins,
-        sum - coins[currentIndex],
-        currentIndex
-      )
+      set1 = solveRecursive(coins, sum - coins[currentIndex], currentIndex)
 
-      if (set1 != Number.MAX_VALUE) {
+      if (set1 !== Number.MAX_VALUE) {
         set1 += 1
       }
     }
@@ -23,15 +19,15 @@ const minCoinChange = function (coins, sum) {
   }
 
   const result = solveRecursive(coins, sum, 0)
-  return result == Number.MAX_VALUE ? -1 : result
+  return result === Number.MAX_VALUE ? -1 : result
 }
 
 const minCoinChangeMemo = function (coins, sum) {
   const dp = []
 
   function solveRecursive(coins, sum, currentIndex) {
-    if (sum == 0) return 0
-    if (coins.length == 0 || currentIndex >= coins.length) return Number.MAX_VALUE
+    if (sum === 0) return 0
+    if (coins.length === 0 || currentIndex >= coins.length) return Number.MAX_VALUE
 
     dp[currentIndex] = dp[currentIndex] || []
 
@@ -39,13 +35,9 @@ const minCoinChangeMemo = function (coins, sum) {
       let set1 = Number.MAX_VALUE
 
       if (coins[currentIndex] <= sum) {
-        set1 = solveRecursive(
-          coins,
-          sum - coins[currentIndex],
-          currentIndex
-        )
+        set1 = solveRecursive(coins, sum - coins[currentIndex], currentIndex)
 
-        if (set1 != Number.MAX_VALUE) {
+        if (set1 !== Number.MAX_VALUE) {
           set1 += 1
         }
       }
@@ -58,7 +50,7 @@ const minCoinChangeMemo = function (coins, sum) {
   }
 
   const result = solveRecursive(coins, sum, 0)
-  return result == Number.MAX_VALUE ? -1 : result
+  return result === Number.MAX_VALUE ? -1 : result
 }
 
 const minCoinChangeDp = function (coins, sum) {
@@ -101,6 +93,4 @@ console.log(
 console.log(
   `Number of ways to make change: ---> ${minCoinChangeDp([1, 2, 3], 7)}`
 )
-console.log(
-  `Number of ways to make change: ---> ${minCoinChangeDp([3, 5], 7)}`
-)
+console.log(`Number of ways to make change: ---> ${minCoinChangeDp([3, 5], 7)}`)

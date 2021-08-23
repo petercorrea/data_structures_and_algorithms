@@ -4,110 +4,110 @@
 // TC: O2^n
 // SC: On
 const findMSIS = function (nums) {
-	function findMSISRecursive(nums, currentIndex, previousIndex, sum) {
-		if (currentIndex === nums.length) return sum;
+  function findMSISRecursive(nums, currentIndex, previousIndex, sum) {
+    if (currentIndex === nums.length) return sum
 
-		// include nums[currentIndex] if it is larger than the last included number
-		let s1 = sum;
-		if (previousIndex === -1 || nums[currentIndex] > nums[previousIndex])
-			s1 = findMSISRecursive(
-				nums,
-				currentIndex + 1,
-				currentIndex,
-				sum + nums[currentIndex]
-			);
+    // include nums[currentIndex] if it is larger than the last included number
+    let s1 = sum
+    if (previousIndex === -1 || nums[currentIndex] > nums[previousIndex])
+      s1 = findMSISRecursive(
+        nums,
+        currentIndex + 1,
+        currentIndex,
+        sum + nums[currentIndex]
+      )
 
-		// excluding the number at currentIndex
-		let s2 = findMSISRecursive(nums, currentIndex + 1, previousIndex, sum);
+    // excluding the number at currentIndex
+    let s2 = findMSISRecursive(nums, currentIndex + 1, previousIndex, sum)
 
-		return Math.max(s1, s2);
-	}
-	return findMSISRecursive(nums, 0, -1, 0);
-};
+    return Math.max(s1, s2)
+  }
+  return findMSISRecursive(nums, 0, -1, 0)
+}
 
 const findMSISDP = function (nums) {
-	const dp = [];
+  const dp = []
 
-	function findMSISRecursive(nums, currentIndex, previousIndex, sum) {
-		if (currentIndex === nums.length) return sum;
+  function findMSISRecursive(nums, currentIndex, previousIndex, sum) {
+    if (currentIndex === nums.length) return sum
 
-		const subProblemKey = `${currentIndex}-${previousIndex}-${sum}`;
-		if (typeof dp[subProblemKey] === "undefined") {
-			// include nums[currentIndex] if it is larger than the last included number
-			let s1 = sum;
-			if (previousIndex == -1 || nums[currentIndex] > nums[previousIndex]) {
-				s1 = findMSISRecursive(
-					nums,
-					currentIndex + 1,
-					currentIndex,
-					sum + nums[currentIndex]
-				);
-			}
+    const subProblemKey = `${currentIndex}-${previousIndex}-${sum}`
+    if (typeof dp[subProblemKey] === "undefined") {
+      // include nums[currentIndex] if it is larger than the last included number
+      let s1 = sum
+      if (previousIndex === -1 || nums[currentIndex] > nums[previousIndex]) {
+        s1 = findMSISRecursive(
+          nums,
+          currentIndex + 1,
+          currentIndex,
+          sum + nums[currentIndex]
+        )
+      }
 
-			// excluding the number at currentIndex
-			const s2 = findMSISRecursive(nums, currentIndex + 1, previousIndex, sum);
-			dp[subProblemKey] = Math.max(s1, s2);
-		}
+      // excluding the number at currentIndex
+      const s2 = findMSISRecursive(nums, currentIndex + 1, previousIndex, sum)
+      dp[subProblemKey] = Math.max(s1, s2)
+    }
 
-		return dp[subProblemKey];
-	}
-	return findMSISRecursive(nums, 0, -1, 0);
-};
+    return dp[subProblemKey]
+  }
+  return findMSISRecursive(nums, 0, -1, 0)
+}
 
 // Brute
 // TC: n^2
 // SC: n
 function maxSum(array) {
-	let sums = array.map((num) => num);
-	let maxSumIdx = 0;
+  let sums = array.map((num) => num)
+  let maxSumIdx = 0
 
-	for (let i = 0; i < array.length; i++) {
-		for (let j = 0; j < i; j++) {
-			if (array[j] < array[i] && sums[j] + array[i] >= sums[i]) {
-				sums[i] = sums[j] + array[i];
-			}
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (array[j] < array[i] && sums[j] + array[i] >= sums[i]) {
+        sums[i] = sums[j] + array[i]
+      }
 
-			if (sums[i] > sums[maxSumIdx]) {
-				maxSumIdx = i;
-			}
-		}
-	}
+      if (sums[i] > sums[maxSumIdx]) {
+        maxSumIdx = i
+      }
+    }
+  }
 
-	return sums[maxSumIdx];
+  return sums[maxSumIdx]
 }
 
 // Modified the above function to also return the list of nums contributing to the max sum
 function maxSum(array) {
-	let sums = array.map((num) => num);
-	let maxSumIdx = 0;
-	let sequences = Array(array.length);
+  let sums = array.map((num) => num)
+  let maxSumIdx = 0
+  let sequences = Array(array.length)
 
-	for (let i = 0; i < array.length; i++) {
-		for (let j = 0; j < i; j++) {
-			if (array[j] < array[i] && sums[j] + array[i] >= sums[i]) {
-				sums[i] = sums[j] + array[i];
-				sequences[i] = j;
-			}
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < i; j++) {
+      if (array[j] < array[i] && sums[j] + array[i] >= sums[i]) {
+        sums[i] = sums[j] + array[i]
+        sequences[i] = j
+      }
 
-			if (sums[i] > sums[maxSumIdx]) {
-				maxSumIdx = i;
-			}
-		}
-	}
+      if (sums[i] > sums[maxSumIdx]) {
+        maxSumIdx = i
+      }
+    }
+  }
 
-	// return sums[maxSumIdx];
-	return [sums[maxSumIdx], buildSequence(array, sequences, maxSumIdx)];
+  // return sums[maxSumIdx];
+  return [sums[maxSumIdx], buildSequence(array, sequences, maxSumIdx)]
 }
 
 function buildSequence(array, sequences, currentIdx) {
-	let finalSequence = [];
+  let finalSequence = []
 
-	while (currentIdx !== undefined) {
-		finalSequence.unshift(array[currentIdx]);
-		currentIdx = sequences[currentIdx];
-	}
+  while (currentIdx !== undefined) {
+    finalSequence.unshift(array[currentIdx])
+    currentIdx = sequences[currentIdx]
+  }
 
-	return finalSequence;
+  return finalSequence
 }
 
-console.log(maxSum([8, 12, 2, 3, 15, 5, 7]));
+console.log(maxSum([8, 12, 2, 3, 15, 5, 7]))

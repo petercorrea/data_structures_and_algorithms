@@ -50,7 +50,7 @@ function bfs(graph, root) {
 
     // If no node is conncted, set the idx variable to -1
     // So loop as long as there IS a node
-    while (idx != -1) {
+    while (idx !== -1) {
       neighborIdx.push(idx)
       // Look for next connected node
       idx = currentConnections.indexOf(1, idx + 1)
@@ -60,7 +60,7 @@ function bfs(graph, root) {
     // Now that we know all of the nodes idxs conected to the current node, we loop through them and get distance
     for (let j = 0; j < neighborIdx.length; j++) {
       // have not set the distance
-      if (distances[neighborIdx[j]] == Infinity) {
+      if (distances[neighborIdx[j]] === Infinity) {
         // Setting distance from root to neighbor, getting distance from prior while loop pass
         distances[neighborIdx[j]] = distances[current] + 1
         console.log("distances", distances)

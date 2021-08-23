@@ -20,7 +20,7 @@ const zeroMartrix = (m) => {
 
   for (let i = 0; i <= m.length - 1; i++) {
     for (let j = 0; j <= m[0].length; j++) {
-      if (m[i][j] == 0) {
+      if (m[i][j] === 0) {
         rows.push(i)
         cols.push(j)
       }

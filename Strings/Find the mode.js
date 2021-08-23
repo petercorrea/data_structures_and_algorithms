@@ -29,7 +29,7 @@ function countOccurances(str) {
     console.log("incoming str: ", str)
 
     // if there is no comma, and index is at the end of the string
-    if (str[i] != "," && i == str.length - 1) {
+    if (str[i] !== "," && i === str.length - 1) {
       console.log("base")
       if (str in max) {
         max[sub1]++
@@ -42,7 +42,7 @@ function countOccurances(str) {
 
     // If the char is a comma, substring the two sides
     // update str with remaining string (sub2) and reset index of loop
-    if (str[i] == ",") {
+    if (str[i] === ",") {
       sub1 = str.substring(0, i)
       sub2 = str.substring(i + 2)
 

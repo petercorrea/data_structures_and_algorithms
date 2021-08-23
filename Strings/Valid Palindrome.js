@@ -2,7 +2,7 @@ str = "A man, a plan, a canal: Panama"
 
 const isPalindrome = function (str) {
   // Guard against edge cases
-  if (str.length == 0) {
+  if (str.length === 0) {
     return true
   }
 
@@ -18,7 +18,7 @@ const isPalindrome = function (str) {
 
   // Prevent pointers from crossing over
   while (s < f) {
-    if (split[s] == split[f]) {
+    if (split[s] === split[f]) {
       s++
       f--
     } else {

@@ -3,7 +3,7 @@
 
 // Output: `Hello = 1, there = 1, how = 2, are = 1, you = 2`
 
-let s =	"Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"
+let s = "Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"
 
 function countSubstring() {
   const pattern = /[A-Z]*[a-z]*/
@@ -11,7 +11,7 @@ function countSubstring() {
   let result = " "
 
   for (let idx = 0; idx < s.length; idx++) {
-    if (s[idx] == " ") {
+    if (s[idx] === " ") {
       let sub = s.substring(0, idx)
 
       sub = sub.trim()

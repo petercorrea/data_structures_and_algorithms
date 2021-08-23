@@ -30,15 +30,15 @@ const paintFill = (
 ) => {
   if (
     rowPoint < 0
-		|| colPoint < 0
-		|| colPoint > screen[0].length
-		|| rowPoint > screen.length
-		|| screen[rowPoint][colPoint] !== originalColor
+    || colPoint < 0
+    || colPoint > screen[0].length
+    || rowPoint > screen.length
+    || screen[rowPoint][colPoint] !== originalColor
   ) {
     return
   }
 
-  if (screen[rowPoint][colPoint] == originalColor) {
+  if (screen[rowPoint][colPoint] === originalColor) {
     screen[rowPoint][colPoint] = newColor
     paintFill(screen, newColor, rowPoint + 1, colPoint, originalColor)
     paintFill(screen, newColor, rowPoint - 1, colPoint, originalColor)

@@ -9,7 +9,7 @@ function numbersInPi(pi, numbers) {
   }
 
   const minSpaces = getMinSpaces(pi, numbersTable, (cache = {}), 0)
-  return minSpaces == Infinity ? -1 : minSpaces
+  return minSpaces === Infinity ? -1 : minSpaces
 }
 
 function getMinSpaces(pi, table, cache, idx) {

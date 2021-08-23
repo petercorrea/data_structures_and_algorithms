@@ -23,13 +23,13 @@ function spiralTraverse(array) {
 
     // 		left
     for (let col = colEnd - 1; col >= colStart; col--) {
-      if (rowStart == rowEnd) break
+      if (rowStart === rowEnd) break
       result.push(array[rowEnd][col])
     }
 
     // 		up
     for (let row = rowEnd - 1; row > rowStart; row--) {
-      if (colStart == colEnd) break
+      if (colStart === colEnd) break
       result.push(array[row][colStart])
     }
 
@@ -39,7 +39,7 @@ function spiralTraverse(array) {
     colEnd--
   }
 
-  "$() words";
+  ("$() words");
   ("string");
   ("string")
   return result

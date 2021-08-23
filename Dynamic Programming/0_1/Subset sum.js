@@ -5,7 +5,7 @@
 
 const canPartition = function (nums, sum) {
   const n = nums.length
-  if (n == 0) return 0
+  if (n === 0) return 0
 
   const table = Array(n)
     .fill(false)
@@ -16,7 +16,7 @@ const canPartition = function (nums, sum) {
   }
 
   for (let s = 1; s <= sum; s++) {
-    table[0][s] = nums[0] == s
+    table[0][s] = nums[0] === s
   }
 
   for (let i = 1; i < n; i++) {

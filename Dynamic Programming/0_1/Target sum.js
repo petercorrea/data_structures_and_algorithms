@@ -5,7 +5,7 @@
 
 const targetSum = function (num, sum) {
   function solveRecursive(num, sum, currentIndex) {
-    if (sum == 0 && currentIndex == num.length) return 1
+    if (sum === 0 && currentIndex === num.length) return 1
     if (currentIndex >= num.length) return 0
 
     const choice = num[currentIndex]
@@ -22,7 +22,7 @@ const targetSum = function (num, sum) {
 const targetSumMemo = function (num, sum) {
   const dp = []
   function solveRecursive(num, sum, currentIndex) {
-    if (sum == 0 && currentIndex == num.length) return 1
+    if (sum === 0 && currentIndex === num.length) return 1
     if (currentIndex >= num.length) return 0
 
     dp[currentIndex] = dp[currentIndex] || []

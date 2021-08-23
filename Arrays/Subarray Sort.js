@@ -8,8 +8,8 @@ function subarraySort(array) {
 
   for (let i = 0; i < array.length; i++) {
     if (array[i - 1] > array[i] || array[i] > array[i + 1]) {
-      if (array[i] < array[min] || min == null) min = i
-      if (array[i] > array[max] || max == null) max = i
+      if (array[i] < array[min] || min === null) min = i
+      if (array[i] > array[max] || max === null) max = i
     }
   }
 
@@ -27,6 +27,6 @@ function subarraySort(array) {
     }
   }
 
-  if (result.length == 0) return [-1, -1]
+  if (result.length === 0) return [-1, -1]
   return result
 }

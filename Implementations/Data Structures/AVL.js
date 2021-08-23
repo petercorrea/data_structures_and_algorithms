@@ -24,9 +24,9 @@ class Node {
   }
 
   /**
-	 * @param {BinaryTreeNode} node
-	 * @return {BinaryTreeNode}
-	 */
+   * @param {BinaryTreeNode} node
+   * @return {BinaryTreeNode}
+   */
   setRight(node) {
     // Reset parent for right node since it is going to be detached.
     if (this.right) {
@@ -176,8 +176,8 @@ class BST {
   }
 
   /**
-	 * @param {BinarySearchTreeNode} rootNode
-	 */
+   * @param {BinarySearchTreeNode} rootNode
+   */
   rotateLeftRight(rootNode) {
     console.log("LR Rotate")
     // Detach left node from rootNode since it is going to be replaced.
@@ -205,8 +205,8 @@ class BST {
   }
 
   /**
-	 * @param {BinarySearchTreeNode} rootNode
-	 */
+   * @param {BinarySearchTreeNode} rootNode
+   */
   rotateRightLeft(rootNode) {
     console.log("RL Rotate")
     // Detach right node from rootNode since it is going to be replaced.
@@ -233,8 +233,8 @@ class BST {
   }
 
   /**
-	 * @param {BinarySearchTreeNode} rootNode
-	 */
+   * @param {BinarySearchTreeNode} rootNode
+   */
   rotateRightRight(rootNode) {
     console.log("RR Rotate")
     // Detach right node from root node.
@@ -280,7 +280,7 @@ class BST {
   }
 
   minHeight(current = this.root) {
-    if (current == null) {
+    if (current === null) {
       return -1
     }
 
@@ -295,7 +295,7 @@ class BST {
   }
 
   maxHeight(current = this.root) {
-    if (current == null) {
+    if (current === null) {
       return -1
     }
 
@@ -333,23 +333,23 @@ class BST {
 
   remove(val) {
     const removeNode = (current, value) => {
-      if (current == null) {
+      if (current === null) {
         return null
       }
       // if node is found
-      if (value == current.value) {
+      if (value === current.value) {
         // node has no child
-        if (current.left == null && current.right == null) {
+        if (current.left === null && current.right === null) {
           return null
         }
 
         // node has no left child
-        if (current.left == null) {
+        if (current.left === null) {
           return current.right
         }
 
         // node has no right child
-        if (current.right == null) {
+        if (current.right === null) {
           return current.left
         }
 
@@ -362,7 +362,8 @@ class BST {
         // fix the right side
         current.right = removeNode(current.right, leftmostGC.value)
         return current
-      } if (value < current.value) {
+      }
+      if (value < current.value) {
         current.left = removeNode(current.left, value)
         return current
       }
@@ -463,7 +464,7 @@ class BST {
       for (let i = 0; i < loops; i++) {
         const current = queue.shift()
 
-        if (current.left == null && current.right == null) {
+        if (current.left === null && current.right === null) {
           return result
         }
 

@@ -17,7 +17,7 @@
 // P     I
 
 function sortByRow(s, numOfRows) {
-  if (numOfRows == 1 || s.length <= numOfRows) {
+  if (numOfRows === 1 || s.length <= numOfRows) {
     return s
   }
 
@@ -36,7 +36,7 @@ function sortByRow(s, numOfRows) {
     rows[currentRow].push(c)
 
     // Change direction once the ends have been reached, else increment current position
-    if (currentRow == 0 || currentRow == rows.length - 1) {
+    if (currentRow === 0 || currentRow === rows.length - 1) {
       direction *= -1
     }
 
@@ -47,7 +47,7 @@ function sortByRow(s, numOfRows) {
 }
 
 function visitByRow(s, numOfRows) {
-  if (numOfRows == 1) {
+  if (numOfRows === 1) {
     return s
   }
 
@@ -61,7 +61,7 @@ function visitByRow(s, numOfRows) {
       // Second item
       const k = j + cycleSize - 2 * i
 
-      if (i != 0 && i != numOfRows - 1 && k < s.length) {
+      if (i !== 0 && i !== numOfRows - 1 && k < s.length) {
         result.push(s[k])
       }
     }

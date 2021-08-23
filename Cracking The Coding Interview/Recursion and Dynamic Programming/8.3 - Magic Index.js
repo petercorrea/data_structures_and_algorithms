@@ -14,17 +14,23 @@
 //
 
 // Proposed Solution:
-const magicIdxDistinct = (arr, start = 0, end = arr.length - 1, result = []) => {
+const magicIdxDistinct = (
+  arr,
+  start = 0,
+  end = arr.length - 1,
+  result = []
+) => {
   if (end < start) {
     return null
   }
 
   const idx = Math.floor((start + end) / 2)
 
-  if (arr[idx] == idx) {
+  if (arr[idx] === idx) {
     result.push(idx)
     return
-  } if (arr[idx] < idx) {
+  }
+  if (arr[idx] < idx) {
     magicIdx(arr, idx + 1, end, result)
   } else if (arr[idx] > idx) {
     magicIdx(arr, start, idx - 1, result)
@@ -45,7 +51,7 @@ const magicIdxNotDistinct = (
 
   const idx = Math.floor((start + end) / 2)
 
-  if (arr[idx] == idx) {
+  if (arr[idx] === idx) {
     result.push(idx)
     return
   }

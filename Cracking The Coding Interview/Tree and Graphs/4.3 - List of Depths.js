@@ -36,7 +36,7 @@ const nLinkedLists = (tree) => {
       queue.push(treePointer.right)
     }
 
-    if (level == count) {
+    if (level === count) {
       level *= 2
       count = 0
       listPointer.value = treePointer.value

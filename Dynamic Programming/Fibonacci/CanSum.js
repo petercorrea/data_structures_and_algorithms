@@ -13,7 +13,7 @@ const canSum = (targetSum, nums) => {
 
   for (const num of nums) {
     const remainder = targetSum - num
-    if (canSum(remainder, nums) == true) return true
+    if (canSum(remainder, nums) === true) return true
   }
 
   return false
@@ -28,7 +28,7 @@ const canSumMemo = (targetSum, nums, memo = {}) => {
 
   for (const num of nums) {
     const remainder = targetSum - num
-    if (canSumMemo(remainder, nums, memo) == true) return true
+    if (canSumMemo(remainder, nums, memo) === true) return true
     memo[targetSum] = true
   }
 

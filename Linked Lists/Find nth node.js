@@ -9,7 +9,7 @@ function findNthNode(list, nth) {
     counter++
   }
 
-  if (counter == nth) {
+  if (counter === nth) {
     return current
   }
 

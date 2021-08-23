@@ -4,8 +4,8 @@ const countSubsetsMemo = function (nums, sum) {
   const memo = []
 
   function solveRecursive(nums, sum, currentIndex) {
-    if (sum == 0) return 1
-    if (currentIndex >= nums.length || nums.length == 0) return 0
+    if (sum === 0) return 1
+    if (currentIndex >= nums.length || nums.length === 0) return 0
 
     memo[currentIndex] = memo[currentIndex] || []
 
@@ -13,11 +13,7 @@ const countSubsetsMemo = function (nums, sum) {
       let set1 = 0
 
       if (nums[currentIndex] <= sum) {
-        set1 = solveRecursive(
-          nums,
-          sum - nums[currentIndex],
-          currentIndex + 1
-        )
+        set1 = solveRecursive(nums, sum - nums[currentIndex], currentIndex + 1)
       }
 
       const set2 = solveRecursive(nums, sum, currentIndex + 1)
@@ -33,7 +29,7 @@ const countSubsetsMemo = function (nums, sum) {
 }
 
 const countSubsetsTab = function (nums, sum) {
-  if (nums.length == 0) return 0
+  if (nums.length === 0) return 0
 
   const n = nums.length
 

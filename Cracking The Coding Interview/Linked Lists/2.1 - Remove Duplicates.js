@@ -30,7 +30,7 @@ const removeDups = (node) => {
   const firstNode = node
   let prev = null
 
-  while (node != null) {
+  while (node !== null) {
     if (map.has(node.value)) {
       prev.next = node.next
     } else {

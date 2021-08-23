@@ -27,7 +27,7 @@ const palindrome = (list) => {
   const len = length(list)
 
   const result = recurse(list, len)
-  if (result == null) {
+  if (result === null) {
     return true
   }
   return false
@@ -44,17 +44,17 @@ function length(list) {
 }
 
 function recurse(list, length) {
-  if (length == 2) {
-    if (list.value == list.next.value) {
+  if (length === 2) {
+    if (list.value === list.next.value) {
       return list.next.next
     }
-  } else if (length == 1) {
+  } else if (length === 1) {
     return list.next
   }
 
   const value = recurse(list.next, length - 2)
 
-  if (list.value == value.value) {
+  if (list.value === value.value) {
     return value.next
   }
   return false

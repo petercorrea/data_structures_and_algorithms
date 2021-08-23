@@ -7,11 +7,11 @@ const validSubsequence = (array, sequence) => {
   let sequenceIdx = 0
 
   for (let i = 0; i < array.length; i++) {
-    if (array[i] == sequence[sequenceIdx]) {
+    if (array[i] === sequence[sequenceIdx]) {
       sequenceIdx++
     }
 
-    if (sequenceIdx == sequence.length) return true
+    if (sequenceIdx === sequence.length) return true
   }
 
   return false

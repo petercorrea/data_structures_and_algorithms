@@ -5,7 +5,7 @@ function detectLoopLength(list) {
   let fast = list.next
   let length = 0
 
-  if (fast == null) {
+  if (fast === null) {
     return "only one item."
   }
 
@@ -16,7 +16,7 @@ function detectLoopLength(list) {
   }
 
   // if null
-  if (fast.next == null || fast.next.next == null) {
+  if (fast.next === null || fast.next.next === null) {
     return "no loop found."
   }
 
@@ -26,7 +26,7 @@ function detectLoopLength(list) {
     fast = fast.next.next
     length++
 
-    if (slow == fast) {
+    if (slow === fast) {
       return length
     }
   }

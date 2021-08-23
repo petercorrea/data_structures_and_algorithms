@@ -18,7 +18,7 @@ function searchMaze(maze, start, destination) {
 function searchMazeHelper(maze, current, end) {
   // dfs
   // if the current location matches our destination, return true
-  if (current[0] == end[0] && current[1] == end[1]) {
+  if (current[0] === end[0] && current[1] === end[1]) {
     return true
   }
 
@@ -51,13 +51,13 @@ function isFeasible(maze, indices) {
   const x = indices[0]
   const y = indices[1]
   return (
-  // within bounds
+    // within bounds
     x >= 0
-		&& x < maze.length
-		&& y >= 0
-		&& y < maze[x].length
-		// has not been visited
-		&& maze[x][y] === 0
+    && x < maze.length
+    && y >= 0
+    && y < maze[x].length
+    // has not been visited
+    && maze[x][y] === 0
   )
 }
 

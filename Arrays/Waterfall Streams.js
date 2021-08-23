@@ -55,7 +55,7 @@ function waterfallStreams(array, source) {
     for (let j = 0; j < rowAbove.length; j++) {
       const valueAbove = rowAbove[j]
       const hasWaterAbove = valueAbove < 0
-      const hasBlock = currentRow[j] == 1
+      const hasBlock = currentRow[j] === 1
 
       if (!hasWaterAbove) continue
       if (!hasBlock) {
@@ -67,7 +67,7 @@ function waterfallStreams(array, source) {
       let rightIdx = j
       while (rightIdx + 1 < rowAbove.length) {
         rightIdx++
-        if (rowAbove[rightIdx] == 1) break
+        if (rowAbove[rightIdx] === 1) break
         if (currentRow[rightIdx] !== 1) {
           currentRow[rightIdx] += splitWater
           break
@@ -77,7 +77,7 @@ function waterfallStreams(array, source) {
       let leftIdx = j
       while (leftIdx - 1 >= 0) {
         leftIdx--
-        if (rowAbove[leftIdx] == 1) break
+        if (rowAbove[leftIdx] === 1) break
         if (currentRow[leftIdx] !== 1) {
           currentRow[leftIdx] += splitWater
           break

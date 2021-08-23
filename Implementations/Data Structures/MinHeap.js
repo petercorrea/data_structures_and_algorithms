@@ -53,7 +53,7 @@ class MinHeap {
       this.heap.splice(this.heap.length - 1)
 
       // if theres only one child, sort them [null, val1, val2]
-      if (this.heap.length == 3) {
+      if (this.heap.length === 3) {
         if (this.heap[1] > this.heap[2]) {
           [this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]]
         }
@@ -68,22 +68,16 @@ class MinHeap {
       // while the root node is greater than either one of its children
       while (
         this.heap[i] >= this.heap[left]
-				|| this.heap[i] >= this.heap[right]
+        || this.heap[i] >= this.heap[right]
       ) {
         // if left node is the smallest child of the two, swap it
         if (this.heap[left] < this.heap[right]) {
-          [this.heap[i], this.heap[left]] = [
-            this.heap[left],
-            this.heap[i]
-          ]
+          [this.heap[i], this.heap[left]] = [this.heap[left], this.heap[i]]
           // increment idx
           i = 2 * i
         } else {
           // if right node is the smallest child
-          [this.heap[i], this.heap[right]] = [
-            this.heap[right],
-            this.heap[i]
-          ]
+          [this.heap[i], this.heap[right]] = [this.heap[right], this.heap[i]]
           // increment idx
           i = 2 * i + 1
         }
@@ -93,21 +87,18 @@ class MinHeap {
         right = 2 * i + 1
 
         // if we reached the bottom of the tree
-        if (
-          this.heap[left] == undefined
-					|| this.heap[right] == undefined
-        ) {
+        if (this.heap[left] === undefined || this.heap[right] === undefined) {
           break
         }
       }
       // if theres only one element in the tree [null, parent]
-    } else if (this.heap.length == 3) {
+    } else if (this.heap.length === 3) {
       // remove the one node
       this.heap.splice(1, 1)
       return smallest
     } else if (this.heap.length < 3) {
       // if there were 0 elements to begin with
-      if (this.heap.length == 1) {
+      if (this.heap.length === 1) {
         return null
       }
       this.heap.splice(1)

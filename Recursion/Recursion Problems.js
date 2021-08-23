@@ -158,19 +158,17 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
   // Down
   if (
     current_row + 1 <= num_rows
-		&& maze[current_row + 1][current_column] !== "*"
+    && maze[current_row + 1][current_column] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
-      (x) => x[0] == current_row + 1 && x[1] == current_column
+      (x) => x[0] === current_row + 1 && x[1] === current_column
     )
 
     // if visited is false
-    if (isVisited.length == 0) {
+    if (isVisited.length === 0) {
       console.log(
-        `point: (${
-          current_row + 1
-        }, ${current_column}) is avaliable (down)`
+        `point: (${current_row + 1}, ${current_column}) is avaliable (down)`
       )
       current_row += 1
       visited.push([current_row, current_column])
@@ -183,15 +181,13 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
   if (current_row - 1 >= 0 && maze[current_row - 1][current_column] !== "*") {
     // is point visited?
     const isVisited = visited.filter(
-      (x) => x[0] == current_row - 1 && x[1] == current_column
+      (x) => x[0] === current_row - 1 && x[1] === current_column
     )
 
     // if visited is false
-    if (isVisited.length == 0) {
+    if (isVisited.length === 0) {
       console.log(
-        `point: (${
-          current_row - 1
-        }, ${current_column}) is avaliable (up)`
+        `point: (${current_row - 1}, ${current_column}) is avaliable (up)`
       )
       current_row -= 1
       visited.push([current_row, current_column])
@@ -203,19 +199,17 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
   // Right
   if (
     current_column + 1 <= num_columns
-		&& maze[current_row][current_column + 1] !== "*"
+    && maze[current_row][current_column + 1] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
-      (x) => x[0] == current_row && x[1] == current_column + 1
+      (x) => x[0] === current_row && x[1] === current_column + 1
     )
 
     // if visited is false
-    if (isVisited.length == 0) {
+    if (isVisited.length === 0) {
       console.log(
-        `point: (${current_row}, ${
-          current_column + 1
-        }) is avaliable (right)`
+        `point: (${current_row}, ${current_column + 1}) is avaliable (right)`
       )
       current_column += 1
       visited.push([current_row, current_column])
@@ -227,19 +221,17 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
   // Left
   if (
     current_column - 1 >= 0
-		&& maze[current_row][current_column - 1] !== "*"
+    && maze[current_row][current_column - 1] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
-      (x) => x[0] == current_row && x[1] == current_column - 1
+      (x) => x[0] === current_row && x[1] === current_column - 1
     )
 
     // if visited is false
-    if (isVisited.length == 0) {
+    if (isVisited.length === 0) {
       console.log(
-        `point: (${current_row}, ${
-          current_column - 1
-        }) is avaliable (left)`
+        `point: (${current_row}, ${current_column - 1}) is avaliable (left)`
       )
       current_column -= 1
       visited.push([current_row, current_column])
@@ -343,12 +335,12 @@ function toBinary(num) {
   let results = []
 
   // Base case
-  if (num == 0) {
+  if (num === 0) {
     return results
   }
 
   // Recursive case
-  if (num % 2 == 1) {
+  if (num % 2 === 1) {
     results = toBinary((num - 1) / 2)
     results.push("1")
   } else {

@@ -1,30 +1,25 @@
 const solveKnapsack = function (profits, weights, capacity) {
   function solveRecursive(profits, weights, capacity, currentIndex) {
     if (
-      profits.length == 0
-			|| capacity <= 0
-			|| currentIndex >= profits.length
-			|| weights.length != profits.length
+      profits.length === 0
+      || capacity <= 0
+      || currentIndex >= profits.length
+      || weights.length !== profits.length
     ) return 0
 
     let profit1 = 0
 
     if (weights[currentIndex] <= capacity) {
-      profit1 =				profits[currentIndex]
-				+ solveRecursive(
-				  profits,
-				  weights,
-				  capacity - weights[currentIndex],
-				  currentIndex
-				)
+      profit1 = profits[currentIndex]
+        + solveRecursive(
+          profits,
+          weights,
+          capacity - weights[currentIndex],
+          currentIndex
+        )
     }
 
-    const profit2 = solveRecursive(
-      profits,
-      weights,
-      capacity,
-      currentIndex + 1
-    )
+    const profit2 = solveRecursive(profits, weights, capacity, currentIndex + 1)
 
     return Math.max(profit1, profit2)
   }
@@ -36,10 +31,10 @@ const solveKnapsackMemo = function (profits, weights, capacity) {
   const dp = []
   function solveRecursive(profits, weights, capacity, currentIndex) {
     if (
-      profits.length == 0
-			|| capacity <= 0
-			|| currentIndex >= profits.length
-			|| weights.length != profits.length
+      profits.length === 0
+      || capacity <= 0
+      || currentIndex >= profits.length
+      || weights.length !== profits.length
     ) return 0
 
     dp[currentIndex] = dp[currentIndex] || []
@@ -48,13 +43,13 @@ const solveKnapsackMemo = function (profits, weights, capacity) {
       let profit1 = 0
 
       if (weights[currentIndex] <= capacity) {
-        profit1 =					profits[currentIndex]
-					+ solveRecursive(
-					  profits,
-					  weights,
-					  capacity - weights[currentIndex],
-					  currentIndex
-					)
+        profit1 = profits[currentIndex]
+          + solveRecursive(
+            profits,
+            weights,
+            capacity - weights[currentIndex],
+            currentIndex
+          )
       }
 
       const profit2 = solveRecursive(
@@ -76,8 +71,8 @@ const solveKnapsackMemo = function (profits, weights, capacity) {
 const solveKnapsackDp = function (profits, weights, capacity) {
   if (
     capacity <= 0
-		|| profits.length == 0
-		|| weights.length != profits.length
+    || profits.length === 0
+    || weights.length !== profits.length
   ) return 0
 
   const n = profits.length

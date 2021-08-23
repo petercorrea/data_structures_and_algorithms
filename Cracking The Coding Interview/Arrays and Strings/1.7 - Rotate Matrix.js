@@ -21,7 +21,7 @@
 // 		the very last element because we have saved it and do not want to overwrite it, it become -2.
 
 const rotate = (m) => {
-  if (m.length != m[0].length) return "Is not an N*N matrix."
+  if (m.length !== m[0].length) return "Is not an N*N matrix."
 
   for (let i = 0; i <= m.length / 2; i++) {
     for (let j = i; j <= m.length - i - 2; j++) {

@@ -17,8 +17,8 @@ const knapSackMemo = function (profits, weights, capacity) {
   function solveRecursive(profits, weights, capacity, currentIndex) {
     if (
       currentIndex >= profits.length
-			|| profits.length != weights.length
-			|| capacity <= 0
+      || profits.length !== weights.length
+      || capacity <= 0
     ) return 0
 
     memo[currentIndex] = memo[currentIndex] || []
@@ -27,13 +27,13 @@ const knapSackMemo = function (profits, weights, capacity) {
       // We select the item at currentIndex, and recursivelly process the rest.
       let profit1 = 0
       if (weights[currentIndex] <= capacity) {
-        profit1 =					profits[currentIndex]
-					+ solveRecursive(
-					  profits,
-					  weights,
-					  capacity - weights[currentIndex],
-					  currentIndex + 1
-					)
+        profit1 = profits[currentIndex]
+          + solveRecursive(
+            profits,
+            weights,
+            capacity - weights[currentIndex],
+            currentIndex + 1
+          )
       }
 
       // We skip the item at currentIndex
@@ -56,7 +56,7 @@ const knapSackMemo = function (profits, weights, capacity) {
 const knapSackTab = function (profits, weights, capacity) {
   const n = profits.length
 
-  if (n == 0 || profits.length != weights.length || capacity <= 0) return 0
+  if (n === 0 || profits.length !== weights.length || capacity <= 0) return 0
 
   // setup table, rows represent item [profit, weight], cols represent capacity 0 to C
   // don't forget to add an additional column to represent a capacity of 0

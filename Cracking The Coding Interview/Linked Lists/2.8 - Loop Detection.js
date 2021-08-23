@@ -40,7 +40,7 @@ const hasLoopWithMap = (list) => {
     slow = slow.next
     fast = fast.next?.next
 
-    if (slow == fast) {
+    if (slow === fast) {
       // console.log("Collision at node: ", slow);
       break
     }
@@ -69,7 +69,7 @@ const hasLoopWithNoMap = (list) => {
     slow = slow.next
     fast = fast.next?.next
 
-    if (slow == fast) {
+    if (slow === fast) {
       // console.log("Collision at node: ", slow);
       break
     }
@@ -79,12 +79,12 @@ const hasLoopWithNoMap = (list) => {
 
   slow = list
 
-  while (slow != fast) {
+  while (slow !== fast) {
     slow = slow.next
     fast = fast.next
   }
 
-  if (slow == fast) {
+  if (slow === fast) {
     return slow
   }
 }

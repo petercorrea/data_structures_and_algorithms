@@ -33,7 +33,7 @@ const palindromePermutation = (string) => {
   let odds = 0
 
   for (char of string) {
-    if (map.get(char) == 1) {
+    if (map.get(char) === 1) {
       map.set(char, 0)
       odds--
     } else {

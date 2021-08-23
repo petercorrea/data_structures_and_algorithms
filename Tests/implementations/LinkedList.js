@@ -54,7 +54,7 @@ class dbLinkedList {
     let current = this.head
 
     while (current) {
-      if (current.value == value) {
+      if (current.value === value) {
         return current
       }
 
@@ -65,9 +65,9 @@ class dbLinkedList {
   }
 
   reverse() {
-    let { prev, } = this.head
+    let { prev } = this.head
     let current = this.head
-    let { next, } = this.head
+    let { next } = this.head
 
     while (current) {
       next = next.next
@@ -89,7 +89,7 @@ class dbLinkedList {
       return null
     }
 
-    if (this.head.value == value && this.head == this.tail) {
+    if (this.head.value === value && this.head === this.tail) {
       this.head = null
       this.tail = null
       return
@@ -98,19 +98,19 @@ class dbLinkedList {
     let current = this.head
 
     while (current) {
-      if (this.head.value == value) {
+      if (this.head.value === value) {
         this.head = current.next
 
-        if (current == this.tail) {
+        if (current === this.tail) {
           this.tail = null
           return
         }
 
         this.head.prev = null
-      } else if (this.tail.value == value) {
+      } else if (this.tail.value === value) {
         this.tail = this.tail.prev
         this.tail.next = null
-      } else if (current.value == value) {
+      } else if (current.value === value) {
         current.prev.next = current.next
         current.next.prev = current.prev
       }
@@ -118,11 +118,6 @@ class dbLinkedList {
       current = current.next
     }
   }
-}
-
-module.exports = {
-  Node,
-  dbLinkedList,
 }
 
 // let ll = new dbLinkedList();

@@ -18,80 +18,80 @@
 // TC: 2 ^ m where m is the string(not the pattern)
 // SP: m
 const findSPMCount = function (str, pat) {
-	function findSPMCountRecursive(str, pat, strIndex, patIndex) {
-		// if we have reached the end of the pattern
-		if (patIndex === pat.length) return 1;
+  function findSPMCountRecursive(str, pat, strIndex, patIndex) {
+    // if we have reached the end of the pattern
+    if (patIndex === pat.length) return 1
 
-		// if we have reached the end of the string but pattern has still some characters left
-		if (strIndex === str.length) return 0;
+    // if we have reached the end of the string but pattern has still some characters left
+    if (strIndex === str.length) return 0
 
-		let c1 = 0;
-		if (str[strIndex] === pat[patIndex]) {
-			c1 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex + 1);
-		}
+    let c1 = 0
+    if (str[strIndex] === pat[patIndex]) {
+      c1 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex + 1)
+    }
 
-		const c2 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex);
+    const c2 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex)
 
-		return c1 + c2;
-	}
-	return findSPMCountRecursive(str, pat, 0, 0);
-};
+    return c1 + c2
+  }
+  return findSPMCountRecursive(str, pat, 0, 0)
+}
 
 const findSPMCountMemo = function (str, pat) {
-	const dp = [];
+  const dp = []
 
-	function findSPMCountRecursive(str, pat, strIndex, patIndex) {
-		// if we have reached the end of the pattern
-		if (patIndex === pat.length) return 1;
+  function findSPMCountRecursive(str, pat, strIndex, patIndex) {
+    // if we have reached the end of the pattern
+    if (patIndex === pat.length) return 1
 
-		// if we have reached the end of the string but pattern has still some characters left
-		if (strIndex === str.length) return 0;
+    // if we have reached the end of the string but pattern has still some characters left
+    if (strIndex === str.length) return 0
 
-		dp[strIndex] = dp[strIndex] || [];
-		if (dp[strIndex][patIndex] == null) {
-			let c1 = 0;
-			if (str.charAt(strIndex) == pat.charAt(patIndex)) {
-				c1 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex + 1);
-			}
-			const c2 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex);
-			dp[strIndex][patIndex] = c1 + c2;
-		}
+    dp[strIndex] = dp[strIndex] || []
+    if (dp[strIndex][patIndex] === null) {
+      let c1 = 0
+      if (str.charAt(strIndex) === pat.charAt(patIndex)) {
+        c1 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex + 1)
+      }
+      const c2 = findSPMCountRecursive(str, pat, strIndex + 1, patIndex)
+      dp[strIndex][patIndex] = c1 + c2
+    }
 
-		return dp[strIndex][patIndex];
-	}
-	return findSPMCountRecursive(str, pat, 0, 0);
-};
+    return dp[strIndex][patIndex]
+  }
+  return findSPMCountRecursive(str, pat, 0, 0)
+}
 
 // TC/SP: n*m
 const findSPMCount = function (str, pat) {
-	// every empty pattern has one match
-	if (pat.length === 0) return 1;
+  // every empty pattern has one match
+  if (pat.length === 0) return 1
 
-	if (str.length === 0 || pat.length > str.length) return 0;
+  if (str.length === 0 || pat.length > str.length) return 0
 
-	// dp[strIndex][patIndex] will be storing the count of SPM up to str[0..strIndex-1][0..patIndex-1]
-	const dp = Array(str.length + 1)
-		.fill(0)
-		.map(() => Array(pat.length + 1).fill(0));
+  // dp[strIndex][patIndex] will be storing the count of SPM up to str[0..strIndex-1][0..patIndex-1]
+  const dp = Array(str.length + 1)
+    .fill(0)
+    .map(() => Array(pat.length + 1).fill(0))
 
-	// for the empty pattern, we have one matching
-	for (let i = 0; i <= str.length; i++) dp[i][0] = 1;
+  // for the empty pattern, we have one matching
+  for (let i = 0; i <= str.length; i++) dp[i][0] = 1
 
-	for (let strIndex = 1; strIndex <= str.length; strIndex++) {
-		for (let patIndex = 1; patIndex <= pat.length; patIndex++) {
-			if (str[strIndex - 1] === pat[patIndex - 1]) {
-				dp[strIndex][patIndex] = dp[strIndex - 1][patIndex - 1];
-			}
-			dp[strIndex][patIndex] += dp[strIndex - 1][patIndex];
-		}
-	}
+  for (let strIndex = 1; strIndex <= str.length; strIndex++) {
+    for (let patIndex = 1; patIndex <= pat.length; patIndex++) {
+      if (str[strIndex - 1] === pat[patIndex - 1]) {
+        dp[strIndex][patIndex] = dp[strIndex - 1][patIndex - 1]
+      }
+      dp[strIndex][patIndex] += dp[strIndex - 1][patIndex]
+    }
+  }
 
-	return dp[str.length][pat.length];
-};
+  return dp[str.length][pat.length]
+}
 
 console.log(
-	`Count of pattern in the string: ---> ${findSPMCount("baxmx", "ax")}`
-);
+  `Count of pattern in the string: ---> ${findSPMCount("baxmx", "ax")}`
+)
 console.log(
-	`Count of pattern in the string: ---> ${findSPMCount("tomorrow", "tor")}`
-);
+  `Count of pattern in the string: ---> ${findSPMCount("tomorrow", "tor")}`
+)

@@ -15,17 +15,15 @@ class GraphMinHeap {
       let idx = this.heap.length - 1
 
       // while the child is less than the parent, swap and traverse up
-      while (
-        this.heap[idx].weight < this.heap[Math.floor(idx / 2)].weight
-      ) {
+      while (this.heap[idx].weight < this.heap[Math.floor(idx / 2)].weight) {
         if (idx >= 1) {
           // Object destructuring to swap values
           map.get(this.heap[idx].value).index = Math.floor(idx / 2)
-          map.get(this.heap[Math.floor(idx / 2)].value).index = idx;
+          map.get(this.heap[Math.floor(idx / 2)].value).index = idx
 
           // increment idx
 
-          [this.heap[Math.floor(idx / 2)], this.heap[idx]] = [
+          ;[this.heap[Math.floor(idx / 2)], this.heap[idx]] = [
             this.heap[idx],
             this.heap[Math.floor(idx / 2)]
           ]
@@ -57,7 +55,7 @@ class GraphMinHeap {
       this.heap.splice(this.heap.length - 1)
 
       // if theres only one child, sort them [null, val1, val2]
-      if (this.heap.length == 3) {
+      if (this.heap.length === 3) {
         if (this.heap[1].weight > this.heap[2].weight) {
           [this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]]
           // SWAP INDICES
@@ -80,16 +78,13 @@ class GraphMinHeap {
       // while the root node is greater than either one of its children
       while (
         this.heap[i].weight >= this.heap[left].weight
-				|| this.heap[i].weight >= this.heap[right].weight
+        || this.heap[i].weight >= this.heap[right].weight
       ) {
         // if left node is the smallest child of the two, swap it
         if (this.heap[left].weight < this.heap[right].weight) {
           map.get(this.heap[i].value).index = left
           map.get(this.heap[left].value).index = i;
-          [this.heap[i], this.heap[left]] = [
-            this.heap[left],
-            this.heap[i]
-          ]
+          [this.heap[i], this.heap[left]] = [this.heap[left], this.heap[i]]
           // SWAP INDICES
           // console.log("left");
           // console.log("check", i, map.get(this.heap[i].value).index);
@@ -101,11 +96,7 @@ class GraphMinHeap {
           map.get(this.heap[i].value).index = right
 
           map.get(this.heap[right].value).index = i;
-
-          [this.heap[i], this.heap[right]] = [
-            this.heap[right],
-            this.heap[i]
-          ]
+          [this.heap[i], this.heap[right]] = [this.heap[right], this.heap[i]]
           // SWAP INDICES
           // console.log("right");
           // console.log("check", i, map.get(this.heap[i].value).index);
@@ -119,15 +110,12 @@ class GraphMinHeap {
         right = 2 * i + 1
 
         // if we reached the bottom of the tree
-        if (
-          this.heap[left] == undefined
-					|| this.heap[right] == undefined
-        ) {
+        if (this.heap[left] === undefined || this.heap[right] === undefined) {
           break
         }
       }
       // [null, parent, child]
-    } else if (this.heap.length == 3) {
+    } else if (this.heap.length === 3) {
       // remove the one node
       map.get(this.heap[2].value).index = 1
       this.heap.splice(1, 1)
@@ -135,7 +123,7 @@ class GraphMinHeap {
       return smallest
       // [null, parent]
     } else if (this.heap.length < 3) {
-      if (this.heap.length == 1) {
+      if (this.heap.length === 1) {
         return null
       }
       this.heap.splice(1)
@@ -157,7 +145,7 @@ class GraphMinHeap {
   }
 
   peek() {
-    if (this.heap.length == 1) {
+    if (this.heap.length === 1) {
       return null
     }
     return this.heap[1]

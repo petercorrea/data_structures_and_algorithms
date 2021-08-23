@@ -30,9 +30,9 @@ const findSI = function (m, n, p) {
 
     let b1 = false
     let b2 = false
-    if (mIndex < m.length && m.charAt(mIndex) == p.charAt(pIndex)) b1 = findSIRecursive(m, n, p, mIndex + 1, nIndex, pIndex + 1)
+    if (mIndex < m.length && m.charAt(mIndex) === p.charAt(pIndex)) b1 = findSIRecursive(m, n, p, mIndex + 1, nIndex, pIndex + 1)
 
-    if (nIndex < n.length && n.charAt(nIndex) == p.charAt(pIndex)) b2 = findSIRecursive(m, n, p, mIndex, nIndex + 1, pIndex + 1)
+    if (nIndex < n.length && n.charAt(nIndex) === p.charAt(pIndex)) b2 = findSIRecursive(m, n, p, mIndex, nIndex + 1, pIndex + 1)
 
     return b1 || b2
   }
@@ -80,7 +80,7 @@ const findSIDp = function (m, n, p) {
     .map(() => Array(n.length + 1).fill(false))
 
   // make sure if lengths of the strings add up
-  if (m.length + n.length != p.length) return false
+  if (m.length + n.length !== p.length) return false
 
   for (let mIndex = 0; mIndex <= m.length; mIndex++) {
     for (let nIndex = 0; nIndex <= n.length; nIndex++) {

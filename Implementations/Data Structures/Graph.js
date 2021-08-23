@@ -71,7 +71,7 @@ class Graph {
 
       if (this.adjacencyList[current]) {
         for (neighbor of this.adjacencyList[current]) {
-          if (neighbor.value == end) return true
+          if (neighbor.value === end) return true
 
           if (!visited[neighbor.value]) {
             visited[neighbor.value] = true
@@ -151,7 +151,7 @@ class Graph {
     let idxCount = 0
     // initialize heap obj
     for (const vertex in distances) {
-      if (vertex == source) {
+      if (vertex === source) {
         idxCount += 1
         const edge = new GraphEdge(source, 0)
         map.set(vertex, { edgeObj: edge, index: idxCount, })
@@ -199,7 +199,7 @@ class Graph {
               // update node in heap
               // adjust heap, bubble up
 
-              map.get(neighbor.value).edgeObj.weight =								distanceToCurrent + costToNeighbor
+              map.get(neighbor.value).edgeObj.weight = distanceToCurrent + costToNeighbor
 
               // let idx = heap.heap.indexOf(
               // 	map.get(neighbor.value)
@@ -236,10 +236,10 @@ class Graph {
 
                     map.get(heap.heap[Math.floor(idx / 2)].value).index = idx
 
-                    map.get(heap.heap[idx].value).index = Math.floor(idx / 2);
+                    map.get(heap.heap[idx].value).index = Math.floor(idx / 2)
 
                     // Object destructuring to swap values
-                    [heap.heap[Math.floor(idx / 2)], heap.heap[idx]] = [
+                    ;[heap.heap[Math.floor(idx / 2)], heap.heap[idx]] = [
                       heap.heap[idx],
                       heap.heap[Math.floor(idx / 2)]
                     ]
@@ -300,7 +300,9 @@ class DirectedGraph extends Graph {
     const keys = Object.keys(this.adjacencyList)
 
     for (let i = 0; i < keys.length; i++) {
-      this.adjacencyList[keys[i]] = this.adjacencyList[keys[i]].filter((v) => v.value !== vertex)
+      this.adjacencyList[keys[i]] = this.adjacencyList[keys[i]].filter(
+        (v) => v.value !== vertex
+      )
     }
   }
 
@@ -331,7 +333,7 @@ class DirectedGraph extends Graph {
 
     // push 0 indegrees
     for (const node in indegrees) {
-      if (indegrees[node] == 0) {
+      if (indegrees[node] === 0) {
         no_indegrees.push(node)
       }
     }
@@ -350,7 +352,7 @@ class DirectedGraph extends Graph {
       for (let i = 0; i < neighbors.length; i++) {
         indegrees[neighbors[i].value] -= 1
 
-        if (indegrees[neighbors[i].value] == 0) {
+        if (indegrees[neighbors[i].value] === 0) {
           no_indegrees.push(neighbors[i].value)
         }
       }

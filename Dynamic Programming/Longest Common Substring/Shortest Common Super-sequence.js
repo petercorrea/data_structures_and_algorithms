@@ -11,10 +11,10 @@
 const SCSS = function (string1, string2) {
   function SCSSRecursive(str1, str2, i1, i2) {
     // if we reached the end of one string, return the remaining length of the other string
-    if (i1 == str1.length) return str2.length - i2
-    if (i2 == str2.length) return str1.length - i1
+    if (i1 === str1.length) return str2.length - i2
+    if (i2 === str2.length) return str1.length - i1
 
-    if (str1[i1] == str2[i2]) {
+    if (str1[i1] === str2[i2]) {
       return 1 + SCSSRecursive(str1, str2, i1 + 1, i2 + 1)
     }
 
@@ -32,13 +32,13 @@ const SCSSMemo = function (string1, string2) {
 
   function SCSSRecursive(str1, str2, i1, i2) {
     // if we reached the end of one string, return the remaining length of the other string
-    if (i1 == str1.length) return str2.length - i2
-    if (i2 == str2.length) return str1.length - i1
+    if (i1 === str1.length) return str2.length - i2
+    if (i2 === str2.length) return str1.length - i1
 
     memo[i1] = memo[i1] || []
 
     if (typeof memo[i1][i2] === "undefined") {
-      if (str1[i1] == str2[i2]) {
+      if (str1[i1] === str2[i2]) {
         memo[i1][i2] = 1 + SCSSRecursive(str1, str2, i1 + 1, i2 + 1)
       } else {
         const c1 = 1 + SCSSRecursive(str1, str2, i1 + 1, i2)
@@ -72,7 +72,7 @@ const SCSSDp = function (string1, string2) {
   for (let i = 1; i <= string1.length; i++) {
     for (let j = 1; j <= string2.length; j++) {
       // Note that we minus 1 here to map back to the original index
-      if (string1[i - 1] == string2[j - 1]) {
+      if (string1[i - 1] === string2[j - 1]) {
         dp[i][j] = 1 + dp[i - 1][j - 1]
       } else {
         // remember to add one

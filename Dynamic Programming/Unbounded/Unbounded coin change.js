@@ -1,15 +1,11 @@
 const coinChange = function (coins, sum) {
   function solveRecursive(coins, sum, currentIndex) {
-    if (sum == 0) return 1
-    if (coins.length == 0 || currentIndex >= coins.length) return 0
+    if (sum === 0) return 1
+    if (coins.length === 0 || currentIndex >= coins.length) return 0
 
     let sum1 = 0
     if (coins[currentIndex] <= sum) {
-      sum1 = solveRecursive(
-        coins,
-        sum - coins[currentIndex],
-        currentIndex
-      )
+      sum1 = solveRecursive(coins, sum - coins[currentIndex], currentIndex)
     }
 
     const sum2 = solveRecursive(coins, sum, currentIndex + 1)
@@ -24,19 +20,15 @@ const coinChangeMemo = function (coins, sum) {
   const dp = []
 
   function solveRecursive(coins, sum, currentIndex) {
-    if (sum == 0) return 1
-    if (coins.length == 0 || currentIndex >= coins.length) return 0
+    if (sum === 0) return 1
+    if (coins.length === 0 || currentIndex >= coins.length) return 0
 
     dp[currentIndex] = dp[currentIndex] || []
 
     if (typeof dp[currentIndex][sum] === "undefined") {
       let sum1 = 0
       if (coins[currentIndex] <= sum) {
-        sum1 = solveRecursive(
-          coins,
-          sum - coins[currentIndex],
-          currentIndex
-        )
+        sum1 = solveRecursive(coins, sum - coins[currentIndex], currentIndex)
       }
 
       const sum2 = solveRecursive(coins, sum, currentIndex + 1)
@@ -70,6 +62,4 @@ const coinChangeDp = function (coins, sum) {
   return dp[n - 1][sum]
 }
 
-console.log(
-  `Number of ways to make change: ---> ${coinChangeDp([1, 2, 3], 5)}`
-)
+console.log(`Number of ways to make change: ---> ${coinChangeDp([1, 2, 3], 5)}`)

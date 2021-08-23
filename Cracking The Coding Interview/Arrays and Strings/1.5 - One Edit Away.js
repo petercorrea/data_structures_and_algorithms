@@ -21,7 +21,7 @@
 const replacement = (s1, s2) => {
   let edits = 0
   for (i in s1) {
-    if (s1[i] != s2[i]) {
+    if (s1[i] !== s2[i]) {
       edits++
 
       if (edits > 1) return false
@@ -37,7 +37,7 @@ const insertOrRemoved = (s1, s2) => {
   let edits = 0
 
   while (i < s1.length && j < s2.length) {
-    if (s1[i] != s2[j]) {
+    if (s1[i] !== s2[j]) {
       j++
       edits++
       if (edits > 1) return false
@@ -54,10 +54,10 @@ const insertOrRemoved = (s1, s2) => {
 const oneEditAway = (s1, s2) => {
   if (Math.abs(s1.length - s2.length) > 1) return false
 
-  if (s1.length == s2.length) {
+  if (s1.length === s2.length) {
     return replacement(s1, s2)
   }
-  if (s1.length + 1 == s2.length) {
+  if (s1.length + 1 === s2.length) {
     return insertOrRemoved(s1, s2)
   }
   return insertOrRemoved(s2, s1)

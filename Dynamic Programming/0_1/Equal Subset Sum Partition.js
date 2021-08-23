@@ -14,8 +14,8 @@ const canPartitionMemo = function (nums) {
   const memo = []
 
   function solveRecursive(nums, sum, currentIndex) {
-    if (currentIndex >= nums.length || nums.length == 0) return true
-    if (sum == 0) return true
+    if (currentIndex >= nums.length || nums.length === 0) return true
+    if (sum === 0) return true
 
     memo[currentIndex] = memo[currentIndex] || []
 
@@ -23,24 +23,14 @@ const canPartitionMemo = function (nums) {
       // we don't need to compare two sets, simply return true if possible
       if (nums[currentIndex] <= sum) {
         // if the base case returns true when selecting the item, return true
-        if (
-          solveRecursive(
-            nums,
-            sum - nums[currentIndex],
-            currentIndex + 1
-          )
-        ) {
+        if (solveRecursive(nums, sum - nums[currentIndex], currentIndex + 1)) {
           memo[currentIndex][sum] = true
           return true
         }
       }
 
       // otherwise evaluate the result without selecting the item
-      memo[currentIndex][sum] = solveRecursive(
-        nums,
-        sum,
-        currentIndex + 1
-      )
+      memo[currentIndex][sum] = solveRecursive(nums, sum, currentIndex + 1)
     }
 
     return memo[currentIndex][sum]
@@ -50,7 +40,7 @@ const canPartitionMemo = function (nums) {
 }
 
 const canPartitionDp = function (nums) {
-  if (nums.length == 0) return false
+  if (nums.length === 0) return false
   const n = nums.length
   let sum = 0
 
@@ -58,7 +48,7 @@ const canPartitionDp = function (nums) {
     sum += nums[i]
   }
 
-  if (sum % 2 != 0) return false
+  if (sum % 2 !== 0) return false
 
   sum /= 2
 
@@ -75,7 +65,7 @@ const canPartitionDp = function (nums) {
   // setup first row, a set with a single item is a valid subset to only a sum of itself
   // do not rewrite the data under the first column
   for (let s = 1; s <= sum; s++) {
-    table[0][s] = nums[0] == s
+    table[0][s] = nums[0] === s
   }
 
   for (let i = 1; i < n; i++) {
@@ -94,7 +84,5 @@ const canPartitionDp = function (nums) {
 }
 
 console.log(`Can partitioning be done: ---> ${canPartitionDp([1, 2, 3, 4])}`) // true
-console.log(
-  `Can partitioning be done: ---> ${canPartitionDp([1, 1, 3, 4, 7])}`
-) // true
+console.log(`Can partitioning be done: ---> ${canPartitionDp([1, 1, 3, 4, 7])}`) // true
 console.log(`Can partitioning be done: ---> ${canPartitionDp([2, 3, 4, 6])}`) // false

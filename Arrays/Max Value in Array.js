@@ -2,7 +2,7 @@
 const arr = [2, 4, 1, 7, 9]
 
 function findMax(array) {
-  if (arr.length == 0) {
+  if (arr.length === 0) {
     return null
   }
 

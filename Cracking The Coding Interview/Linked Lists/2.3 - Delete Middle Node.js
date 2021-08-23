@@ -27,7 +27,7 @@ const node2 = new Node(2, null, node3)
 const node1 = new Node(1, null, node2)
 
 const deleteNode = (node) => {
-  if (node == null || node.next == null) return false
+  if (node === null || node.next === null) return false
   node.value = node.next.value
   node.next = node.next.next
   return node

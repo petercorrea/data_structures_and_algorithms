@@ -14,12 +14,9 @@ const findCPS = function (st) {
 
   for (let startIndex = st.length - 1; startIndex >= 0; startIndex--) {
     for (let endIndex = startIndex + 1; endIndex < st.length; endIndex++) {
-      if (st.charAt(startIndex) == st.charAt(endIndex)) {
+      if (st.charAt(startIndex) === st.charAt(endIndex)) {
         // if it's a two character string or if the remaining string is a palindrome too
-        if (
-          endIndex - startIndex == 1
-					|| dp[startIndex + 1][endIndex - 1]
-        ) {
+        if (endIndex - startIndex === 1 || dp[startIndex + 1][endIndex - 1]) {
           dp[startIndex][endIndex] = true
           count++
         }

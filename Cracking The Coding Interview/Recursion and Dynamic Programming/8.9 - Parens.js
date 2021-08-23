@@ -20,12 +20,12 @@ let parensHelper = (
   result = [],
   string = ""
 ) => {
-  if (max == 0) return null
+  if (max === 0) return null
   if (depth < 0 || sum > max || sum < 0) {
     return
   }
 
-  if (sum == 0 && depth == 0) {
+  if (sum === 0 && depth === 0) {
     return result.push(string)
   }
 

@@ -4,7 +4,7 @@
 // You can only hold one stock at a time.
 
 function maxProfitKTransactions(prices, k) {
-  if (prices.length == 0) return 0
+  if (prices.length === 0) return 0
 
   const profits = []
 

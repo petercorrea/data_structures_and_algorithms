@@ -21,8 +21,8 @@ function flipColor(image, x, y) {
   // add to queue
   queue.push([x, y])
 
-  let current; let
-    neighbor
+  let current
+  let neighbor
 
   while (queue.length) {
     current = queue.shift()
@@ -47,10 +47,10 @@ function isFeasible(image, indices, color) {
   const y = indices[1]
   return (
     x >= 0
-		&& x < image.length
-		&& y >= 0
-		&& y < image[x].length
-		&& image[x][y] == color
+    && x < image.length
+    && y >= 0
+    && y < image[x].length
+    && image[x][y] === color
   )
 }
 

@@ -29,7 +29,7 @@ class BST {
   }
 
   insert(value) {
-    if (this.root == null) {
+    if (this.root === null) {
       this.root = new Node(value)
       return
     }
@@ -72,7 +72,8 @@ class BST {
       if (node.left) {
         if (randomIdx === node.left.size + 1) {
           return node
-        } if (randomIdx <= node.left.size) {
+        }
+        if (randomIdx <= node.left.size) {
           node = node.left
         } else if (node.right) {
           randomIdx -= node.left.size + 1
@@ -81,7 +82,8 @@ class BST {
       } else {
         if (randomIdx <= 1) {
           return node
-        } if (node.right) {
+        }
+        if (node.right) {
           --randomIdx
           node = node.right
         }

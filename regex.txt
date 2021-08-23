@@ -1,0 +1,28 @@
+// Regex
+
+// Quantifiers
++       // 1 or more
+*       // 0 or more 
+?       // 0 or 1
+{1, 3}  // min of 1, max of 3
+|       // boolean or b (a | i | e) d will match bad, bid, bed 
+
+// Anchors 
+^       // beginning of string
+$       // end of string 
+\b \B   // word boundary
+
+// Matching 
+        // matches any character in any position
+[]      // matches containing characters in any position
+()      // matches containing sequance of characters
+.       // match any character expect linebreaks
+[A-Z]   // match any in the range
+[abc]   // match any in the set
+[^A-Z]  // negate set
+\w \W   // word
+\d \D   // digit
+\s \s   // white space
+(abd)   // matches the group 
+\d(?=px)   // matches the groups that come before the main expression "px"
+\d(?!px)   // matches the groups that do not come before the main expression "px"

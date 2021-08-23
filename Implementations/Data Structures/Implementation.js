@@ -11,7 +11,7 @@ class Stack {
   }
 
   pop() {
-    if (this.size == 0) {
+    if (this.size === 0) {
       return "The stack is empty"
     }
 
@@ -30,7 +30,7 @@ class Stack {
   }
 
   isEmpty() {
-    if (this.size == 0) {
+    if (this.size === 0) {
       return true
     }
 

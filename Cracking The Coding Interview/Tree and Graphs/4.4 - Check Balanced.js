@@ -32,7 +32,7 @@ const checkBalanced = (root) => {
     rightHeight = checkBalanced(root.right)
   }
 
-  if (Math.abs(leftHeight - rightHeight) == 1) {
+  if (Math.abs(leftHeight - rightHeight) === 1) {
     return Math.max(leftHeight, rightHeight) + 1
   }
   return false

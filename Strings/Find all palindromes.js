@@ -7,7 +7,7 @@ function lookForPali(param) {
   for (let i = 0; i < param.length; i++) {
     let reverse = []
 
-    if (param[i] == " ") {
+    if (param[i] === " ") {
       // Substring each word
       let word = param.substring(0, i++)
       const pattern = /[A-z]*/
@@ -23,7 +23,7 @@ function lookForPali(param) {
       const reverseWord = reverse.join("")
 
       // Check for pali, push inton results
-      word == reverseWord ? results.push(word) : (reverse = [])
+      word === reverseWord ? results.push(word) : (reverse = [])
 
       // Clean out reverse
       reverse = []
