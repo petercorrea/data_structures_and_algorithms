@@ -1,4 +1,4 @@
-const CountWays = function (n) {
+export const CountWays = (n) => {
   if (n === 0) {
     return 1
   }
@@ -22,10 +22,10 @@ const CountWays = function (n) {
   return subtract1 + subtract3 + subtract4
 }
 
-const CountWaysMemo = function (n) {
+export const CountWaysMemo = (n) => {
   const dp = []
 
-  function CountWaysRecursive(n) {
+  const CountWaysRecursive = (n) => {
     if (n === 0) return 1
     if (n === 1) return 1
     if (n === 2) return 1
@@ -43,7 +43,7 @@ const CountWaysMemo = function (n) {
   return CountWaysRecursive(n)
 }
 
-const CountWaysDp = function (n) {
+const CountWaysDp = (n) => {
   const dp = Array(n + 1).fill(0)
   dp[0] = 1
   dp[1] = 1

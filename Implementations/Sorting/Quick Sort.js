@@ -4,14 +4,16 @@
 // Pros: cache locality, no additional memory (in-place), good for indexed structures
 // Cons: unstable
 
-function swap(items, leftIdx, rightIdx) {
+export const swap = (itemsParam, leftIdx, rightIdx) => {
+  const items = [...itemsParam]
   const temp = items[leftIdx]
   items[leftIdx] = items[rightIdx]
   items[rightIdx] = temp
+  return items
 }
 
 // Implemented here using Hoare’s partitioning scheme as opposed to Lomuto.
-function partition(items, left, right) {
+export const partition = (items, left, right) => {
   const middle = items[Math.floor((left + right) / 2)]
   let i = left
   let j = right
@@ -41,7 +43,7 @@ function partition(items, left, right) {
 export const quickSort = (items, left, right) => {
   if (items.length > 1) {
     if (left >= right) {
-      return
+      return []
     }
 
     const partIdx = partition(items, left, right)

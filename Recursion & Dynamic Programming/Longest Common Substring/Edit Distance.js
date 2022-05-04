@@ -4,8 +4,8 @@
 
 // TC: 3^(n+m)
 // SP: n + m for execution stack
-const findMinOperations = function (s1, s2) {
-  function findMinOperationsRecursive(s1, s2, i1, i2) {
+const findMinOperations = (s1, s2) => {
+  const findMinOperationsRecursive = (s1, s2, i1, i2) => {
     // if we have reached the end of s1, then we have to insert all the remaining characters of s2
     if (i1 === s1.length) return s2.length - i2
 
@@ -13,7 +13,8 @@ const findMinOperations = function (s1, s2) {
     if (i2 === s2.length) return s1.length - i1
 
     // If the strings have a matching character, we can recursively match for the remaining lengths.
-    if (s1.charAt(i1) === s2.charAt(i2)) return findMinOperationsRecursive(s1, s2, i1 + 1, i2 + 1)
+    if (s1.charAt(i1) === s2.charAt(i2))
+      return findMinOperationsRecursive(s1, s2, i1 + 1, i2 + 1)
 
     const c1 = 1 + findMinOperationsRecursive(s1, s2, i1 + 1, i2) // perform deletion
     const c2 = 1 + findMinOperationsRecursive(s1, s2, i1, i2 + 1) // perform insertion
@@ -26,10 +27,10 @@ const findMinOperations = function (s1, s2) {
 
 // TC: n*m
 // SP: (m*n)+(m+n) array + execution stack
-const findMinOperationsMemo = function (s1, s2) {
+export const findMinOperationsMemo = (s1, s2) => {
   const dp = []
 
-  function findMinOperationsRecursive(s1, s2, i1, i2) {
+  const findMinOperationsRecursive = (s1, s2, i1, i2) => {
     dp[i1] = dp[i1] || []
     if (typeof dp[i1][i2] === "undefined") {
       // if we have reached the end of s1, then we have to insert all the remaining characters of s2
@@ -37,7 +38,8 @@ const findMinOperationsMemo = function (s1, s2) {
       // if we have reached the end of s2, then we have to delete all the remaining characters of s1
       else if (i2 === s2.length) dp[i1][i2] = s1.length - i1
       // If the strings have a matching character, we can recursively match for the remaining lengths
-      else if (s1[i1] === s2[i2]) dp[i1][i2] = findMinOperationsRecursive(s1, s2, i1 + 1, i2 + 1)
+      else if (s1[i1] === s2[i2])
+        dp[i1][i2] = findMinOperationsRecursive(s1, s2, i1 + 1, i2 + 1)
       else {
         const c1 = findMinOperationsRecursive(s1, s2, i1 + 1, i2) // delete
         const c2 = findMinOperationsRecursive(s1, s2, i1, i2 + 1) // insert
@@ -53,7 +55,7 @@ const findMinOperationsMemo = function (s1, s2) {
 
 // TC: n*m
 // SP: n*m
-const findMinOperationsDp = function (s1, s2) {
+export const findMinOperationsDp = (s1, s2) => {
   const dp = Array(s1.length + 1)
     .fill(0)
     .map(() => Array(s2.length + 1).fill(0))
@@ -70,8 +72,9 @@ const findMinOperationsDp = function (s1, s2) {
       if (s1.charAt(i1 - 1) === s2.charAt(i2 - 1)) {
         dp[i1][i2] = dp[i1 - 1][i2 - 1]
       } else {
-        dp[i1][i2] = 1
-          + Math.min(
+        dp[i1][i2] =
+          1 +
+          Math.min(
             dp[i1 - 1][i2], // delete
             Math.min(
               dp[i1][i2 - 1], // insert

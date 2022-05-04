@@ -9,7 +9,7 @@
 // 		(3) A disk cannot be placed on top of a smaller disk.
 // 		Write a program to move the disks from the first tower to the last using Stacks.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 //
 
 // Assume:

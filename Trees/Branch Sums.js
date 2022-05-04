@@ -3,7 +3,7 @@
 
 // TC: n
 // SP: n
-function branchSums(root) {
+const branchSums = (root) => {
   const dfs = (node, prevSum = 0, result = []) => {
     const currentSum = node.value + prevSum
 

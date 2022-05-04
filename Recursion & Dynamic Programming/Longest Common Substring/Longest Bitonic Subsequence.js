@@ -10,7 +10,7 @@
 // Explanation: The LBS is {4,5,9,7,6,3,1}.
 
 // find the longest decreasing subsequence from currentIndex till the end of the array
-function findLDSLength(nums, currentIndex, previousIndex) {
+const findLDSLength = (nums, currentIndex, previousIndex) => {
   if (currentIndex === nums.length) return 0
 
   // include nums[currentIndex] if it is smaller than the previous number
@@ -26,7 +26,7 @@ function findLDSLength(nums, currentIndex, previousIndex) {
 }
 
 // find the longest decreasing subsequence from currentIndex till the beginning of the array
-function findLDSLengthRev(nums, currentIndex, previousIndex) {
+const findLDSLengthRev = (nums, currentIndex, previousIndex) => {
   if (currentIndex < 0) return 0
 
   // include nums[currentIndex] if it is smaller than the previous number
@@ -44,7 +44,7 @@ function findLDSLengthRev(nums, currentIndex, previousIndex) {
 // Brute
 // TC: 2^n
 // SP: n
-const findLBSLength = function (nums) {
+const findLBSLength = (nums) => {
   let maxLength = 0
   for (let i = 0; i < nums.length; i++) {
     const c1 = findLDSLength(nums, i, -1)
@@ -57,19 +57,20 @@ const findLBSLength = function (nums) {
 // Memo
 // TC:
 // SP:
-const findLBSLengthMemo = function (nums) {
+export const findLBSLengthMemo = (nums) => {
   const lds = []
   const ldsRev = []
 
   // find the longest decreasing subsequence from currentIndex till the end of the array
-  function findLDSLength(nums, currentIndex, previousIndex) {
+  const findLDSLength = (nums, currentIndex, previousIndex) => {
     if (currentIndex === nums.length) return 0
 
     lds[currentIndex] = lds[currentIndex] || []
     if (typeof lds[currentIndex][previousIndex + 1] === "undefined") {
       // include nums[currentIndex] if it is smaller than the previous number
       let c1 = 0
-      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLength(nums, currentIndex + 1, currentIndex)
+      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex])
+        c1 = 1 + findLDSLength(nums, currentIndex + 1, currentIndex)
 
       // excluding the number at currentIndex
       const c2 = findLDSLength(nums, currentIndex + 1, previousIndex)
@@ -81,14 +82,15 @@ const findLBSLengthMemo = function (nums) {
   }
 
   // find the longest decreasing subsequence from currentIndex till the beginning of the array
-  function findLDSLengthReverse(nums, currentIndex, previousIndex) {
+  const findLDSLengthReverse = (nums, currentIndex, previousIndex) => {
     if (currentIndex < 0) return 0
 
     ldsRev[currentIndex] = ldsRev[currentIndex] || []
     if (ldsRev[currentIndex][previousIndex + 1] === null) {
       // include nums[currentIndex] if it is smaller than the previous number
       let c1 = 0
-      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLengthReverse(nums, currentIndex - 1, currentIndex)
+      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex])
+        c1 = 1 + findLDSLengthReverse(nums, currentIndex - 1, currentIndex)
 
       // excluding the number at currentIndex
       const c2 = findLDSLengthReverse(nums, currentIndex - 1, previousIndex)
@@ -111,7 +113,7 @@ const findLBSLengthMemo = function (nums) {
 // DP
 // TC: n^2
 // SP: n
-const findLBSLengthDp = function (nums) {
+export const findLBSLengthDp = (nums) => {
   const lds = Array(nums.length).fill(0)
   const ldsReverse = Array(nums.length).fill(0)
 

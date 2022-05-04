@@ -1,6 +1,8 @@
-const { Node, dbLinkedList, } = require("./LinkedList.js")
+const {
+  DbLinkedList
+} = require("../Implementations/Data Structures/DbLinkedList")
 
-function findMiddleNode(list) {
+export const findMiddleNode = (list) => {
   let slow = list.head
   let fast = list.head
 
@@ -12,7 +14,7 @@ function findMiddleNode(list) {
   return slow
 }
 
-const ll = new dbLinkedList()
+const ll = new DbLinkedList()
 ll.append("Peter")
 ll.append("Michael")
 ll.append("Miguel")

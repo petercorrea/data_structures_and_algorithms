@@ -3,7 +3,7 @@
 // to reach the targetSum. Return the smallest amount of numbers, else return null.
 
 // Leetcode 1074
-const numSubmatrixSumTarget = function (matrix, target) {
+const numSubmatrixSumTarget = (matrix, target) => {
   // Create empty matrix for prefix sums
   const prefixSums = new Array(matrix.length + 1)
     .fill()
@@ -12,10 +12,11 @@ const numSubmatrixSumTarget = function (matrix, target) {
   // calculate the prefix sums
   for (let i = 1; i <= matrix.length; i++) {
     for (let j = 1; j <= matrix[0].length; j++) {
-      prefixSums[i][j] =				matrix[i - 1][j - 1]
-				+ prefixSums[i - 1][j]
-				+ prefixSums[i][j - 1]
-				- prefixSums[i - 1][j - 1]
+      prefixSums[i][j] =
+        matrix[i - 1][j - 1] +
+        prefixSums[i - 1][j] +
+        prefixSums[i][j - 1] -
+        prefixSums[i - 1][j - 1]
     }
   }
 

@@ -1,7 +1,7 @@
 // Problem Statement:
 // Given a sorted (increasing order) array with unique integer elements, write an algorithm to create a binary search tree with minimal height.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -12,7 +12,7 @@
 
 // Proposed Solution:
 //
-const { Node, } = require("../../Trees/Binary Search Tree")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 const makeBST = (arr, start = 0, end = arr.length - 1) => {

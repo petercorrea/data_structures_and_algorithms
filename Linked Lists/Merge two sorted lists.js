@@ -1,4 +1,4 @@
-const { Node, } = require("./LinkedList.js")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const list1 = new Node(-1, null, new Node(2, null, new Node(5)))
 const list2 = new Node(
@@ -7,7 +7,7 @@ const list2 = new Node(
   new Node(3, null, new Node(4, null, new Node(6)))
 )
 
-function mergeTwoLists(l1, l2) {
+export const mergeTwoLists = (l1, l2) => {
   let currentL1 = l1
   let currentL2 = l2
 

@@ -1,12 +1,8 @@
-function rotate(int, size) {
+export const rotate = (int, size) => {
   console.log("int", int.toString(2))
-  let right
-  let left
-  let result
-
-  right = int >> size
-  left = int << (32 - size)
-  result = left | right
+  const right = int >> size
+  const left = int << (32 - size)
+  const result = left | right
 
   console.log("left", left.toString(2))
   console.log("right", right.toString(2))

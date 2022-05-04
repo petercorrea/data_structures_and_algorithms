@@ -1,6 +1,6 @@
-const { Node, dbLinkedList, } = require("./LinkedList.js")
+const { Node } = require("../Implementations/Data Structures/Node")
 
-function detectLoopLength(list) {
+export const detectLoopLength = (list) => {
   let slow = list
   let fast = list.next
   let length = 0

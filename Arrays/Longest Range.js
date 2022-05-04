@@ -5,7 +5,7 @@
 // Time: n+nlogn
 // Space: 1
 
-function largestRange(array) {
+export const solution1 = (array) => {
   array.sort((a, b) => a - b)
   console.log(array)
 
@@ -27,19 +27,14 @@ function largestRange(array) {
       } else {
         currentPair[1] = array[i]
       }
-    } else {
-      if (currentPair[0] - currentPair[1] === 0) {
-        currentPair = []
-        continue
-      }
+    } else if (currentPair[0] - currentPair[1] === 0) {
+      currentPair = []
+    } else if (currentLength > maxLength) {
+      maxLength = currentLength
+      currentLength = 1
 
-      if (currentLength > maxLength) {
-        maxLength = currentLength
-        currentLength = 1
-
-        maxPair = [...currentPair]
-        currentPair = []
-      }
+      maxPair = [...currentPair]
+      currentPair = []
     }
   }
 
@@ -48,38 +43,39 @@ function largestRange(array) {
 
 // Time: n
 // Space: n
-function largestRange(array) {
+export const solution2 = (array) => {
   let bestRange = []
   let longestLength = 0
-  let nums = {}
+  const nums = {}
 
-  for (let num of array) {
+  for (const num of array) {
     nums[num] = true
   }
 
-  for (let num of array) {
-    if (!nums[num]) continue
-    nums[num] = false
+  for (const num of array) {
+    if (nums[num]) {
+      nums[num] = false
 
-    let currentLength = 1
-    let left = num - 1
-    let right = num + 1
+      let currentLength = 1
+      let left = num - 1
+      let right = num + 1
 
-    while (left in nums) {
-      nums[left] = false
-      currentLength++
-      left--
-    }
+      while (left in nums) {
+        nums[left] = false
+        currentLength++
+        left--
+      }
 
-    while (right in nums) {
-      nums[right] = false
-      currentLength++
-      right++
-    }
+      while (right in nums) {
+        nums[right] = false
+        currentLength++
+        right++
+      }
 
-    if (currentLength > longestLength) {
-      longestLength = currentLength
-      bestRange = [left + 1, right - 1]
+      if (currentLength > longestLength) {
+        longestLength = currentLength
+        bestRange = [left + 1, right - 1]
+      }
     }
   }
 

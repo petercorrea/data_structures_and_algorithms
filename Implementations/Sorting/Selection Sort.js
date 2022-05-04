@@ -1,6 +1,7 @@
 // T(C) = n^2
 
-function selectionSort(arr) {
+export const selectionSort = (array) => {
+  const arr = [...array]
   for (let i = 0; i < arr.length; i++) {
     let min = i
     for (let j = i; j < arr.length; j++) {

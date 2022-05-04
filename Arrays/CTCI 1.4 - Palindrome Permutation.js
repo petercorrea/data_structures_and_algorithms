@@ -3,7 +3,7 @@
 // A palindrome is a word or phrase that is the same forwards and backwards.A permutation
 // is a rearrangement of letters.The palindrome does not need to be limited to just dictionary words.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -32,7 +32,7 @@ const palindromePermutation = (string) => {
   const map = new Map()
   let odds = 0
 
-  for (char of string) {
+  string.forEach((char) => {
     if (map.get(char) === 1) {
       map.set(char, 0)
       odds--
@@ -40,7 +40,7 @@ const palindromePermutation = (string) => {
       map.set(char, 1)
       odds++
     }
-  }
+  })
 
   return odds <= 1
 }

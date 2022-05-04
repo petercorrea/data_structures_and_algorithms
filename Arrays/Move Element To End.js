@@ -5,7 +5,8 @@
 
 // Time: n
 // Space: 1
-function moveElementToEnd(array, toMove) {
+export const solution1 = (arr, toMove) => {
+  const array = [...arr]
   let left = array.length - 1
   let right = array.length - 1
 
@@ -20,7 +21,7 @@ function moveElementToEnd(array, toMove) {
     }
 
     if (left >= 0 && right >= 0) {
-      let temp = array[right]
+      const temp = array[right]
       array[right] = array[left]
       array[left] = temp
     }
@@ -29,7 +30,8 @@ function moveElementToEnd(array, toMove) {
   return array
 }
 
-function moveElementToEnd(array, toMove) {
+export const solution2 = (arr, toMove) => {
+  const array = [...arr]
   let left = 0
   let right = array.length - 1
 
@@ -37,7 +39,7 @@ function moveElementToEnd(array, toMove) {
     while (left < right && array[right] === toMove) right--
     while (left < right && array[left] !== toMove) left++
 
-    let temp = array[right]
+    const temp = array[right]
     array[right] = array[left]
     array[left] = temp
   }

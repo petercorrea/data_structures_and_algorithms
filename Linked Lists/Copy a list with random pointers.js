@@ -1,4 +1,4 @@
-const { Node, } = require("./LinkedList.js")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 class RandomNode extends Node {
   constructor(value, random) {
@@ -19,7 +19,7 @@ randomNode2.random = randomNode1
 
 console.log(randomNode1)
 
-function copy(head) {
+export const copy = (head) => {
   let current = head
   while (current) {
     const copyNode = new Node(current.value)

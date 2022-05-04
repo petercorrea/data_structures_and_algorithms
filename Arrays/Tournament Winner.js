@@ -1,18 +1,21 @@
-// Given a list of competition matches, and a results list, find the team
+// Problem Statement
+// Given a list of competition matches, and a list of results, find the team
 // with the highest total score.
-// A "1" in the results lists indicates the first team one,
+// A "1" in the results lists indicates the first team won,
 // a "0" indicates the second team won. Each win gets awarded 3 points.
 
 // Sample Input
-// {
+//
 //   "competitions": [["HTML", "C#"], ["C#", "Python"], ["Python", "HTML"]],
 //   "results": [0, 0, 1]
-// }
+//
 
 // Sample Output
 // "Python"
 
-function tournament(competitions, results) {
+export default (competitions, results) => {
+  // O(n) time | O(k) space
+  // where n is the # of competitions; k the # of teams
   const map = new Map()
   const max = ["team", 0]
 
@@ -25,7 +28,6 @@ function tournament(competitions, results) {
   }
 
   for (const [team, score] of map) {
-    console.log(team, score)
     if (score > max[1]) {
       max[0] = team
       max[1] = score

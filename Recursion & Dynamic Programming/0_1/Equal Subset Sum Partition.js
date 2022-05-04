@@ -4,7 +4,7 @@
 
 // For both subsets to equal the same value, they must equal exactly half the sum.
 
-const canPartitionMemo = function (nums) {
+export const canPartitionMemo = (nums) => {
   let sum = 0
   for (let i = 0; i < nums.length; i++) {
     sum += nums[i]
@@ -13,7 +13,7 @@ const canPartitionMemo = function (nums) {
   if (sum % 2 !== 0) return false
   const memo = []
 
-  function solveRecursive(nums, sum, currentIndex) {
+  const solveRecursive = (nums, sum, currentIndex) => {
     if (currentIndex >= nums.length || nums.length === 0) return true
     if (sum === 0) return true
 
@@ -39,7 +39,7 @@ const canPartitionMemo = function (nums) {
   return solveRecursive(nums, sum, 0)
 }
 
-const canPartitionDp = function (nums) {
+export const canPartitionDp = (nums) => {
   if (nums.length === 0) return false
   const n = nums.length
   let sum = 0

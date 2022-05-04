@@ -2,10 +2,10 @@
 // Given a string, we want to cut it into pieces such that each piece is a palindrome. Write a function to return the minimum number of cuts needed.
 // Note: you can only cut, not merge, swap, insert.
 
-const findMPPCutsMemo = function (st) {
+export const findMPPCutsMemo = (st) => {
   const dpIsPalindrome = []
 
-  function findMPPCutsRecursive(st, startIndex, endIndex) {
+  const findMPPCutsRecursive = (st, startIndex, endIndex) => {
     // we don't need to cut the string if it is a palindrome
     if (startIndex >= endIndex || isPalindrome(st, startIndex, endIndex)) {
       console.log("base case")
@@ -28,7 +28,7 @@ const findMPPCutsMemo = function (st) {
     return minimumCuts
   }
 
-  function isPalindrome(st, x, y) {
+  const isPalindrome = (st, x, y) => {
     dpIsPalindrome[x] = dpIsPalindrome[x] || []
     if (typeof dpIsPalindrome[x][y] === "undefined") {
       dpIsPalindrome[x][y] = true
@@ -54,7 +54,7 @@ const findMPPCutsMemo = function (st) {
   return findMPPCutsRecursive(st, 0, st.length - 1)
 }
 
-const findMPPCutsTab = function (st) {
+export const findMPPCutsTab = (st) => {
   // isPalindrome[i][j] will be 'true' if the string from index 'i' to index 'j' is a palindrome
   const isPalindrome = Array(st.length)
     .fill(false)
@@ -71,8 +71,8 @@ const findMPPCutsTab = function (st) {
       if (st.charAt(startIndex) === st.charAt(endIndex)) {
         // if it's a two character string or if the remaining string is a palindrome too
         if (
-          endIndex - startIndex === 1
-          || isPalindrome[startIndex + 1][endIndex - 1]
+          endIndex - startIndex === 1 ||
+          isPalindrome[startIndex + 1][endIndex - 1]
         ) {
           isPalindrome[startIndex][endIndex] = true
         }
@@ -89,9 +89,10 @@ const findMPPCutsTab = function (st) {
       if (isPalindrome[startIndex][endIndex]) {
         // we can cut here as we got a palindrome
         // also we dont need any cut if the whole substring is a palindrome
-        minCuts = endIndex === st.length - 1
-          ? 0
-          : Math.min(minCuts, 1 + cuts[endIndex + 1])
+        minCuts =
+          endIndex === st.length - 1
+            ? 0
+            : Math.min(minCuts, 1 + cuts[endIndex + 1])
       }
     }
     cuts[startIndex] = minCuts

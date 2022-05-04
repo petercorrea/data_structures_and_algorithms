@@ -2,12 +2,12 @@
 // The diameter is defined as the longest path between any two paths.
 // The path doesnt have to go through the root.
 
-function binaryTreeDiameter(tree) {
-  function recurse(node) {
+export const binaryTreeDiameter = (tree) => {
+  const recurse = (node) => {
     if (!node) {
       return {
         maxLength: 0,
-        height: 0,
+        height: 0
       }
     }
 
@@ -20,7 +20,7 @@ function binaryTreeDiameter(tree) {
         left.maxLength,
         right.maxLength,
         left.height + right.height
-      ),
+      )
     }
   }
 

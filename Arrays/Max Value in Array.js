@@ -1,7 +1,7 @@
 // Given an array of integers and asked to find the maximum value.
 const arr = [2, 4, 1, 7, 9]
 
-function findMax(array) {
+export const findMax = (array) => {
   if (arr.length === 0) {
     return null
   }

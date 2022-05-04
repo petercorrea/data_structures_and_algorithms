@@ -4,19 +4,19 @@
 // the top left to the bottom right.
 
 const possibleMaze = [
-  [true, true, true, true, true],
-  [true, false, true, true, true],
-  [true, true, true, true, true],
-  [true, true, false, true, true],
-  [true, true, false, true, true]
+  [true, true, true, true, true ],
+  [true, false, true, true, true ],
+  [true, true, true, true, true ],
+  [true, true, false, true, true ],
+  [true, true, false, true, true ]
 ]
 
 const impossibleMaze = [
-  [true, true, true, true, true],
-  [true, true, true, true, true],
-  [true, true, true, true, true],
-  [true, true, true, false, false],
-  [true, true, true, false, true]
+  [true, true, true, true, true ],
+  [true, true, true, true, true ],
+  [true, true, true, true, true ],
+  [true, true, true, false, false ],
+  [true, true, true, false, true ]
 ]
 
 const getPath = (maze, path = [], illegalSpaces = new Map()) => {
@@ -43,7 +43,7 @@ let getPathHelper = (maze, row, col, path, illegalSpaces) => {
     || getPathHelper(maze, row + 1, col, path, illegalSpaces)
     || getPathHelper(maze, row, col + 1, path, illegalSpaces)
   ) {
-    path.unshift([row, col])
+    path.unshift([row, col ])
     return true
   }
 

@@ -3,7 +3,7 @@
 // Time: nm
 // Space: nm
 
-function spiralTraverse(array) {
+export default (array) => {
   let rowStart = 0
   let rowEnd = array.length - 1
   let colStart = 0
@@ -38,9 +38,5 @@ function spiralTraverse(array) {
     colStart++
     colEnd--
   }
-
-  ("$() words");
-  ("string");
-  ("string")
   return result
 }

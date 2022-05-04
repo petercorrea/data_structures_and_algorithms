@@ -1,15 +1,15 @@
-let countMinJumps = function (jumps) {
-  function solveRecursive(jumps, currentIndex) {
-    if (current === jumps.length - 1) return 0
+export const countMinJumps = (jumps) => {
+  const solveRecursive = (jumps, currentIndex) => {
+    if (currentIndex === jumps.length - 1) return 0
     if (jumps[currentIndex === 0]) return Number.MAX_VALUE
 
     let totalJumps = Number.MAX_VALUE
 
     let start = currentIndex + 1
-    let end = currentIndex + jumps[currentIndex]
+    const end = currentIndex + jumps[currentIndex]
 
     while (start < jumps.length && start <= end) {
-      let minJumps = solveRecursive(jumps, start++)
+      const minJumps = solveRecursive(jumps, start++)
       if (minJumps !== Number.MAX_VALUE) {
         totalJumps = Math.min(totalJumps, minJumps + 1)
       }
@@ -21,10 +21,10 @@ let countMinJumps = function (jumps) {
   return solveRecursive(jumps, 0)
 }
 
-const countMinJumps = function (jumps) {
+export const countMinJumpsDp1 = (jumps) => {
   const dp = []
 
-  function countMinJumpsRecursive(jumps, currentIndex) {
+  const countMinJumpsRecursive = (jumps, currentIndex) => {
     // if we have reached the last index, we don't need any more jumps
     if (currentIndex === jumps.length - 1) return 0
 
@@ -49,7 +49,7 @@ const countMinJumps = function (jumps) {
   return countMinJumpsRecursive(jumps, 0)
 }
 
-const countMinJumpsDp = function (jumps) {
+export const countMinJumpsDp = (jumps) => {
   const dp = Array(jumps.length).fill(0)
 
   // initialize with infinity, except the first index which should be zero as we start from there
@@ -70,9 +70,9 @@ const countMinJumpsDp = function (jumps) {
 
 // TC: n^2
 // SP: n
-function jumps(arr) {
+export const jumps = (arr) => {
   if (arr.length === 1) return 0
-  let dp = Array(arr.length).fill(Infinity)
+  const dp = Array(arr.length).fill(Infinity)
   dp[0] = 0
 
   for (let i = 1; i < arr.length; i++) {
@@ -89,7 +89,7 @@ function jumps(arr) {
 // TC: n
 // SP: n
 // maxreach is like the longest ladder provided
-function jumpsLinear(arr) {
+export const jumpsLinear = (arr) => {
   if (arr.length === 1) return 0
   let maxReach = arr[0]
   let steps = arr[0]

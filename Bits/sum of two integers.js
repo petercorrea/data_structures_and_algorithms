@@ -1,6 +1,6 @@
 // find the sum, without using arithmetic operations
 
-function sum(a, b) {
+export const sum = (a, b) => {
   if (b === 0) return a
 
   const partialSum = a ^ b

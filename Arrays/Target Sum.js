@@ -1,54 +1,51 @@
-// Return the indices of the two values that sum to the target,
+// Problem Statement:
+// Return the two values that sum to the target,
 // otherwise return an empty array.
+
+// Clarifying Questions and Assumptions:
 // We can assume all values are distinct.
 // We can not add the same index with itself.
-// Assume there will onkly be one pair summing to the target.
+// Assume there will only be one pair summing to the target.
 
-const nums = [2, 3, 1, 5]
-const target = 8
+// Sample Input
+// array = [1, 2, 3, 4, 5]
+// targetSum = 8
 
-// Brute Force
-// Time: O(n^2)
-// Space: O(n)
-function bruteForce(array, targetSum) {
+// Sample Output:
+// output = [3, 5]
+
+export const bruteForce = (array, targetSum) => {
+  // O(n^2) time | O(n) space
   if (array.length < 2) return []
 
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       if (array[i] + array[j] === targetSum) {
-        return [i, j]
+        return [array[i], array[j] ]
       }
     }
   }
 
   return []
 }
-bruteForce(nums, target) // [1, 3]
 
-// HashMap
-// Time: O(n)
-// Space: O(n)
-function hashMap(array, targetSum) {
+export const hashMap = (array, targetSum) => {
+  // O(n) time | O(n) space
   const map = new Map()
 
   for (let i = 0; i < array.length; i++) {
-    // Check for the compliment of the current value, (targetSum - x = compliment)
-    if (map.has(targetSum - array[i])) {
-      // return the compliment's idx, and the current idx being iterated
-      return [map.get(targetSum - array[i]), i]
+    const compliment = targetSum - array[i]
+    if (map.has(compliment)) {
+      return [array[i], compliment ]
     }
-    // store the current idx with its value as the key, which will serve as the compliment to be found later
     map.set(array[i], i)
   }
 
   return []
 }
-hashMap(nums, target)
 
-// Sorted w/ Two Pointers
-// Time: O(nLogn)
-// Space: O(1)
-function sortedTwoPointers(array, targetSum) {
+export const sortedTwoPointers = (array, targetSum) => {
+  // O(nLogn) time | O(1) space
   array.sort((a, b) => a - b)
   let left = 0
   let right = array.length - 1
@@ -56,7 +53,7 @@ function sortedTwoPointers(array, targetSum) {
   while (left < right) {
     const currentSum = array[left] + array[right]
 
-    if (currentSum === targetSum) return [left, right]
+    if (currentSum === targetSum) return [array[left], array[right] ]
 
     if (currentSum < targetSum) {
       left++
@@ -67,5 +64,3 @@ function sortedTwoPointers(array, targetSum) {
 
   return []
 }
-
-sortedTwoPointers(nums, target)

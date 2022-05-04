@@ -23,8 +23,8 @@ const sortLogs = (logs) => {
   const isNum = (s) => /\d/.test(s)
 
   // Initialize arrays
-  const logs_of_digits = []
-  const logs_of_letters = []
+  const logsOfDigits = []
+  const logsOfLetters = []
 
   // Compare function for logs of letters
   const compare = (a, b) => {
@@ -37,11 +37,11 @@ const sortLogs = (logs) => {
 
   // Iterate through data and place into respective arrays
   for (const log of logs) {
-    if (isNum(body(log))) logs_of_digits.push(log)
-    else logs_of_letters.push(log)
+    if (isNum(body(log))) logsOfDigits.push(log)
+    else logsOfLetters.push(log)
   }
 
-  return [...logs_of_letters.sort(compare), ...logs_of_digits]
+  return [...logsOfLetters.sort(compare), ...logsOfDigits]
 }
 
 const arr = [

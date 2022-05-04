@@ -4,7 +4,7 @@
 // if one exists, in array A.
 // FOLLOW UP: What if the values are not distinct?
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 //
 
 // Assume:
@@ -28,12 +28,12 @@ const magicIdxDistinct = (
 
   if (arr[idx] === idx) {
     result.push(idx)
-    return
+    return []
   }
   if (arr[idx] < idx) {
-    magicIdx(arr, idx + 1, end, result)
+    magicIdxDistinct(arr, idx + 1, end, result)
   } else if (arr[idx] > idx) {
-    magicIdx(arr, start, idx - 1, result)
+    magicIdxDistinct(arr, start, idx - 1, result)
   }
 
   return result
@@ -53,7 +53,7 @@ const magicIdxNotDistinct = (
 
   if (arr[idx] === idx) {
     result.push(idx)
-    return
+    return []
   }
 
   const leftIdx = Math.min(arr[idx], idx - 1)
@@ -69,7 +69,7 @@ const magicIdxNotDistinct = (
 const arr = [-40, -20, -1, 1, 2, 3, 5, 7, 9, 12, 13] // 7
 const arr2 = [-40, -20, 2, 2, 2, 3, 5, 7, 9, 12, 13] // 7
 
-// console.log(magicIdxDistinct(arr)); // result
+console.log(magicIdxDistinct(arr)) // result
 console.log(magicIdxNotDistinct(arr2)) // result
 
 // Notes after implementing:

@@ -1,9 +1,10 @@
-const findMaxSteal = function (wealth) {
-  function findMaxStealRecursive(wealth, currentIndex) {
+export const findMaxSteal = (wealth) => {
+  const findMaxStealRecursive = (wealth, currentIndex) => {
     if (currentIndex >= wealth.length) return 0
 
     // steal from current house and skip one to steal from the next house
-    const stealCurrent =			wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
+    const stealCurrent =
+      wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
     // skip current house to steel from the adjacent house
     const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1)
 
@@ -15,15 +16,16 @@ const findMaxSteal = function (wealth) {
 console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`)
 console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`)
 
-const findMaxStealMemo = function (wealth) {
+export const findMaxStealMemo = (wealth) => {
   const dp = []
 
-  function findMaxStealRecursive(wealth, currentIndex) {
+  const findMaxStealRecursive = (wealth, currentIndex) => {
     if (currentIndex >= wealth.length) return 0
 
     if (typeof dp[currentIndex] === "undefined") {
       // steal from current house and skip one to steal from the next house
-      const stealCurrent =				wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
+      const stealCurrent =
+        wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
       // skip current house to steel from the adjacent house
       const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1)
 
@@ -37,7 +39,7 @@ const findMaxStealMemo = function (wealth) {
 console.log(`Maximum stealing: ---> ${findMaxSteal([2, 5, 1, 3, 6, 2, 4])}`)
 console.log(`Maximum stealing: ---> ${findMaxSteal([2, 10, 14, 8, 1])}`)
 
-const findMaxStealDp = function (wealth) {
+export const findMaxStealDp = (wealth) => {
   if (wealth.length === 0) return 0
   const dp = Array(wealth.length + 1).fill(0) // '+1' to handle the zero house
   dp[0] = 0 // if there are no houses, the thief can't steal anything

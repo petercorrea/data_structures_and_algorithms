@@ -1,85 +1,6 @@
-class Node {
-  constructor(value) {
-    this.value = value
-    this.left = null
-    this.right = null
-    this.parent = null
-  }
+import Node from "./Node"
 
-  setLeft(node) {
-    // Reset parent for left node since it is going to be detached.
-    if (this.left) {
-      this.left.parent = null
-    }
-
-    // Attach new node to the left.
-    this.left = node
-
-    // Make current node to be a parent for new left one.
-    if (this.left) {
-      this.left.parent = this
-    }
-
-    return this
-  }
-
-  /**
-   * @param {BinaryTreeNode} node
-   * @return {BinaryTreeNode}
-   */
-  setRight(node) {
-    // Reset parent for right node since it is going to be detached.
-    if (this.right) {
-      this.right.parent = null
-    }
-
-    // Attach new node to the right.
-    this.right = node
-
-    // Make current node to be a parent for new right one.
-    if (node) {
-      this.right.parent = this
-    }
-
-    return this
-  }
-
-  leftHeight() {
-    if (!this.left) {
-      return 0
-    }
-
-    let leftHeight = this.left.height()
-    leftHeight += 1
-
-    return leftHeight
-  }
-
-  rightHeight() {
-    if (!this.right) {
-      return 0
-    }
-
-    let rightHeight = this.right.height()
-    rightHeight += 1
-
-    return rightHeight
-  }
-
-  height() {
-    return Math.max(this.leftHeight(), this.rightHeight())
-  }
-
-  balanceFactor() {
-    const leftHeight = this.leftHeight()
-    const rightHeight = this.rightHeight()
-    const bf = leftHeight - rightHeight
-    console.log("bf", bf)
-    return bf
-  }
-}
-
-class BST {
+export class AVL {
   constructor(value) {
     this.root = new Node(value)
     this.size = 1
@@ -477,11 +398,7 @@ class BST {
         }
       }
     }
+
+    return 0
   }
 }
-
-const someBST = new BST(10)
-someBST.insert(30)
-someBST.insert(20)
-
-console.log(someBST.root)

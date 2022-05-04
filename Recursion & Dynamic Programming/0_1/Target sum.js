@@ -3,8 +3,8 @@
 // Each number should be assigned either a ‘+’ or ‘-’ sign.
 // We need to find out total ways to assign symbols to make the sum of numbers equal to target ‘S’.
 
-const targetSum = function (num, sum) {
-  function solveRecursive(num, sum, currentIndex) {
+export const targetSum = (num, sum) => {
+  const solveRecursive = (num, sum, currentIndex) => {
     if (sum === 0 && currentIndex === num.length) return 1
     if (currentIndex >= num.length) return 0
 
@@ -19,9 +19,9 @@ const targetSum = function (num, sum) {
   return solveRecursive(num, sum, 0)
 }
 
-const targetSumMemo = function (num, sum) {
+const targetSumMemo = (num, sum) => {
   const dp = []
-  function solveRecursive(num, sum, currentIndex) {
+  const solveRecursive = (num, sum, currentIndex) => {
     if (sum === 0 && currentIndex === num.length) return 1
     if (currentIndex >= num.length) return 0
 

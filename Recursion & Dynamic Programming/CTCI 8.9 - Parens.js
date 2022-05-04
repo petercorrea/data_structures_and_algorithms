@@ -1,7 +1,7 @@
 // Problem Statement:
 // Implement an algorithm to print all valid (i.e., properly opened and closed) combinations of n pairs of parentheses.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 //
 
 // Assume:
@@ -22,7 +22,7 @@ let parensHelper = (
 ) => {
   if (max === 0) return null
   if (depth < 0 || sum > max || sum < 0) {
-    return
+    return []
   }
 
   if (sum === 0 && depth === 0) {

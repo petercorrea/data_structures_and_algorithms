@@ -1,7 +1,7 @@
 // Problem Statement:
 // Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth (e.g., if you have a tree with depth D, you'll have D linked lists).
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -12,12 +12,11 @@
 
 // Proposed Solution:
 //
-const { Node, dbLinkedList, } = require("../../Linked Lists/LinkedList")
-const { sampleBST, } = require("./Sample BST")
+const { Node } = require("../Implementations/Data Structures/Node")
 
-const nLinkedLists = (tree) => {
+export const nLinkedLists = (tree) => {
   const queue = [tree.root]
-  const head = new dbLinkedList()
+  const head = new Node()
   head.tail = new Node(null, null, null)
   let listPointer = head.tail
   let treePointer
@@ -40,17 +39,16 @@ const nLinkedLists = (tree) => {
       level *= 2
       count = 0
       listPointer.value = treePointer.value
-      newList = new dbLinkedList()
+      const newList = new Node()
       listPointer.next = newList
       listPointer = listPointer.next
       listPointer.tail = new Node(null, null, null)
       listPointer = listPointer.tail
-      continue
+    } else {
+      listPointer.value = treePointer.value
+      listPointer.next = new Node(null, null, null)
+      listPointer = listPointer.next
     }
-
-    listPointer.value = treePointer.value
-    listPointer.next = new Node(null, null, null)
-    listPointer = listPointer.next
   }
 
   console.log(head)
@@ -69,7 +67,6 @@ const nLinkedLists = (tree) => {
 }
 
 // Test
-console.log(nLinkedLists(sampleBST)) // result
 
 // Notes after implementing:
 //

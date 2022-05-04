@@ -1,7 +1,7 @@
 // Problem Statement:
 // Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not necessarily a binary search tree.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -13,8 +13,6 @@
 // Proposed Solution:
 // Without Links to Parent
 
-const { inOrderTree, tinyTree, } = require("./Sample Tree")
-
 class ResultNode {
   constructor(isAncestor, node) {
     this.isAncestor = isAncestor
@@ -22,7 +20,7 @@ class ResultNode {
   }
 }
 
-const findCommonAncestor = (root, node1, node2) => {
+export const findCommonAncestor = (root, node1, node2) => {
   const result = findCommonAncestorHelper(root, node1, node2)
 
   if (result.isAncestor) {
@@ -33,7 +31,7 @@ const findCommonAncestor = (root, node1, node2) => {
   return result
 }
 
-function findCommonAncestorHelper(root, p, q) {
+const findCommonAncestorHelper = (root, p, q) => {
   // if we the last child node for a given path
   if (root === null) return new ResultNode(false, null)
 
@@ -63,9 +61,6 @@ function findCommonAncestorHelper(root, p, q) {
 }
 
 // Test
-console.log(findCommonAncestor(tinyTree, 2, 3)) // result
-console.log(findCommonAncestor(inOrderTree, 1, 3)) // result
-console.log(findCommonAncestor(inOrderTree, 7, 9)) // result
 
 // Notes after implementing:
 //

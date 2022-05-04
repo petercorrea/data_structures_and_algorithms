@@ -1,25 +1,4 @@
-// LinkedList vs Arrays
-
-// Arrays
-// - Direct access to values
-// - Are stored contingously in memory, which benefit from cache
-// - Adding and removing elements are slow
-
-// LinkedLists
-// - No direct access to values
-// - Are stored discontingously
-// - Adding and removing elements are fast
-// - Searching is slow
-
-class Node {
-  constructor(value, prev, next) {
-    this.value = value
-    this.prev = prev || null
-    this.next = next || null
-  }
-}
-
-class dbLinkedList {
+export class DbLinkedList {
   constructor() {
     this.head = null
     this.tail = null
@@ -29,7 +8,8 @@ class dbLinkedList {
     const newNode = new Node(value)
 
     if (!this.tail) {
-      this.head = this.tail = newNode
+      this.head = newNode
+      this.tail = newNode
       return
     }
 
@@ -42,7 +22,8 @@ class dbLinkedList {
     const newNode = new Node(value)
 
     if (!this.head) {
-      this.head = this.tail = newNode
+      this.head = newNode
+      this.tail = newNode
     }
 
     this.head.prev = newNode
@@ -86,7 +67,7 @@ class dbLinkedList {
 
   delete(value) {
     if (!this.tail) {
-      return null
+      return
     }
 
     if (this.head.value === value && this.head === this.tail) {
@@ -119,11 +100,3 @@ class dbLinkedList {
     }
   }
 }
-
-// let ll = new dbLinkedList();
-// ll.append("Peter");
-// ll.append("Miguel");
-// ll.append("Correa");
-// ll.prepend("Pedro");
-// ll.delete("Pedro");
-// console.log(ll);

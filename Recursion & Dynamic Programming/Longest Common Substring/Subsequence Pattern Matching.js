@@ -17,8 +17,8 @@
 
 // TC: 2 ^ m where m is the string(not the pattern)
 // SP: m
-const findSPMCount = function (str, pat) {
-  function findSPMCountRecursive(str, pat, strIndex, patIndex) {
+export const findSPMCount1 = (str, pat) => {
+  const findSPMCountRecursive = (str, pat, strIndex, patIndex) => {
     // if we have reached the end of the pattern
     if (patIndex === pat.length) return 1
 
@@ -37,10 +37,10 @@ const findSPMCount = function (str, pat) {
   return findSPMCountRecursive(str, pat, 0, 0)
 }
 
-const findSPMCountMemo = function (str, pat) {
+export const findSPMCountMemo = (str, pat) => {
   const dp = []
 
-  function findSPMCountRecursive(str, pat, strIndex, patIndex) {
+  const findSPMCountRecursive = (str, pat, strIndex, patIndex) => {
     // if we have reached the end of the pattern
     if (patIndex === pat.length) return 1
 
@@ -63,7 +63,7 @@ const findSPMCountMemo = function (str, pat) {
 }
 
 // TC/SP: n*m
-const findSPMCount = function (str, pat) {
+export const findSPMCount2 = (str, pat) => {
   // every empty pattern has one match
   if (pat.length === 0) return 1
 
@@ -90,8 +90,8 @@ const findSPMCount = function (str, pat) {
 }
 
 console.log(
-  `Count of pattern in the string: ---> ${findSPMCount("baxmx", "ax")}`
+  `Count of pattern in the string: ---> ${findSPMCount1("baxmx", "ax")}`
 )
 console.log(
-  `Count of pattern in the string: ---> ${findSPMCount("tomorrow", "tor")}`
+  `Count of pattern in the string: ---> ${findSPMCount2("tomorrow", "tor")}`
 )

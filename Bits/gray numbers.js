@@ -1,6 +1,6 @@
 // Determine if two numbers differ by a single bit
 
-function gray(int1, int2) {
+export const gray = (int1, int2) => {
   let xor = int1 ^ int2
 
   while (xor > 0) {
@@ -16,7 +16,7 @@ function gray(int1, int2) {
   return true
 }
 
-function gray2(int1, int2) {
+export const gray2 = (int1, int2) => {
   const xor = int1 ^ int2
 
   console.log((xor & (xor - 1)) === 0)

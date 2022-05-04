@@ -5,7 +5,7 @@
 // Brute
 // TC: nums^targetSum
 // SP: targetSum
-const howSum = (targetSum, nums) => {
+export const howSum = (targetSum, nums) => {
   if (targetSum === 0) return []
   if (targetSum < 0) return null
   if (nums.length === 0) return null

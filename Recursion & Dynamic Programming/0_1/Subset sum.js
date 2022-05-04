@@ -3,7 +3,7 @@
 
 // This is exactly the same as the Equal Subset Sum problem, but instead of the target sum being half the total sum, it's the full total sum.
 
-const canPartition = function (nums, sum) {
+const canPartition = (nums, sum) => {
   const n = nums.length
   if (n === 0) return 0
 

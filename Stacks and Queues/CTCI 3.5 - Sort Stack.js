@@ -1,7 +1,7 @@
 // Problem Statement:
 //
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -13,7 +13,7 @@
 // Proposed Solution:
 //
 
-const someFunction = () => {}
+// const someFunction = () => {}
 
 // Test
 console.log() // result

@@ -3,12 +3,12 @@
 // 		- Each disk item in the array, will itself be an array with 3 values representing width, height, and depth
 // 		- The orientation of the disk must not change
 
-function isBLarger(a, b) {
+const isBLarger = (a, b) => {
   if (a[0] < b[0] && a[1] < b[1] && a[2] < b[2]) return true
   return false
 }
 
-function buildSequence(disks, sequences, currentIdx) {
+const buildSequence = (disks, sequences, currentIdx) => {
   const sequence = []
   while (currentIdx !== undefined) {
     sequence.unshift(disks[currentIdx])
@@ -18,13 +18,13 @@ function buildSequence(disks, sequences, currentIdx) {
   return sequence
 }
 
-function diskStacking(disks) {
+const diskStacking = (disks) => {
   // sort disks
   disks.sort((a, b) => a[2] - b[2])
 
   // generate result array
   const heights = []
-  for (disk of disks) {
+  for (const disk of disks) {
     heights.push(disk[2])
   }
 

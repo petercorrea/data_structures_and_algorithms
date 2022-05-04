@@ -1,7 +1,7 @@
 // Problem Statement:
 // A binary search tree was created by traversing through an array from left to right and inserting each element. Given a binary search tree with distinct elements, print all possible arrays that could have led to this tree.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -12,16 +12,15 @@
 
 // Proposed Solution:
 //
-const { BSTree, } = require("./Sample Tree")
 
-function sequencesToCreateBST(tree) {
+export const sequencesToCreateBST = (tree) => {
   if (!tree) {
     return null
   }
   return sequencesRecursive(tree)
 }
 
-function sequencesRecursive(node) {
+const sequencesRecursive = (node) => {
   if (!node) {
     return null
   }
@@ -37,7 +36,7 @@ function sequencesRecursive(node) {
   return perms
 }
 
-function permutations(left, right) {
+const permutations = (left, right) => {
   // false, true -> true
   // false, false -> false
   // true, true -> else
@@ -45,19 +44,16 @@ function permutations(left, right) {
   if (!left || !right) {
     return left || right
   }
-  const perms = []
+  let perms = []
   for (let i = 0; i < left.length; ++i) {
     for (let j = 0; j < right.length; ++j) {
-      perms.push.apply(
-        perms,
-        permutationsRecursive([], left[i], right[j], [], 0, 0)
-      )
+      perms = [...perms, permutationsRecursive([], left[i], right[j], [], 0, 0)]
     }
   }
   return perms
 }
 
-function permutationsRecursive(perms, list1, list2, prefix, i, j) {
+const permutationsRecursive = (perms, list1, list2, prefix, i, j) => {
   // console.log(i, j);
 
   if (i === list1.length && j === list2.length) {

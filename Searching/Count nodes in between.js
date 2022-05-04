@@ -18,7 +18,7 @@ const adj = [
 // 	4: Infinity
 // }
 
-function bfs(graph, root) {
+const bfs = (graph, root) => {
   // Store distances
   const distances = {}
 

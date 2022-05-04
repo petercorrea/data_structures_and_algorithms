@@ -1,9 +1,10 @@
+/* eslint-disable consistent-return */
 // Problem Statement:
 // Given a circular linked list, implement an algorithm that
 // returns the node at the beginning of the loop.
 //
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -14,7 +15,7 @@
 
 // Proposed Solution:
 //
-const { Node, } = require("../../Linked Lists/LinkedList")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const node7 = new Node(7, null, null)
 const node6 = new Node(6, null, null)

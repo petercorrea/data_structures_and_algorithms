@@ -1,7 +1,7 @@
 // Problem Statement:
 // You are given a list of projects and a list of dependencies (which is a list of pairs of projects,wherethesecondprojectisdependentonthefirstproject).Allofaproject'sdependencies must be built before the project is. Find a build order that will allow the projects to be built. If there is no valid build order, return an error.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -33,22 +33,22 @@ const buildOrder = (
   path = new Set(),
   result = []
 ) => {
-  for (project of projects) {
+  for (const project of projects) {
     adj[project] = []
   }
 
-  for (pair of dependencies) {
+  for (const pair of dependencies) {
     adj[pair[1]].push(pair[0])
   }
 
-  for (project of projects) {
+  for (const project of projects) {
     topologicalSort(project, adj, discovered, path, result)
   }
 
   return result
 }
 
-function topologicalSort(project, adj, discovered, path, result) {
+const topologicalSort = (project, adj, discovered, path, result) => {
   if (discovered.has(project)) {
     return
   }
@@ -56,7 +56,7 @@ function topologicalSort(project, adj, discovered, path, result) {
   discovered.add(project)
   path.add(project)
 
-  for (neighbor of adj[project]) {
+  for (const neighbor of adj[project]) {
     if (path.has(neighbor)) {
       throw new Error("Cycle detected")
     }

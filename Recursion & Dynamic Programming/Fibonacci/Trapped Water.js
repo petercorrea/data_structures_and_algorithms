@@ -1,6 +1,6 @@
 // Given an array represent heights of columns, return the area of trapped water.
 
-function waterArea(heights) {
+const waterArea = (heights) => {
   let totalSum = 0
 
   for (let i = 0; i < heights.length; i++) {
@@ -16,10 +16,10 @@ function waterArea(heights) {
       rightMaxHeight = Math.max(rightMaxHeight, heights[k])
     }
 
-    if (leftMaxHeight === 0 || rightMaxHeight === 0) continue
-
-    const area = Math.min(leftMaxHeight, rightMaxHeight) - currentHeight
-    if (area > 0) totalSum += area
+    if (leftMaxHeight !== 0 && rightMaxHeight !== 0) {
+      const area = Math.min(leftMaxHeight, rightMaxHeight) - currentHeight
+      if (area > 0) totalSum += area
+    }
   }
 
   return totalSum

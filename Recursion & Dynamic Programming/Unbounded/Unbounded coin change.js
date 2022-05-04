@@ -1,5 +1,5 @@
-const coinChange = function (coins, sum) {
-  function solveRecursive(coins, sum, currentIndex) {
+export const coinChange = (coins, sum) => {
+  const solveRecursive = (coins, sum, currentIndex) => {
     if (sum === 0) return 1
     if (coins.length === 0 || currentIndex >= coins.length) return 0
 
@@ -16,10 +16,10 @@ const coinChange = function (coins, sum) {
   return solveRecursive(coins, sum, 0)
 }
 
-const coinChangeMemo = function (coins, sum) {
+export const coinChangeMemo = (coins, sum) => {
   const dp = []
 
-  function solveRecursive(coins, sum, currentIndex) {
+  const solveRecursive = (coins, sum, currentIndex) => {
     if (sum === 0) return 1
     if (coins.length === 0 || currentIndex >= coins.length) return 0
 
@@ -42,7 +42,7 @@ const coinChangeMemo = function (coins, sum) {
   return solveRecursive(coins, sum, 0)
 }
 
-const coinChangeDp = function (coins, sum) {
+const coinChangeDp = (coins, sum) => {
   const n = coins.length
   const dp = Array(n)
     .fill(0)

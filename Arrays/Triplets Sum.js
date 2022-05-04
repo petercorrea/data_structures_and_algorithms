@@ -7,7 +7,7 @@
 // Loops + two pointers
 // Time: n^2
 // Space: n
-function tripletsSum(array, targetSum) {
+export const tripletsSum = (array, targetSum) => {
   array.sort((a, b) => a - b)
   const result = []
 

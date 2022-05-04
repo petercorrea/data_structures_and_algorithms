@@ -15,7 +15,7 @@ const edgesExample = [
   [7, 4, 1]
 ]
 
-function dp(start, edges) {
+export const dp = (start, edges) => {
   const memo = {}
   let targetVertexCount = 0
   // Distance to itself is 0

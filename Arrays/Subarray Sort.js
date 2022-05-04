@@ -1,7 +1,7 @@
 // Given an array, determine the smallest subarray inorder to sort the
 // whole array.
 
-function subarraySort(array) {
+export const subarraySort = (array) => {
   let min = null
   let max = null
   const result = []

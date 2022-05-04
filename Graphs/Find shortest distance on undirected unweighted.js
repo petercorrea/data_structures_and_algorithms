@@ -13,7 +13,7 @@ const someGraph = [
   [0, 1, 0, 0, 0]
 ]
 
-function bfs(graph, root) {
+export const bfs = (graph, root) => {
   // initialize results object
   const result = {}
 

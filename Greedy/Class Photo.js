@@ -20,7 +20,7 @@
 
 // Note: you can assume that each class has at least 2 students.
 
-function classPhotos(redShirtHeights, blueShirtHeights) {
+export const classPhotos = (redShirtHeights, blueShirtHeights) => {
   // Write your code here.
   redShirtHeights.sort((a, b) => a - b)
   blueShirtHeights.sort((a, b) => a - b)

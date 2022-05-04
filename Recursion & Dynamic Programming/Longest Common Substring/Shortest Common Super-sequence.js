@@ -8,8 +8,8 @@
 
 // TC: O2^(n+m)
 // SP: O(m+n)
-const SCSS = function (string1, string2) {
-  function SCSSRecursive(str1, str2, i1, i2) {
+export const SCSS = (string1, string2) => {
+  const SCSSRecursive = (str1, str2, i1, i2) => {
     // if we reached the end of one string, return the remaining length of the other string
     if (i1 === str1.length) return str2.length - i2
     if (i2 === str2.length) return str1.length - i1
@@ -27,10 +27,10 @@ const SCSS = function (string1, string2) {
   return SCSSRecursive(string1, string2, 0, 0)
 }
 
-const SCSSMemo = function (string1, string2) {
+export const SCSSMemo = (string1, string2) => {
   const memo = []
 
-  function SCSSRecursive(str1, str2, i1, i2) {
+  const SCSSRecursive = (str1, str2, i1, i2) => {
     // if we reached the end of one string, return the remaining length of the other string
     if (i1 === str1.length) return str2.length - i2
     if (i2 === str2.length) return str1.length - i1
@@ -55,7 +55,7 @@ const SCSSMemo = function (string1, string2) {
 
 // TC: On*m
 // SP: On*m
-const SCSSDp = function (string1, string2) {
+const SCSSDp = (string1, string2) => {
   const dp = Array(string1.length + 1)
     .fill(0)
     .map(() => Array(string2.length + 1).fill(0))

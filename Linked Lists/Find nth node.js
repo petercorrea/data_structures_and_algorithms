@@ -1,6 +1,8 @@
-const { Node, dbLinkedList, } = require("./LinkedList.js")
+const {
+  DbLinkedList
+} = require("../Implementations/Data Structures/DbLinkedList")
 
-function findNthNode(list, nth) {
+export const findNthNode = (list, nth) => {
   let current = list.head
   let counter = 0
 
@@ -16,7 +18,7 @@ function findNthNode(list, nth) {
   return false
 }
 
-const ll = new dbLinkedList()
+const ll = new DbLinkedList()
 ll.append("Peter")
 ll.append("Michael")
 ll.append("Miguel")

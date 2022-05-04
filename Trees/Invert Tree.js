@@ -2,8 +2,8 @@
 
 // TC: n
 // SC: n
-function invert(tree) {
-  function invertRecurse(tree) {
+const invert = (tree) => {
+  const invertRecurse = (tree) => {
     if (!tree.left && !tree.right) {
       return
     }
@@ -12,13 +12,13 @@ function invert(tree) {
     tree.left = tree.right
     tree.right = leftSubtree
 
-    tree.left ? invertRecurse(tree.left) : null
-    tree.right ? invertRecurse(tree.right) : null
+    if (tree.left) invertRecurse(tree.left)
+    if (tree.right) invertRecurse(tree.right)
   }
 
   return invertRecurse(tree)
 }
 
 module.exports = {
-  invert,
+  invert
 }

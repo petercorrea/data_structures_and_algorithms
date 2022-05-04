@@ -1,7 +1,7 @@
 // Problem Statement:
 // Find all permutations of a string.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -20,7 +20,7 @@ const permsIter = (string, perms = []) => {
   perms.push(twoChars[0] + twoChars[1])
   perms.push(twoChars[1] + twoChars[0])
 
-  for (char of remaindingChars) {
+  for (const char of remaindingChars) {
     const permsLength = perms.length
 
     for (let j = 0; j < permsLength; j++) {
@@ -48,7 +48,7 @@ const permsRecurs = (string, perms = []) => {
 
     const results = permsRecurs(rightHalf + leftHalf)
 
-    for (idx in results) {
+    for (const idx in results) {
       results[idx] = char + results[idx]
       perms.push(results[idx])
     }

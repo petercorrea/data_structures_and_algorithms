@@ -1,18 +1,19 @@
-function hash(key, tableSize) {
+export const hash = (key, tableSize) => {
   let hash = 311
 
-  for (i = 0; i < key.length; i++) {
+  for (let i = 0; i < key.length; i++) {
     hash = (hash * key.charCodeAt(i)) % tableSize
   }
 
   return hash
 }
 
-class HashTable {
+export class HashTable {
   constructor() {
     this.size = 17
     this.table = new Array(this.size)
     this.numberOfItems = 0
+    this.loadRatio = this.numberOfItems / this.table.length
   }
 
   _resize() {
@@ -34,14 +35,13 @@ class HashTable {
       }
     })
 
-    this.table = newtable
+    this.table = newTable
   }
 
   set(key, value) {
     const idx = hash(key, this.table.length)
-    this.loadRatio = this.numberOfItems / this.table.length
 
-    if (loadRatio > 0.8) {
+    if (this.loadRatio > 0.8) {
       this._resize()
     }
 
@@ -62,6 +62,4 @@ class HashTable {
 
     return this.table[idx].find((x) => x[0] === key)[1]
   }
-
-  remove(key) {}
 }

@@ -1,7 +1,11 @@
-const { Node, dbLinkedList, } = require("./LinkedList.js")
+const {
+  DbLinkedList
+} = require("../Implementations/Data Structures/DbLinkedList")
+
+const { Node } = require("../Implementations/Data Structures/Node")
 
 class Stack {
-  constructor(value) {
+  constructor() {
     this.head = null
   }
 
@@ -29,7 +33,7 @@ class Stack {
   }
 }
 
-const ll = new dbLinkedList()
+const ll = new DbLinkedList()
 
 ll.append("Pedro")
 ll.append("Peter")
@@ -37,7 +41,7 @@ ll.append("Michael")
 ll.append("Peter")
 ll.append("Pedro")
 
-function isPalindrome(someLL) {
+export const isPalindrome = (someLL) => {
   const stack = new Stack()
   let current = someLL.head
 

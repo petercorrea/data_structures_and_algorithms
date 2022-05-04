@@ -5,7 +5,7 @@
 // (Note: if implementing in Java, please use a character array so that you can perform this
 // operation in place.)
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	- Must we expect to trim both ends of the string?
 
 // Assume:

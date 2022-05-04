@@ -3,7 +3,7 @@
 // where each pixel in the image is 4 bytes, write a method to
 // rotate the image by 90 degrees. Can you do this in place?
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -20,7 +20,8 @@
 // 		j will reduce with m.length - i - 2. -2 because the end is length - 1, and since we will not traverse
 // 		the very last element because we have saved it and do not want to overwrite it, it become -2.
 
-const rotate = (m) => {
+const rotate = (matrix) => {
+  const m = [...matrix]
   if (m.length !== m[0].length) return "Is not an N*N matrix."
 
   for (let i = 0; i <= m.length / 2; i++) {

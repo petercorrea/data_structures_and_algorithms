@@ -6,7 +6,7 @@
 // Brute Force
 // TC: nums^targetSum
 // SC: targetSum
-const canSum = (targetSum, nums) => {
+export const canSum = (targetSum, nums) => {
   if (targetSum === 0) return true
   if (targetSum < 0) return false
   if (nums.length === 0) return false

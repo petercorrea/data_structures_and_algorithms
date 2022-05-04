@@ -24,7 +24,7 @@ class MinHeap {
       while (this.heap[idx] < this.heap[Math.floor(idx / 2)]) {
         if (idx >= 1) {
           // Object destructuring to swap values
-          [this.heap[Math.floor(idx / 2)], this.heap[idx]] = [
+          ;[this.heap[Math.floor(idx / 2)], this.heap[idx]] = [
             this.heap[idx],
             this.heap[Math.floor(idx / 2)]
           ]
@@ -55,7 +55,7 @@ class MinHeap {
       // if theres only one child, sort them [null, val1, val2]
       if (this.heap.length === 3) {
         if (this.heap[1] > this.heap[2]) {
-          [this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]]
+          ;[this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]]
         }
         return smallest
       }
@@ -67,17 +67,17 @@ class MinHeap {
 
       // while the root node is greater than either one of its children
       while (
-        this.heap[i] >= this.heap[left]
-        || this.heap[i] >= this.heap[right]
+        this.heap[i] >= this.heap[left] ||
+        this.heap[i] >= this.heap[right]
       ) {
         // if left node is the smallest child of the two, swap it
         if (this.heap[left] < this.heap[right]) {
-          [this.heap[i], this.heap[left]] = [this.heap[left], this.heap[i]]
+          ;[this.heap[i], this.heap[left]] = [this.heap[left], this.heap[i]]
           // increment idx
-          i = 2 * i
+          i *= 2
         } else {
           // if right node is the smallest child
-          [this.heap[i], this.heap[right]] = [this.heap[right], this.heap[i]]
+          ;[this.heap[i], this.heap[right]] = [this.heap[right], this.heap[i]]
           // increment idx
           i = 2 * i + 1
         }
@@ -112,7 +112,7 @@ class MinHeap {
   sort() {
     // T(C) = nlogn
     // to create a sorted array
-    const result = new Array()
+    const result = []
     while (this.heap.length > 1) {
       result.push(this.remove())
     }
@@ -121,7 +121,7 @@ class MinHeap {
 }
 
 module.exports = {
-  MinHeap,
+  MinHeap
 }
 
 const someMinHeap = new MinHeap()

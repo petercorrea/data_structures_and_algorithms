@@ -23,11 +23,12 @@
 
 // TC: 2^n
 // SP: n
-const findLRSLength = function (str) {
-  function findLRSLengthRecursive(str, i1, i2) {
+const findLRSLength = (str) => {
+  const findLRSLengthRecursive = (str, i1, i2) => {
     if (i1 === str.length || i2 === str.length) return 0
 
-    if (i1 !== i2 && str[i1] === str[i2]) return 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
+    if (i1 !== i2 && str[i1] === str[i2])
+      return 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
 
     const c1 = findLRSLengthRecursive(str, i1, i2 + 1)
     const c2 = findLRSLengthRecursive(str, i1 + 1, i2)
@@ -37,15 +38,16 @@ const findLRSLength = function (str) {
   return findLRSLengthRecursive(str, 0, 0)
 }
 
-const findLRSLengthMemo = function (str) {
+const findLRSLengthMemo = (str) => {
   const dp = []
 
-  function findLRSLengthRecursive(str, i1, i2) {
+  const findLRSLengthRecursive = (str, i1, i2) => {
     if (i1 === str.length || i2 === str.length) return 0
 
     dp[i1] = dp[i1] || []
     if (typeof dp[i1][i2] === "undefined") {
-      if (i1 !== i2 && str[i1] === str[i2]) dp[i1][i2] = 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
+      if (i1 !== i2 && str[i1] === str[i2])
+        dp[i1][i2] = 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
       else {
         const c1 = findLRSLengthRecursive(str, i1, i2 + 1)
         const c2 = findLRSLengthRecursive(str, i1 + 1, i2)
@@ -59,7 +61,7 @@ const findLRSLengthMemo = function (str) {
 }
 
 // TC & SP: n^2
-const findLRSLengthDP = function (str) {
+const findLRSLengthDP = (str) => {
   const dp = Array(str.length + 1)
     .fill(0)
     .map(() => Array(str.length + 1).fill(0))

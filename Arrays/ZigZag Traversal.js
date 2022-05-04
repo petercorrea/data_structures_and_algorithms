@@ -1,19 +1,15 @@
 // Traverse an n*m matrix in a zigzag
 
-let example = [
-  [1, 3, 4, 10],
-  [2, 5, 9, 11],
-  [6, 8, 12, 15],
-  [7, 13, 14, 16],
-]
+export const isOutOfBounds = (row, col, height, width) =>
+  row < 0 || row > height || col < 0 || col > width
 
 // edgecases include 1 1*n and n*1 size matrices
 
 // Time: n
 // Space: n
-function zigzagTraverse(array) {
-  let result = []
-  let point = [0, 0]
+export const solution1 = (array) => {
+  const result = []
+  const point = [0, 0]
 
   // 1*n
   if (array.length === 1) {
@@ -34,15 +30,15 @@ function zigzagTraverse(array) {
   while (array[point[0] + 1] !== undefined) {
     // move down
     while (point[0] < array.length - 1 && point[1] > 0) {
-      point[0] = point[0] + 1
-      point[1] = point[1] - 1
+      point[0] += 1
+      point[1] -= 1
       result.push(array[point[0]][point[1]])
     }
     // if possible move down, else go right
     if (point[0] + 1 <= array.length - 1) {
-      point[0] = point[0] + 1
+      point[0] += 1
     } else if (point[1] + 1 <= array[0].length - 1) {
-      point[1] = point[1] + 1
+      point[1] += 1
     } else {
       break
     }
@@ -50,16 +46,16 @@ function zigzagTraverse(array) {
 
     // move up
     while (point[0] > 0 && point[1] < array[0].length - 1) {
-      point[0] = point[0] - 1
-      point[1] = point[1] + 1
+      point[0] -= 1
+      point[1] += 1
       result.push(array[point[0]][point[1]])
     }
 
     // if possible move right, else go down
     if (point[1] + 1 <= array[0].length - 1) {
-      point[1] = point[1] + 1
+      point[1] += 1
     } else if (point[0] + 1 <= array.length - 1) {
-      point[0] = point[0] + 1
+      point[0] += 1
     } else {
       break
     }
@@ -71,10 +67,10 @@ function zigzagTraverse(array) {
 
 // Time: n
 // Space: n
-function zigzagTraverse(array) {
-  let height = array.length - 1
-  let width = array[0].length - 1
-  let result = []
+export const solution2 = (array) => {
+  const height = array.length - 1
+  const width = array[0].length - 1
+  const result = []
   let row = 0
   let col = 0
   let goingDown = true
@@ -94,23 +90,17 @@ function zigzagTraverse(array) {
         row++
         col--
       }
-    } else {
-      if (row === 0 || col === width) {
-        goingDown = true
-        if (col === width) {
-          row++
-        } else {
-          col++
-        }
+    } else if (row === 0 || col === width) {
+      goingDown = true
+      if (col === width) {
+        row++
       } else {
-        row--
         col++
       }
+    } else {
+      row--
+      col++
     }
   }
   return result
-}
-
-function isOutOfBounds(row, col, height, width) {
-  return row < 0 || row > height || col < 0 || col > width
 }

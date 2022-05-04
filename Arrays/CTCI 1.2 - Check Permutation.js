@@ -1,7 +1,7 @@
 // Problem Statement:
 // Given two strings, write a method to decide if one is a permutation of the other.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	- Is the algo case sensitive?
 //  - Is the algo white space sensitive?
 

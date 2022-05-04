@@ -1,7 +1,7 @@
 // Problem Statement:
 // You are given a binary tree in which each node contains an integer value (which might be positive or negative). Design an algorithm to count the number of paths that sum to a given value. The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -13,7 +13,7 @@
 // Proposed Solution:
 //
 
-function findPathWithSum(tree, value) {
+export const findPathWithSum = (tree, value) => {
   if (!tree || !tree.root) {
     throw new Error("tree must be valid and non-empty")
   }
@@ -21,7 +21,7 @@ function findPathWithSum(tree, value) {
   return findPathWithSumRecurse([], tree.root, value)
 }
 
-function findPathWithSumRecurse(path, node, value) {
+const findPathWithSumRecurse = (path, node, value) => {
   let count = 0
   if (node) {
     path.push(node.val)
@@ -32,9 +32,9 @@ function findPathWithSumRecurse(path, node, value) {
         ++count
       }
     }
-    count
-			+= findPathWithSumRecurse(path, node.left, value)
-			+ findPathWithSumRecurse(path, node.right, value)
+    count +=
+      findPathWithSumRecurse(path, node.left, value) +
+      findPathWithSumRecurse(path, node.right, value)
     path.pop()
   }
   return count

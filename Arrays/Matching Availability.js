@@ -16,21 +16,15 @@
 // ];
 
 // Time & Space: c1 + c2
-function calendarMatching(
-  calendar1,
-  dailyBounds1,
-  calendar2,
-  dailyBounds2,
-  meetingDuration
-) {
-  const cal1 = createIndividualCal(calendar1, dailyBounds1)
-  const cal2 = createIndividualCal(calendar2, dailyBounds2)
-  const combined = combineTwoCals(cal1, cal2)
-  const flatten = flattenCal(combined)
-  return getAvailability(flatten, meetingDuration)
+export const minToTime = (mins) => {
+  const hours = Math.floor(mins / 60)
+  const minutes = mins % 60
+  const hoursString = hours.toString()
+  const minString = minutes < 10 ? `0${minutes.toString()}` : minutes.toString()
+  return `${hoursString}:${minString}`
 }
 
-function getAvailability(cal, meetingDuration) {
+export const getAvailability = (cal, meetingDuration) => {
   const matchingAvail = []
 
   for (let i = 1; i < cal.length; i++) {
@@ -46,7 +40,7 @@ function getAvailability(cal, meetingDuration) {
   return matchingAvail.map((meeting) => meeting.map(minToTime))
 }
 
-function flattenCal(cal) {
+export const flattenCal = (cal) => {
   const flatten = [cal[0]]
 
   for (let i = 1; i < cal.length; i++) {
@@ -65,7 +59,7 @@ function flattenCal(cal) {
   return flatten
 }
 
-function combineTwoCals(calendar1, calendar2) {
+export const combineTwoCals = (calendar1, calendar2) => {
   const merged = []
 
   let i = 0
@@ -89,20 +83,26 @@ function combineTwoCals(calendar1, calendar2) {
   return merged
 }
 
-function createIndividualCal(cal, bounds) {
+export const timeToMinutes = (string) => {
+  const [hour, min] = string.split(":").map((str) => parseInt(str, 10))
+  return hour * 60 + min
+}
+
+export const createIndividualCal = (cal, bounds) => {
   const result = [["00:00", bounds[0]], ...cal, [bounds[1], "23:59"]]
   return result.map((time) => time.map(timeToMinutes))
 }
 
-function timeToMinutes(string) {
-  const [hour, min] = string.split(":").map((str) => parseInt(str))
-  return hour * 60 + min
-}
-
-function minToTime(mins) {
-  const hours = Math.floor(mins / 60)
-  const minutes = mins % 60
-  const hoursString = hours.toString()
-  const minString = minutes < 10 ? `0${minutes.toString()}` : minutes.toString()
-  return `${hoursString}:${minString}`
+export const calendarMatching = (
+  calendar1,
+  dailyBounds1,
+  calendar2,
+  dailyBounds2,
+  meetingDuration
+) => {
+  const cal1 = createIndividualCal(calendar1, dailyBounds1)
+  const cal2 = createIndividualCal(calendar2, dailyBounds2)
+  const combined = combineTwoCals(cal1, cal2)
+  const flatten = flattenCal(combined)
+  return getAvailability(flatten, meetingDuration)
 }

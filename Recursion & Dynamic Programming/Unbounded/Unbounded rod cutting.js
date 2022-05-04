@@ -1,4 +1,4 @@
-const solveRodCuttingDp = function (profits, lengths, rodLength) {
+const solveRodCuttingDp = (profits, lengths, rodLength) => {
   const n = profits.length
 
   if (profits.length !== lengths.length || rodLength <= 0 || n === 0) return 0

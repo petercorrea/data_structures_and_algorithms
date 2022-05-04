@@ -8,14 +8,14 @@ const someMaze = [
   [0, 0, 0, 0, 0]
 ]
 
-function searchMaze(maze, start, destination) {
+export const searchMaze = (maze, start, destination) => {
   // set starting location to 1
   maze[start[0]][start[1]] = 1
   // traverse the maze
   return searchMazeHelper(maze, start, destination)
 }
 
-function searchMazeHelper(maze, current, end) {
+export const searchMazeHelper = (maze, current, end) => {
   // dfs
   // if the current location matches our destination, return true
   if (current[0] === end[0] && current[1] === end[1]) {
@@ -47,17 +47,17 @@ function searchMazeHelper(maze, current, end) {
   return false
 }
 
-function isFeasible(maze, indices) {
+export const isFeasible = (maze, indices) => {
   const x = indices[0]
   const y = indices[1]
   return (
     // within bounds
-    x >= 0
-    && x < maze.length
-    && y >= 0
-    && y < maze[x].length
+    x >= 0 &&
+    x < maze.length &&
+    y >= 0 &&
+    y < maze[x].length &&
     // has not been visited
-    && maze[x][y] === 0
+    maze[x][y] === 0
   )
 }
 

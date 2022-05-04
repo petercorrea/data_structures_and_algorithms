@@ -2,7 +2,7 @@
 //		Write an algorithm such that if an element in an MxN matrix is 0,
 // 		its entire row and column are set to 0.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -14,7 +14,8 @@
 // Proposed Solution:
 //
 
-const zeroMartrix = (m) => {
+const zeroMartrix = (matrix) => {
+  const m = [...matrix]
   const rows = []
   const cols = []
 
@@ -27,13 +28,13 @@ const zeroMartrix = (m) => {
     }
   }
 
-  for (r of rows) {
+  for (const r of rows) {
     for (let i = 0; i <= m[0].length - 1; i++) {
       m[r][i] = 0
     }
   }
 
-  for (c of cols) {
+  for (const c of cols) {
     for (let j = 0; j <= m.length - 1; j++) {
       m[j][c] = 0
     }

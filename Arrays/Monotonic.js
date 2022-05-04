@@ -5,7 +5,7 @@
 
 // Time: n
 // Space: 1
-function monotonic(array) {
+export const monotonic = (array) => {
   let increasing = true
   let decreasing = true
 
@@ -17,7 +17,7 @@ function monotonic(array) {
   return increasing || decreasing
 }
 
-function isMonotonic(array) {
+export const isMonotonic = (array) => {
   if (array.length === 0) return true
 
   let idx = 0

@@ -8,7 +8,7 @@
 // Recusrive
 // TC: 2^(n+m)
 // SC: n+m
-const gridTraveler = function (m, n) {
+export const gridTraveler = (m, n) => {
   if (m === 0 || n === 0) return 0
   if (m === 1 && n === 1) return 1
   if (m < 0 || n < 0) return 0
@@ -19,26 +19,27 @@ const gridTraveler = function (m, n) {
 // Memo
 // TC: n*m
 // SP: n+m
-const gridTravelerMemo = function (m, n, memo = {}) {
+const gridTravelerMemo = (m, n, memo = {}) => {
   if (m === 0 || n === 0) return 0
   if (m === 1 && n === 1) return 1
 
   const key = `${m}-${n}`
   if (key in memo) return memo[key]
 
-  memo[key] =		gridTravelerMemo(m - 1, n, memo) + gridTravelerMemo(m, n - 1, memo)
+  memo[key] =
+    gridTravelerMemo(m - 1, n, memo) + gridTravelerMemo(m, n - 1, memo)
   return memo[key]
 }
 
 // Formulaic
 // TC: n*m
 // SP: 1
-const factorial = function (n) {
+const factorial = (n) => {
   if (n === 1) return 1
   return n * factorial(n - 1)
 }
 
-const gridTravlerFormulaic = function (r, d) {
+const gridTravlerFormulaic = (r, d) => {
   const R = r - 1
   const D = d - 1
   return factorial(R + D) / (factorial(R) * factorial(D))

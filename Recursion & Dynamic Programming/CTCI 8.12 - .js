@@ -1,7 +1,7 @@
 // Problem Statement:
 //
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 //
 
 // Assume:

@@ -6,11 +6,12 @@
   "type": "module",
   "dependencies": {
     "chai": "^4.3.4",
-    "mocha": "^8.3.2"
+    "mocha": "^10.0.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.24.0",
     "husky": "^7.0.1",
     "prettier": "2.3.2",
@@ -18,7 +19,6 @@
   },
   "scripts": {
     "test": "mocha 'Tests/**/*.js'",
-    "tsc": "tsc --project tsconfig.json --watch",
     "lint": "eslint --fix --ext .js,.jsx .",
     "pre-commit": "pretty-quick --staged",
     "pretty": "prettier --write \"./**/*.{js,jsx,json, css}\"",

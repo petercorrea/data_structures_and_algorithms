@@ -1,7 +1,8 @@
-const minCoinChange = function (coins, sum) {
-  function solveRecursive(coins, sum, currentIndex) {
+export const minCoinChange = (coins, sum) => {
+  const solveRecursive = (coins, sum, currentIndex) => {
     if (sum === 0) return 0
-    if (coins.length === 0 || currentIndex >= coins.length) return Number.MAX_VALUE
+    if (coins.length === 0 || currentIndex >= coins.length)
+      return Number.MAX_VALUE
 
     let set1 = Number.MAX_VALUE
 
@@ -22,12 +23,13 @@ const minCoinChange = function (coins, sum) {
   return result === Number.MAX_VALUE ? -1 : result
 }
 
-const minCoinChangeMemo = function (coins, sum) {
+export const minCoinChangeMemo = (coins, sum) => {
   const dp = []
 
-  function solveRecursive(coins, sum, currentIndex) {
+  const solveRecursive = (coins, sum, currentIndex) => {
     if (sum === 0) return 0
-    if (coins.length === 0 || currentIndex >= coins.length) return Number.MAX_VALUE
+    if (coins.length === 0 || currentIndex >= coins.length)
+      return Number.MAX_VALUE
 
     dp[currentIndex] = dp[currentIndex] || []
 
@@ -53,7 +55,7 @@ const minCoinChangeMemo = function (coins, sum) {
   return result === Number.MAX_VALUE ? -1 : result
 }
 
-const minCoinChangeDp = function (coins, sum) {
+const minCoinChangeDp = (coins, sum) => {
   const n = coins.length
   const dp = Array(n)
     .fill(0)

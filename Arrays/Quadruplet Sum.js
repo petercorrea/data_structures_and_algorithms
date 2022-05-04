@@ -2,7 +2,7 @@
 
 // Time: n^2 (worst: n^3)
 // Space: n^2
-function fourNumberSum(array, targetSum) {
+export default (array, targetSum) => {
   // 	Generate distinct sets of quads
   // 	Be mindful to not double count elements in a set
   // 	Be mindful that multiple pairs can generate the same sum
@@ -20,7 +20,7 @@ function fourNumberSum(array, targetSum) {
       const compliment = targetSum - sum
 
       if (map.has(compliment)) {
-        for (pair of map.get(compliment)) {
+        for (const pair of map.get(compliment)) {
           results.push([array[i], array[j], pair[0], pair[1]])
         }
       }

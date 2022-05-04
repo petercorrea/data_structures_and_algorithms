@@ -8,7 +8,7 @@
 // 		(B)
 // 		Suppose the digits are stored in forward order. Repeat the above problem.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -26,7 +26,7 @@
 // Proposed Solution:
 //
 
-const { Node, } = require("../../Linked Lists/LinkedList")
+const { Node } = require("../Implementations/Data Structures/Node")
 // set B
 const node11 = new Node(1, null, null)
 const node10 = new Node(1, null, node11)
@@ -48,14 +48,14 @@ const sumListsB = (list1, list2) => {
     list1 = pad(list1, length2 - length1)
   }
 
-  const { previousSum, currentSum, } = carry(sum(list1, list2), 0)
+  const { previousSum, currentSum } = carry(sum(list1, list2), 0)
   return currentSum
     ? append(previousSum, new Node(currentSum, null, null))
     : previousSum
 }
 
 // Utility functions
-function length(node) {
+export const length = (node) => {
   let len = 0
 
   while (node) {
@@ -66,7 +66,7 @@ function length(node) {
   return len
 }
 
-function pad(list, num) {
+export const pad = (list, num) => {
   while (num !== 0) {
     const node = new Node(0, null, null)
     node.next = list
@@ -77,12 +77,12 @@ function pad(list, num) {
   return list
 }
 
-function append(head, node) {
+export const append = (head, node) => {
   node.next = head
   return node
 }
 
-function carry(previousSum, currentSum) {
+export const carry = (previousSum, currentSum) => {
   if (previousSum.value >= 10) {
     previousSum.value %= 10
     currentSum += 1
@@ -90,18 +90,18 @@ function carry(previousSum, currentSum) {
 
   return {
     previousSum,
-    currentSum,
+    currentSum
   }
 }
 
-function sum(l1, l2) {
+export const sum = (l1, l2) => {
   if (!l1.next && !l2.next) {
     return new Node(l1.value + l2.value, null, null)
   }
 
   const value = l1.value + l2.value
 
-  const { previousSum, currentSum, } = carry(sum(l1.next, l2.next), value)
+  const { previousSum, currentSum } = carry(sum(l1.next, l2.next), value)
   return append(previousSum, new Node(currentSum, null, null))
 }
 

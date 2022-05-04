@@ -6,7 +6,7 @@
 // element x can appear anywhere in the "right partition"; it does not need to
 // appear between the left and right partitions.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -18,7 +18,7 @@
 // Proposed Solution:
 //
 
-const { Node, } = require("../../Linked Lists/LinkedList")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const node8 = new Node(8, null, null)
 const node7 = new Node(1, null, node8)

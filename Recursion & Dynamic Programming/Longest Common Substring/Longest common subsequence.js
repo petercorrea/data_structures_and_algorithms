@@ -3,8 +3,8 @@
 // Brute Force
 // TC: O2^(m+n) where ‘m’ and ‘n’ are the lengths of the two input strings.
 // SC: O(m+n) this space will be used to store the recursion stack.
-const LCS = function (string1, string2) {
-  function LCSR(string1, string2, idx1, idx2) {
+export const LCS = (string1, string2) => {
+  const LCSR = (string1, string2, idx1, idx2) => {
     // base case
     if (idx1 === string1.length || idx2 === string2.length) {
       return 0
@@ -26,11 +26,11 @@ const LCS = function (string1, string2) {
 }
 
 // Memo
-const LCSMemo = function (string1, string2) {
+export const LCSMemo = (string1, string2) => {
   // instantiate memo
   const memo = []
 
-  const LCSRecursive = function (string1, string2, idx1, idx2) {
+  const LCSRecursive = (string1, string2, idx1, idx2) => {
     // base case
     if (idx1 === string1.length || idx2 === string2.length) {
       return 0
@@ -61,8 +61,8 @@ const LCSMemo = function (string1, string2) {
 // Tabulation
 // TC: O(m*n)
 // SC: O(m*n)...can be reduced to O(n) if you use only 2 arrays instead of whole table
-function LCS(s1, s2) {
-  let dp = Array(s1.length + 1)
+export const LCSTab = (s1, s2) => {
+  const dp = Array(s1.length + 1)
     .fill(0)
     .map(() => Array(s2.length + 1).fill(0))
 

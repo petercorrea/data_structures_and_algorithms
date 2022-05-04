@@ -1,7 +1,7 @@
 // Problem Statement:
 // Implement a function to check if a linked list is a palindrome.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -12,7 +12,7 @@
 
 // Proposed Solution:
 //
-const { Node, } = require("../../Linked Lists/LinkedList")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const node8 = new Node(1, null, null)
 const node7 = new Node(2, null, node8)
@@ -33,7 +33,7 @@ const palindrome = (list) => {
   return false
 }
 
-function length(list) {
+export const length = (list) => {
   let len = 0
   while (list) {
     len++
@@ -43,7 +43,7 @@ function length(list) {
   return len
 }
 
-function recurse(list, length) {
+export const recurse = (list, length) => {
   if (length === 2) {
     if (list.value === list.next.value) {
       return list.next.next

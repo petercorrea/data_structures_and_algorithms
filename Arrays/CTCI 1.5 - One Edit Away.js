@@ -5,7 +5,7 @@
 // 		-replace a character.
 // 		Given two strings, write a function to check if they are one edit(or zero edits) away.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -20,7 +20,7 @@
 
 const replacement = (s1, s2) => {
   let edits = 0
-  for (i in s1) {
+  for (const i in s1) {
     if (s1[i] !== s2[i]) {
       edits++
 
@@ -41,11 +41,10 @@ const insertOrRemoved = (s1, s2) => {
       j++
       edits++
       if (edits > 1) return false
-      continue
+    } else {
+      i++
+      j++
     }
-
-    i++
-    j++
   }
 
   return edits <= 1

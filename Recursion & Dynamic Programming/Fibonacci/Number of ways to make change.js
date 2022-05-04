@@ -8,7 +8,7 @@
 // TC: (n)
 // SP: (n^2)...can be reduced to (n) since we only need the previous row to compute the current
 
-function numOfWays(denoms, targetSum) {
+const numOfWays = (denoms, targetSum) => {
   // Initialize targetSums[]
   const targetSums = Array(targetSum + 1).fill(0)
 

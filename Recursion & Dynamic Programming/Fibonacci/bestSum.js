@@ -12,7 +12,7 @@ const howSum = (target, arr, memo = {}) => {
 
       // [e]
       // result.push(e);
-      result = [...result, e]
+      result = [...result, e ]
 
       // memo[target] = result;
 
@@ -32,4 +32,4 @@ const howSum = (target, arr, memo = {}) => {
   return smallest
 }
 
-console.log(howSum(6, [2, 4]))
+console.log(howSum(6, [2, 4 ]))

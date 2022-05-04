@@ -24,7 +24,7 @@
 // paired on tandem bicycles as follows: [1, 4], [5, 3], then the
 // total speed of these tandem bicycles is 4 + 5 = 9.
 
-function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest) {
+export const tandemBicycle = (redShirtSpeeds, blueShirtSpeeds, fastest) => {
   redShirtSpeeds.sort((a, b) => a - b)
   blueShirtSpeeds.sort((a, b) => b - a)
 

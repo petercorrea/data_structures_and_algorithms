@@ -8,7 +8,7 @@
 // 		)
 // 		max(array[i] + sums[i-2], sums[i-1])
 
-function maxSum(arr) {
+const maxSum = (arr) => {
   if (arr.length === 0) return 0
   if (arr.length === 1) return arr[0]
   const sums = Array(arr).fill(0)

@@ -17,7 +17,7 @@
 
 // TC: nLogn
 // SP: O(1)
-function minimumWaitingTime(queries) {
+export const minimumWaitingTime = (queries) => {
   queries.sort((a, b) => a - b)
   let sum = 0
 

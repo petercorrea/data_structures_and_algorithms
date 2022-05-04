@@ -5,7 +5,7 @@
 
 // Time: n
 // Space: 1
-function longestPeak(array) {
+export const solution1 = (array) => {
   let count = 0
   let max = 0
 
@@ -13,21 +13,19 @@ function longestPeak(array) {
     // neither
     if (array[i - 1] === array[i]) {
       count = 0
-      continue
     }
 
     // increasing
-    if (array[i - 1] < array[i]) {
+    else if (array[i - 1] < array[i]) {
       if (count === 0) {
         count = 2
       } else {
         count++
       }
-      continue
     }
 
     // decreasing
-    if (array[i - 1] > array[i] && count !== 0) {
+    else if (array[i - 1] > array[i] && count !== 0) {
       for (let j = i; j < array.length; j++) {
         // decreasing
         if (array[j - 1] > array[j]) {
@@ -52,7 +50,7 @@ function longestPeak(array) {
 // Space: 1
 // While the time complexity is still linear, we are touching multiple elements more than once
 // as opposed to the above example.
-function longestPeak(array) {
+export const solution2 = (array) => {
   let max = 0
 
   for (let i = 1; i < array.length; i++) {

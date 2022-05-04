@@ -20,31 +20,35 @@
 
 // TC: 2^(n+m)
 // SP: m+n
-const findSI = function (m, n, p) {
-  function findSIRecursive(m, n, p, mIndex, nIndex, pIndex) {
+const findSI = (m, n, p) => {
+  const findSIRecursive = (m, n, p, mIndex, nIndex, pIndex) => {
     // if we have reached the end of the all the strings
-    if (mIndex === m.length && nIndex === n.length && pIndex === p.length) return true
+    if (mIndex === m.length && nIndex === n.length && pIndex === p.length)
+      return true
 
     // if we have reached the end of 'p' but 'm' or 'n' still have some characters left
     if (pIndex === p.length) return false
 
     let b1 = false
     let b2 = false
-    if (mIndex < m.length && m.charAt(mIndex) === p.charAt(pIndex)) b1 = findSIRecursive(m, n, p, mIndex + 1, nIndex, pIndex + 1)
+    if (mIndex < m.length && m.charAt(mIndex) === p.charAt(pIndex))
+      b1 = findSIRecursive(m, n, p, mIndex + 1, nIndex, pIndex + 1)
 
-    if (nIndex < n.length && n.charAt(nIndex) === p.charAt(pIndex)) b2 = findSIRecursive(m, n, p, mIndex, nIndex + 1, pIndex + 1)
+    if (nIndex < n.length && n.charAt(nIndex) === p.charAt(pIndex))
+      b2 = findSIRecursive(m, n, p, mIndex, nIndex + 1, pIndex + 1)
 
     return b1 || b2
   }
   return findSIRecursive(m, n, p, 0, 0, 0)
 }
 
-const findSIMemo = function (m, n, p) {
+export const findSIMemo = (m, n, p) => {
   const dp = []
 
-  function findSIRecursive(m, n, p, mIndex, nIndex, pIndex) {
+  const findSIRecursive = (m, n, p, mIndex, nIndex, pIndex) => {
     // if we have reached the end of the all the strings
-    if (mIndex === m.length && nIndex === n.length && pIndex === p.length) return true
+    if (mIndex === m.length && nIndex === n.length && pIndex === p.length)
+      return true
 
     // if we have reached the end of 'p' but 'm' or 'n' still has some characters left
     if (pIndex === p.length) return false
@@ -72,7 +76,7 @@ const findSIMemo = function (m, n, p) {
 
 // TC: m*n
 // SP: m*n
-const findSIDp = function (m, n, p) {
+export const findSIDp = (m, n, p) => {
   // dp[mIndex][nIndex] will be storing the result of string leterleaving
   // up to p[0..mIndex+nIndex-1]
   const dp = Array(m.length + 1)

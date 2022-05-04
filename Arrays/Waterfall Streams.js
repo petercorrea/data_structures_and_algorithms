@@ -45,7 +45,7 @@
 
 // Time: w^2 * h
 // Space: w
-function waterfallStreams(array, source) {
+export const waterfallStreams = (array, source) => {
   let rowAbove = [...array[0]]
   rowAbove[source] = -1
 
@@ -56,31 +56,31 @@ function waterfallStreams(array, source) {
       const valueAbove = rowAbove[j]
       const hasWaterAbove = valueAbove < 0
       const hasBlock = currentRow[j] === 1
-
-      if (!hasWaterAbove) continue
-      if (!hasBlock) {
-        currentRow[j] += valueAbove
-        continue
-      }
-
       const splitWater = valueAbove / 2
-      let rightIdx = j
-      while (rightIdx + 1 < rowAbove.length) {
-        rightIdx++
-        if (rowAbove[rightIdx] === 1) break
-        if (currentRow[rightIdx] !== 1) {
-          currentRow[rightIdx] += splitWater
-          break
-        }
-      }
 
-      let leftIdx = j
-      while (leftIdx - 1 >= 0) {
-        leftIdx--
-        if (rowAbove[leftIdx] === 1) break
-        if (currentRow[leftIdx] !== 1) {
-          currentRow[leftIdx] += splitWater
-          break
+      if (hasWaterAbove) {
+        if (hasBlock) {
+          let rightIdx = j
+          while (rightIdx + 1 < rowAbove.length) {
+            rightIdx++
+            if (rowAbove[rightIdx] === 1) break
+            if (currentRow[rightIdx] !== 1) {
+              currentRow[rightIdx] += splitWater
+              break
+            }
+          }
+
+          let leftIdx = j
+          while (leftIdx - 1 >= 0) {
+            leftIdx--
+            if (rowAbove[leftIdx] === 1) break
+            if (currentRow[leftIdx] !== 1) {
+              currentRow[leftIdx] += splitWater
+              break
+            }
+          }
+        } else {
+          currentRow[j] += valueAbove
         }
       }
     }

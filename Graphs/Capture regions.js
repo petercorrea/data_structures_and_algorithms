@@ -8,9 +8,43 @@ const board = [
   [0, 0, 0, 0]
 ]
 
-function surroundRegions(board) {
+// bfs the boundry region
+export const markBoundaryRegion = (i, j, board, visitedParam) => {
+  const visited = [...visitedParam]
+  const directions = [
+    [0, 1],
+    [1, 0],
+    [0, -1],
+    [-1, 0]
+  ]
+
+  const queue = []
+  queue.push([i, j])
+  visited[i][j] = true
+  let currentPosition
+  let neighbor
+
+  // check neighbors and push onto queue
+  while (queue.length) {
+    currentPosition = queue.shift()
+    for (const direction of directions) {
+      neighbor = [
+        currentPosition[0] + direction[0],
+        currentPosition[1] + direction[1]
+      ]
+      // neighbor = [i + direction[0], j + direction[1]];
+      if (isFeasible(board, neighbor) && !visited[neighbor[0]][neighbor[1]]) {
+        visited[neighbor[0]][neighbor[1]] = true
+        queue.push(neighbor)
+      }
+    }
+  }
+}
+
+export const surroundRegions = (boardParam) => {
+  const board = [...boardParam]
   if (!board.length) {
-    return
+    return []
   }
 
   const numOfRows = board.length
@@ -63,48 +97,16 @@ function surroundRegions(board) {
   return board
 }
 
-// bfs the boundry region
-function markBoundaryRegion(i, j, board, visited) {
-  const directions = [
-    [0, 1],
-    [1, 0],
-    [0, -1],
-    [-1, 0]
-  ]
-
-  const queue = []
-  queue.push([i, j])
-  visited[i][j] = true
-  let currentPosition
-  let neighbor
-
-  // check neighbors and push onto queue
-  while (queue.length) {
-    currentPosition = queue.shift()
-    for (const direction of directions) {
-      neighbor = [
-        currentPosition[0] + direction[0],
-        currentPosition[1] + direction[1]
-      ]
-      // neighbor = [i + direction[0], j + direction[1]];
-      if (isFeasible(board, neighbor) && !visited[neighbor[0]][neighbor[1]]) {
-        visited[neighbor[0]][neighbor[1]] = true
-        queue.push(neighbor)
-      }
-    }
-  }
-}
-
-function isFeasible(board, neighbor) {
+export const isFeasible = (board, neighbor) => {
   const x = neighbor[0]
   const y = neighbor[1]
 
   return (
-    x >= 0
-    && x < board.length
-    && y >= 0
-    && y < board[x].length
-    && board[x][y] === 1
+    x >= 0 &&
+    x < board.length &&
+    y >= 0 &&
+    y < board[x].length &&
+    board[x][y] === 1
   )
 }
 

@@ -3,7 +3,7 @@
 // nickels(5 cents), and pennies(1 cent), write code to calculate
 // the number of ways of representing n cents.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 //
 
 // Assume:
@@ -25,10 +25,11 @@ const coins = (n, memo = {}) => {
   if (typeof memo[n] !== "undefined") {
     return memo[n]
   }
-  memo[n] = coins(n - 25, memo)
-    + coins(n - 10, memo)
-    + coins(n - 5, memo)
-    + coins(n - 1, memo)
+  memo[n] =
+    coins(n - 25, memo) +
+    coins(n - 10, memo) +
+    coins(n - 5, memo) +
+    coins(n - 1, memo)
 
   return memo[n]
 }

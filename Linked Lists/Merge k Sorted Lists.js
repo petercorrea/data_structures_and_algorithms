@@ -7,7 +7,7 @@
 
 // Output: 1->1->2->3->4->4->5->6
 
-const { Node, } = require("./LinkedList.js")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const list1 = []
 const list2 = [new Node(5, null, new Node(1, null, new Node(-1)))]
@@ -16,11 +16,11 @@ const list4 = [new Node(-3, null, new Node(9, null, new Node(3)))]
 
 const params = [list1, list2, list3, list4]
 
-const mergeKLists = function (lists) {
+const mergeKLists = (lists) => {
   // Initialize a container for values
   const result = []
 
-  // Gaurd against no lists
+  // Guard against no lists
   if (lists.length === 0) {
     return null
   }
@@ -40,7 +40,7 @@ const mergeKLists = function (lists) {
     }
   }
 
-  function compareNumbers(a, b) {
+  const compareNumbers = (a, b) => {
     if (a > b) {
       return 1
     }
@@ -52,7 +52,7 @@ const mergeKLists = function (lists) {
     return 0
   }
 
-  // Gaurd against no values
+  // Guard against no values
   if (result.length === 0) {
     return null
   }
@@ -65,12 +65,12 @@ const mergeKLists = function (lists) {
   let currentNode = finalNode
 
   // Iterate the values in result
-  for (idx in result) {
+  for (const idx in result) {
     // Add current idx as the value of the primary node
     currentNode.value = result[idx]
 
     // if the next idx within range is not undefined
-    if (result[parseInt(idx) + 1] !== undefined) {
+    if (result[parseInt(idx, 10) + 1] !== undefined) {
       // add empty node to node.next
       currentNode.next = new Node()
     }

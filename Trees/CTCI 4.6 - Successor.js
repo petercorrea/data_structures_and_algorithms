@@ -1,7 +1,7 @@
 // Problem Statement:
 // Write an algorithm to find the "next" node (i.e., in-order successor) of a given node in a binary search tree. You may assume that each node has a link to its parent.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -22,9 +22,7 @@
  *     b. Otherwise follow parent pointers until we find a node that is a left
  *     child of its parent, then the parent is the successor. */
 
-const { inOrderTree, } = require("./Sample Tree")
-
-const succesor = (node) => {
+export const succesor = (node) => {
   if (node.left) {
     while (node.left) {
       node = node.left
@@ -50,7 +48,6 @@ const succesor = (node) => {
   return false
 }
 // Test
-console.log(succesor(inOrderTree)) // result
 
 // Notes after implementing:
 //

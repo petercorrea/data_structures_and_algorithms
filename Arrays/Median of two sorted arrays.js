@@ -46,7 +46,7 @@
 
 */
 
-function indexArray(i, arr) {
+export const indexArray = (i, arr) => {
   if (i === -1) {
     console.log("before the array")
     return Number.NEGATIVE_INFINITY
@@ -60,7 +60,7 @@ function indexArray(i, arr) {
   return arr[i]
 }
 
-function getIndices(rShort, aLong, aShort) {
+export const getIndices = (rShort, aLong, aShort) => {
   console.log(rShort)
   const midpoint = Math.floor((aShort.length + aLong.length) / 2)
   const rLong = midpoint - rShort
@@ -70,7 +70,7 @@ function getIndices(rShort, aLong, aShort) {
   return [rLong - 1, rLong, rShort - 1, rShort]
 }
 
-function getDirection(lLong, rLong, lShort, rShort, aLong, aShort) {
+export const getDirection = (lLong, rLong, lShort, rShort, aLong, aShort) => {
   // if longer array is greater than shorter array
   if (indexArray(lLong, aLong) > indexArray(rShort, aShort)) {
     return 1
@@ -84,20 +84,20 @@ function getDirection(lLong, rLong, lShort, rShort, aLong, aShort) {
   return 0
 }
 
-function getResult(lLong, rLong, lShort, rShort, aLong, aShort) {
+export const getResult = (lLong, rLong, lShort, rShort, aLong, aShort) => {
   const odd = (aShort.length + aLong.length) % 2
 
   if (odd === 1) {
     return Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort))
   }
   return (
-    (Math.max(indexArray(lLong, aLong), indexArray(lShort, aShort))
-      + Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort)))
-    / 2
+    (Math.max(indexArray(lLong, aLong), indexArray(lShort, aShort)) +
+      Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort))) /
+    2
   )
 }
 
-function medianOfTwoSortedArrays(arr1, arr2) {
+export const medianOfTwoSortedArrays = (arr1, arr2) => {
   // Identify arrays
   let aShort = arr1
   let aLong = arr2
@@ -120,8 +120,8 @@ function medianOfTwoSortedArrays(arr1, arr2) {
   while (d !== 0) {
     m = Math.floor((l + r) / 2)
     console.log("l, r", l, r)
-    console.log("m", m);
-    [lLong, rLong, lShort, rShort] = getIndices(m, aLong, aShort)
+    console.log("m", m)
+    ;[lLong, rLong, lShort, rShort] = getIndices(m, aLong, aShort)
 
     d = getDirection(lLong, rLong, lShort, rShort, aLong, aShort)
 

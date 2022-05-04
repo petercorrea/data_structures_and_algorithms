@@ -17,12 +17,12 @@ const routes = [
 const adjacencyList = new Map()
 
 // Add node
-function addNode(airport) {
+export const addNode = (airport) => {
   adjacencyList.set(airport, [])
 }
 
 // Add edge, undirected
-function addEdge(origin, destination) {
+export const addEdge = (origin, destination) => {
   adjacencyList.get(origin).push(destination)
   adjacencyList.get(destination).push(origin)
 }
@@ -34,7 +34,7 @@ routes.forEach((route) => addEdge(...route))
 console.log(adjacencyList)
 
 // All routes
-function bfs(start) {
+export const bfs = (start) => {
   const queue = [start]
   const visited = new Set()
 
@@ -57,7 +57,7 @@ function bfs(start) {
 }
 
 // Any route exist
-function dfs(start, visited = new Set()) {
+export const dfs = (start, visited = new Set()) => {
   console.log(start)
   visited.add(start)
 

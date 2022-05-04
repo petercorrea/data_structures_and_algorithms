@@ -3,7 +3,7 @@
 // For the purposes of this question, a balanced tree is defined to be a tree such that
 // the heights of the two subtrees of any node never differ by more than one.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -14,9 +14,8 @@
 
 // Proposed Solution:
 // check heights
-const { sampleBalancedTree, sampleUnbalancedTree, } = require("./Sample Tree")
 
-const checkBalanced = (root) => {
+export const checkBalanced = (root) => {
   if (!root.left && !root.right) {
     return 1
   }
@@ -39,22 +38,20 @@ const checkBalanced = (root) => {
 }
 
 // Test
-console.log(checkBalanced(sampleBalancedTree))
-console.log(checkBalanced(sampleUnbalancedTree))
 
 // Notes after implementing:
 //
 
 // From AlgoExpert
-function heightBalancedBinaryTree(tree) {
-  function maxHeight(tree) {
+export const heightBalancedBinaryTree = (tree) => {
+  const maxHeight = (tree) => {
     if (!tree.right && !tree.left) return 1
     const leftHeight = tree.left ? maxHeight(tree.left) : 0
     const rightHeight = tree.right ? maxHeight(tree.right) : 0
     return Math.max(leftHeight, rightHeight) + 1
   }
 
-  function isBalanced(tree) {
+  const isBalanced = (tree) => {
     if (!tree.right && !tree.left) return true
     const leftHeight = tree.left ? maxHeight(tree.left) : 0
     const rightHeight = tree.right ? maxHeight(tree.right) : 0
@@ -62,7 +59,7 @@ function heightBalancedBinaryTree(tree) {
     return balanceResult
   }
 
-  function recurse(tree) {
+  const recurse = (tree) => {
     if (!tree) {
       return true
     }
@@ -85,6 +82,3 @@ function heightBalancedBinaryTree(tree) {
 
   return recurse(tree)
 }
-
-console.log(heightBalancedBinaryTree(sampleBalancedTree))
-console.log(heightBalancedBinaryTree(sampleUnbalancedTree))

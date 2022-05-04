@@ -1,7 +1,7 @@
 // Problem Statement:
 // Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -12,11 +12,7 @@
 
 // Proposed Solution:
 
-const { myGraph, } = require("./Sample Graph")
-
-const adjGraph = myGraph.adjacency
-
-function breadthFirstSearch(graph, start, end) {
+export const breadthFirstSearch = (graph, start, end) => {
   const queue = [start]
   const visited = {}
   let current
@@ -27,7 +23,7 @@ function breadthFirstSearch(graph, start, end) {
     current = queue.shift()
 
     if (graph[current]) {
-      for (neighbor of graph[current]) {
+      for (const neighbor of graph[current]) {
         if (neighbor.value === end) return true
 
         if (!visited[neighbor.value]) {
@@ -42,8 +38,6 @@ function breadthFirstSearch(graph, start, end) {
 }
 
 // Test
-console.log(breadthFirstSearch(adjGraph, 1, 8)) // true
-console.log(breadthFirstSearch(adjGraph, 1, 9)) // false
 
 // Notes after implementing:
 //

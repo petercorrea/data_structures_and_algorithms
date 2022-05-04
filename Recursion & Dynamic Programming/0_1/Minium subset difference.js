@@ -1,11 +1,10 @@
 // Problem Statement
 // Given a set of positive numbers, partition the set into two subsets with a minimum difference between their subset sums.
-
-const minimumPartitionMemo = function (nums) {
+export const minimumPartitionMemo = (nums) => {
   const memo = []
 
   // we'll compare difference from the end of the array, working towards the beginning of the array
-  function solveRecursion(nums, currentIndex, sum1, sum2) {
+  const solveRecursion = (nums, currentIndex, sum1, sum2) => {
     if (currentIndex >= nums.length) return Math.abs(sum1 - sum2)
 
     memo[currentIndex] = memo[currentIndex] || []
@@ -35,7 +34,7 @@ const minimumPartitionMemo = function (nums) {
   return solveRecursion(nums, 0, 0, 0)
 }
 
-const minimumPartitionTab = function (nums) {
+const minimumPartitionTab = (nums) => {
   const n = nums.length
 
   // The lowest minimum we can reach is 0, which only occuers if we can construct two sets of equal value

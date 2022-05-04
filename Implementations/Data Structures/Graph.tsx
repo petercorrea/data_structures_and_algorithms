@@ -1,20 +1,9 @@
-const { GraphMinHeap, } = require("../Heaps/GraphMinHeap")
+import { GraphMinHeap } from "./GraphMinHeap"
+import { GraphEdge } from "./GraphEdge"
 
-class GraphVertex {
-  constructor(value) {
-    this.value = value
-    this.edges = []
-  }
-}
+export class Graph {
+  adjacencyList
 
-class GraphEdge {
-  constructor(value, weight = 0) {
-    this.value = value
-    this.weight = weight
-  }
-}
-
-class Graph {
   constructor(graph) {
     this.adjacencyList = graph || {}
   }
@@ -26,8 +15,8 @@ class Graph {
   }
 
   addEdge(source, destination, weight) {
-    const source_node = new GraphEdge(source, weight)
-    const destination_node = new GraphEdge(destination, weight)
+    const sourceNode = new GraphEdge(source, weight)
+    const destinationNode = new GraphEdge(destination, weight)
 
     if (!this.adjacencyList[source]) {
       this.addVertex(source)
@@ -37,8 +26,8 @@ class Graph {
       this.addVertex(destination)
     }
 
-    this.adjacencyList[source].push(destination_node)
-    this.adjacencyList[destination].push(source_node)
+    this.adjacencyList[source].push(destinationNode)
+    this.adjacencyList[destination].push(sourceNode)
   }
 
   removeEdge(source, destination) {
@@ -70,7 +59,7 @@ class Graph {
       current = queue.shift()
 
       if (this.adjacencyList[current]) {
-        for (neighbor of this.adjacencyList[current]) {
+        for (const neighbor of this.adjacencyList[current]) {
           if (neighbor.value === end) return true
 
           if (!visited[neighbor.value]) {
@@ -88,7 +77,7 @@ class Graph {
     const result = []
     const visited = {}
 
-    const dfs = (vertex) => {
+    const dfs = (vertex): null | {} => {
       if (!vertex) return null
       visited[vertex] = true
       result.push(vertex)
@@ -154,12 +143,12 @@ class Graph {
       if (vertex === source) {
         idxCount += 1
         const edge = new GraphEdge(source, 0)
-        map.set(vertex, { edgeObj: edge, index: idxCount, })
+        map.set(vertex, { edgeObj: edge, index: idxCount })
         heap.insert(edge, map)
       } else {
         idxCount += 1
         const edge = new GraphEdge(vertex, Number.MAX_SAFE_INTEGER)
-        map.set(vertex, { edgeObj: edge, index: idxCount, })
+        map.set(vertex, { edgeObj: edge, index: idxCount })
         heap.insert(edge, map)
       }
     }
@@ -199,7 +188,8 @@ class Graph {
               // update node in heap
               // adjust heap, bubble up
 
-              map.get(neighbor.value).edgeObj.weight = distanceToCurrent + costToNeighbor
+              map.get(neighbor.value).edgeObj.weight =
+                distanceToCurrent + costToNeighbor
 
               // let idx = heap.heap.indexOf(
               // 	map.get(neighbor.value)
@@ -270,101 +260,4 @@ class Graph {
 
     return distances
   }
-}
-
-class DirectedGraph extends Graph {
-  constructor(graph) {
-    super(graph)
-    this.adjacencyList = graph || {}
-  }
-
-  addEdge(source, destination, weight) {
-    if (!this.adjacencyList[source]) {
-      this.addVertex(source)
-    }
-
-    const destination_node = new GraphEdge(destination, weight)
-
-    this.adjacencyList[source].push(destination_node)
-  }
-
-  removeEdge(source, destination) {
-    this.adjacencyList[source] = this.adjacencyList[source].filter(
-      (vertex) => vertex.value !== destination
-    )
-  }
-
-  removeVertex(vertex) {
-    delete this.adjacencyList[vertex]
-
-    const keys = Object.keys(this.adjacencyList)
-
-    for (let i = 0; i < keys.length; i++) {
-      this.adjacencyList[keys[i]] = this.adjacencyList[keys[i]].filter(
-        (v) => v.value !== vertex
-      )
-    }
-  }
-
-  // Only works on acyclical directed graphs
-  topologicalSort(adjList = this.adjacencyList) {
-    const indegrees = {}
-    const no_indegrees = []
-    const result = []
-
-    const keys = Object.keys(adjList)
-
-    // count indegrees
-    for (let i = 0; i < keys.length; i++) {
-      if (!indegrees[keys[i]]) {
-        indegrees[keys[i]] = 0
-      }
-
-      const neighbors = adjList[keys[i]]
-
-      for (let j = 0; j < neighbors.length; j++) {
-        if (!indegrees[neighbors[j].value]) {
-          indegrees[neighbors[j].value] = 0
-        }
-
-        indegrees[neighbors[j].value] += 1
-      }
-    }
-
-    // push 0 indegrees
-    for (const node in indegrees) {
-      if (indegrees[node] === 0) {
-        no_indegrees.push(node)
-      }
-    }
-
-    while (no_indegrees.length > 0) {
-      const node = no_indegrees.pop()
-      result.push(node)
-
-      let neighbors
-      if (adjList[node]) {
-        neighbors = adjList[node]
-      } else {
-        neighbors = []
-      }
-
-      for (let i = 0; i < neighbors.length; i++) {
-        indegrees[neighbors[i].value] -= 1
-
-        if (indegrees[neighbors[i].value] === 0) {
-          no_indegrees.push(neighbors[i].value)
-        }
-      }
-    }
-
-    return result
-  }
-}
-
-module.exports = {
-  Graph,
-  DirectedGraph,
-  GraphVertex,
-  GraphEdge,
 }

@@ -6,8 +6,8 @@
 // The time complexity of the above algorithm is exponential
 // O(2^n), where ‘n’ is the lengths of the input array. The space complexity is
 // O(n) which is used to store the recursion stack.
-const LISBrute = function (Arr) {
-  function LISRecursive(nums, currentIndex, previousIndex) {
+export const LISBrute = (Arr) => {
+  const LISRecursive = (nums, currentIndex, previousIndex) => {
     if (currentIndex === nums.length) return 0
 
     // include nums[currentIndex] if it is larger than the last included number
@@ -28,10 +28,10 @@ const LISBrute = function (Arr) {
 // Memo
 // TC: n*n or n^2
 // SC: n^2
-const LISMemo = function (Arr) {
+const LISMemo = (Arr) => {
   const memo = []
 
-  function LISRecursive(Arr, currentIdx, prevIdx) {
+  const LISRecursive = (Arr, currentIdx, prevIdx) => {
     // if we've reached the end of the array
     if (currentIdx === Arr.length) {
       return 0
@@ -61,7 +61,7 @@ const LISMemo = function (Arr) {
 
 // TC: n^2
 // SC: n^2
-const LISDP = function (nums) {
+const LISDP = (nums) => {
   const dp = Array(nums.length).fill(0)
   dp[0] = 1
 

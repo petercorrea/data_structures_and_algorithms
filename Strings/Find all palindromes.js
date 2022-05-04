@@ -1,7 +1,7 @@
 const s = "Hello, mom mommy dad daddy racecar petep Petep."
 // 5 palindromes
 
-function lookForPali(param) {
+const lookForPali = (param) => {
   const results = []
 
   for (let i = 0; i < param.length; i++) {
@@ -9,21 +9,24 @@ function lookForPali(param) {
 
     if (param[i] === " ") {
       // Substring each word
-      let word = param.substring(0, i++)
+      const word = param.substring(0, i++)
       const pattern = /[A-z]*/
-      word = pattern.exec(word)[0]
-      word = word.toLocaleLowerCase()
+      const result = pattern.exec(word)
+      let match = result[0]
+      match = match.toLocaleLowerCase()
 
       // Iterate the word backwards, push into array
-      for (let i = word.length - 1; i >= 0; i--) {
-        reverse.push(word[i])
+      for (let i = match.length - 1; i >= 0; i--) {
+        reverse.push(match[i])
       }
 
       // Join the array into a string
       const reverseWord = reverse.join("")
 
-      // Check for pali, push inton results
-      word === reverseWord ? results.push(word) : (reverse = [])
+      // Check for pali, push into results
+      if (match === reverseWord) {
+        results.push(match)
+      } else reverse = []
 
       // Clean out reverse
       reverse = []

@@ -20,8 +20,8 @@
 
 // TC: 2^n
 // SP: n
-const findLASLength = function (nums) {
-  function findLASLengthRecursive(nums, previousIndex, currentIndex, isAsc) {
+export const findLASLength = (nums) => {
+  const findLASLengthRecursive = (nums, previousIndex, currentIndex, isAsc) => {
     if (currentIndex === nums.length) return 0
 
     let c1 = 0
@@ -33,13 +33,14 @@ const findLASLength = function (nums) {
           findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
     } else {
       // if descending, the next element should be smaller
+      // eslint-disable-next-line no-lonely-if
       if (previousIndex === -1 || nums[previousIndex] > nums[currentIndex])
         c1 =
           1 +
           findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
     }
     // skip the current element
-    let c2 = findLASLengthRecursive(
+    const c2 = findLASLengthRecursive(
       nums,
       previousIndex,
       currentIndex + 1,
@@ -56,10 +57,10 @@ const findLASLength = function (nums) {
 }
 
 // Memo
-const findLASLengthMemo = function (nums) {
+export const findLASLengthMemo = (nums) => {
   const dp = []
 
-  function findLASLengthRecursive(nums, previousIndex, currentIndex, isAsc) {
+  const findLASLengthRecursive = (nums, previousIndex, currentIndex, isAsc) => {
     if (currentIndex === nums.length) return 0
 
     dp[previousIndex + 1] = dp[previousIndex + 1] || []
@@ -78,6 +79,7 @@ const findLASLengthMemo = function (nums) {
         }
       } else {
         // if descending, the next element should be smaller
+        // eslint-disable-next-line no-lonely-if
         if (previousIndex === -1 || nums[previousIndex] > nums[currentIndex]) {
           c1 =
             1 +
@@ -105,7 +107,7 @@ const findLASLengthMemo = function (nums) {
 // DP
 // TC: n^2
 // SP: n
-const findLASLength = function (nums) {
+export const findLASLengthDP = (nums) => {
   if (nums.length === 0) return 0
   // dp[i][0] = stores the LAS ending at 'i' such that the last two elements are in ascending order
   // dp[i][1] = stores the LAS ending at 'i' such that the last two elements are in descending order
@@ -116,7 +118,8 @@ const findLASLength = function (nums) {
   let maxLength = 1
   for (let i = 0; i < nums.length; i++) {
     // every single element can be considered as a LAS of length 1
-    dp[i][0] = dp[i][1] = 1
+    dp[i][1] = 1
+    dp[i][0] = dp[i][1]
     for (let j = 0; j < i; j++) {
       if (nums[i] > nums[j]) {
         // if nums[i] is BIGGER than nums[j] then we will consider the LAS ending at 'j' where the

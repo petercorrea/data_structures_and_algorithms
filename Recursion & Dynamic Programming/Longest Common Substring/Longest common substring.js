@@ -6,8 +6,8 @@
 
 // when tabulizing, always include extra column for data holder
 // tips: be mindful of variables bering used for BOTH accessing values and setting values
-const LCS = function (string1, string2) {
-  function LCSR(str1, str2, idx1, idx2, count) {
+const LCS = (string1, string2) => {
+  const LCSR = (str1, str2, idx1, idx2, count) => {
     // base case
     if (idx1 === str1.length || idx2 === str2.length) {
       return count
@@ -30,10 +30,10 @@ const LCS = function (string1, string2) {
 }
 
 // Memoization
-const LCSMemo = function (string1, string2) {
+const LCSMemo = (string1, string2) => {
   const memo = []
 
-  function LCSR(str1, str2, idx1, idx2, count) {
+  const LCSR = (str1, str2, idx1, idx2, count) => {
     if (idx1 === str1.length || idx2 === str2.length) {
       return count
     }
@@ -62,7 +62,7 @@ const LCSMemo = function (string1, string2) {
 
 // Tabulation
 // TC & SC: O(m*n), where ‘m’ and ‘n’ are the lengths of the two input strings
-const LCSTab = function (string1, string2) {
+const LCSTab = (string1, string2) => {
   // create table
   const tab = Array(string1.length + 1)
     .fill(0)
@@ -84,7 +84,7 @@ const LCSTab = function (string1, string2) {
 }
 
 // Optimized Space solution. SP: 0(n) length of second string
-const LCSTabOptimized = function (string1, string2) {
+export const LCSTabOptimized = (string1, string2) => {
   const tab = Array(string1.length + 1)
     .fill(0)
     .map(() => Array(string2.length).fill(0))

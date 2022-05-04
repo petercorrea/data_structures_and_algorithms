@@ -1,9 +1,9 @@
 // Unlike a subsequence, a substring must contain only adjacent characters.
 
-const findLPSLengthMemo = function (string) {
+export const findLPSLengthMemo = (string) => {
   const memo = []
 
-  function solveRecursive(string, startIdx, endIdx) {
+  const solveRecursive = (string, startIdx, endIdx) => {
     if (startIdx > endIdx) return 0
     // every string with one character is a palindrome
 
@@ -17,8 +17,8 @@ const findLPSLengthMemo = function (string) {
         const remainingStringLength = endIdx - startIdx - 1
         // check if the remaining string is also a palindrome
         if (
-          remainingStringLength
-          == solveRecursive(string, startIdx + 1, endIdx - 1)
+          remainingStringLength ===
+          solveRecursive(string, startIdx + 1, endIdx - 1)
         ) {
           memo[startIdx][endIdx] = remainingStringLength + 2
           return memo[startIdx][endIdx]
@@ -35,7 +35,7 @@ const findLPSLengthMemo = function (string) {
   return solveRecursive(string, 0, string.length - 1)
 }
 
-const findLPSLengthTab = function (string) {
+export const findLPSLengthTab = (string) => {
   const n = string.length
 
   const table = Array(n)

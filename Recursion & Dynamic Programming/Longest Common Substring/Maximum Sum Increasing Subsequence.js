@@ -3,8 +3,8 @@
 // Brute
 // TC: O2^n
 // SC: On
-const findMSIS = function (nums) {
-  function findMSISRecursive(nums, currentIndex, previousIndex, sum) {
+export const findMSIS = (nums) => {
+  const findMSISRecursive = (nums, currentIndex, previousIndex, sum) => {
     if (currentIndex === nums.length) return sum
 
     // include nums[currentIndex] if it is larger than the last included number
@@ -18,17 +18,17 @@ const findMSIS = function (nums) {
       )
 
     // excluding the number at currentIndex
-    let s2 = findMSISRecursive(nums, currentIndex + 1, previousIndex, sum)
+    const s2 = findMSISRecursive(nums, currentIndex + 1, previousIndex, sum)
 
     return Math.max(s1, s2)
   }
   return findMSISRecursive(nums, 0, -1, 0)
 }
 
-const findMSISDP = function (nums) {
+export const findMSISDP = (nums) => {
   const dp = []
 
-  function findMSISRecursive(nums, currentIndex, previousIndex, sum) {
+  const findMSISRecursive = (nums, currentIndex, previousIndex, sum) => {
     if (currentIndex === nums.length) return sum
 
     const subProblemKey = `${currentIndex}-${previousIndex}-${sum}`
@@ -57,8 +57,8 @@ const findMSISDP = function (nums) {
 // Brute
 // TC: n^2
 // SC: n
-function maxSum(array) {
-  let sums = array.map((num) => num)
+export const maxSumBrute = (array) => {
+  const sums = array.map((num) => num)
   let maxSumIdx = 0
 
   for (let i = 0; i < array.length; i++) {
@@ -77,10 +77,10 @@ function maxSum(array) {
 }
 
 // Modified the above function to also return the list of nums contributing to the max sum
-function maxSum(array) {
-  let sums = array.map((num) => num)
+const maxSum = (array) => {
+  const sums = array.map((num) => num)
   let maxSumIdx = 0
-  let sequences = Array(array.length)
+  const sequences = Array(array.length)
 
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < i; j++) {
@@ -99,8 +99,8 @@ function maxSum(array) {
   return [sums[maxSumIdx], buildSequence(array, sequences, maxSumIdx)]
 }
 
-function buildSequence(array, sequences, currentIdx) {
-  let finalSequence = []
+const buildSequence = (array, sequences, currentIdx) => {
+  const finalSequence = []
 
   while (currentIdx !== undefined) {
     finalSequence.unshift(array[currentIdx])

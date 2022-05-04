@@ -1,6 +1,6 @@
-str = "A man, a plan, a canal: Panama"
+const str = "A man, a plan, a canal: Panama"
 
-const isPalindrome = function (str) {
+const isPalindrome = (str) => {
   // Guard against edge cases
   if (str.length === 0) {
     return true

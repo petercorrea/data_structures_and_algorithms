@@ -1,4 +1,4 @@
-const longestPalindrome = function (s) {
+const longestPalindrome = (s) => {
   let max = ""
   for (let i = 0; i < s.length; i++) {
     console.log("master loop increment")

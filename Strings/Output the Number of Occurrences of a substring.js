@@ -3,9 +3,10 @@
 
 // Output: `Hello = 1, there = 1, how = 2, are = 1, you = 2`
 
-let s = "Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"
+let s =
+  "Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"
 
-function countSubstring() {
+const countSubstring = () => {
   const pattern = /[A-Z]*[a-z]*/
   const map = new Map()
   let result = " "
@@ -15,18 +16,20 @@ function countSubstring() {
       let sub = s.substring(0, idx)
 
       sub = sub.trim()
-      sub = pattern.exec(sub)[0]
-      sub = sub.toLocaleLowerCase()
+      const result = pattern.exec(sub)
+      let match = result[0]
+      match = match.toLocaleLowerCase()
       s = s.substring(idx)
       idx = 0
-      map.set(sub, map.has(sub) ? map.get(sub) + 1 : 1)
+      map.set(match, map.has(match) ? map.get(match) + 1 : 1)
     }
   }
 
   s = s.trim()
   s = s.toLocaleLowerCase()
-  s = pattern.exec(s)[0]
-  map.set(s, map.has(s) ? map.get(s) + 1 : 1)
+  const sResult = pattern.exec(s)
+  const match = sResult[0]
+  map.set(match, map.has(match) ? map.get(match) + 1 : 1)
 
   for (const [word, count] of map.entries()) {
     const sub2 = `${word} = ${count}, `

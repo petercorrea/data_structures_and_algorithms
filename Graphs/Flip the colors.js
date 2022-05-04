@@ -5,7 +5,7 @@ const image = [
   [1, 0, 1]
 ]
 
-function flipColor(image, x, y) {
+export const flipColor = (image, x, y) => {
   const directions = [
     [0, 1],
     [1, 0],
@@ -42,15 +42,15 @@ function flipColor(image, x, y) {
   return image
 }
 
-function isFeasible(image, indices, color) {
+export const isFeasible = (image, indices, color) => {
   const x = indices[0]
   const y = indices[1]
   return (
-    x >= 0
-    && x < image.length
-    && y >= 0
-    && y < image[x].length
-    && image[x][y] === color
+    x >= 0 &&
+    x < image.length &&
+    y >= 0 &&
+    y < image[x].length &&
+    image[x][y] === color
   )
 }
 

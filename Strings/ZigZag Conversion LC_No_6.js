@@ -16,7 +16,7 @@
 // Y A   H  R
 // P     I
 
-function sortByRow(s, numOfRows) {
+const sortByRow = (s, numOfRows) => {
   if (numOfRows === 1 || s.length <= numOfRows) {
     return s
   }
@@ -32,7 +32,7 @@ function sortByRow(s, numOfRows) {
   }
 
   // iterate rows and push char
-  for (c of s) {
+  for (const c of s) {
     rows[currentRow].push(c)
 
     // Change direction once the ends have been reached, else increment current position
@@ -46,7 +46,7 @@ function sortByRow(s, numOfRows) {
   return result.concat(...rows).join("")
 }
 
-function visitByRow(s, numOfRows) {
+const visitByRow = (s, numOfRows) => {
   if (numOfRows === 1) {
     return s
   }

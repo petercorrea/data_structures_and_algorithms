@@ -1,5 +1,5 @@
-const findMinFee = function (fee) {
-  function findMinFeeRecursive(fee, currentIndex) {
+const findMinFee = (fee) => {
+  const findMinFeeRecursive = (fee, currentIndex) => {
     if (currentIndex > fee.length - 1) return 0
 
     // if we take 1 step, we are left with 'n-1' steps;
@@ -19,10 +19,10 @@ const findMinFee = function (fee) {
 console.log(`Minimum fee needed: ---> ${findMinFee([1, 2, 5, 2, 1, 2])}`)
 console.log(`Minimum fee needed: ---> ${findMinFee([2, 3, 4, 5])}`)
 
-const findMinFeeMemo = function (fee) {
+const findMinFeeMemo = (fee) => {
   const dp = []
 
-  function findMinFeeRecursive(fee, currentIndex) {
+  const findMinFeeRecursive = (fee, currentIndex) => {
     if (currentIndex > fee.length - 1) return 0
 
     if (typeof dp[currentIndex] === "undefined") {
@@ -33,7 +33,8 @@ const findMinFeeMemo = function (fee) {
       // if we took 3 steps, we are left with 'n-3' steps;
       const take3Step = findMinFeeRecursive(fee, currentIndex + 3)
 
-      dp[currentIndex] =				fee[currentIndex] + Math.min(take1Step, take2Step, take3Step)
+      dp[currentIndex] =
+        fee[currentIndex] + Math.min(take1Step, take2Step, take3Step)
     }
 
     return dp[currentIndex]
@@ -44,7 +45,7 @@ const findMinFeeMemo = function (fee) {
 console.log(`Minimum fee needed: ---> ${findMinFeeMemo([1, 2, 5, 2, 1, 2])}`)
 console.log(`Minimum fee needed: ---> ${findMinFeeMemo([2, 3, 4, 5])}`)
 
-const findMinFeeDp = function (fee) {
+const findMinFeeDp = (fee) => {
   const dp = Array(fee.length + 1).fill(0)
   dp[0] = 0 // if there are no steps, we dont have to pay any fee
   dp[1] = fee[0] // only one step, so we have to pay its fee

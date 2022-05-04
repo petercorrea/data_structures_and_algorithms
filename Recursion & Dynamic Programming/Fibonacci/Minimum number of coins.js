@@ -1,6 +1,6 @@
 // Given an array of coins, determine the minimum amount of coins needed to reach a target sum
 
-function minNumberOfCoinsForChange(n, denoms) {
+const minNumberOfCoinsForChange = (n, denoms) => {
   const dp = Array(n + 1).fill(Infinity)
   dp[0] = 0
 

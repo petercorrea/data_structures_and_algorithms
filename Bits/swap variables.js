@@ -14,9 +14,9 @@
 // x = x ^ y ^ (x ^ y ^ y) = y;
 // y = 0010 ^ 1011 = 1001;
 
-function swap(int1, int2) {
+export const swap = (int1, int2) => {
   int1 ^= int2
-  int2 = int1 ^ int2
+  int2 ^= int1
   int1 ^= int2
 
   const result = [int1, int2]

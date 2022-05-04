@@ -1,10 +1,8 @@
-const { Node, dbLinkedList, } = require("./LinkedList.js")
+const {
+  DbLinkedList
+} = require("../Implementations/Data Structures/DbLinkedList")
 
-class ExtendedDBLinkedList extends dbLinkedList {
-  constructor(val) {
-    super(val)
-  }
-
+class ExtendedDBLinkedList extends DbLinkedList {
   remove_dupes() {
     let current = this.head
     const map = new Map()

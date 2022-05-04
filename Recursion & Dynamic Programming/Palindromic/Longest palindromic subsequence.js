@@ -13,10 +13,10 @@
 // 		-Minimum insertions in a string to make it a palindrome (same as above)
 // 		-Find if a string is K-Palindromic by removing at most K chars (if min deletions is <= K)
 
-const findLPSMemo = function (string) {
+export const findLPSMemo = (string) => {
   const memo = []
 
-  function solveRecursive(string, startIdx, endIdx) {
+  const solveRecursive = (string, startIdx, endIdx) => {
     if (startIdx > endIdx) return 0
     if (startIdx === endIdx) return 1
 
@@ -24,7 +24,8 @@ const findLPSMemo = function (string) {
 
     if (typeof memo[startIdx][endIdx] === "undefined") {
       if (string[startIdx] === string[endIdx]) {
-        memo[startIdx][endIdx] = 2 + solveRecursive(string, startIdx + 1, endIdx - 1)
+        memo[startIdx][endIdx] =
+          2 + solveRecursive(string, startIdx + 1, endIdx - 1)
       } else {
         const c1 = solveRecursive(string, startIdx + 1, endIdx)
         const c2 = solveRecursive(string, startIdx, endIdx - 1)
@@ -37,7 +38,7 @@ const findLPSMemo = function (string) {
   return solveRecursive(string, 0, string.length - 1)
 }
 
-const findLPSTab = function (string) {
+export const findLPSTab = (string) => {
   const n = string.length
   const table = Array(n)
     .fill(0)

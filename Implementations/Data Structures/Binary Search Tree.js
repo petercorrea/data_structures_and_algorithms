@@ -1,37 +1,6 @@
-export class Node {
-  constructor(value) {
-    this.value = value
-    this.left = null
-    this.right = null
-    this.parent = null
-  }
+import Node from "./Node"
 
-  leftHeight() {
-    if (!this.left) {
-      return 0
-    }
-
-    return this.left.height() + 1
-  }
-
-  rightHeight() {
-    if (!this.right) {
-      return 0
-    }
-
-    return this.right.height() + 1
-  }
-
-  height() {
-    return Math.max(this.leftHeight(), this.rightHeight())
-  }
-
-  balanceFactor() {
-    return this.leftHeight() - this.rightHeight()
-  }
-}
-
-export class BST {
+export class BinarySearchTree {
   constructor(value) {
     this.root = new Node(value)
     this.size = 1
@@ -288,6 +257,7 @@ export class BST {
         }
       }
     }
+    return result
   }
 }
 

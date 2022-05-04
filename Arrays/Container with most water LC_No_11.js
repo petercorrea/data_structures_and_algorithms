@@ -1,4 +1,4 @@
-function bruteForce(walls) {
+export const bruteForce = (walls) => {
   /*
 		Time O(n)
 		Space O(1)
@@ -11,7 +11,7 @@ function bruteForce(walls) {
   let best = 0
 
   for (let l = 0; l < walls.length; l++) {
-    for (r = l + 1; r < walls.length; r++) {
+    for (let r = l + 1; r < walls.length; r++) {
       best = Math.max(best, Math.min(walls[l], walls[r]) * (r - l))
     }
   }
@@ -19,7 +19,7 @@ function bruteForce(walls) {
   return best
 }
 
-function twoPointers(walls) {
+export const twoPointers = (walls) => {
   if (!walls || walls.length < 2) {
     return "Array is too small"
   }

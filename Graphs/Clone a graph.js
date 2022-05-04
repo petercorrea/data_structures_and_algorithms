@@ -1,6 +1,6 @@
-const GraphVertex = require("./Graph")
+const GraphVertex = require("../Implementations/Data Structures/GraphVertex")
 
-function cloneGraph(vertex) {
+export const cloneGraph = (vertex) => {
   if (vertex === null) {
     return null
   }

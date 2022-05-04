@@ -1,15 +1,16 @@
-const textFromInternet =	"In computer science, mathematics, management science, economics and bioinformatics, dynamic programming."
+const textFromInternet =
+  "In computer science, mathematics, management science, economics and bioinformatics, dynamic programming."
 
 const LINE_LENGTH = 40
-function calcBadness(line) {
+const calcBadness = (line) => {
   const diff = LINE_LENGTH - line.length
   if (diff >= 0) {
-    return Math.pow(LINE_LENGTH - line.length, 2)
+    return (LINE_LENGTH - line.length) ** 2
   }
   return Number.MAX_VALUE
 }
 
-function dp(text) {
+const dp = (text) => {
   const words = text.split(" ")
   const memo = []
   memo[words.length] = [0, 0]
@@ -21,7 +22,7 @@ function dp(text) {
 
     // Work forwards, j is the proceding index
     for (let j = i + 1; j <= words.length; j++) {
-      const totalScore =				calcBadness(words.slice(i, j).join(" ")) + memo[j][0]
+      const totalScore = calcBadness(words.slice(i, j).join(" ")) + memo[j][0]
       // console.log(`${totalScore} = ${words.slice(i, j).join(' ')} + ${words[j]}`)
 
       if (totalScore > 13000) {
@@ -41,10 +42,11 @@ function dp(text) {
 
   while (pointer < words.length) {
     const line = words.slice(pointer, memo[pointer][1]).join(" ")
-    results.push(line);
-    [_, pointer] = memo[pointer]
+    results.push(line)
+    // eslint-disable-next-line no-undef
+    ;[_, pointer] = memo[pointer]
   }
   return results
 }
 
-// console.log(dp(textFromInternet).join('\n'));
+console.log(dp(textFromInternet).join("\n"))

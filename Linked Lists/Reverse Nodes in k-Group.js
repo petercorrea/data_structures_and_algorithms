@@ -5,7 +5,7 @@
 // For k = 2, you should return: 2->1->4->3->5
 // For k = 3, you should return: 3->2->1->4->5
 
-function ListNode(val, next) {
+export const ListNode = (val, next) => {
   this.val = val === undefined ? 0 : val
   this.next = next === undefined ? null : next
 }
@@ -21,7 +21,7 @@ const param = new ListNode(
   new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))
 )
 
-const reverseKGroup = function (head, k) {
+export const reverseKGroup = (head, k) => {
   // Guard against null or groups of '1'
   if (!head || k === 1) return head
 
@@ -40,7 +40,7 @@ const reverseKGroup = function (head, k) {
   let num = 0
 
   // Iterate through the data structure and increment counter to find total nodes
-  while ((cur = cur.next)) ++num
+  while (cur === cur.next) ++num
 
   // While the number of nodes is equal or greater than the grouping
   while (num >= k) {

@@ -1,13 +1,13 @@
-const fibonacci = function (n) {
+export const fibonacci = (n) => {
   if (n < 2) return n
 
   return fibonacci(n - 2) + fibonacci(n - 1)
 }
 
-const fibonacciMemo = function (n) {
+export const fibonacciMemo = (n) => {
   const dp = []
 
-  function solveRecursive(n) {
+  const solveRecursive = (n) => {
     if (n < 2) return n
 
     if (dp[n]) return dp[n]
@@ -19,7 +19,7 @@ const fibonacciMemo = function (n) {
   return solveRecursive(n)
 }
 
-const fibonacciDp = function (n) {
+export const fibonacciDp = (n) => {
   if (n < 2) return n
 
   const dp = [0, 1]

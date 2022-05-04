@@ -4,7 +4,7 @@
 // smaller than the original string, your method should return the original string. You can assume the
 // string has only uppercase and lowercase letters(a - z).
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:

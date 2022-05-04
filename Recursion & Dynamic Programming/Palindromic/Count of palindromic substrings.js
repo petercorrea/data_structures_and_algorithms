@@ -1,4 +1,4 @@
-const findCPS = function (st) {
+export const findCPS = (st) => {
   // dp[i][j] will be 'true' if the string from index 'i' to index 'j' is a palindrome
   const dp = Array(st.length)
     .fill(false)

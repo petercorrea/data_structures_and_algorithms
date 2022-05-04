@@ -1,7 +1,7 @@
-function find_averages_of_subarrays(K, arr) {
+const findAveragesOfSubarrays = (K, arr) => {
   const result = []
-  let windowSum = 0.0; let
-    windowStart = 0
+  let windowSum = 0.0
+  let windowStart = 0
 
   for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
     windowSum += arr[windowEnd] // add the next element
@@ -17,5 +17,5 @@ function find_averages_of_subarrays(K, arr) {
   return result
 }
 
-const result = find_averages_of_subarrays(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])
+const result = findAveragesOfSubarrays(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])
 console.log(`Averages of subarrays of size K: ${result}`)

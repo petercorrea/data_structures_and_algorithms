@@ -1,6 +1,6 @@
-const { Node, } = require("./LinkedList.js")
+const { Node } = require("../Implementations/Data Structures/Node")
 
-function getDecimalValue(head) {
+export const getDecimalValue = (head) => {
   let result = 0
 
   while (head) {

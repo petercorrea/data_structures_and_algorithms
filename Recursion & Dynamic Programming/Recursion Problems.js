@@ -1,5 +1,5 @@
 // Sum of an array
-const sumOf = function (list) {
+const sumOf = (list) => {
   // Base case
   if (list.length === 1) {
     return list[0]
@@ -13,7 +13,7 @@ const numList = [2, 4, 6, 8, 10]
 console.log(sumOf(numList))
 
 // Counting Sheep
-const countSheep = function (num) {
+export const countSheep = (num) => {
   // Base case
   if (num === 0) {
     return "All sheep jumped over the fence"
@@ -27,7 +27,7 @@ const countSheep = function (num) {
 console.log(countSheep(3))
 
 // Power Calculator
-const powerCalculator = function (base, exp) {
+export const powerCalculator = (base, exp) => {
   if (exp < 0) {
     return "Exponent should be >= 0"
   }
@@ -44,8 +44,8 @@ const powerCalculator = function (base, exp) {
 console.log(powerCalculator(2, 3)) // 8
 
 // Reverse String
-const revString = function (string) {
-  splitString = string.split("")
+export const revString = (string) => {
+  const splitString = string.split("")
 
   // Base case
   if (splitString.length === 1) {
@@ -53,14 +53,14 @@ const revString = function (string) {
   }
 
   // Recursive case
-  splitEnd = string.slice(0, -1)
+  const splitEnd = string.slice(0, -1)
   return splitString.pop() + revString(splitEnd)
 }
 
 console.log(revString("Peter")) // reteP
 
 // nth Triangular Number
-const nthTriangularNum = function (sideLength) {
+export const nthTriangularNum = (sideLength) => {
   // Base case
   if (sideLength === 1) {
     return 1
@@ -73,7 +73,7 @@ const nthTriangularNum = function (sideLength) {
 console.log(nthTriangularNum(6)) // 21
 
 // String Splitter
-const split = function (string, splitter) {
+export const split = (string, splitter) => {
   const idx = string.indexOf(splitter)
 
   // Base case
@@ -82,16 +82,16 @@ const split = function (string, splitter) {
   }
 
   // Recursive case
-  substring_1 = string.slice(0, idx)
-  substring_2 = string.slice(idx + 1)
+  const subString1 = string.slice(0, idx)
+  const subString2 = string.slice(idx + 1)
 
-  return [substring_1].concat(split(substring_2, splitter))
+  return [subString1].concat(split(subString2, splitter))
 }
 
 console.log(split("02/20/2020", "/"))
 
 // Fibonacci
-const fibonacci = function (num, array = [0, 1]) {
+export const fibonacci = (num, array = [0, 1]) => {
   // Base case
   if (num === 1) {
     return array
@@ -99,8 +99,8 @@ const fibonacci = function (num, array = [0, 1]) {
 
   // Recursive case
   const last = array.slice(-1)[0]
-  const last_2 = array.slice(-2, -1)[0]
-  const sum = last + last_2
+  const last2 = array.slice(-2, -1)[0]
+  const sum = last + last2
   array.push(sum)
 
   return fibonacci(num - 1, array)
@@ -109,7 +109,7 @@ const fibonacci = function (num, array = [0, 1]) {
 fibonacci(7)
 
 // Factorial
-const factorial = function (num) {
+export const factorial = (num) => {
   // Base case
   if (num === 1) {
     return 1
@@ -122,21 +122,20 @@ const factorial = function (num) {
 // factorial(5)
 
 // Find a way out of the maze
-const mySmallMaze = [
-  [" ", "*", "e"],
-  [" ", " ", " "],
-  [" ", "*", " "]
-]
+// const mySmallMaze = [
+//   [" ", "*", "e"],
+//   [" ", " ", " "],
+//   [" ", "*", " "]
+// ]
 
-const maze = [
-  [" ", " ", " ", "*", " ", " ", " "],
-  ["*", "*", " ", "*", " ", "*", " "],
-  [" ", " ", " ", " ", " ", " ", " "],
-  [" ", "*", "*", "*", "*", "*", " "],
-  [" ", " ", " ", " ", " ", " ", "e"]
-]
-
-const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
+// const maze = [
+//   [" ", " ", " ", "*", " ", " ", " "],
+//   ["*", "*", " ", "*", " ", "*", " "],
+//   [" ", " ", " ", " ", " ", " ", " "],
+//   [" ", "*", "*", "*", "*", "*", " "],
+//   [" ", " ", " ", " ", " ", " ", "e"]
+// ]
+export const mazeSolver = (maze, positions = [[0, 0]], visited = [[0, 0]]) => {
   const num_rows = maze.length - 1
   const num_columns = maze[0].length - 1
 
@@ -157,8 +156,8 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
   // Recursive case
   // Down
   if (
-    current_row + 1 <= num_rows
-    && maze[current_row + 1][current_column] !== "*"
+    current_row + 1 <= num_rows &&
+    maze[current_row + 1][current_column] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
@@ -198,8 +197,8 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
 
   // Right
   if (
-    current_column + 1 <= num_columns
-    && maze[current_row][current_column + 1] !== "*"
+    current_column + 1 <= num_columns &&
+    maze[current_row][current_column + 1] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
@@ -220,8 +219,8 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
 
   // Left
   if (
-    current_column - 1 >= 0
-    && maze[current_row][current_column - 1] !== "*"
+    current_column - 1 >= 0 &&
+    maze[current_row][current_column - 1] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
@@ -244,6 +243,8 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
     console.log("popped", positions)
     return mazeSolver(maze, positions, visited)
   }
+
+  return []
 }
 
 // mazeSolver(maze)
@@ -251,7 +252,7 @@ const mazeSolver = function (maze, positions = [[0, 0]], visited = [[0, 0]]) {
 // Find ALL the ways out of the maze
 
 // Anagrams
-function getAnagrams(string) {
+export const getAnagrams = (string) => {
   const results = []
 
   // Base case
@@ -278,34 +279,34 @@ function getAnagrams(string) {
 // getAnagrams('Cat')
 
 // Organization Chart
-const org = {
-  Zuckerberg: [
-    {
-      Schroepfer: [
-        {
-          Bosworth: ["Steve", "Kyle", "Andra"],
-          Zhao: ["Richie", "Sofia", "Jen"],
-        }
-      ],
-      Schrage: [
-        {
-          VanDyck: ["Sabrina", "Michelle", "Josh"],
-          Swain: ["Blanch", "Tom", "Joe"],
-        }
-      ],
-      Sandberg: [
-        {
-          Goler: ["Eddie", "Julie", "Annie"],
-          Hernandez: ["Rowi", "Inga", "Morgan"],
-          Moissinac: ["Amy", "Chuck", "Vinni"],
-          Kelley: ["Eric", "Ana", "Wes"],
-        }
-      ],
-    }
-  ],
-}
+// const org = {
+//   Zuckerberg: [
+//     {
+//       Schroepfer: [
+//         {
+//           Bosworth: ["Steve", "Kyle", "Andra"],
+//           Zhao: ["Richie", "Sofia", "Jen"]
+//         }
+//       ],
+//       Schrage: [
+//         {
+//           VanDyck: ["Sabrina", "Michelle", "Josh"],
+//           Swain: ["Blanch", "Tom", "Joe"]
+//         }
+//       ],
+//       Sandberg: [
+//         {
+//           Goler: ["Eddie", "Julie", "Annie"],
+//           Hernandez: ["Rowi", "Inga", "Morgan"],
+//           Moissinac: ["Amy", "Chuck", "Vinni"],
+//           Kelley: ["Eric", "Ana", "Wes"]
+//         }
+//       ]
+//     }
+//   ]
+// }
 
-function displayOrg(obj, indent = "") {
+export const displayOrg = (obj, indent = "") => {
   // BASE CASE
   if (typeof obj === "string") {
     console.log(indent, obj)
@@ -331,7 +332,7 @@ function displayOrg(obj, indent = "") {
 // displayOrg(org)
 
 // Binary Representation
-function toBinary(num) {
+export const toBinary = (num) => {
   let results = []
 
   // Base case
@@ -355,7 +356,7 @@ function toBinary(num) {
 
 // Tower of Hanoi
 
-function stepsToSolveHanoiT(height, source, destination, aux) {
+export const stepsToSolveHanoiT = (height, source, destination, aux) => {
   if (height >= 1) {
     // Move a tower of height-1 to the buffer peg, using the destination peg.
     stepsToSolveHanoiT(height - 1, source, aux, destination)

@@ -5,7 +5,7 @@
 // list is the exact same node(by reference) as the jth node of the second linked list,
 // then they are intersecting.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -16,7 +16,7 @@
 
 // Proposed Solution:
 //
-const { Node, } = require("../../Linked Lists/LinkedList")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const node5 = new Node(5, null, null)
 const node4 = new Node(4, null, node5)
@@ -58,7 +58,7 @@ const intersection = (l1, l2) => {
   return l1
 }
 
-function length(list) {
+export const length = (list) => {
   let len = 0
   while (list) {
     len++
@@ -68,7 +68,7 @@ function length(list) {
   return len
 }
 
-function sameTail(l1, l2) {
+export const sameTail = (l1, l2) => {
   let tail1 = l1
   let tail2 = l2
 

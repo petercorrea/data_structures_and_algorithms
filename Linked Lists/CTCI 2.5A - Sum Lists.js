@@ -8,7 +8,7 @@
 // 		(B)
 // 		Suppose the digits are stored in forward order. Repeat the above problem.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -26,7 +26,7 @@
 // Proposed Solution:
 //
 
-const { Node, } = require("../../Linked Lists/LinkedList")
+const { Node } = require("../Implementations/Data Structures/Node")
 // set A
 const node5 = new Node(1, null, null)
 const node4 = new Node(4, null, node5)

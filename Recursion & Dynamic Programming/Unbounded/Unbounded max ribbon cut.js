@@ -1,5 +1,5 @@
-const countRibbonPieces = function (lengths, total) {
-  function solveRecursive(lengths, total, currentIndex) {
+export const countRibbonPieces = (lengths, total) => {
+  const solveRecursive = (lengths, total, currentIndex) => {
     if (total === 0) return 0
 
     if (lengths.length === 0 || currentIndex >= lengths.length) {
@@ -27,7 +27,7 @@ const countRibbonPieces = function (lengths, total) {
   return result === Number.MIN_VALUE ? -1 : result
 }
 
-const countRibbonPiecesDp = function (lengths, total) {
+const countRibbonPiecesDp = (lengths, total) => {
   const n = lengths.length
   const dp = Array(n)
     .fill(0)

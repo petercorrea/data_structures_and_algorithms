@@ -3,7 +3,7 @@
 // 		Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to
 // 		isSubstring.
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -15,6 +15,9 @@
 
 // Proposed Solution:
 //
+const isSubstring = () => {
+  // do not implement
+}
 
 const rotation = (s1, s2) => {
   if (s1.length !== s2.length || s1.length === 0) return false

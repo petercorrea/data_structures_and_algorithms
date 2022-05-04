@@ -2,17 +2,17 @@
 // find the minimum number of slices of the target number, whose resulting slices are all
 // found in the potential slices list.
 
-function numbersInPi(pi, numbers) {
+const numbersInPi = (pi, numbers) => {
   const numbersTable = {}
   for (const num of numbers) {
     numbersTable[num] = true
   }
 
-  const minSpaces = getMinSpaces(pi, numbersTable, (cache = {}), 0)
+  const minSpaces = getMinSpaces(pi, numbersTable, 0)
   return minSpaces === Infinity ? -1 : minSpaces
 }
 
-function getMinSpaces(pi, table, cache, idx) {
+const getMinSpaces = (pi, table, idx, cache = {}) => {
   if (idx === pi.length) return -1
   if (idx in cache) return cache[idx]
 

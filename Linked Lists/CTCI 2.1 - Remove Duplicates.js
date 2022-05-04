@@ -2,7 +2,7 @@
 // 		Write code to remove duplicates from an unsorted linked list.
 // 		How would you solve this problem if a temporary buffer is not allowed?
 
-// Clarifing Questions:
+// Clarifications and Assumptions:
 // 	-
 
 // Assume:
@@ -14,7 +14,7 @@
 // Proposed Solution:
 //
 
-const { Node, } = require("../../Linked Lists/LinkedList")
+const { Node } = require("../Implementations/Data Structures/Node")
 
 const node8 = new Node(8, null, null)
 const node7 = new Node(3, null, node8) // dupe

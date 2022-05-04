@@ -1,15 +1,15 @@
-const MaxHeap = function () {
+export const MaxHeap = () => {
   const heap = [null]
 
   this.print = () => heap
 
-  this.insert = function (num) {
+  this.insert = (num) => {
     heap.push(num)
     if (heap.length > 2) {
       let idx = heap.length - 1
       while (heap[idx] > heap[Math.floor(idx / 2)]) {
         if (idx >= 1) {
-          [heap[Math.floor(idx / 2)], heap[idx]] = [
+          ;[heap[Math.floor(idx / 2)], heap[idx]] = [
             heap[idx],
             heap[Math.floor(idx / 2)]
           ]
@@ -23,14 +23,14 @@ const MaxHeap = function () {
     }
   }
 
-  this.remove = function () {
+  this.remove = () => {
     const smallest = heap[1]
     if (heap.length > 2) {
       heap[1] = heap[heap.length - 1]
       heap.splice(heap.length - 1)
       if (heap.length === 3) {
         if (heap[1] < heap[2]) {
-          [heap[1], heap[2]] = [heap[2], heap[1]]
+          ;[heap[1], heap[2]] = [heap[2], heap[1]]
         }
         return smallest
       }
@@ -39,10 +39,10 @@ const MaxHeap = function () {
       let right = 2 * i + 1
       while (heap[i] <= heap[left] || heap[i] <= heap[right]) {
         if (heap[left] > heap[right]) {
-          [heap[i], heap[left]] = [heap[left], heap[i]]
-          i = 2 * i
+          ;[heap[i], heap[left]] = [heap[left], heap[i]]
+          i *= 2
         } else {
-          [heap[i], heap[right]] = [heap[right], heap[i]]
+          ;[heap[i], heap[right]] = [heap[right], heap[i]]
           i = 2 * i + 1
         }
         left = 2 * i

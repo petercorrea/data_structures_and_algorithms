@@ -2,8 +2,8 @@
 
 // TC: n
 // SC: h
-function nodeDepths(root) {
-  const sum = (root, depth = 0, total = 0) => {
+const nodeDepths = (root) => {
+  const sum = (root, depth = 0) => {
     if (root.left === null && root.right === null) {
       return depth
     }
@@ -16,5 +16,5 @@ function nodeDepths(root) {
 }
 
 module.exports = {
-  nodeDepths,
+  nodeDepths
 }

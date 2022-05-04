@@ -1,9 +1,9 @@
 // Problem Statement
 // Given a set of positive numbers, find the total number of subsets whose sum is equal to a given number ‘S’.
-const countSubsetsMemo = function (nums, sum) {
+export const countSubsetsMemo = (nums, sum) => {
   const memo = []
 
-  function solveRecursive(nums, sum, currentIndex) {
+  const solveRecursive = (nums, sum, currentIndex) => {
     if (sum === 0) return 1
     if (currentIndex >= nums.length || nums.length === 0) return 0
 
@@ -28,7 +28,7 @@ const countSubsetsMemo = function (nums, sum) {
   return solveRecursive(nums, sum, 0)
 }
 
-const countSubsetsTab = function (nums, sum) {
+export const countSubsetsTab = (nums, sum) => {
   if (nums.length === 0) return 0
 
   const n = nums.length

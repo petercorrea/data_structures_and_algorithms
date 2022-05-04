@@ -4,7 +4,7 @@
 
 const dailyPrices = [7, 1, 5, 3, 6, 4]
 
-function maxProfit(prices) {
+export const maxProfit = (prices) => {
   // Set min to the highest possible value
   let min = Number.MAX_SAFE_INTEGER
   let profit = 0
@@ -18,4 +18,5 @@ function maxProfit(prices) {
   return profit
 }
 
-maxProfit(dailyPrices)
+const result = maxProfit(dailyPrices)
+console.log(result)

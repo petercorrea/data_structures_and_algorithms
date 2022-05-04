@@ -4,7 +4,7 @@
 // Nested Loops
 // Time: n^2
 // Space: (1)
-function SAD(arrayOne, arrayTwo) {
+export const SAD = (arrayOne, arrayTwo) => {
   let min = Infinity
   let pair = []
 
@@ -25,7 +25,7 @@ function SAD(arrayOne, arrayTwo) {
 // Sorted Arrays
 // Time: nLogn + mLogm
 // Space: 1
-function SADSorted(arrayOne, arrayTwo) {
+export const SADSorted = (arrayOne, arrayTwo) => {
   arrayOne.sort((a, b) => a - b)
   arrayTwo.sort((a, b) => a - b)
 
