@@ -121,3 +121,6 @@ dist
 
 # Ignore all HTML files:
 *.html
+
+wscript
+Tests
