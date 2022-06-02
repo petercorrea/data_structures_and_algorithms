@@ -1,6 +1,8 @@
 /*
 Problem Statement:
-    Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+    Given an array of integers nums which is sorted in ascending order, 
+    and an integer target, write a function to search target in nums. 
+    If target exists, then return its index. Otherwise, return -1.
     You must write an algorithm with O(log n) runtime complexity.
 
 Clarifications and Assumptions:
@@ -14,32 +16,31 @@ Test Case:
     () => []
 
 Notes:
-    This is some sample text.
+    We sample the middle value of an interval. If this is not the target
+    we determine a new and smaller interval residing on either the left
+    or right side of the middle value. We continue this process until 
+    the target is found.
 
 */
 
-// Solution #1 - O(logn) time | O() space:
-export const first = (nums, target) => {
+// Solution #1 - O(logn) time | O(1) space:
+export const findTarget = (nums, target) => {
   let left = 0
   let right = nums.length - 1
 
   while (left <= right) {
     const middle = Math.floor((left + right) / 2)
 
-    if (nums[middle] === target) {
-      return nums[middle]
-    }
-    if (nums[middle] < target) {
-      left = middle + 1
-    } else if (nums[middle] > target) {
+    if (nums[middle] === target) return target
+
+    if (nums[middle] > target) {
       right = middle - 1
+    } else if (nums[middle] < target) {
+      left = middle + 1
     }
   }
 
   return -1
 }
 
-// Solution #2 - O() time | O() space:
-export const second = () => {}
-
-console.log(first([1, 2, 3, 4, 5, 6, 7, 8, 9], 5))
+console.log(findTarget([1, 2, 3, 4, 5, 6, 7, 8, 9], 5))

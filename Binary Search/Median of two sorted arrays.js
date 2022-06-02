@@ -1,49 +1,58 @@
 /*
+Problem Statement:
+    Given two sorted arrays of length m and n, return the median of the two arrays, 
+    in O(log(m+n)) time.
 
-1.	By finding a pivot point where all elements to the left are smaller
-	and all elements to the right are greater, you can find the median.
+Clarifications and Assumptions:
+    The input arrays are already sorted.
 
-		y y [y]|[y] y y
-		  x [x]|[x] x
+Test Case:
+    [1, 3], [2] => 2
+    [1, 3], [2, 4] => (2+3)/2 = 2.5
 
-		y y [y][x]|[y] y [x] y x x
+Notes:
+    m = [1, 3, 4, 6]
+    n = [2, 3, 5, 8, 9, 10]
+    sorted m + n = [1, 2, 3, 3, 4, 5, 6, 7, 9, 10] = 4.5
 
-2.	A pivot point in the smaller array has a corresponding point on the larger array,
-	that divides the total elements equally.
+    determine an initial partition of arrays:
+        find the middle index of smaller array: m (3+0)/2 = 1
+        total of 10 elements, 5 per partition
+        m.left has 2 elements so n.left should have 3 elements
 
-		y y y|y y y
-		  x x|x x
+            P
+        [1, 3, 4, 6]
+               P
+        [2, 3, 5, 8, 9, 10]
 
-		y y y y|y y
-			  x|x x x
+    determine if the partitioning is correct:
+    the correct partition for this problem would be:
+                P
+        [1, 3, 4, 6]
+            P    
+        [2, 3, 5, 8, 9, 10]
 
-		  y y|y y y y
-		x x x|x
+        generally speaking, a problem is
+        correctly partitioned when m[l] < n[r] && n[l] < m[r]
 
-3.	After picking a pivot point, it's possible to determine the direction to shift by performing a cross check.
+    if not partition correctly, we conduct binary search on the 
+    incorrect partition to determine a new middle and reevaluate.
+        if the m[l] is larger than n[r] => binary search left side of smaller array
+        if the m[r] is smaller than n[l] => binary search right side of smaller array
 
-		4 < 3 false
-		2 < 5 true
-		The smaller array must shift towards the left...
-		1 2 3 [4]|[5] 6
-			  [2]|[3] 4 5
+    we conduct binary search on the right half of m and determine a new middle
+    for both arrays using the facts we know about their lengths
+                P
+        [1, 3, 4, 6]
+            P    
+        [2, 3, 5, 8, 9, 10]
 
-		3 < 5 true
-		4 < 4 false
-		The smaller array must shift towards the right...
-		1 2 [3]|[4] 5 6
-		2 3 [4]|[5]
-
-		Ideal position
-		1 2 [3]|[4] 5 6
-		  2 [3]|[4] 5
-
-4.	Code Outline
-	1. Binary search in smaller array
-	2. getIndices from the midpoint: m -> lLong, rLong, lShort, rShort
-	3. getDirection: lLong, rLong, lShort, rShort -> direction
-	4. getResult: lLong, rLong, lShort, rShort -> median
-
+    once a correct partition has been found, determine the median by 
+    evaluating:
+        if combined length is even: 
+            (max(m[l], n[l]) + min(m[r], n[r])) / 2
+        if combined length is odd:
+            min(m[r], n[r])
 */
 
 export const indexArray = (i, arr) => {

@@ -1,3 +1,5 @@
+import Node from "./Node"
+
 export class DbLinkedList {
   constructor() {
     this.head = null
