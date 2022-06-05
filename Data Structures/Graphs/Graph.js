@@ -1,4 +1,4 @@
-import { GraphEdge } from "./GraphEdge"
+import { GraphEdge } from "./GraphEdge.js"
 
 export class Graph {
   adjacencyList

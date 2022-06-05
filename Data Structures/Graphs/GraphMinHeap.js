@@ -23,6 +23,7 @@ class GraphMinHeap {
           map.get(this.heap[Math.floor(idx / 2)].value).index = idx
 
           // increment idx
+          // eslint-disable-next-line semi-style
           ;[this.heap[Math.floor(idx / 2)], this.heap[idx]] = [
             this.heap[idx],
             this.heap[Math.floor(idx / 2)]
@@ -58,7 +59,7 @@ class GraphMinHeap {
       // if theres only one child, sort them [null, val1, val2]
       if (this.heap.length === 3) {
         if (this.heap[1].weight > this.heap[2].weight) {
-          ;[this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]]
+          [this.heap[1], this.heap[2]] = [this.heap[2], this.heap[1]]
           // SWAP INDICES
           map.get(this.heap[1].value).index = 1
           map.get(this.heap[2].value).index = 2
@@ -73,14 +74,14 @@ class GraphMinHeap {
 
       // while the root node is greater than either one of its children
       while (
-        this.heap[i].weight >= this.heap[left].weight ||
-        this.heap[i].weight >= this.heap[right].weight
+        this.heap[i].weight >= this.heap[left].weight
+        || this.heap[i].weight >= this.heap[right].weight
       ) {
         // if left node is the smallest child of the two, swap it
         if (this.heap[left].weight < this.heap[right].weight) {
           map.get(this.heap[i].value).index = left
-          map.get(this.heap[left].value).index = i
-          ;[this.heap[i], this.heap[left]] = [this.heap[left], this.heap[i]]
+          map.get(this.heap[left].value).index = i;
+          [this.heap[i], this.heap[left]] = [this.heap[left], this.heap[i]]
           // SWAP INDICES
 
           // increment idx
@@ -89,8 +90,8 @@ class GraphMinHeap {
           // if right node is the smallest child
           map.get(this.heap[i].value).index = right
 
-          map.get(this.heap[right].value).index = i
-          ;[this.heap[i], this.heap[right]] = [this.heap[right], this.heap[i]]
+          map.get(this.heap[right].value).index = i;
+          [this.heap[i], this.heap[right]] = [this.heap[right], this.heap[i]]
           // SWAP INDICES
 
           // increment idx

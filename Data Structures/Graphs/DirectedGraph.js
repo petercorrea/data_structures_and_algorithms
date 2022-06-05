@@ -1,5 +1,5 @@
-import { Graph } from "./Graph"
-import GraphEdge from "./GraphEdge"
+import { Graph } from "./Graph.js"
+import GraphEdge from "./GraphEdge.js"
 
 export class DirectedGraph extends Graph {
   constructor(graph) {
