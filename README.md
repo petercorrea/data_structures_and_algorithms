@@ -1,40 +1,21 @@
 # Data Structures and Algorithms
 
-A collection of common data structures, algorithms, and interviewing questions.
+A collection of data structures, algorithms, and interviewing questions.
 
-You can get started by running the following in your terminal:
+## Overview of Content
+- Data Structures
+    - Arrays, LinkedLists
+    - Stacks, Queues
+    - Heaps
+    - Binary Search Trees, AVL Trees
+    - Directed & Undirected Graphs
 
-```sh
->
->
->
->
-```
+- Sorting Algorithms
+    - Merge Sort
+    - Quick Sort
+    - Selection Sort
 
-#### Strings
+- Graph Algorithms
+    - Dijkstra
 
-#### Arrays
-
-- two pointer
-
-- sliding window
-
-#### Linked Lists
-
-#### Queues and Stacks
-
-#### Heaps
-
-#### Trees
-
-- binary search
-
-#### Tries
-
-#### Recursion & Dynamic Programming
-
-#### Greedy & Backtracking
-
-#### Graphs
-
-#### Searching and Sorting
+- Practice Questions
