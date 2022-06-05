@@ -21,7 +21,7 @@ export const knapSackMemo = (profits, weights, capacity) => {
     memo[currentIndex] = memo[currentIndex] || []
 
     if (typeof memo[currentIndex][capacity] === "undefined") {
-      // We select the item at currentIndex, and recursivelly process the rest.
+      // We select the item at currentIndex, and recursively process the rest.
       let profit1 = 0
       if (weights[currentIndex] <= capacity) {
         profit1 =

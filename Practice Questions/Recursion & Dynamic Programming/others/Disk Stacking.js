@@ -1,5 +1,5 @@
 // Given an array of disks, determine the greatest height one can achieve by stacking the disks.
-// 		- Each dish must be stricly larger on all dimensions than the disk above it
+// 		- Each dish must be strictly larger on all dimensions than the disk above it
 // 		- Each disk item in the array, will itself be an array with 3 values representing width, height, and depth
 // 		- The orientation of the disk must not change
 

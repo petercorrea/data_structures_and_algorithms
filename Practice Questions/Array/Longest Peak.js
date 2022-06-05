@@ -1,7 +1,7 @@
 // Return the length of the longest peak.
-// A peak is a point in the array where adjacent values to the left are stricly increasing (from left to right)
+// A peak is a point in the array where adjacent values to the left are strictly increasing (from left to right)
 // until they reach the point
-// and values to the right are stricly decreasing (from left to right) away from the point.
+// and values to the right are strictly decreasing (from left to right) away from the point.
 
 // Time: n
 // Space: 1

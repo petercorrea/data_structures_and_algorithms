@@ -13,8 +13,8 @@
 // Sample Input and Output:
 
 // Proposed Solution:
-// TC: n + k^2 where n is the length of the string and k is the numnber of chat seqs.
-// The k^2 comes from concatinating the string on each iteration. (1 + 2 ... + n = n(n+1)/n = O(n^2)).
+// TC: n + k^2 where n is the length of the string and k is the number of chat seqs.
+// The k^2 comes from concatenating the string on each iteration. (1 + 2 ... + n = n(n+1)/n = O(n^2)).
 //  To reduce this, we can instead push to an array, and join the elements at the end.
 
 export const compress = (string) => {

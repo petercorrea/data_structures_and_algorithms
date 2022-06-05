@@ -4,7 +4,7 @@
 // TC: O3^(m+n) where ‘m’ and ‘n’ are the lengths of the two input strings.
 // SC: O(m+n) this space will be used to store the recursion stack.
 
-// when tabulizing, always include extra column for data holder
+// when tabulating, always include extra column for data holder
 // tips: be mindful of variables bering used for BOTH accessing values and setting values
 export const LCS = (string1, string2) => {
   const LCSR = (str1, str2, idx1, idx2, count) => {
@@ -93,7 +93,7 @@ export const LCSTabOptimized = (string1, string2) => {
 
   for (let i = 1; i <= string1.length; i++) {
     for (let j = 1; j <= string2.length; j++) {
-      // erase previosuly computed result on current row
+      // erase previously computed result on current row
       tab[i - 1][j] = 0
 
       if (string1[i - 1] === string2[i - 1]) {

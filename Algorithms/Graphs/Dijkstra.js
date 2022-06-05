@@ -68,7 +68,7 @@ export const dijkstra = (source) => {
                 heap.heap[idx].weight < heap.heap[Math.floor(idx / 2)].weight
               ) {
                 if (idx >= 1) {
-                  // FIX IDXS IN MAP
+                  // FIX idxs IN MAP
                   map.get(heap.heap[Math.floor(idx / 2)].value).index = idx
 
                   map.get(heap.heap[idx].value).index = Math.floor(idx / 2)

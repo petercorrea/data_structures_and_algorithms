@@ -2,9 +2,9 @@
 // Assume all scores are unique
 
 // Rules:
-// -	every student at a minimum needs to recieve 1 reward
-// -	any student student with a higher score than their adj. score must stricly revieve more rewards
-// -	any student with a lower score than their adj. score must stricly recieve fewer rewards
+// -	every student at a minimum needs to receive 1 reward
+// -	any student student with a higher score than their adj. score must strictly receive more rewards
+// -	any student with a lower score than their adj. score must strictly receive fewer rewards
 
 // Time: nlogn
 // Space: n

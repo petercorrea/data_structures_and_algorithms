@@ -6,7 +6,7 @@
 // - Input: `1, 2, 3, 6, 10, 3, 5, 6, 3, 3`
 // - Output: `Mode = 3, Frequency of mode = 4`
 
-const countOccurances = (str) => {
+const countOccurrences = (str) => {
   // if str is empty
   if (str.length === 0) {
     return null
@@ -45,7 +45,7 @@ const countOccurances = (str) => {
       str = sub2
       i = 0
 
-      // Update occurance of string inside max obj
+      // Update occurrence of string inside max obj
       if (sub1 in max) {
         max[sub1]++
       } else {
@@ -54,7 +54,7 @@ const countOccurances = (str) => {
     }
   }
 
-  // Loop max obj to find key, value pair with highest occurance
+  // Loop max obj to find key, value pair with highest occurrence
   for (const char in max) {
     if (max[char] > currentMax) {
       currentMax = max[char]
@@ -65,4 +65,4 @@ const countOccurances = (str) => {
   return maxChar
 }
 
-countOccurances("1")
+countOccurrences("1")

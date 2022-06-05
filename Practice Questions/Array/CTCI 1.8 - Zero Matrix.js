@@ -14,7 +14,7 @@
 // Proposed Solution:
 //
 
-export const zeroMartrix = (matrix) => {
+export const zeroMatrix = (matrix) => {
   const m = [...matrix]
   const rows = []
   const cols = []

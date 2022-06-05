@@ -15,12 +15,12 @@
 
 export const permsIter = (string, perms = []) => {
   const twoChars = string.substring(0, 2)
-  const remaindingChars = string.substring(2)
+  const remainingChars = string.substring(2)
 
   perms.push(twoChars[0] + twoChars[1])
   perms.push(twoChars[1] + twoChars[0])
 
-  for (const char of remaindingChars) {
+  for (const char of remainingChars) {
     const permsLength = perms.length
 
     for (let j = 0; j < permsLength; j++) {
@@ -60,5 +60,5 @@ export const permsRecurs = (string, perms = []) => {
 // Test
 
 // Notes after implementing:
-// Do not refernce the object length directly as the terminating condition
+// Do not reference the object length directly as the terminating condition
 // for the loop. Save the value.

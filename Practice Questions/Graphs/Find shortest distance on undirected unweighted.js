@@ -3,7 +3,7 @@
 // Weighted and Unweighted
 // Adjacency list - each entry representing a node contains a list of connected nodes. Good for undirected graphs.
 // Adjacency matrix - each node is represented on both the vertical and horizontal axis, and the intersection represents a connection. Good for directed graphs.
-// Incidence matrix - rows are nodes, columns are verticies, each column shows how two nodes are connected. Can work for both directed and undirected.
+// Incidence matrix - rows are nodes, columns are vertices, each column shows how two nodes are connected. Can work for both directed and undirected.
 
 export const bfs = (graph, root) => {
   // initialize results object
@@ -41,7 +41,7 @@ export const bfs = (graph, root) => {
       // if distance to neighbor has not been updated, update
       if (result[neighbors[i]] === Number.MAX_SAFE_INTEGER) {
         result[neighbors[i]] = result[current] + 1
-        // push neightbor to visit later on
+        // push neighbor to visit later on
         toVisit.push(neighbors[i])
       }
     }

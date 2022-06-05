@@ -1,6 +1,6 @@
 // Given a tree, determine the largest diameter.
 // The diameter is defined as the longest path between any two paths.
-// The path doesnt have to go through the root.
+// The path doesn't have to go through the root.
 
 export const binaryTreeDiameter = (tree) => {
   const recurse = (node) => {

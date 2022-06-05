@@ -22,7 +22,7 @@
  *     b. Otherwise follow parent pointers until we find a node that is a left
  *     child of its parent, then the parent is the successor. */
 
-export const succesor = (node) => {
+export const successor = (node) => {
   if (node.left) {
     while (node.left) {
       node = node.left

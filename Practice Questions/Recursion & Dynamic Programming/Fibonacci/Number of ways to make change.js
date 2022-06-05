@@ -1,7 +1,7 @@
 // Given an array of positive integers representing coin denominations and an integer representing a target sum
 // determine the total number of ways to make the exact change.
 
-// the recurrance relation is:
+// the recurrence relation is:
 // 		totalWaysWithCoin = totalWaysWithCoin + totalWaysWithoutCoin
 // 		dp[denom][targetSum] = dp[denom][targetSum - coin] + dp[denom - 1][targetSum]
 

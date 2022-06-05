@@ -48,7 +48,7 @@ const bfs = (graph, root) => {
     // Grab the first node that is connected to the current node, taking the meaning of 1 from our adj mx
     let idx = currentConnections.indexOf(1)
 
-    // If no node is conncted, set the idx variable to -1
+    // If no node is connected, set the idx variable to -1
     // So loop as long as there IS a node
     while (idx !== -1) {
       neighborIdx.push(idx)
@@ -56,7 +56,7 @@ const bfs = (graph, root) => {
       idx = currentConnections.indexOf(1, idx + 1)
     }
 
-    // Now that we know all of the nodes idxs conected to the current node, we loop through them and get distance
+    // Now that we know all of the nodes idxs connected to the current node, we loop through them and get distance
     for (let j = 0; j < neighborIdx.length; j++) {
       // have not set the distance
       if (distances[neighborIdx[j]] === Infinity) {

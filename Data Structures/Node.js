@@ -2,12 +2,12 @@
 
 // Arrays
 // - Direct access to values
-// - Are stored contingously in memory, which benefit from cache
+// - Are stored contiguously in memory, which benefit from cache
 // - Adding and removing elements are slow
 
 // LinkedLists
 // - No direct access to values
-// - Are stored discontingously
+// - Are stored discontiguous
 // - Adding and removing elements are fast
 // - Searching is slow
 

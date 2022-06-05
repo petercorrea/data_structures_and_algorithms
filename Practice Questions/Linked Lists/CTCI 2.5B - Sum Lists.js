@@ -110,6 +110,6 @@ export const sum = (l1, l2) => {
 // Test
 
 // Notes after implementing:
-// since we can't directly traverse backwarks in a singly linked list
+// since we can't directly traverse backwards in a singly linked list
 // we can utilize recursion to achieve the same effect.
 // do not attempt to reassign names in obj destruct

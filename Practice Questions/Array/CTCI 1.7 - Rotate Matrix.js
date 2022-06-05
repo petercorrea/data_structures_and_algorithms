@@ -15,7 +15,7 @@
 // Proposed Solution:
 //		Take note that this is an N*N matrix where the lengths on each side are equal.
 // 		We'll rotate one layer at a time, moving inwardly.
-// 		Take note of the changing size of each layer, this will helpm us dictate the traversal.
+// 		Take note of the changing size of each layer, this will help us dictate the traversal.
 // 		i will only ever be as long as half the matrix.
 // 		j will reduce with m.length - i - 2. -2 because the end is length - 1, and since we will not traverse
 // 		the very last element because we have saved it and do not want to overwrite it, it become -2.

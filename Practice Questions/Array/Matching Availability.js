@@ -28,12 +28,12 @@ export const getAvailability = (cal, meetingDuration) => {
   const matchingAvail = []
 
   for (let i = 1; i < cal.length; i++) {
-    const previousEndtime = cal[i - 1][1]
+    const previousndtime = cal[i - 1][1]
     const nextStartTime = cal[i][0]
-    const availableTime = nextStartTime - previousEndtime
+    const availableTime = nextStartTime - previousndtime
 
     if (availableTime >= meetingDuration) {
-      matchingAvail.push([previousEndtime, nextStartTime])
+      matchingAvail.push([previousndtime, nextStartTime])
     }
   }
 

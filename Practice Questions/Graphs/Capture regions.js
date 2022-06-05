@@ -1,7 +1,7 @@
 // Capture regions that are fully enclosed
 // Regions connected to boundaries can not be captured.
 
-// bfs the boundry region
+// bfs the boundary region
 export const markBoundaryRegion = (i, j, board, visitedParam) => {
   const visited = [...visitedParam]
   const directions = [

@@ -1,6 +1,6 @@
 // Sample Input
 // const textFromInternet =
-//   "In computer science, mathematics, management science, economics and bioinformatics, dynamic programming."
+//   "In computer science, mathematics, management science, economics, dynamic programming."
 
 const LINE_LENGTH = 40
 const calcBadness = (line) => {
@@ -18,10 +18,10 @@ export const dp = (text) => {
 
   // Work backwards
   for (let i = words.length - 1; i >= 0; i--) {
-    // i is the proceding index
+    // i is the preceding index
     let best = [Number.MAX_VALUE, i + 1]
 
-    // Work forwards, j is the proceding index
+    // Work forwards, j is the preceding index
     for (let j = i + 1; j <= words.length; j++) {
       const totalScore = calcBadness(words.slice(i, j).join(" ")) + memo[j][0]
       //

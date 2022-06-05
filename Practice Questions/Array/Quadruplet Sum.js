@@ -9,7 +9,7 @@ export default (array, targetSum) => {
   // 	Thus, the map should hold an array of arrays.
 
   // loop i-j generates pairs of and determines if we have a compliment sum in the map
-  // loop k, i generates compliment pairs to be check agaist the next iteration of loop i-j
+  // loop k, i generates compliment pairs to be check against the next iteration of loop i-j
 
   const map = new Map()
   const results = []

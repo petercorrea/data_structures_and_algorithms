@@ -57,7 +57,7 @@ export const LISMemo = (Arr) => {
   return LISRecursive(Arr, 0, -1)
 }
 
-// Dynamica Programming
+// Dynamic Programming
 
 // TC: n^2
 // SC: n^2

@@ -1,10 +1,10 @@
 // Input: {4,2,3,6,10,1,12}
 // Output: 2
-// Explanation: We need to delete {4,1} to make the remaing sequence sorted {2,3,6,10,12}.
+// Explanation: We need to delete {4,1} to make the remaining sequence sorted {2,3,6,10,12}.
 
 // Input: {-4,10,3,7,15}
 // Output: 1
-// Explanation: We need to delete { 10} to make the remaing sequence sorted { -4, 3, 7, 15 }.
+// Explanation: We need to delete { 10} to make the remaining sequence sorted { -4, 3, 7, 15 }.
 
 // Input: {3,2,1,0}
 // Output: 3

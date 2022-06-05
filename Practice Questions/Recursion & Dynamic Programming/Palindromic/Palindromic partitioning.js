@@ -87,7 +87,7 @@ export const findMPPCutsTab = (st) => {
     for (let endIndex = st.length - 1; endIndex >= startIndex; endIndex--) {
       if (isPalindrome[startIndex][endIndex]) {
         // we can cut here as we got a palindrome
-        // also we dont need any cut if the whole substring is a palindrome
+        // also we don't need any cut if the whole substring is a palindrome
         minCuts =
           endIndex === st.length - 1
             ? 0

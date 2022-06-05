@@ -55,7 +55,7 @@ export const reverseKGroup = (head, k) => {
       cur.next = nxt.next
       // Set next to point to current node
       nxt.next = pre.next
-      // Set previouse to nxt
+      // Set previous to nxt
       pre.next = nxt
       // Traverse next
       nxt = cur.next

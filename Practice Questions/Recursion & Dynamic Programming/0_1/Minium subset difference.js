@@ -37,7 +37,7 @@ export const minimumPartitionMemo = (nums) => {
 export const minimumPartitionTab = (nums) => {
   const n = nums.length
 
-  // The lowest minimum we can reach is 0, which only occuers if we can construct two sets of equal value
+  // The lowest minimum we can reach is 0, which only occurs if we can construct two sets of equal value
   let sum = 0
   for (let i = 0; i < n; i++) {
     sum += nums[i]

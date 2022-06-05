@@ -1,7 +1,7 @@
 // Given an array of integers compute the greatest sum possible
 // without using only non-adjacent elements.
 
-// recurrance relation:
+// recurrence relation:
 // 		the max sum = max(
 // 			current element + sum of non - adj elements,
 // 			previous sum of non adj elements

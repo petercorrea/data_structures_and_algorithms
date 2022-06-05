@@ -15,7 +15,7 @@ export const searchMazeHelper = (maze, current, end) => {
     return true
   }
 
-  let neighborIdxs
+  let neighboridxs
   const directions = [
     [0, 1],
     [1, 0],
@@ -25,14 +25,14 @@ export const searchMazeHelper = (maze, current, end) => {
 
   // for each possible direction, determine if the current location will go out of bounds
   for (const direction of directions) {
-    neighborIdxs = [current[0] + direction[0], current[1] + direction[1]]
+    neighboridxs = [current[0] + direction[0], current[1] + direction[1]]
 
     // if direction is within bounds
-    if (isFeasible(maze, neighborIdxs)) {
+    if (isFeasible(maze, neighboridxs)) {
       // mark as visited
-      maze[neighborIdxs[0]][neighborIdxs[1]] = 1
+      maze[neighboridxs[0]][neighboridxs[1]] = 1
       // traverse from new current
-      if (searchMazeHelper(maze, neighborIdxs, end)) {
+      if (searchMazeHelper(maze, neighboridxs, end)) {
         return true
       }
     }

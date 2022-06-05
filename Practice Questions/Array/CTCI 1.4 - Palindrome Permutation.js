@@ -22,7 +22,7 @@
 
 // 		"moom" is even, and every letter has an even amount of chars.
 
-// 		Thus is contraint of a palindrome is that a given word should at most have a single group of chars
+// 		Thus is constraint of a palindrome is that a given word should at most have a single group of chars
 // 		summing up to an odd amount.
 
 // 		We can implement a HashMap and keep track of the chars. If more than one char has an odd total,

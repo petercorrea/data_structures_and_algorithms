@@ -5,7 +5,7 @@
 // or one square to the right. Determine how many moves the player would have to make to
 // end the game.
 
-// Recusrive
+// Recursive
 // TC: 2^(n+m)
 // SC: n+m
 export const gridTraveler = (m, n) => {
@@ -39,7 +39,7 @@ const factorial = (n) => {
   return n * factorial(n - 1)
 }
 
-export const gridTravlerFormulaic = (r, d) => {
+export const gridTravelerFormulaic = (r, d) => {
   const R = r - 1
   const D = d - 1
   return factorial(R + D) / (factorial(R) * factorial(D))

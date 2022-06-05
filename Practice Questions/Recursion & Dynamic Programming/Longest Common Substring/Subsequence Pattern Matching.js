@@ -9,7 +9,7 @@
 
 // Input: string: “tomorrow”, pattern: “tor”
 // Output: 4
-// Explanation: Following are the four occurences: {tomorrow, tomorrow, tomorrow, tomorrow}.
+// Explanation: Following are the four occurrence: {tomorrow, tomorrow, tomorrow, tomorrow}.
 
 // This problem follows the Longest Common Subsequence (LCS) pattern and is quite similar
 // to the Longest Repeating Subsequence; the difference is that we need to count the total

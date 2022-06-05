@@ -1,5 +1,5 @@
 // Given two arrays find the pair of numbers; one from each array
-// that have the smallest absolute difference. Assume ther is only one pair.
+// that have the smallest absolute difference. Assume there is only one pair.
 
 // Nested Loops
 // Time: n^2
