@@ -25,7 +25,7 @@ A collection of data structures, algorithms, and interviewing questions.
 
 - Practice Questions
 
-### 🔨 Scripts
+## 🔨 Scripts
 
 #### Install Dev Dependencies
 
@@ -41,7 +41,9 @@ npm test
 
 #### Spell Check
 
-This script will find all incorrect spellings and **whitelist** them. Manually review the words in cspell.txt. If the word is indeed correct leave them in the list, otherwise correct them in the codebase and remove from the list.
+This script will find all incorrect spellings and **whitelist** them.
+
+Manually review the words in cspell.txt. If the word is indeed correct leave it in the list, otherwise correct it in the codebase and remove it from the list.
 
 ```shell
 npm run spell-check
