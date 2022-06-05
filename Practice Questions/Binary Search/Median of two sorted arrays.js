@@ -1,6 +1,6 @@
 /*
 Problem Statement:
-    Given two sorted arrays of length m and n, return the median of the two arrays, 
+    Given two sorted arrays of length m and n, return the median of the two arrays,
     in O(log(m+n)) time.
 
 Clarifications and Assumptions:
@@ -29,13 +29,13 @@ Notes:
     the correct partition for this problem would be:
                 P
         [1, 3, 4, 6]
-            P    
+            P
         [2, 3, 5, 8, 9, 10]
 
         generally speaking, a problem is
         correctly partitioned when m[l] < n[r] && n[l] < m[r]
 
-    if not partition correctly, we conduct binary search on the 
+    if not partition correctly, we conduct binary search on the
     incorrect partition to determine a new middle and reevaluate.
         if the m[l] is larger than n[r] => binary search left side of smaller array
         if the m[r] is smaller than n[l] => binary search right side of smaller array
@@ -44,12 +44,12 @@ Notes:
     for both arrays using the facts we know about their lengths
                 P
         [1, 3, 4, 6]
-            P    
+            P
         [2, 3, 5, 8, 9, 10]
 
-    once a correct partition has been found, determine the median by 
+    once a correct partition has been found, determine the median by
     evaluating:
-        if combined length is even: 
+        if combined length is even:
             (max(m[l], n[l]) + min(m[r], n[r])) / 2
         if combined length is odd:
             min(m[r], n[r])

@@ -1,26 +1,37 @@
 {
     "env": {
-        "node": true,
+        "browser": true,
         "es2021": true,
-        "mocha": true
+        "node": true,
+        "jest": true
     },
     "extends": [
-        "airbnb-base",
-        "prettier"
+        "airbnb-base"
     ],
-    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "rules": {
+        "import/extensions": [
+            "off",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "semi-style":"warn",
+        "no-tabs":"off",
         "quotes": ["error", "double"],
         "semi": ["error", "never"],
         "no-plusplus": "off",
         "max-len": ["error", { 
             "code": 150, 
             "tabWidth": 2, 
-            "ignoreComments": true, 
+            "ignoreComments": false, 
             "ignoreTrailingComments": true, 
             "ignoreStrings": true,  
             "ignoreUrls": true, 

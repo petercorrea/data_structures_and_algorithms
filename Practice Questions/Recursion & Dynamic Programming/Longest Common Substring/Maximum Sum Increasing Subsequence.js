@@ -9,13 +9,14 @@ export const findMSIS = (nums) => {
 
     // include nums[currentIndex] if it is larger than the last included number
     let s1 = sum
-    if (previousIndex === -1 || nums[currentIndex] > nums[previousIndex])
+    if (previousIndex === -1 || nums[currentIndex] > nums[previousIndex]) {
       s1 = findMSISRecursive(
         nums,
         currentIndex + 1,
         currentIndex,
         sum + nums[currentIndex]
       )
+    }
 
     // excluding the number at currentIndex
     const s2 = findMSISRecursive(nums, currentIndex + 1, previousIndex, sum)

@@ -12,7 +12,7 @@
 
 // Proposed Solution:
 //
-import Node from "../../Data Structures/Node"
+import Node from "../../Data Structures/Node.js"
 
 export const makeBST = (arr, start = 0, end = arr.length - 1) => {
   if (end < start) return null

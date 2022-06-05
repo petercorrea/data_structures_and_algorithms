@@ -7,7 +7,7 @@
 
 // Output: 1->1->2->3->4->4->5->6
 
-import Node from "../../Data Structures/Node"
+import Node from "../../Data Structures/Node.js"
 
 export const mergeKLists = (lists) => {
   // Initialize a container for values

@@ -1,4 +1,4 @@
-import Node from "../../Data Structures/Node"
+import Node from "../../Data Structures/Node.js"
 
 class RandomNode extends Node {
   constructor(value, random) {

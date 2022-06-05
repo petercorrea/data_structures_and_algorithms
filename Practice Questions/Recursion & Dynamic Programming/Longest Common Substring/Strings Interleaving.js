@@ -23,19 +23,22 @@
 export const findSI = (m, n, p) => {
   const findSIRecursive = (m, n, p, mIndex, nIndex, pIndex) => {
     // if we have reached the end of the all the strings
-    if (mIndex === m.length && nIndex === n.length && pIndex === p.length)
+    if (mIndex === m.length && nIndex === n.length && pIndex === p.length) {
       return true
+    }
 
     // if we have reached the end of 'p' but 'm' or 'n' still have some characters left
     if (pIndex === p.length) return false
 
     let b1 = false
     let b2 = false
-    if (mIndex < m.length && m.charAt(mIndex) === p.charAt(pIndex))
+    if (mIndex < m.length && m.charAt(mIndex) === p.charAt(pIndex)) {
       b1 = findSIRecursive(m, n, p, mIndex + 1, nIndex, pIndex + 1)
+    }
 
-    if (nIndex < n.length && n.charAt(nIndex) === p.charAt(pIndex))
+    if (nIndex < n.length && n.charAt(nIndex) === p.charAt(pIndex)) {
       b2 = findSIRecursive(m, n, p, mIndex, nIndex + 1, pIndex + 1)
+    }
 
     return b1 || b2
   }
@@ -47,8 +50,9 @@ export const findSIMemo = (m, n, p) => {
 
   const findSIRecursive = (m, n, p, mIndex, nIndex, pIndex) => {
     // if we have reached the end of the all the strings
-    if (mIndex === m.length && nIndex === n.length && pIndex === p.length)
+    if (mIndex === m.length && nIndex === n.length && pIndex === p.length) {
       return true
+    }
 
     // if we have reached the end of 'p' but 'm' or 'n' still has some characters left
     if (pIndex === p.length) return false
@@ -91,13 +95,11 @@ export const findSIDp = (m, n, p) => {
       // if 'm' and 'n' are empty, then 'p' must have been empty too.
       if (mIndex === 0 && nIndex === 0) {
         dp[mIndex][nIndex] = true
-      }
-      // if 'm' is empty, we need to check the leterleaving with 'n' only
-      else if (mIndex === 0 && n[nIndex - 1] === p[mIndex + nIndex - 1]) {
+      } else if (mIndex === 0 && n[nIndex - 1] === p[mIndex + nIndex - 1]) {
+        // if 'm' is empty, we need to check the leterleaving with 'n' only
         dp[mIndex][nIndex] = dp[mIndex][nIndex - 1]
-      }
-      // if 'n' is empty, we need to check the leterleaving with 'm' only
-      else if (nIndex === 0 && m[mIndex - 1] === p[mIndex + nIndex - 1]) {
+      } else if (nIndex === 0 && m[mIndex - 1] === p[mIndex + nIndex - 1]) {
+        // if 'n' is empty, we need to check the leterleaving with 'm' only
         dp[mIndex][nIndex] = dp[mIndex - 1][nIndex]
       } else {
         // if the letter of 'm' and 'p' match, we take whatever is matched till mIndex-1

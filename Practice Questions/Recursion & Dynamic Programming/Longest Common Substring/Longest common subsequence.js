@@ -1,4 +1,5 @@
-// Given two strings ‘s1’ and ‘s2’, find the length of the longest subsequence which is common in both the strings.
+// Given two strings ‘s1’ and ‘s2’, find the length of the longest subsequence
+// which is common in both the strings.
 
 // Brute Force
 // TC: O2^(m+n) where ‘m’ and ‘n’ are the lengths of the two input strings.
@@ -88,5 +89,7 @@ export const LCSTab = (s1, s2) => {
 
 // Let’s assume len1 is the length of s1 and len2 is the length of s2.
 // Now let’s assume c1 is the length of LCS of the two strings s1 and s2.
-// To transform s1 into s2, we need to delete everything from s1 which is not part of LCS, so minimum deletions we need to perform from s1 => len1 - c1
-// Similarly, we need to insert everything in s1 which is present in s2 but not part of LCS, so minimum insertions we need to perform in s1 => len2 - c1
+// To transform s1 into s2, we need to delete everything from s1 which is not part of LCS,
+// so minimum deletions we need to perform from s1 => len1 - c1
+// Similarly, we need to insert everything in s1 which is present in s2 but not part of LCS,
+// so minimum insertions we need to perform in s1 => len2 - c1

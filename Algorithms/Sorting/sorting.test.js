@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { mergeSort } from "./Merge Sort"
+import { mergeSort } from "./Merge Sort.js"
 
 describe("Testing Sorting Algos", () => {
   it("mergeSort works as expected with only numbers", () => {

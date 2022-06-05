@@ -1,4 +1,4 @@
-import Node from "../../Data Structures/Node"
+import Node from "../../Data Structures/Node.js"
 
 export const getDecimalValue = (head) => {
   let result = 0

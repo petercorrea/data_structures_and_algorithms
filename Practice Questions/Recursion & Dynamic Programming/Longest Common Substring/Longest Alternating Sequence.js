@@ -27,17 +27,19 @@ export const findLASLength = (nums) => {
     let c1 = 0
     // if ascending, the next element should be bigger
     if (isAsc) {
-      if (previousIndex === -1 || nums[previousIndex] < nums[currentIndex])
+      if (previousIndex === -1 || nums[previousIndex] < nums[currentIndex]) {
         c1 =
           1 +
           findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
+      }
     } else {
       // if descending, the next element should be smaller
       // eslint-disable-next-line no-lonely-if
-      if (previousIndex === -1 || nums[previousIndex] > nums[currentIndex])
+      if (previousIndex === -1 || nums[previousIndex] > nums[currentIndex]) {
         c1 =
           1 +
           findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
+      }
     }
     // skip the current element
     const c2 = findLASLengthRecursive(

@@ -21,7 +21,7 @@ export const bruteForce = (array, targetSum) => {
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       if (array[i] + array[j] === targetSum) {
-        return [array[i], array[j] ]
+        return [array[i], array[j]]
       }
     }
   }
@@ -36,7 +36,7 @@ export const hashMap = (array, targetSum) => {
   for (let i = 0; i < array.length; i++) {
     const compliment = targetSum - array[i]
     if (map.has(compliment)) {
-      return [array[i], compliment ]
+      return [array[i], compliment]
     }
     map.set(array[i], i)
   }
@@ -53,7 +53,7 @@ export const sortedTwoPointers = (array, targetSum) => {
   while (left < right) {
     const currentSum = array[left] + array[right]
 
-    if (currentSum === targetSum) return [array[left], array[right] ]
+    if (currentSum === targetSum) return [array[left], array[right]]
 
     if (currentSum < targetSum) {
       left++

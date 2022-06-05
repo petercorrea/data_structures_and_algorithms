@@ -3,7 +3,6 @@ Problem Statement:
     Find the minimum of a rotated sorted array
 
 Clarifications and Assumptions:
-    
 
 Test Case:
     Input: nums = [3,4,5,1,2]

@@ -1,7 +1,7 @@
 /*
 Problem Statement:
-    Given an array of integers nums which is sorted in ascending order, 
-    and an integer target, write a function to search target in nums. 
+    Given an array of integers nums which is sorted in ascending order,
+    and an integer target, write a function to search target in nums.
     If target exists, then return its index. Otherwise, return -1.
     You must write an algorithm with O(log n) runtime complexity.
 
@@ -18,7 +18,7 @@ Test Case:
 Notes:
     We sample the middle value of an interval. If this is not the target
     we determine a new and smaller interval residing on either the left
-    or right side of the middle value. We continue this process until 
+    or right side of the middle value. We continue this process until
     the target is found.
 
 */

@@ -14,10 +14,9 @@
 // If we spend sometime thinking about it, we can convert this to the Longest Increasing Sequence
 // and subtract it's length from the string. This will leave behind the total number of deletions.
 
-export const findMinimumDeletions = (nums) =>
-  // subtracting the length of LIS from the length of the input array to get
-  // minimum number of deletions
-  nums.length - findLISLength(nums)
+// subtracting the length of LIS from the length of the input array to get
+// minimum number of deletions
+export const findMinimumDeletions = (nums) => nums.length - findLISLength(nums)
 
 // TC: n^2
 // SP: n

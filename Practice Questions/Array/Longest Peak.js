@@ -11,21 +11,18 @@ export const solution1 = (array) => {
 
   for (let i = 1; i < array.length; i++) {
     // neither
+
     if (array[i - 1] === array[i]) {
       count = 0
-    }
-
-    // increasing
-    else if (array[i - 1] < array[i]) {
+    } else if (array[i - 1] < array[i]) {
+      // increasing
       if (count === 0) {
         count = 2
       } else {
         count++
       }
-    }
-
-    // decreasing
-    else if (array[i - 1] > array[i] && count !== 0) {
+    } else if (array[i - 1] > array[i] && count !== 0) {
+      // decreasing
       for (let j = i; j < array.length; j++) {
         // decreasing
         if (array[j - 1] > array[j]) {

@@ -26,5 +26,5 @@ const branchSums = (root) => {
 }
 
 module.exports = {
-  branchSums,
+  branchSums
 }

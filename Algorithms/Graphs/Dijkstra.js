@@ -1,5 +1,5 @@
-import { GraphEdge } from "../../Data Structures/Graphs/GraphEdge"
-import { GraphMinHeap } from "../../Data Structures/Graphs/GraphMinHeap"
+import { GraphEdge } from "../../Data Structures/Graphs/GraphEdge.js"
+import { GraphMinHeap } from "../../Data Structures/Graphs/GraphMinHeap.js"
 
 export const dijkstra = (source) => {
   //  Single Source Shortest Path - works on directed and undirected graphs
@@ -74,6 +74,7 @@ export const dijkstra = (source) => {
                   map.get(heap.heap[idx].value).index = Math.floor(idx / 2)
 
                   // Object destructuring to swap values
+                  // eslint-disable-next-line semi-style
                   ;[heap.heap[Math.floor(idx / 2)], heap.heap[idx]] = [
                     heap.heap[idx],
                     heap.heap[Math.floor(idx / 2)]

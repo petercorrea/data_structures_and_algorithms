@@ -4,10 +4,10 @@
   "dictionaryDefinitions": [
     {
       "name": "project-words",
-      "path": "./project-words.txt",
+      "path": "./cspell.txt",
       "addWords": true
     }
   ],
   "dictionaries": ["project-words"],
-  "ignorePaths": ["node_modules", "/project-words.txt"]
+  "ignorePaths": ["node_modules", "/cspell.txt"]
 }

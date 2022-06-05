@@ -1,5 +1,4 @@
-# New Words
-# New Words
+# Allowed Words
 aabcccccaaa
 abcf
 abdccf
@@ -7,7 +6,6 @@ abdcf
 abracecarcd
 acyclical
 adcbef
-Allofaproject'sdependencies
 Andra
 baxmx
 bdcf
@@ -20,16 +18,14 @@ cals
 childs
 Correa
 denoms
-discontingously
+discontiguous
 Dups
 Dyck
 dynprogrammicng
 edgecases
-Endtime
 erbottlewat
 Goler
 Hoare’s
-Idxs
 idxs
 Indegrees
 indegrees
@@ -56,6 +52,7 @@ Moissinac
 moom
 MSIS
 MSISDP
+neighboridxs
 nlogn
 nums
 onloy
@@ -66,6 +63,7 @@ petep
 PINALSIGYAHRPI
 powerset
 PREVIDX
+previousndtime
 Ptre
 racecar
 reqs
@@ -79,14 +77,8 @@ Subarrays
 Submatrix
 submx
 tacocat
-verticies
 Vinni
 watbottleer
 waterbottle
-wherethesecondprojectisdependentonthefirstproject
 Zhao
 Zuckerberg
-# New Words
-discontiguous
-neighboridxs
-previousndtime

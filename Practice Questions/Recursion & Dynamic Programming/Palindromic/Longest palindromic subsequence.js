@@ -1,12 +1,18 @@
 // Problem Statement
-// Given a sequence, find the length of its Longest Palindromic Subsequence (LPS). In a palindromic subsequence, elements read the same backward and forward.
+// Given a sequence, find the length of its Longest Palindromic Subsequence (LPS).
+// In a palindromic subsequence, elements read the same backward and forward.
 
-// A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.
+// A subsequence is a sequence that can be derived from another sequence by deleting
+// some or no elements without changing the order of the remaining elements.
 
-// A basic brute-force solution could be to try all the subsequences of the given sequence. We can start processing from the beginning and the end of the sequence. So at any step, we have two options:
-// If the element at the beginning and the end are the same, we increment our count by two and make a recursive call for the remaining sequence.
-// We will skip the element either from the beginning or the end to make two recursive calls for the remaining subsequence.
-// If option one applies then it will give us the length of LPS; otherwise, the length of LPS will be the maximum number returned by the two recurse calls from the second option.
+// A basic brute-force solution could be to try all the subsequences of the given sequence.
+// We can start processing from the beginning and the end of the sequence.So at any step, we have two options:
+// If the element at the beginning and the end are the same, we increment our count by two and
+// make a recursive call for the remaining sequence.
+// We will skip the element either from the beginning or the end to make two recursive calls
+// for the remaining subsequence.
+// If option one applies then it will give us the length of LPS; otherwise, the length of
+// LPS will be the maximum number returned by the two recurse calls from the second option.
 
 // Similar problems include:
 // 		-Minimum Deletions in a String to make it a Palindrome (subtract LPS from String length)

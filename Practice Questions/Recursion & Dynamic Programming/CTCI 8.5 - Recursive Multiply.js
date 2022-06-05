@@ -1,5 +1,7 @@
 // Problem Statement:
-// Write a recursive export const to multiply two positive integers without using the * operator  = (or / operator) =>. You can use addition, subtraction, and bit shifting, but you should minimize the number of those operations.
+// Write a recursive export const to multiply two positive integers
+// without using the * operator  = (or / operator) =>. You can use addition,
+// subtraction, and bit shifting, but you should minimize the number of those operations.
 
 // Clarifications and Assumptions:
 //

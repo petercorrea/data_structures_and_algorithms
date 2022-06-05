@@ -124,3 +124,11 @@ dist
 
 wscript
 Tests
+.babelrc
+.eslintignore
+.eslintrc.json
+cspell.json
+.todo
+jest.config.json
+package.json
+package-lock.json

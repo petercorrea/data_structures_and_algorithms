@@ -44,7 +44,7 @@ export const dp = (text) => {
   while (pointer < words.length) {
     const line = words.slice(pointer, memo[pointer][1]).join(" ")
     results.push(line)
-    // eslint-disable-next-line no-undef
+    // eslint-disable-next-line semi-style, no-undef
     ;[_, pointer] = memo[pointer]
   }
   return results

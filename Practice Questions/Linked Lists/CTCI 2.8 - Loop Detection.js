@@ -15,7 +15,7 @@
 
 // Proposed Solution:
 //
-import Node from "../../Data Structures/Node"
+import Node from "../../Data Structures/Node.js"
 
 const node7 = new Node(7, null, null)
 const node6 = new Node(6, null, null)

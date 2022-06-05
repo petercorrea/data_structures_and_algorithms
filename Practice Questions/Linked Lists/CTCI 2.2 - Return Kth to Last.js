@@ -12,7 +12,7 @@
 
 // Proposed Solution:
 //
-import Node from "../../Data Structures/Node"
+import Node from "../../Data Structures/Node.js"
 
 const node8 = new Node(8, null, null)
 const node7 = new Node(7, null, node8)

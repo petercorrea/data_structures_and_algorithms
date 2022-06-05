@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import Graph from "../../Data Structures/Graphs/Graph"
+import Graph from "../../Data Structures/Graphs/Graph.js"
 
 export class DiGraph extends Graph {
   detectCycle() {

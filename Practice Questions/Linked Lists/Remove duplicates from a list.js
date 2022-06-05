@@ -1,4 +1,4 @@
-import DbLinkedList from "../../Data Structures/DbLinkedList"
+import DbLinkedList from "../../Data Structures/DbLinkedList.js"
 
 class ExtendedDBLinkedList extends DbLinkedList {
   remove_dupes() {
