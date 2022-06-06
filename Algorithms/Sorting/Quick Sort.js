@@ -4,8 +4,7 @@
 // Pros: cache locality, no additional memory (in-place), good for indexed structures
 // Cons: unstable
 
-const swap = (itemsParam, leftIdx, rightIdx) => {
-  const items = [...itemsParam]
+const swap = (items, leftIdx, rightIdx) => {
   const temp = items[leftIdx]
   items[leftIdx] = items[rightIdx]
   items[rightIdx] = temp
