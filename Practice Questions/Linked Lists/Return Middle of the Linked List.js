@@ -1,4 +1,4 @@
-import DbLinkedList from "../../Data Structures/DbLinkedList.js"
+import DbLinkedList from "../../Data Structures/LinkedList.js"
 
 export const findMiddleNode = (list) => {
   let slow = list.head

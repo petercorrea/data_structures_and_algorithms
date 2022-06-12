@@ -1,4 +1,51 @@
-import Node from "./Node.js"
+/* eslint-disable max-classes-per-file */
+// LinkedLists are a sequential list of nodes where each node points to another node.
+// The first node is often referred to as the head, and the last node as the tail.
+// Nodes may contain references to other nodes, these references are called pointers.
+// LinkedLists are often used as arrays-like structures, stacks, or queues.
+
+// head -> node -> node -> node -> tail
+
+// SinglyLinked List:
+// Each node keeps a reference of the proceeding node.
+// pros: less memory
+// cons: cant traverse backwards
+
+// DoublyLinked List:
+// Each node keeps a reference of its previous and proceeding node.
+// pros: can traverse backwards
+// cons: more memory
+
+// Time complexity:
+// lookup by index w/ hashmap - O(1)
+// lookup naive - O(n)
+// search - O(n)
+// appending - O(1)
+// insert - O(n)
+// delete - O(n)
+// delete head - O(1)
+// delete tail - O(1) -- O(n) for singly linked list
+
+// LinkedList vs Arrays
+
+// Arrays
+// - Direct access to values
+// - Are stored contiguously in memory, which benefit from cache
+// - Adding and removing elements are slow
+
+// LinkedLists
+// - No direct access to values
+// - Are stored discontiguous
+// - Adding and removing elements are fast
+// - Searching is slow
+
+export class LinkedListNode {
+  constructor(value, prev, next) {
+    this.value = value
+    this.prev = prev
+    this.next = next
+  }
+}
 
 export class DbLinkedList {
   constructor() {
@@ -7,7 +54,7 @@ export class DbLinkedList {
   }
 
   append(value) {
-    const newNode = new Node(value)
+    const newNode = new LinkedListNode(value)
 
     if (!this.tail) {
       this.head = newNode
@@ -21,7 +68,7 @@ export class DbLinkedList {
   }
 
   prepend(value) {
-    const newNode = new Node(value)
+    const newNode = new LinkedListNode(value)
 
     if (!this.head) {
       this.head = newNode

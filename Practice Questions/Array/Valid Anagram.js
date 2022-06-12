@@ -23,35 +23,31 @@
 // 		When we traverse the second string, we'll decrement the counts in the map. If any value
 // 		< 0, or simply not in the HashMap we'll return false. We'll implement this solution.
 
-export const checkPermutation = (string1, string2) => {
-  if (string1.length !== string2.length) {
-    return false
-  }
+// Edge cases:
+// If there is a letter in s2 not in s1, this hashmap will immediately find this.
+// If there is less of a particular letter in s2 than s1, that would mean there is more
+// of another letter which is either already represented in the hashmap and will decrement below 0,
+// or it's an entirely new letter, which leads us back to the first edge case.
 
-  const map = new Map()
+// O(n)
+export const validAnagram = (s, t) => {
+  if (s.length !== t.length) return false
 
-  for (let i = 0; i < string1.length; i++) {
-    if (map.has(string1[i])) {
-      map.set(string1[i], map.get(string1[i]) + 1)
+  const hash = {}
+
+  for (const idx in s) {
+    if (hash[s[idx]]) {
+      hash[s[idx]] += 1
     } else {
-      map.set(string1[i], 1)
+      hash[s[idx]] = 1
     }
   }
 
-  for (let i = 0; i < string2.length; i++) {
-    if (map.has(string2[i])) {
-      map.set(string2[i], map.get(string2[i]) - 1)
-      if (map.get(string2[i]) < 0) {
-        return false
-      }
-    } else {
-      return false
-    }
+  for (const idx in t) {
+    if (!hash[t[idx]]) return false
+    if (hash[t[idx]]) hash[t[idx]] -= 1
+    if (hash[t[idx]] < 0) return false
   }
 
   return true
 }
-
-// Test
-
-// Notes after implementing:

@@ -12,20 +12,23 @@ Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 Notes:
-
+9...4
+{
+5: idx of 5
+}
 */
 
-// Solution #1 - O() time | O() space:
+// Solution #1 - O(n) time | O() space:
 export const twoSum = (nums, target) => {
   const hashmap = {}
 
-  for (const num in nums) {
-    const compliment = target - nums[num]
+  for (const idx in nums) {
+    const compliment = target - nums[idx]
 
     if (hashmap[compliment]) {
-      return [hashmap[compliment], num]
+      return [hashmap[compliment], idx]
     }
-    hashmap[nums[num]] = num
+    hashmap[nums[idx]] = idx
   }
 
   return false

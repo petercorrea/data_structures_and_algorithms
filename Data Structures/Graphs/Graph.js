@@ -59,7 +59,7 @@ export class Graph {
 
       if (this.adjacencyList[current]) {
         for (const neighbor of this.adjacencyList[current]) {
-          if (neighbor.value === end) return true
+          if (neighbor.value === end) return neighbor
 
           if (!visited[neighbor.value]) {
             visited[neighbor.value] = true
@@ -73,13 +73,12 @@ export class Graph {
   }
 
   depthFirstSearch(start) {
-    const result = []
     const visited = {}
 
-    const dfs = (vertex) => {
-      if (!vertex) return null
+    const dfs = (vertex, end) => {
+      if (vertex.value === end) return vertex
+      if (!vertex) return false
       visited[vertex] = true
-      result.push(vertex)
 
       if (this.adjacencyList[vertex]) {
         this.adjacencyList[vertex].forEach((neighbor) => {
@@ -87,13 +86,12 @@ export class Graph {
             return dfs(neighbor.value)
           }
 
-          return null
+          return false
         })
       }
-      return null
+      return false
     }
 
-    dfs(start)
-    return result
+    return dfs(start)
   }
 }

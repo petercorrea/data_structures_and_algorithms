@@ -1,3 +1,6 @@
+// SSSP Algo...works only with DAG with only positive edge weights (because its greedy), typically O(E*log(V))
+//
+
 import { GraphEdge } from "../../Data Structures/Graphs/GraphEdge.js"
 import { GraphMinHeap } from "../../Data Structures/Graphs/GraphMinHeap.js"
 

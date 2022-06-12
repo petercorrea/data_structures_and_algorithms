@@ -1,4 +1,5 @@
 // Stacks - LIFO
+
 class Stack {
   constructor() {
     this.data = []

@@ -1,16 +1,3 @@
-// LinkedList vs Arrays
-
-// Arrays
-// - Direct access to values
-// - Are stored contiguously in memory, which benefit from cache
-// - Adding and removing elements are slow
-
-// LinkedLists
-// - No direct access to values
-// - Are stored discontiguous
-// - Adding and removing elements are fast
-// - Searching is slow
-
 export class Node {
   constructor(value, left, right, prev, next) {
     this.value = value
