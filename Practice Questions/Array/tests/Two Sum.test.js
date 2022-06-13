@@ -2,7 +2,7 @@ import { assert } from "chai"
 import { twoSum } from "../Two Sum"
 
 describe("Testing Two Sum", () => {
-  it("Test 1 - valid", () => {
+  it("Test 1", () => {
     const input = [1, 3, 5, 2]
     const input2 = 7
     const expected = ["2", "3"]
@@ -10,7 +10,7 @@ describe("Testing Two Sum", () => {
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 2 - not valid", () => {
+  it("Test 2", () => {
     const input = [1, 3, 5, 2]
     const input2 = 9
     const expected = false

@@ -2,7 +2,7 @@ import { assert } from "chai"
 import { topK } from "../Top K Frequent Elements"
 
 describe("Testing Top K Frequent Elements", () => {
-  it("Test 1 - valid", () => {
+  it("Test 1", () => {
     const nums = [1, 1, 1, 2, 2, 3]
     const k = 2
     const expected = [1, 2]
@@ -10,7 +10,7 @@ describe("Testing Top K Frequent Elements", () => {
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 2 - valid", () => {
+  it("Test 2", () => {
     const nums = [1, 2]
     const k = 2
     const expected = [2, 1]
@@ -18,7 +18,7 @@ describe("Testing Top K Frequent Elements", () => {
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 3 - valid", () => {
+  it("Test 3", () => {
     const nums = [1]
     const k = 1
     const expected = [1]

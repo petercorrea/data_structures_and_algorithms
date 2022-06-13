@@ -2,7 +2,7 @@ import { assert } from "chai"
 import { validAnagram } from "../Valid Anagram"
 
 describe("Testing Valid Anagram", () => {
-  it("Test 1 - valid", () => {
+  it("Test 1", () => {
     const input = "Peter"
     const input2 = "Pteer"
     const expected = true
@@ -10,7 +10,7 @@ describe("Testing Valid Anagram", () => {
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 2 - not valid", () => {
+  it("Test 2", () => {
     const input = "Peter"
     const input2 = "Ptaer"
     const expected = false

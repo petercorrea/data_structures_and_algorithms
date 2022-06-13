@@ -2,42 +2,42 @@ import { assert } from "chai"
 import { validParenthesis } from "../Valid Parenthesis"
 
 describe("Testing Valid Parenthesis", () => {
-  it("Test 1 - valid", () => {
+  it("Test 1", () => {
     const input = "{()([])}"
     const expected = true
     const actual = validParenthesis(input)
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 2 - not valid", () => {
+  it("Test 2", () => {
     const input = "{()([[])}"
     const expected = false
     const actual = validParenthesis(input)
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 3 - not valid", () => {
+  it("Test 3", () => {
     const input = "{[(("
     const expected = false
     const actual = validParenthesis(input)
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 4 - not valid", () => {
+  it("Test 4", () => {
     const input = ")("
     const expected = false
     const actual = validParenthesis(input)
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 5 - not valid", () => {
+  it("Test 5", () => {
     const input = ")((("
     const expected = false
     const actual = validParenthesis(input)
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 6 - not valid", () => {
+  it("Test 6", () => {
     const input = "([)]"
     const expected = false
     const actual = validParenthesis(input)

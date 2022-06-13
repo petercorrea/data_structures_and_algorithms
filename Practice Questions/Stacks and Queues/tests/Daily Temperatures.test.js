@@ -2,7 +2,7 @@ import { assert } from "chai"
 import { dailyTemps } from "../Daily Temperatures"
 
 describe("Testing Daily Temperatures", () => {
-  it("Test 1 - valid", () => {
+  it("Test 1", () => {
     const input = [73, 74, 75, 71, 69, 72, 76, 73]
     const expected = [1, 1, 4, 2, 1, 1, 0, 0]
     const actual = dailyTemps(input)

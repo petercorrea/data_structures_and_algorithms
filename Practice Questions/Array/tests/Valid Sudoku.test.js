@@ -2,7 +2,7 @@ import { assert } from "chai"
 import { validSudoku } from "../Valid Sudoku"
 
 describe("Testing Valid Sudoku", () => {
-  it("Test 1 - valid", () => {
+  it("Test 1", () => {
     const input = [
       ["5", "3", ".", ".", "7", ".", ".", ".", "."],
       ["6", ".", ".", "1", "9", "5", ".", ".", "."],
@@ -19,7 +19,7 @@ describe("Testing Valid Sudoku", () => {
     assert.deepEqual(actual, expected)
   })
 
-  it("Test 1 - not valid", () => {
+  it("Test 1", () => {
     const input = [["8", "3", ".", ".", "7", ".", ".", ".", "."],
       ["6", ".", ".", "1", "9", "5", ".", ".", "."],
       [".", "9", "8", ".", ".", ".", ".", "6", "."],
