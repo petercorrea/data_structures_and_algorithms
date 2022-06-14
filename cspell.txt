@@ -1,4 +1,4 @@
-# Allowed Words
+# Allowed Words...these are mainly input values for tests
 aabcccccaaa
 abcf
 abdccf
@@ -84,7 +84,6 @@ Zhao
 Zuckerberg
 pseudocode
 SSSP
-
 bbbbbbbbbbc
 bdddddddddd
 dont
