@@ -11,7 +11,7 @@ export const minWindow = (s, t) => {
   const hash = {}
 
   for (const i in t) {
-    hash[t[i]] = hash[t[i]] ? hash[t[i]] + 1 : hash[t[i]] = 1
+    hash[t[i]] = hash[t[i]] ? hash[t[i]] + 1 : (hash[t[i]] = 1)
   }
 
   let count = Object.keys(hash).length
