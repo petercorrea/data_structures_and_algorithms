@@ -1,3 +1,4 @@
+/* eslint-disable no-lonely-if */
 /*
 Problem Statement:
     There is an integer array nums sorted in ascending order (with distinct values).
@@ -22,31 +23,45 @@ Test Case:
     Output: -1
 
 Notes:
-    This is some sample text.
+    When you divide the rotated array into two halves, using mid index,
+    at least one of subarray should remain sorted ALWAYS.
+
+    [3, 4, 5, 6, 7, 1, 2] -> [3, 4, 5] [ 6, 7, 1, 2]
+    the left side remains sorted
+
+    [6, 7, 1, 2, 3, 4, 5] -> [6, 7, 1] [2, 3, 4, 5]
+    the right side remains sorted
+
+    [1, 2, 3, 4, 5, 6, 7] -> [1, 2, 3] [4, 5, 6, 7]
+    Both sides remain sorted.
 
 */
 
 // Solution #1 - O() time | O() space:
-export const first = (array, target) => {
+export const findTarget = (nums, target) => {
   let l = 0
-  let r = array.length - 1
+  let r = nums.length - 1
 
   while (l <= r) {
-    if (r - l === 1) {
-      if (array[r] === target) return r
-      if (array[l] === target) return l
-      return -1
+    const m = Math.floor(l + (r - l) / 2)
+    if (nums[m] === target) return m
+
+    // left sorted side
+    if (nums[l] <= nums[m]) {
+      if (nums[l] <= target && target <= nums[m]) {
+        r = m - 1
+      } else {
+        l = m + 1
+      }
+    } else {
+      // right sorted side
+      if (nums[m] <= target && target <= nums[r]) {
+        l = m + 1
+      } else {
+        r = m - 1
+      }
     }
-
-    const m = Math.floor((r + l) / 2)
-
-    if (array[m] === target) return m
-    if (array[m] > target && array[0] > target) {
-      l = m
-    } else r = m
   }
 
   return -1
 }
-
-// Testing

@@ -25,18 +25,18 @@ Notes:
 
 // Solution #1 - O(logn) time | O(1) space:
 export const findTarget = (nums, target) => {
-  let left = 0
-  let right = nums.length - 1
+  if (nums.length === 0) return -1
 
-  while (left <= right) {
-    const middle = Math.floor((left + right) / 2)
+  let l = 0
+  let r = nums.length - 1
 
-    if (nums[middle] === target) return target
-
-    if (nums[middle] > target) {
-      right = middle - 1
-    } else if (nums[middle] < target) {
-      left = middle + 1
+  while (l <= r) {
+    const m = Math.floor(l + (r - l) / 2)
+    if (nums[m] === target) return m
+    if (nums[m] > target) {
+      r = m - 1
+    } else if (nums[m] < target) {
+      l = m + 1
     }
   }
 

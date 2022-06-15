@@ -48,7 +48,7 @@ const findMax = (arr) => {
   return max
 }
 
-export const koko = (arr, h) => {
+export const eatBananas = (arr, h) => {
   // base case: if the amount of hour is equal to the amount of piles,
   // then we need to take as many bananas as we can. The minimum
   // would be equal to the largest pile
@@ -61,8 +61,10 @@ export const koko = (arr, h) => {
   let r = findMax(arr)
 
   while (l <= r) {
-    const middle = Math.floor((l + r) / 2)
+    const m = Math.floor(l + (r - l) / 2)
 
+    // if we're down to the last two potential choices, we need to test both of them
+    // look at the conditional at the bottom to understand further
     if (r - l === 1) {
       if (eat(arr, l, h) && eat(arr, r, h)) return Math.min(l, r)
       if (eat(arr, l, h)) return l
@@ -71,14 +73,14 @@ export const koko = (arr, h) => {
     }
 
     // determine which side to binary search
-    if (eat(arr, middle, h)) {
-      r = middle
+    // notice how if we had two indices e.g. [0, 1]
+    // and m was index 0, both conditions would skips the other index
+    if (eat(arr, m, h)) {
+      r = m
     } else {
-      l = middle
+      l = m
     }
   }
 
   return -1
 }
-
-// Testing

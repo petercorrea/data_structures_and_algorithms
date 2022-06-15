@@ -55,7 +55,7 @@ Notes:
             min(m[r], n[r])
 */
 
-export const indexArray = (i, arr) => {
+const indexArray = (i, arr) => {
   if (i === -1) {
     return Number.NEGATIVE_INFINITY
   }
@@ -67,7 +67,7 @@ export const indexArray = (i, arr) => {
   return arr[i]
 }
 
-export const getIndices = (rShort, aLong, aShort) => {
+const getIndices = (rShort, aLong, aShort) => {
   const midpoint = Math.floor((aShort.length + aLong.length) / 2)
   const rLong = midpoint - rShort
 
@@ -76,7 +76,7 @@ export const getIndices = (rShort, aLong, aShort) => {
   return [rLong - 1, rLong, rShort - 1, rShort]
 }
 
-export const getDirection = (lLong, rLong, lShort, rShort, aLong, aShort) => {
+const getDirection = (lLong, rLong, lShort, rShort, aLong, aShort) => {
   // if longer array is greater than shorter array
   if (indexArray(lLong, aLong) > indexArray(rShort, aShort)) {
     return 1
@@ -90,7 +90,7 @@ export const getDirection = (lLong, rLong, lShort, rShort, aLong, aShort) => {
   return 0
 }
 
-export const getResult = (lLong, rLong, lShort, rShort, aLong, aShort) => {
+const getResult = (lLong, rLong, lShort, rShort, aLong, aShort) => {
   const odd = (aShort.length + aLong.length) % 2
 
   if (odd === 1) {
@@ -124,7 +124,7 @@ export const medianOfTwoSortedArrays = (arr1, arr2) => {
   let rShort
 
   while (d !== 0) {
-    m = Math.floor((l + r) / 2)
+    m = Math.floor(l + (r - l) / 2)
     ;[lLong, rLong, lShort, rShort] = getIndices(m, aLong, aShort)
 
     d = getDirection(lLong, rLong, lShort, rShort, aLong, aShort)

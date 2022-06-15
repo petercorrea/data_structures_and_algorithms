@@ -24,23 +24,22 @@ Notes:
 */
 
 const innerBinarySearch = (array, target) => {
-  let left = 0
-  let right = array.length - 1
+  let l = 0
+  let r = array.length - 1
 
-  while (left <= right) {
-    const middleIdx = Math.floor((left + right) / 2)
-    const middleValue = array[middleIdx]
+  while (l <= r) {
+    const m = Math.floor(l + (r - l) / 2)
 
     // base case
-    if (middleValue === target) {
+    if (array[m] === target) {
       return true
     }
 
     // edge cases
-    if (middleValue > target) {
-      right = middleIdx - 1
-    } else if (middleValue < target) {
-      left = middleIdx + 1
+    if (array[m] > target) {
+      r = m - 1
+    } else if (array[m] < target) {
+      l = m + 1
     }
   }
 
@@ -48,17 +47,17 @@ const innerBinarySearch = (array, target) => {
 }
 
 // Solution #1 - O(log(n)) time | O(1) space:
-export const OuterBinarySearch = (array, target) => {
+const OuterBinarySearch = (array, target) => {
   if (array.length === 1) {
     return innerBinarySearch(array[0], target)
   }
-  let left = 0
-  let right = array.length - 1
 
-  while (left <= right) {
-    const middleIdx = Math.floor((left + right) / 2)
-    const middleValue = array[middleIdx][0]
-    const higherValue = array[middleIdx + 1]?.[0]
+  let l = 0
+  let r = array.length - 1
+
+  while (l <= r) {
+    const m = Math.floor(l + (r - l) / 2)
+    const middleValue = array[m][0]
 
     // base case; if target is the first item of the row
     if (middleValue === target) {
@@ -67,24 +66,26 @@ export const OuterBinarySearch = (array, target) => {
 
     // edge cases
     // found row and its the last one
-    if (middleIdx === array.length - 1) {
-      // conduct binary search on array[middleIdx]
-      return innerBinarySearch(array[middleIdx], target)
+    if (m === array.length - 1) {
+      return innerBinarySearch(array[m], target)
     }
 
     // found row anywhere else
+    // grab the first value of the next row to determine where we are
+    const higherValue = array[m + 1]?.[0]
     if (middleValue < target && higherValue > target) {
-      // conduct binary search on array[middleIdx]
-      return innerBinarySearch(array[middleIdx], target)
+      return innerBinarySearch(array[m], target)
     }
 
     // not the correct row, search again
     if (middleValue > target) {
-      right = middleIdx - 1
+      r = m - 1
     } else if (middleValue < target) {
-      left = middleIdx + 1
+      l = m + 1
     }
   }
 
   return false
 }
+
+export const search2D = (array, target) => OuterBinarySearch(array, target)
