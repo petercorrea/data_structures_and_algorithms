@@ -4,6 +4,12 @@
 
 A collection of data structures, algorithms, and interviewing questions. 
 
+## 🚧 Maintenance Status
+
+This repo started out simply as a private collection of notes. However work has gone underway to make it more acceptable for public educational use.
+
+That being said, this repo is currently being worked on to improve comments, explanations, edge cases, tests and overall code quality. So, please excuse the mess while I tidy up. Once this is in satisfactory condition, this maintenance status will be updated.
+
 ## 💻 Content
 
 - Data Structures

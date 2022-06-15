@@ -1,6 +1,6 @@
 import { assert } from "chai"
-import { Graph } from "../Graphs/Graph.js"
-import { GraphEdge } from "../Graphs/GraphEdge.js"
+import { Graph } from "../Graph.js"
+import { GraphEdge } from "../GraphEdge.js"
 
 const edgeA = new GraphEdge("A", 0)
 const edgeB = new GraphEdge("B", 0)

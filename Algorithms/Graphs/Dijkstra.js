@@ -1,8 +1,8 @@
 // SSSP Algo...works only with DAG with only positive edge weights (because its greedy), typically O(E*log(V))
 //
 
-import { GraphEdge } from "../../Data Structures/Graphs/GraphEdge.js"
-import { GraphMinHeap } from "../../Data Structures/Graphs/GraphMinHeap.js"
+import { GraphEdge } from "../../Data Structures/GraphEdge.js"
+import { GraphMinHeap } from "../../Data Structures/GraphMinHeap.js"
 
 export const dijkstra = (source) => {
   //  Single Source Shortest Path - works on directed and undirected graphs
@@ -61,8 +61,7 @@ export const dijkstra = (source) => {
             // update node in heap
             // adjust heap, bubble up
 
-            map.get(neighbor.value).edgeObj.weight =
-              distanceToCurrent + costToNeighbor
+            map.get(neighbor.value).edgeObj.weight = distanceToCurrent + costToNeighbor
 
             let idx = map.get(neighbor.value).index
 
