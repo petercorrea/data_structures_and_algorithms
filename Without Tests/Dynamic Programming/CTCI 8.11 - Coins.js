@@ -25,10 +25,11 @@ export const coins = (n, memo = {}) => {
   if (typeof memo[n] !== "undefined") {
     return memo[n]
   }
-  memo[n] = coins(n - 25, memo)
-    + coins(n - 10, memo)
-    + coins(n - 5, memo)
-    + coins(n - 1, memo)
+  memo[n] =
+    coins(n - 25, memo) +
+    coins(n - 10, memo) +
+    coins(n - 5, memo) +
+    coins(n - 1, memo)
 
   return memo[n]
 }

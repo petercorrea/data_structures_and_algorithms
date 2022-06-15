@@ -30,7 +30,8 @@ export const findLPSMemo = (string) => {
 
     if (typeof memo[startIdx][endIdx] === "undefined") {
       if (string[startIdx] === string[endIdx]) {
-        memo[startIdx][endIdx] = 2 + solveRecursive(string, startIdx + 1, endIdx - 1)
+        memo[startIdx][endIdx] =
+          2 + solveRecursive(string, startIdx + 1, endIdx - 1)
       } else {
         const c1 = solveRecursive(string, startIdx + 1, endIdx)
         const c2 = solveRecursive(string, startIdx, endIdx - 1)

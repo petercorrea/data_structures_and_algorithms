@@ -1,6 +1,7 @@
 // Traverse an n*m matrix in a zigzag
 
-export const isOutOfBounds = (row, col, height, width) => row < 0 || row > height || col < 0 || col > width
+export const isOutOfBounds = (row, col, height, width) =>
+  row < 0 || row > height || col < 0 || col > width
 
 // edgecases include 1 1*n and n*1 size matrices
 

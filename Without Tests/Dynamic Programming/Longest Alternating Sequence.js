@@ -28,15 +28,17 @@ export const findLASLength = (nums) => {
     // if ascending, the next element should be bigger
     if (isAsc) {
       if (previousIndex === -1 || nums[previousIndex] < nums[currentIndex]) {
-        c1 = 1
-          + findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
+        c1 =
+          1 +
+          findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
       }
     } else {
       // if descending, the next element should be smaller
       // eslint-disable-next-line no-lonely-if
       if (previousIndex === -1 || nums[previousIndex] > nums[currentIndex]) {
-        c1 = 1
-          + findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
+        c1 =
+          1 +
+          findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
       }
     }
     // skip the current element
@@ -64,7 +66,8 @@ export const findLASLengthMemo = (nums) => {
     if (currentIndex === nums.length) return 0
 
     dp[previousIndex + 1] = dp[previousIndex + 1] || []
-    dp[previousIndex + 1][currentIndex] = dp[previousIndex + 1][currentIndex] || []
+    dp[previousIndex + 1][currentIndex] =
+      dp[previousIndex + 1][currentIndex] || []
     if (
       typeof dp[previousIndex + 1][currentIndex][isAsc ? 1 : 0] === "undefined"
     ) {
@@ -72,15 +75,17 @@ export const findLASLengthMemo = (nums) => {
       // if ascending, the next element should be bigger
       if (isAsc) {
         if (previousIndex === -1 || nums[previousIndex] < nums[currentIndex]) {
-          c1 = 1
-            + findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
+          c1 =
+            1 +
+            findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
         }
       } else {
         // if descending, the next element should be smaller
         // eslint-disable-next-line no-lonely-if
         if (previousIndex === -1 || nums[previousIndex] > nums[currentIndex]) {
-          c1 = 1
-            + findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
+          c1 =
+            1 +
+            findLASLengthRecursive(nums, currentIndex, currentIndex + 1, !isAsc)
         }
       }
       // skip the current element

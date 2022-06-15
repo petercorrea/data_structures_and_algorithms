@@ -16,11 +16,12 @@
 export const validate = (root, min = null, max = null) => {
   if (root === null) return true
 
-  if ((min !== null && min >= root.value) || (max !== null && max < root.value)) return false
+  if ((min !== null && min >= root.value) || (max !== null && max < root.value))
+    return false
 
   if (
-    !validate(root.left, min, root.value)
-    || !validate(root.right, root.value, max)
+    !validate(root.left, min, root.value) ||
+    !validate(root.right, root.value, max)
   ) {
     return false
   }

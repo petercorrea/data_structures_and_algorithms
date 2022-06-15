@@ -9,7 +9,7 @@ export const MaxHeap = () => {
       let idx = heap.length - 1
       while (heap[idx] > heap[Math.floor(idx / 2)]) {
         if (idx >= 1) {
-          [heap[Math.floor(idx / 2)], heap[idx]] = [
+          ;[heap[Math.floor(idx / 2)], heap[idx]] = [
             heap[idx],
             heap[Math.floor(idx / 2)]
           ]
@@ -30,7 +30,7 @@ export const MaxHeap = () => {
       heap.splice(heap.length - 1)
       if (heap.length === 3) {
         if (heap[1] < heap[2]) {
-          [heap[1], heap[2]] = [heap[2], heap[1]]
+          ;[heap[1], heap[2]] = [heap[2], heap[1]]
         }
         return smallest
       }
@@ -39,10 +39,10 @@ export const MaxHeap = () => {
       let right = 2 * i + 1
       while (heap[i] <= heap[left] || heap[i] <= heap[right]) {
         if (heap[left] > heap[right]) {
-          [heap[i], heap[left]] = [heap[left], heap[i]]
+          ;[heap[i], heap[left]] = [heap[left], heap[i]]
           i *= 2
         } else {
-          [heap[i], heap[right]] = [heap[right], heap[i]]
+          ;[heap[i], heap[right]] = [heap[right], heap[i]]
           i = 2 * i + 1
         }
         left = 2 * i

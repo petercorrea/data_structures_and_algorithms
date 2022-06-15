@@ -39,7 +39,8 @@ export const countMinJumpsDp1 = (jumps) => {
       while (start < jumps.length && start <= end) {
         // jump one step and recurse for the remaining array
         const minJumps = countMinJumpsRecursive(jumps, start++)
-        if (minJumps !== Number.MAX_VALUE) totalJumps = Math.min(totalJumps, minJumps + 1)
+        if (minJumps !== Number.MAX_VALUE)
+          totalJumps = Math.min(totalJumps, minJumps + 1)
       }
       dp[currentIndex] = totalJumps
     }

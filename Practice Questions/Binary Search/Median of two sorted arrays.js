@@ -97,9 +97,9 @@ const getResult = (lLong, rLong, lShort, rShort, aLong, aShort) => {
     return Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort))
   }
   return (
-    (Math.max(indexArray(lLong, aLong), indexArray(lShort, aShort))
-      + Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort)))
-    / 2
+    (Math.max(indexArray(lLong, aLong), indexArray(lShort, aShort)) +
+      Math.min(indexArray(rLong, aLong), indexArray(rShort, aShort))) /
+    2
   )
 }
 
@@ -124,8 +124,8 @@ export const medianOfTwoSortedArrays = (arr1, arr2) => {
   let rShort
 
   while (d !== 0) {
-    m = Math.floor(l + (r - l) / 2);
-    [lLong, rLong, lShort, rShort] = getIndices(m, aLong, aShort)
+    m = Math.floor(l + (r - l) / 2)
+    ;[lLong, rLong, lShort, rShort] = getIndices(m, aLong, aShort)
 
     d = getDirection(lLong, rLong, lShort, rShort, aLong, aShort)
 
