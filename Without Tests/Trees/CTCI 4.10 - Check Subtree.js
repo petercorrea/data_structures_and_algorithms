@@ -30,8 +30,8 @@ let findMatchingRoots = (root1, root2) => {
     return true
   }
   return (
-    findMatchingRoots(root1.left, root2) ||
-    findMatchingRoots(root1.right, root2)
+    findMatchingRoots(root1.left, root2)
+    || findMatchingRoots(root1.right, root2)
   )
 }
 

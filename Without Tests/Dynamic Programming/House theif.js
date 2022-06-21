@@ -3,8 +3,7 @@ export const findMaxSteal = (wealth) => {
     if (currentIndex >= wealth.length) return 0
 
     // steal from current house and skip one to steal from the next house
-    const stealCurrent =
-      wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
+    const stealCurrent = wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
     // skip current house to steel from the adjacent house
     const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1)
 
@@ -21,8 +20,7 @@ export const findMaxStealMemo = (wealth) => {
 
     if (typeof dp[currentIndex] === "undefined") {
       // steal from current house and skip one to steal from the next house
-      const stealCurrent =
-        wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
+      const stealCurrent = wealth[currentIndex] + findMaxStealRecursive(wealth, currentIndex + 2)
       // skip current house to steel from the adjacent house
       const skipCurrent = findMaxStealRecursive(wealth, currentIndex + 1)
 

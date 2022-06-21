@@ -41,10 +41,10 @@ export const isFeasible = (image, indices, color) => {
   const x = indices[0]
   const y = indices[1]
   return (
-    x >= 0 &&
-    x < image.length &&
-    y >= 0 &&
-    y < image[x].length &&
-    image[x][y] === color
+    x >= 0
+    && x < image.length
+    && y >= 0
+    && y < image[x].length
+    && image[x][y] === color
   )
 }

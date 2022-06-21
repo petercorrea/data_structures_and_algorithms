@@ -31,8 +31,7 @@ export const getPath = (maze, path = [], illegalSpaces = new Map()) => {
 }
 
 let getPathHelper = (maze, row, col, path, illegalSpaces) => {
-  if (row > maze.length - 1 || col > maze[0].length - 1 || !maze[row][col])
-    return false
+  if (row > maze.length - 1 || col > maze[0].length - 1 || !maze[row][col]) return false
 
   if (illegalSpaces.get(`${row}-${col}`) === false) {
     return false
@@ -41,9 +40,9 @@ let getPathHelper = (maze, row, col, path, illegalSpaces) => {
   const atEnd = row === maze.length - 1 && col === maze[0].length - 1
 
   if (
-    atEnd ||
-    getPathHelper(maze, row + 1, col, path, illegalSpaces) ||
-    getPathHelper(maze, row, col + 1, path, illegalSpaces)
+    atEnd
+    || getPathHelper(maze, row + 1, col, path, illegalSpaces)
+    || getPathHelper(maze, row, col + 1, path, illegalSpaces)
   ) {
     path.unshift([row, col])
     return true

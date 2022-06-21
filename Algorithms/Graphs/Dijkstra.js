@@ -61,8 +61,7 @@ export const dijkstra = (source) => {
             // update node in heap
             // adjust heap, bubble up
 
-            map.get(neighbor.value).edgeObj.weight =
-              distanceToCurrent + costToNeighbor
+            map.get(neighbor.value).edgeObj.weight = distanceToCurrent + costToNeighbor
 
             let idx = map.get(neighbor.value).index
 

@@ -71,9 +71,9 @@ export const solution2 = (array) => {
     }
 
     if (
-      countIncreasing !== 0 &&
-      countDecreasing !== 0 &&
-      countIncreasing + countDecreasing + 1 > max
+      countIncreasing !== 0
+      && countDecreasing !== 0
+      && countIncreasing + countDecreasing + 1 > max
     ) {
       max = countIncreasing + countDecreasing + 1
     }

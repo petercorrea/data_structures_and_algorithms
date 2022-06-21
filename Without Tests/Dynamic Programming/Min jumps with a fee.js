@@ -30,8 +30,7 @@ export const findMinFeeMemo = (fee) => {
       // if we took 3 steps, we are left with 'n-3' steps;
       const take3Step = findMinFeeRecursive(fee, currentIndex + 3)
 
-      dp[currentIndex] =
-        fee[currentIndex] + Math.min(take1Step, take2Step, take3Step)
+      dp[currentIndex] = fee[currentIndex] + Math.min(take1Step, take2Step, take3Step)
     }
 
     return dp[currentIndex]

@@ -27,8 +27,7 @@ export const findLRSLength = (str) => {
   const findLRSLengthRecursive = (str, i1, i2) => {
     if (i1 === str.length || i2 === str.length) return 0
 
-    if (i1 !== i2 && str[i1] === str[i2])
-      return 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
+    if (i1 !== i2 && str[i1] === str[i2]) return 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
 
     const c1 = findLRSLengthRecursive(str, i1, i2 + 1)
     const c2 = findLRSLengthRecursive(str, i1 + 1, i2)
@@ -46,8 +45,7 @@ export const findLRSLengthMemo = (str) => {
 
     dp[i1] = dp[i1] || []
     if (typeof dp[i1][i2] === "undefined") {
-      if (i1 !== i2 && str[i1] === str[i2])
-        dp[i1][i2] = 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
+      if (i1 !== i2 && str[i1] === str[i2]) dp[i1][i2] = 1 + findLRSLengthRecursive(str, i1 + 1, i2 + 1)
       else {
         const c1 = findLRSLengthRecursive(str, i1, i2 + 1)
         const c2 = findLRSLengthRecursive(str, i1 + 1, i2)

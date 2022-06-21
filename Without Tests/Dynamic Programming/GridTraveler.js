@@ -26,8 +26,7 @@ export const gridTravelerMemo = (m, n, memo = {}) => {
   const key = `${m}-${n}`
   if (key in memo) return memo[key]
 
-  memo[key] =
-    gridTravelerMemo(m - 1, n, memo) + gridTravelerMemo(m, n - 1, memo)
+  memo[key] = gridTravelerMemo(m - 1, n, memo) + gridTravelerMemo(m, n - 1, memo)
   return memo[key]
 }
 

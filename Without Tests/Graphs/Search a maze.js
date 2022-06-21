@@ -45,11 +45,11 @@ export const isFeasible = (maze, indices) => {
   const y = indices[1]
   return (
     // within bounds
-    x >= 0 &&
-    x < maze.length &&
-    y >= 0 &&
-    y < maze[x].length &&
+    x >= 0
+    && x < maze.length
+    && y >= 0
+    && y < maze[x].length
     // has not been visited
-    maze[x][y] === 0
+    && maze[x][y] === 0
   )
 }

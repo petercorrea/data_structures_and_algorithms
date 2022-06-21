@@ -141,8 +141,8 @@ export const mazeSolver = (maze, positions = [[0, 0]], visited = [[0, 0]]) => {
   // Recursive case
   // Down
   if (
-    current_row + 1 <= num_rows &&
-    maze[current_row + 1][current_column] !== "*"
+    current_row + 1 <= num_rows
+    && maze[current_row + 1][current_column] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
@@ -176,8 +176,8 @@ export const mazeSolver = (maze, positions = [[0, 0]], visited = [[0, 0]]) => {
 
   // Right
   if (
-    current_column + 1 <= num_columns &&
-    maze[current_row][current_column + 1] !== "*"
+    current_column + 1 <= num_columns
+    && maze[current_row][current_column + 1] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(
@@ -195,8 +195,8 @@ export const mazeSolver = (maze, positions = [[0, 0]], visited = [[0, 0]]) => {
 
   // Left
   if (
-    current_column - 1 >= 0 &&
-    maze[current_row][current_column - 1] !== "*"
+    current_column - 1 >= 0
+    && maze[current_row][current_column - 1] !== "*"
   ) {
     // is point visited?
     const isVisited = visited.filter(

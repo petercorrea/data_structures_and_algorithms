@@ -17,8 +17,8 @@ export const findLPSLengthMemo = (string) => {
         const remainingStringLength = endIdx - startIdx - 1
         // check if the remaining string is also a palindrome
         if (
-          remainingStringLength ===
-          solveRecursive(string, startIdx + 1, endIdx - 1)
+          remainingStringLength
+          === solveRecursive(string, startIdx + 1, endIdx - 1)
         ) {
           memo[startIdx][endIdx] = remainingStringLength + 2
           return memo[startIdx][endIdx]

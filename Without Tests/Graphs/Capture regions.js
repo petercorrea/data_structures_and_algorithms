@@ -91,10 +91,10 @@ export const isFeasible = (board, neighbor) => {
   const y = neighbor[1]
 
   return (
-    x >= 0 &&
-    x < board.length &&
-    y >= 0 &&
-    y < board[x].length &&
-    board[x][y] === 1
+    x >= 0
+    && x < board.length
+    && y >= 0
+    && y < board[x].length
+    && board[x][y] === 1
   )
 }

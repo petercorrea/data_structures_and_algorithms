@@ -11,10 +11,9 @@ export const tripleStep = (steps, memo = {}) => {
   }
 
   if (memo[steps] === null) {
-    const sum =
-      tripleStep(steps - 1, memo) +
-      tripleStep(steps - 2, memo) +
-      tripleStep(steps - 3, memo)
+    const sum = tripleStep(steps - 1, memo)
+      + tripleStep(steps - 2, memo)
+      + tripleStep(steps - 3, memo)
     memo[steps] = sum
   }
 

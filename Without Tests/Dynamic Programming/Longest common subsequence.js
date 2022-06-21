@@ -43,8 +43,7 @@ export const LCSMemo = (string1, string2) => {
     // if no value exists, write it
     if (typeof memo[idx1][idx2] === "undefined") {
       if (string1[idx1] === string2[idx2]) {
-        memo[idx1][idx2] =
-          1 + LCSRecursive(string1, string2, idx1 + 1, idx2 + 1)
+        memo[idx1][idx2] = 1 + LCSRecursive(string1, string2, idx1 + 1, idx2 + 1)
       } else {
         const c1 = LCSRecursive(string1, string2, idx1 + 1, idx2)
         const c2 = LCSRecursive(string1, string2, idx1, idx2 + 1)
