@@ -1,10 +1,10 @@
 # Data Structures and Algorithms
 
-## About
-
-A collection of data structures, algorithms, and interviewing questions. 
+A collection of data structures, algorithms, and interviewing questions.
 
 ## 🚧 Maintenance Status
+
+**⚠️ Work In Progress ⚠️**
 
 This repo started out simply as a private collection of notes. However work has gone underway to make it more acceptable for public educational use.
 
