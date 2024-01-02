@@ -12,10 +12,11 @@ export const numSubmatrixSumTarget = (matrix, target) => {
   // calculate the prefix sums
   for (let i = 1; i <= matrix.length; i++) {
     for (let j = 1; j <= matrix[0].length; j++) {
-      prefixSums[i][j] = matrix[i - 1][j - 1]
-        + prefixSums[i - 1][j]
-        + prefixSums[i][j - 1]
-        - prefixSums[i - 1][j - 1]
+      prefixSums[i][j] =
+        matrix[i - 1][j - 1] +
+        prefixSums[i - 1][j] +
+        prefixSums[i][j - 1] -
+        prefixSums[i - 1][j - 1]
     }
   }
 

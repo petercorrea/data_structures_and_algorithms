@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { regions } from "../Surrounded Regions"
+import { regions } from "./surrounded_regions"
 
 describe("Testing Surrounded Regions", () => {
   it("Test 1", () => {
@@ -7,12 +7,14 @@ describe("Testing Surrounded Regions", () => {
       ["X", "X", "X", "X"],
       ["X", "O", "O", "X"],
       ["X", "X", "O", "X"],
-      ["X", "O", "X", "X"]]
+      ["X", "O", "X", "X"]
+    ]
     const expected = [
       ["X", "X", "X", "X"],
       ["X", "X", "X", "X"],
       ["X", "X", "X", "X"],
-      ["X", "O", "X", "X"]]
+      ["X", "O", "X", "X"]
+    ]
     const actual = regions(input)
     assert.deepEqual(actual, expected)
   })
@@ -25,8 +27,16 @@ describe("Testing Surrounded Regions", () => {
   })
 
   it("Test 3", () => {
-    const input = [["X", "O", "X"], ["X", "O", "X"], ["X", "O", "X"]]
-    const expected = [["X", "O", "X"], ["X", "O", "X"], ["X", "O", "X"]]
+    const input = [
+      ["X", "O", "X"],
+      ["X", "O", "X"],
+      ["X", "O", "X"]
+    ]
+    const expected = [
+      ["X", "O", "X"],
+      ["X", "O", "X"],
+      ["X", "O", "X"]
+    ]
     const actual = regions(input)
     assert.deepEqual(actual, expected)
   })
@@ -38,14 +48,16 @@ describe("Testing Surrounded Regions", () => {
       ["X", "O", "X", "O"],
       ["O", "X", "O", "X"],
       ["X", "O", "X", "O"],
-      ["O", "X", "O", "X"]]
+      ["O", "X", "O", "X"]
+    ]
     const expected = [
       ["X", "O", "X", "X"],
       ["O", "X", "X", "X"],
       ["X", "X", "X", "O"],
       ["O", "X", "X", "X"],
       ["X", "X", "X", "O"],
-      ["O", "X", "O", "X"]]
+      ["O", "X", "O", "X"]
+    ]
     const actual = regions(input)
     assert.deepEqual(actual, expected)
   })

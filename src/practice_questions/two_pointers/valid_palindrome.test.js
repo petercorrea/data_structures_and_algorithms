@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { isPalindrome } from "../Valid Palindrome"
+import { isPalindrome } from "./valid_palindrome"
 
 describe("Testing Valid Palindrome", () => {
   it("Test 1", () => {

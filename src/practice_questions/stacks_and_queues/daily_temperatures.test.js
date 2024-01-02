@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { dailyTemps } from "../Daily Temperatures"
+import { dailyTemps } from "./daily_temperatures"
 
 describe("Testing Daily Temperatures", () => {
   it("Test 1", () => {

@@ -22,11 +22,11 @@ export const paintFill = (
   originalColor = screen[rowPoint][colPoint]
 ) => {
   if (
-    rowPoint < 0
-    || colPoint < 0
-    || colPoint > screen[0].length
-    || rowPoint > screen.length
-    || screen[rowPoint][colPoint] !== originalColor
+    rowPoint < 0 ||
+    colPoint < 0 ||
+    colPoint > screen[0].length ||
+    rowPoint > screen.length ||
+    screen[rowPoint][colPoint] !== originalColor
   ) {
     return []
   }

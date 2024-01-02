@@ -16,19 +16,20 @@ export class MinHeap {
   }
 
   // Helper function to swap two elements in the heap array
-  _swap(a, b) {
-    [this.heap[b], this.heap[a]] = [this.heap[a], this.heap[b]]
+  swap(a, b) {
+    ;[this.heap[b], this.heap[a]] = [this.heap[a], this.heap[b]]
   }
 
   // Helper function to validate if the input is a number
-  _isValidNumber(num) {
-    return typeof num === "number" && !isNaN(num)
+  // eslint-disable-next-line
+  isValidNumber(num) {
+    return typeof num === "number" && !Number.isNaN(num)
   }
 
   // Insert a number into the heap
   insert(num) {
     // Validate the input
-    if (!this._isValidNumber(num)) {
+    if (!this.isValidNumber(num)) {
       throw new Error("Invalid input. Only numbers are allowed.")
     }
 
@@ -40,9 +41,9 @@ export class MinHeap {
     let child = this.heap.length - 1
     let parent = Math.floor(child / 2)
 
-    // Bubble-up loop...boundry check, min-heap property check
+    // Bubble-up loop...boundary check, min-heap property check
     while (child > 1 && this.heap[child] < this.heap[parent]) {
-      this._swap(child, parent)
+      this.swap(child, parent)
       child = parent
       parent = Math.floor(child / 2)
     }
@@ -68,19 +69,19 @@ export class MinHeap {
 
     // Bubble-down loop to maintain min-heap property
     while (
-      this.heap[leftChild] !== undefined
-      && (this.heap[current] > this.heap[leftChild]
-        || this.heap[current] > this.heap[rightChild])
+      this.heap[leftChild] !== undefined &&
+      (this.heap[current] > this.heap[leftChild] ||
+        this.heap[current] > this.heap[rightChild])
     ) {
       // Determine which child is smaller
       if (
-        this.heap[leftChild] < this.heap[rightChild]
-        || this.heap[rightChild] === undefined
+        this.heap[leftChild] < this.heap[rightChild] ||
+        this.heap[rightChild] === undefined
       ) {
-        this._swap(current, leftChild)
+        this.swap(current, leftChild)
         current = leftChild
       } else {
-        this._swap(current, rightChild)
+        this.swap(current, rightChild)
         current = rightChild
       }
 

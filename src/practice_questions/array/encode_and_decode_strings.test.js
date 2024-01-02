@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { decode, encode } from "../Encode and Decode Strings"
+import { decode, encode } from "./encode_and_decode_strings"
 
 describe("Testing Encode and Decode String", () => {
   it("Test 1", () => {

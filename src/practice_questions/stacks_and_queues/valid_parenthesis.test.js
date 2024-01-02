@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { validParenthesis } from "../Valid Parenthesis"
+import { validParenthesis } from "./valid_parenthesis"
 
 describe("Testing Valid Parenthesis", () => {
   it("Test 1", () => {

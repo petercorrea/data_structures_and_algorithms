@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { product } from "../Product of Array Except Self"
+import { product } from "./product_of_array_except_self"
 
 describe("Testing Product Except Self...", () => {
   it("Test 1", () => {

@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { largestRect } from "../Largest Rectangle in Histogram"
+import { largestRect } from "./largest_rectangle in_histogram"
 
 describe("Testing Largest Rectangle in Histogram", () => {
   it("Test 1", () => {

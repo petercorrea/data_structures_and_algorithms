@@ -1,6 +1,6 @@
 // Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
 // The solution set must not contain duplicate subsets. Return the solution in any order.
-import { mergeSort } from "../../Algorithms/Sorting/Merge Sort"
+import { mergeSort } from "../../algorithms/sorting/merge_sort"
 
 export const subset = (arr) => {
   // sort input

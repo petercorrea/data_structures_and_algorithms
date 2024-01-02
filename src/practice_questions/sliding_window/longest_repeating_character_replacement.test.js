@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { LRCP } from "../Longest Repeating Character Replacement"
+import { LRCP } from "./longest_repeating_character_replacement"
 
 describe("Testing Longest Repeating Character Replacement", () => {
   it("Test 1", () => {
@@ -19,7 +19,8 @@ describe("Testing Longest Repeating Character Replacement", () => {
   })
 
   it("Test 3", () => {
-    const input = "IMNJJTRMJEGMSOLSCCQICIHLQIOGBJAEHQOCRAJQMBIBATGLJDTBNCPIFRDLRIJHRABBJGQAOLIKRLHDRIGERENNMJSDSSMESSTR"
+    const input =
+      "IMNJJTRMJEGMSOLSCCQICIHLQIOGBJAEHQOCRAJQMBIBATGLJDTBNCPIFRDLRIJHRABBJGQAOLIKRLHDRIGERENNMJSDSSMESSTR"
     const ops = 2
     const expected = 6
     const actual = LRCP(input, ops)

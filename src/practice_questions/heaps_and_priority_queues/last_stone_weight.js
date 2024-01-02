@@ -20,13 +20,15 @@
 // we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
 // we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
 // we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of the last stone.
-import { MaxHeap } from "../../Data Structures/MaxHeap"
+
+// import { MaxHeap } from "../../data_structures/MaxHeap"
 
 export const lastWeight = (stones) => {
   if (stones.length === 1) {
     return stones[0]
   }
-  const heap = new MaxHeap()
+  // const heap = new MaxHeap()
+  const heap = null
 
   for (const stone of stones) {
     heap.insert(stone)

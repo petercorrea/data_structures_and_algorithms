@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { houseRobber, houseRobberDP } from "../House Robber"
+import { houseRobber, houseRobberDP } from "./house_robber"
 
 describe("Testing House Robber", () => {
   it("Test 1 - Recursion", () => {

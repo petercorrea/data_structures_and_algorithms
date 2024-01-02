@@ -70,7 +70,8 @@ export const findLBSLengthMemo = (nums) => {
     if (typeof lds[currentIndex][previousIndex + 1] === "undefined") {
       // include nums[currentIndex] if it is smaller than the previous number
       let c1 = 0
-      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLength(nums, currentIndex + 1, currentIndex)
+      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex])
+        c1 = 1 + findLDSLength(nums, currentIndex + 1, currentIndex)
 
       // excluding the number at currentIndex
       const c2 = findLDSLength(nums, currentIndex + 1, previousIndex)
@@ -89,7 +90,8 @@ export const findLBSLengthMemo = (nums) => {
     if (ldsRev[currentIndex][previousIndex + 1] === null) {
       // include nums[currentIndex] if it is smaller than the previous number
       let c1 = 0
-      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex]) c1 = 1 + findLDSLengthReverse(nums, currentIndex - 1, currentIndex)
+      if (previousIndex === -1 || nums[currentIndex] < nums[previousIndex])
+        c1 = 1 + findLDSLengthReverse(nums, currentIndex - 1, currentIndex)
 
       // excluding the number at currentIndex
       const c2 = findLDSLengthReverse(nums, currentIndex - 1, previousIndex)

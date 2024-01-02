@@ -12,10 +12,11 @@ export const knapSackMemo = (profits, weights, capacity) => {
 
   const solveRecursive = (profits, weights, capacity, currentIndex) => {
     if (
-      currentIndex >= profits.length
-      || profits.length !== weights.length
-      || capacity <= 0
-    ) return 0
+      currentIndex >= profits.length ||
+      profits.length !== weights.length ||
+      capacity <= 0
+    )
+      return 0
 
     memo[currentIndex] = memo[currentIndex] || []
 
@@ -23,8 +24,9 @@ export const knapSackMemo = (profits, weights, capacity) => {
       // We select the item at currentIndex, and recursively process the rest.
       let profit1 = 0
       if (weights[currentIndex] <= capacity) {
-        profit1 = profits[currentIndex]
-          + solveRecursive(
+        profit1 =
+          profits[currentIndex] +
+          solveRecursive(
             profits,
             weights,
             capacity - weights[currentIndex],

@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { LCS } from "../Longest Consecutive Sequence"
+import { LCS } from "./longest_consecutive_sequence.js"
 
 describe("Testing LCS", () => {
   it("Test 1", () => {

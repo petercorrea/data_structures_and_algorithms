@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { generateParenthesis } from "../Generate Parenthesis"
+import { generateParenthesis } from "./generate_parenthesis"
 
 describe("Testing Generate Parenthesis", () => {
   it("Test 1", () => {

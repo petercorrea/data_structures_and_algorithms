@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { MinHeap } from "./MinHeap"
+import { MinHeap } from "./minheap"
 
 describe("Testing MinHeap Data Structure", () => {
   it("Testing insert method", () => {

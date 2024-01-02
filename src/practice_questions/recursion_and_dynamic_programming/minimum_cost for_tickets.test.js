@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { minCosts } from "../Minimum Cost for Tickets"
+import { minCosts } from "./minimum_cost for_tickets"
 
 describe("Testing Minimum Cost for Tickets", () => {
   it("Test 1", () => {

@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { validAnagram } from "../Valid Anagram"
+import { validAnagram } from "./valid_anagram"
 
 describe("Testing Valid Anagram", () => {
   it("Test 1", () => {

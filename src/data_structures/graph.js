@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 export class GraphVertex {
   constructor(value) {
     this.value = value

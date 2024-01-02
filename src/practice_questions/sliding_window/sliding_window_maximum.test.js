@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { maxSlidingWindow } from "../Sliding Window Maximum"
+import { maxSlidingWindow } from "./sliding_window_maximum"
 
 describe("Testing Sliding Window Maximum", () => {
   it("Test 1", () => {

@@ -8,8 +8,9 @@ export const climbStairsRecursion = (target) => {
     if (steps === target) return 1
     if (steps > target) return 0
 
-    cache[`${steps}-${index}`] = recurse(target, steps + 1, cache, index + 1)
-      + recurse(target, steps + 2, cache, index + 1)
+    cache[`${steps}-${index}`] =
+      recurse(target, steps + 1, cache, index + 1) +
+      recurse(target, steps + 2, cache, index + 1)
     return cache[`${steps}-${index}`]
   }
 

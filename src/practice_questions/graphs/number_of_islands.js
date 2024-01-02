@@ -9,7 +9,15 @@ const visit = (mx, visited, point) => {
   const r = point[0]
   const c = point[1]
 
-  if (r > mx.length - 1 || c > mx[0].length - 1 || r < 0 || c < 0 || mx[r][c] === "0" || visited[`${r}-${c}`]) return
+  if (
+    r > mx.length - 1 ||
+    c > mx[0].length - 1 ||
+    r < 0 ||
+    c < 0 ||
+    mx[r][c] === "0" ||
+    visited[`${r}-${c}`]
+  )
+    return
 
   visited[`${r}-${c}`] = true
   visit(mx, visited, [r - 1, c])

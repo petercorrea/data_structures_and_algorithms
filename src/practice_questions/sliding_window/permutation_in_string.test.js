@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { permutationInString } from "../Permutation in String"
+import { permutationInString } from "./permutation_in_string"
 
 describe("Testing Permutation in String", () => {
   it("Test 1", () => {

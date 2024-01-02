@@ -35,9 +35,9 @@ const findPathWithSumRecurse = (path, node, value) => {
         ++count
       }
     }
-    count
-      += findPathWithSumRecurse(path, node.left, value)
-      + findPathWithSumRecurse(path, node.right, value)
+    count +=
+      findPathWithSumRecurse(path, node.left, value) +
+      findPathWithSumRecurse(path, node.right, value)
     path.pop()
   }
   return count

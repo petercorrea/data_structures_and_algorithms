@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { trappedWater } from "../Trapped Water"
+import { trappedWater } from "./trapped_water"
 
 describe("Testing Trapped Water", () => {
   it("Test 1", () => {

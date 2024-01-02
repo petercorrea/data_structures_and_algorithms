@@ -25,7 +25,8 @@ const recurseOcean = (ocean, mx, r, c, visited = {}) => {
 
   // atlantic ocean
   // r[r.length-1] || c[c.length-1]
-  if ((r === mx.length - 1 || c === mx[0].length - 1) && ocean === "atlantic") return true
+  if ((r === mx.length - 1 || c === mx[0].length - 1) && ocean === "atlantic")
+    return true
 
   if (visited[`${r}-${c}`]) return false
   visited[`${r}-${c}`] = true
@@ -58,7 +59,10 @@ export const pacificAtlantic = (mx) => {
   const result = []
   for (let r = 0; r < mx.length; r++) {
     for (let c = 0; c < mx[0].length; c++) {
-      if (recurseOcean("atlantic", mx, r, c) && recurseOcean("pacific", mx, r, c)) {
+      if (
+        recurseOcean("atlantic", mx, r, c) &&
+        recurseOcean("pacific", mx, r, c)
+      ) {
         result.push([r, c])
       }
     }

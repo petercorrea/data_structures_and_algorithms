@@ -1,4 +1,4 @@
-import GraphVertex from "../../Data Structures/GraphVertex.js"
+import GraphVertex from "../../data_structures/graph.js"
 
 export const cloneGraph = (vertex) => {
   if (vertex === null) {

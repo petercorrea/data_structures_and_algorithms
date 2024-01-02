@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import Graph from "../../Data Structures/Graph.js"
+import Graph from "../../data_structures/graph.js"
 
 export class DiGraph extends Graph {
   detectCycle() {
@@ -10,7 +10,8 @@ export class DiGraph extends Graph {
     for (let i = 0; i < startNodes.length; i++) {
       const current = startNodes[i]
 
-      if (this._detectCycle(current, visited, recStack, this.adjacencyList)) return true
+      if (this._detectCycle(current, visited, recStack, this.adjacencyList))
+        return true
     }
 
     return false
@@ -26,8 +27,8 @@ export class DiGraph extends Graph {
       for (let i = 0; i < neighbors.length; i++) {
         const nextNode = neighbors[i]
         if (
-          !visited[nextNode]
-          && this._detectCycle(nextNode, visited, recStack, this.adjacencyList)
+          !visited[nextNode] &&
+          this._detectCycle(nextNode, visited, recStack, this.adjacencyList)
         ) {
           return true
         }

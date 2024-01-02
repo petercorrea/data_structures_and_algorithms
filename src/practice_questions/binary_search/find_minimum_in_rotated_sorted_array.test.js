@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { searchMin } from "../Find Minimum in Rotated Sorted Array"
+import { searchMin } from "./find_minimum_in_rotated_sorted_array"
 
 describe("Testing Find Target In Rotated Array", () => {
   it("Test 1", () => {

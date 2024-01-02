@@ -1,8 +1,8 @@
 // Given an m x n matrix board containing 'X' and 'O', capture all regions that are 4-directionally surrounded by 'X'.
 // A region is captured by flipping all 'O's into 'X's in that surrounded region.
 const recurse = (mx, r, c, visited) => {
-  const rIsOutOfBOunds = (r < 0) || (r >= mx.length)
-  const cIsOutOfBOunds = (c < 0) && (c >= mx[0].length)
+  const rIsOutOfBOunds = r < 0 || r >= mx.length
+  const cIsOutOfBOunds = c < 0 && c >= mx[0].length
   if (rIsOutOfBOunds || cIsOutOfBOunds) return
 
   visited[`${r}-${c}`] = true
@@ -32,7 +32,7 @@ const recurse = (mx, r, c, visited) => {
 }
 
 export const regions = (mx) => {
-  const visited = { }
+  const visited = {}
 
   for (let i = 0; i < mx[0].length; i++) {
     recurse(mx, 0, i, visited)
@@ -49,7 +49,13 @@ export const regions = (mx) => {
 
   for (let r = 0; r < mx.length; r++) {
     for (let c = 0; c < mx[0].length; c++) {
-      if (mx[r][c] === "O" && mx[r + 1][c] && mx[r - 1][c] && mx[r][c + 1] && mx[r][c - 1]) {
+      if (
+        mx[r][c] === "O" &&
+        mx[r + 1][c] &&
+        mx[r - 1][c] &&
+        mx[r][c + 1] &&
+        mx[r][c - 1]
+      ) {
         mx[r][c] = "X"
       }
     }

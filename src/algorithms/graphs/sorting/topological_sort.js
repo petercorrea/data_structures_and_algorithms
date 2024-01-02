@@ -33,6 +33,4 @@
 // 				dfs(edge.to, visited, currentVisited, graph)
 // 		return currentVisited.push(i)
 
-export const topSort = () => {
-
-}
+export const topSort = () => {}

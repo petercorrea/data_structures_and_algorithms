@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { kthLargest } from "../Kth Largest Element In A Stream"
+import { kthLargest } from "./kth_largest_element_in_a_stream"
 
 describe("Testing Kth Largest Element In A Stream", () => {
   it("Test 1", () => {

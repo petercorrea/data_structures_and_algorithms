@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { medianOfTwoSortedArrays } from "../Median of two sorted arrays"
+import { medianOfTwoSortedArrays } from "./median_of_two_sorted_arrays"
 
 describe("Testing ", () => {
   it("Test 1", () => {

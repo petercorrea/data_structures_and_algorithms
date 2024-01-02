@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { groupAnagrams } from "../Group Anagrams"
+import { groupAnagrams } from "./group_anagrams"
 
 describe("Testing Group Anagrams", () => {
   it("Test 1 - group correctly", () => {

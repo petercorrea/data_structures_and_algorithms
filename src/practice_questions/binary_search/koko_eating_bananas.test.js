@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { eatBananas } from "../Koko Eating Bananas"
+import { eatBananas } from "./koko_eating_bananas"
 
 describe("Testing Koko Eating Bananas", () => {
   it("Test 1", () => {

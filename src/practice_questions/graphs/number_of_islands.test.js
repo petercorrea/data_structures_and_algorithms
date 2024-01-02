@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { numberOfIslands } from "../Number of Islands"
+import { numberOfIslands } from "./number_of_islands"
 
 describe("Testing Number of Islands", () => {
   it("Test 1", () => {

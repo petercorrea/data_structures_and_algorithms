@@ -26,7 +26,7 @@
 // Proposed Solution:
 //
 
-import Node from "../../Data Structures/Node.js"
+import Node from "../../data_structures/node.js"
 // set B
 const node11 = new Node(1, null, null)
 // eslint-disable-next-line no-unused-vars

@@ -3,7 +3,7 @@
 // Notice that the solution set must not contain duplicate sets of triplets.
 
 // sort, eliminate duplicates, one pointer for a loop and the other two are l&r pointers
-import { mergeSort } from "../../Algorithms/Sorting/Merge Sort"
+import { mergeSort } from "../../algorithms/sorting/merge_sort"
 
 export const threeSum = (nums) => {
   const sorted = mergeSort(nums)

@@ -70,8 +70,8 @@ export const findMPPCutsTab = (st) => {
       if (st.charAt(startIndex) === st.charAt(endIndex)) {
         // if it's a two character string or if the remaining string is a palindrome too
         if (
-          endIndex - startIndex === 1
-          || isPalindrome[startIndex + 1][endIndex - 1]
+          endIndex - startIndex === 1 ||
+          isPalindrome[startIndex + 1][endIndex - 1]
         ) {
           isPalindrome[startIndex][endIndex] = true
         }
@@ -88,9 +88,10 @@ export const findMPPCutsTab = (st) => {
       if (isPalindrome[startIndex][endIndex]) {
         // we can cut here as we got a palindrome
         // also we don't need any cut if the whole substring is a palindrome
-        minCuts = endIndex === st.length - 1
-          ? 0
-          : Math.min(minCuts, 1 + cuts[endIndex + 1])
+        minCuts =
+          endIndex === st.length - 1
+            ? 0
+            : Math.min(minCuts, 1 + cuts[endIndex + 1])
       }
     }
     cuts[startIndex] = minCuts

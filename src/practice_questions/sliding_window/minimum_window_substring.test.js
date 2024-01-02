@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { minWindow } from "../Minimum Window Substring"
+import { minWindow } from "./minimum_window_substring"
 
 describe("Testing Minimum Window Substring", () => {
   it("Test 1", () => {

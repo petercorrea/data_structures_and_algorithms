@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { topK } from "../Top K Frequent Elements"
+import { topK } from "./top_k_frequent_elements"
 
 describe("Testing Top K Frequent Elements", () => {
   it("Test 1", () => {

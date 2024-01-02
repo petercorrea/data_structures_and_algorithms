@@ -1,6 +1,6 @@
 import { assert } from "chai"
-import { mergeSort } from "../Sorting/Merge Sort.js"
-import { quickSort } from "../Sorting/Quick Sort.js"
+import { mergeSort } from "../sorting/merge_sort.js"
+import { quickSort } from "../sorting/quick_sort.js"
 
 describe("Testing Sorting Algos", () => {
   it("mergeSort works as expected with only numbers", () => {

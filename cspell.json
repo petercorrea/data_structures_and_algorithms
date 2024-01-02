@@ -9,5 +9,5 @@
     }
   ],
   "dictionaries": ["project-words"],
-  "ignorePaths": ["node_modules", "/cspell.txt"]
+  "ignorePaths": ["node_modules", "/cspell.txt", "/pnpm-lock.yaml"]
 }

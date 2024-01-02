@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { mostWater } from "../Container with Most Water"
+import { mostWater } from "./container_with_most_water"
 
 describe("Testing Container with Most Water", () => {
   it("Test 1", () => {

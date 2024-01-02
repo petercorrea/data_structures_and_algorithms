@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { subsets } from "./Subsets"
+import { subsets } from "./subsets"
 
 describe("Testing Subsets", () => {
   it("Test 1", () => {

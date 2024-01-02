@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { findTarget } from "../Find Target In Rotated Array"
+import { findTarget } from "./find_target_in_rotated_array"
 
 describe("Testing Find Target In Rotated Array", () => {
   it("Test 1", () => {

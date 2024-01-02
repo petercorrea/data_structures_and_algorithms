@@ -13,7 +13,7 @@
 
 // Proposed Solution:
 //
-import Node from "../../Data Structures/Node.js"
+import Node from "../../data_structures/node.js"
 
 export const nLinkedLists = (tree) => {
   const queue = [tree.root]

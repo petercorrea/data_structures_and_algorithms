@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { LSS } from "../Longest Substring Without Repeating Characters"
+import { LSS } from "./longest_substring_without_repeating_characters"
 
 describe("Testing Longest Substring Without Repeating Characters", () => {
   it("Test 1", () => {

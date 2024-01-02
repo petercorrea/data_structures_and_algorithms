@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { RPN } from "../Evaluate Reverse Polish Notation"
+import { RPN } from "./evaluate_reverse_polish_notation"
 
 describe("Testing Evaluate Reverse Polish Notation", () => {
   it("Test 1", () => {
@@ -17,7 +17,21 @@ describe("Testing Evaluate Reverse Polish Notation", () => {
   })
 
   it("Test 3", () => {
-    const input = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
+    const input = [
+      "10",
+      "6",
+      "9",
+      "3",
+      "+",
+      "-11",
+      "*",
+      "/",
+      "*",
+      "17",
+      "+",
+      "5",
+      "+"
+    ]
     const expected = 22
     const actual = RPN(input)
     assert.deepEqual(actual, expected)

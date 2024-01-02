@@ -1,5 +1,5 @@
-import DbLinkedList from "../../Data Structures/LinkedList.js"
-import Node from "../../Data Structures/Node.js"
+import DbLinkedList from "../../data_structures/linkedlist.js"
+import Node from "../../data_structures/node.js"
 
 class Stack {
   constructor() {

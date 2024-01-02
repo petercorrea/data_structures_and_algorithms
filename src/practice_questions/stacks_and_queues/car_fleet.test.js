@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { carFleet } from "../Car Fleet"
+import { carFleet } from "./car_fleet"
 
 describe("Testing Car Fleet", () => {
   it("Test 1", () => {

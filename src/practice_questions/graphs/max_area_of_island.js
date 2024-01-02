@@ -8,7 +8,15 @@ const recurse = (mx, point, visited, count) => {
   const r = point[0]
   const c = point[1]
 
-  if (r < 0 || r >= mx.length || c < 0 || c >= mx[0].length || visited[`${r}-${c}`] || mx[r][c] === 0) return
+  if (
+    r < 0 ||
+    r >= mx.length ||
+    c < 0 ||
+    c >= mx[0].length ||
+    visited[`${r}-${c}`] ||
+    mx[r][c] === 0
+  )
+    return
   if (visited[`${r}-${c}`] === undefined && mx[r][c] === 1) count.area++
   visited[`${r}-${c}`] = true
   recurse(mx, [r - 1, c], visited, count)
@@ -20,7 +28,7 @@ const recurse = (mx, point, visited, count) => {
 export const maxArea = (mx) => {
   const visited = {}
   const count = {
-    area: 0,
+    area: 0
   }
   let globalMax = 0
 

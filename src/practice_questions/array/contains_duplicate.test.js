@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { containsDuplicate } from "../Contains Duplicate"
+import { containsDuplicate } from "./contains_duplicate"
 
 describe("Testing Contains Duplicate", () => {
   it("Test 1 - has duplicate", () => {

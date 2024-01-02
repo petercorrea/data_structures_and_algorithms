@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { twoSum } from "../Two Sum"
+import { twoSum } from "./two_sum"
 
 describe("Testing Two Sum", () => {
   it("Test 1", () => {

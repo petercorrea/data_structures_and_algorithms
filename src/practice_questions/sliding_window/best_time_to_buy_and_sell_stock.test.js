@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { bestTime } from "../Best Time to Buy & Sell Stock"
+import { bestTime } from "./best_time_to_buy_and_sell_stock"
 
 describe("Testing ", () => {
   it("Test 1", () => {

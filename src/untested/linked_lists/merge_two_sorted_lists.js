@@ -1,4 +1,4 @@
-// import Node from "../../Data Structures/Node.js"
+// import Node from "../../data_structures/node.js"
 
 // Sample Input
 // const list1 = new Node(-1, null, new Node(2, null, new Node(5)))

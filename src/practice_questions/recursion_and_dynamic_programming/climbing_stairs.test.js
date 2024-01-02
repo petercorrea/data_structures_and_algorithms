@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { climbStairsDP, climbStairsRecursion } from "../Climbing Stairs"
+import { climbStairsDP, climbStairsRecursion } from "./climbing_stairs"
 
 describe("Testing Climbing Stairs", () => {
   it("Test 1 - Recursion", () => {

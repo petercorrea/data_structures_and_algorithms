@@ -1,5 +1,9 @@
 import { assert } from "chai"
-import { minCostDP, minCostIterative, minCostRecursion } from "../Min Cost Climbing Stairs"
+import {
+  minCostDP,
+  minCostIterative,
+  minCostRecursion
+} from "./min_cost_climbing_stairs"
 
 describe("Testing Min Cost Climbing Stairs", () => {
   it("Test 1 - Recursion", () => {

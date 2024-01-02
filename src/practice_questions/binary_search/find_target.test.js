@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { findTarget } from "../Find Target"
+import { findTarget } from "./find_target"
 
 describe("Testing Find Target", () => {
   it("Test 1", () => {

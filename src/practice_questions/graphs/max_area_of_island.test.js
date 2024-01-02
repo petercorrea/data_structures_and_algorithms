@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { maxArea } from "../Max Area of Island"
+import { maxArea } from "./max_area_of_island"
 
 describe("Testing ", () => {
   it("Test 1", () => {

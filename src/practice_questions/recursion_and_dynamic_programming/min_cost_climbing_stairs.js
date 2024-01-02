@@ -38,7 +38,8 @@ export const minCostDP = (costs) => {
     if (dp[n] !== undefined) return dp[n]
 
     // set the cache, this min cost is current cost + cost of taking next step(s)
-    dp[n] = costs[n] + Math.min(minCost(n - 1, costs, dp), minCost(n - 2, costs, dp))
+    dp[n] =
+      costs[n] + Math.min(minCost(n - 1, costs, dp), minCost(n - 2, costs, dp))
 
     return dp[n]
   }

@@ -1,4 +1,4 @@
-import Node from "../../Data Structures/Node.js"
+import Node from "../../data_structures/node.js"
 
 export const detectLoopLength = (list) => {
   let slow = list
