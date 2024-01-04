@@ -1,4 +1,4 @@
-import { LinkedList } from "./linkedlist"
+import { LinkedList } from "./linked_list"
 
 describe("Testing LinkedList Data Structure", () => {
   it("Testing append method", () => {

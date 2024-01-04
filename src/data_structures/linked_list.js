@@ -1,5 +1,3 @@
-/* eslint-disable max-classes-per-file */
-
 // Singly LinkedList complexity:
 //    insert - O(n)
 //      prepend - O(1)

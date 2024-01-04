@@ -1,4 +1,4 @@
-import { MinHeap } from "../../data_structures/minheap"
+import { MinHeap } from "../../data_structures/min_heap"
 
 // Design a class to find the kth largest element in a stream.
 // Note that it is the kth largest element in the sorted order,
@@ -12,19 +12,18 @@ import { MinHeap } from "../../data_structures/minheap"
 // It is guaranteed that there will be at least k elements in the array when you search for the kth element.
 
 export const kthLargest = (ops, vars) => {
-  const heap = new MinHeap()
+  const heap = new MinHeap([])
   const k = vars[0][0]
   const startValues = vars[0][1]
   vars.shift()
   const values = vars.flat()
-  const result = [null]
 
   // instantiate heap with k and startValues
   for (const v of startValues) {
     if (heap.size < k) {
       heap.insert(v)
-    } else if (heap[1] < v) {
-      heap.pop()
+    } else if (heap[0] < v) {
+      heap.remove()
       heap.insert(v)
     }
   }
@@ -37,15 +36,11 @@ export const kthLargest = (ops, vars) => {
   for (const v of values) {
     if (heap.size < k) {
       heap.insert(v)
-    } else if (heap.heap[1] < v) {
-      heap.pop()
+    } else if (heap.heap[0] < v) {
+      heap.remove()
       heap.insert(v)
-    }
-
-    if (heap.size === k) {
-      result.push(heap.heap[1])
     }
   }
 
-  return result
+  return heap.heap
 }

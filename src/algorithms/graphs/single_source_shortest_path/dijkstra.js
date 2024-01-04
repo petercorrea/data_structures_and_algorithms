@@ -27,7 +27,7 @@
 // additional: for longest path on a DAG, multiply all edges by -1, find shortest path, then multiply those edges by -1 again
 
 import { GraphEdge } from "../../../data_structures/graph.js"
-import { MinHeap } from "../../../data_structures/minheap.js"
+import { MinHeap } from "../../../data_structures/min_heap.js"
 
 export const dijkstra = (source) => {
   //  Single Source Shortest Path - works on directed and undirected graphs

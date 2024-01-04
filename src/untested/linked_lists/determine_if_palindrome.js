@@ -1,4 +1,4 @@
-import DbLinkedList from "../../data_structures/linkedlist.js"
+import DbLinkedList from "../../data_structures/linked_list.js"
 import Node from "../../data_structures/node.js"
 
 class Stack {
