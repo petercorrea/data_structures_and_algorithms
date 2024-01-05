@@ -1,13 +1,3 @@
-// Singly LinkedList complexity:
-//    insert - O(n)
-//      prepend - O(1)
-//      append - O(1)
-//    search - O(n)  w/ hashmap - O(1)
-//    delete - O(n)
-//      head - O(1)
-//      tail  - O(1)
-//    reverse - O(n)
-
 export class ListNode {
   constructor(value, next, prev) {
     this.value = value

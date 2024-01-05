@@ -1,8 +1,8 @@
 export class Node {
   constructor(value, left, right, prev, next) {
     this.value = value
-    this.left = null
-    this.right = null
+    this.left = left
+    this.right = right
     this.parent = null
     this.value = value
     this.prev = prev || null

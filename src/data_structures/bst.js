@@ -1,277 +1,116 @@
-import Node from "./node.js"
-
-export class BinarySearchTree {
+export class BST {
   constructor(value) {
-    this.root = new Node(value)
-    this.size = 1
-  }
-
-  count() {
-    return this.size
+    this.value = value
+    this.left = null
+    this.right = null
   }
 
   insert(value) {
-    this.size++
-
-    const newNode = new Node(value)
-
-    const searchTree = (node) => {
-      // left
-      if (value < node.value) {
-        if (!node.left) {
-          node.left = newNode
-          newNode.parent = node
+    // Write your code here.
+    // Do not edit the return statement of this method.
+    let current = this
+    while (current != null) {
+      // go left
+      if (value < current.value) {
+        if (!current.left) {
+          current.left = new BST(value)
+          break
         } else {
-          searchTree(node.left)
+          current = current.left
         }
-        // right
-      } else if (value > node.value) {
-        if (!node.right) {
-          node.right = newNode
-          newNode.parent = node
+        // else go right
+      } else if (value >= current.value) {
+        if (!current.right) {
+          current.right = new BST(value)
+          break
         } else {
-          searchTree(node.right)
+          current = current.right
         }
       }
     }
-
-    searchTree(this.root)
-  }
-
-  min() {
-    let current = this.root
-
-    while (current.left) {
-      current = current.left
-    }
-
-    return current.value
-  }
-
-  max() {
-    let current = this.root
-
-    while (current.right) {
-      current = current.right
-    }
-
-    return current.value
-  }
-
-  minHeight(current = this.root) {
-    if (current === null) {
-      return -1
-    }
-
-    // dfs
-    const left = this.minHeight(current.left)
-    const right = this.minHeight(current.right)
-
-    if (left < right) {
-      return left + 1
-    }
-    return right + 1
-  }
-
-  maxHeight(current = this.root) {
-    if (current === null) {
-      return -1
-    }
-
-    // dfs
-    const left = this.maxHeight(current.left)
-    const right = this.maxHeight(current.right)
-
-    if (left > right) {
-      return left + 1
-    }
-    return right + 1
-  }
-
-  isBalanced() {
-    return this.maxHeight() - this.minHeight() <= 1
+    return this
   }
 
   contains(value) {
-    let current = this.root
-
-    while (current) {
-      if (value === current.value) {
+    // Write your code here.
+    let current = this
+    while (current != null) {
+      if (current.value === value) {
         return true
       }
-
       if (value < current.value) {
         current = current.left
       } else if (value > current.value) {
         current = current.right
       }
     }
-
+    // current should be null at this point
     return false
   }
 
-  remove(value) {
-    const removeNode = (current, value) => {
-      if (current === null) {
-        return null
-      }
-      // if node is found
-      if (value === current.value) {
-        // node has no child
-        if (current.left === null && current.right === null) {
-          return null
-        }
+  find_min_value(current) {
+    while (current.left) {
+      current = current.left
+    }
+    return current.value
+  }
 
-        // node has no left child
-        if (current.left === null) {
-          return current.right
-        }
-
-        // node has no right child
-        if (current.right === null) {
-          return current.left
-        }
-
-        // node has both childs, go to right node, then find leftmost grandchild
-        let leftmostGC = current.right
-        while (leftmostGC.left !== null) {
-          leftmostGC = leftmostGC.left
-        }
-        current.value = leftmostGC.value
-        // fix the right side
-        current.right = removeNode(current.right, leftmostGC.value)
-        return current
-      }
+  remove(value, parent) {
+    // Write your code here.
+    // Do not edit the return statement of this method.
+    let current = this
+    while (current) {
+      // traverse left
       if (value < current.value) {
-        current.left = removeNode(current.left, value)
-        return current
-      }
-      current.right = removeNode(current.right, value)
-      return current
-    }
-    this.root = removeNode(this.root, value)
-  }
-
-  // Depth First Search - In Order
-  // Left, Root, Right
-  dfsInOrder() {
-    const result = []
-
-    const traverse = (node) => {
-      if (node.left) traverse(node.left)
-
-      result.push(node.value)
-
-      if (node.right) traverse(node.right)
-    }
-
-    traverse(this.root)
-
-    return result
-  }
-
-  // Depth First Search - Pre Order
-  // Root, Left, Right
-  dfsPreOrder() {
-    const result = []
-
-    const traverse = (node) => {
-      result.push(node.value)
-
-      if (node.left) traverse(node.left)
-
-      if (node.right) traverse(node.right)
-    }
-
-    traverse(this.root)
-
-    return result
-  }
-
-  // Depth First Search - Post Order
-  // Left, Right, Root
-  dfsPostOrder() {
-    const result = []
-
-    const traverse = (node) => {
-      if (node.left) traverse(node.left)
-
-      if (node.right) traverse(node.right)
-
-      result.push(node.value)
-    }
-
-    traverse(this.root)
-
-    return result
-  }
-
-  // Breadth First Search - uses queue
-  bfs() {
-    const result = []
-    const queue = []
-
-    if (this.root) {
-      queue.push(this.root)
-      while (queue.length) {
-        const current = queue.shift()
-        result.push(current.value)
-
-        if (current.left) {
-          queue.push(current.left)
+        parent = current
+        current = current.left
+        // traverse right
+      } else if (value > current.value) {
+        parent = current
+        current = current.right
+        // found
+      } else if (value === current.value) {
+        // if both children, remove min value
+        if (current.left && current.right) {
+          current.value = current.right.find_min_value(current.right)
+          current.right.remove(current.value, current)
+          // if no parent, aka the root
+        } else if (!parent) {
+          if (current.left) {
+            current.value = current.left.value
+            current.right = current.left.right
+            current.left = current.left.left
+          } else if (current.right) {
+            current.value = current.right.value
+            current.left = current.right.left
+            current.right = current.right.right
+            // parent has no children
+          } else {
+            current = null
+          }
+          // if current is a left child
+        } else if (current === parent.left) {
+          // if current has a left child
+          if (current.left) {
+            parent.left = current.left
+            // if current has a right child
+          } else {
+            parent.left = current.right
+          }
+          // if current is a right child
+        } else if (current === parent.right) {
+          // if current has a left child
+          if (current.left) {
+            parent.right = current.left
+            // if current has a right child
+          } else {
+            parent.right = current.right
+          }
         }
-
-        if (current.right) {
-          queue.push(current.right)
-        }
+        break
       }
     }
 
-    return result
+    return this
   }
-
-  minHeightBfs() {
-    let result = 0
-    const queue = []
-
-    queue.push(this.root)
-
-    while (queue.length) {
-      const loops = queue.length
-      result += 1
-
-      for (let i = 0; i < loops; i++) {
-        const current = queue.shift()
-
-        if (current.left === null && current.right === null) {
-          return result
-        }
-
-        if (current.right) {
-          queue.push(current.right)
-        }
-
-        if (current.left) {
-          queue.push(current.left)
-        }
-      }
-    }
-    return result
-  }
-}
-
-export const jsonToTree = (json) => {
-  const nodes = {}
-
-  json.tree.nodes.forEach((node) => {
-    nodes[node.value] = new Node(node.value)
-  })
-
-  json.tree.nodes.forEach((node) => {
-    nodes[node.value].left = nodes[node.left]
-    nodes[node.value].right = nodes[node.right]
-    nodes[node.value].parent = nodes[node.parent]
-  })
-
-  return nodes[json.tree.root]
 }
